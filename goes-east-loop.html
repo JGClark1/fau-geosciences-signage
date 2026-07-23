@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>GOES-East GeoColor 24-Hour Loop</title>
+
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: #000;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #viewer {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #000;
+    }
+
+    #earth {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+
+    #timestamp {
+      position: absolute;
+      top: 24px;
+      left: 32px;
+      z-index: 10;
+      padding: 10px 16px;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.58);
+      color: white;
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    #credit {
+      position: absolute;
+      right: 24px;
+      bottom: 18px;
+      z-index: 10;
+      padding: 7px 11px;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.48);
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 17px;
+    }
+
+    #status {
+      position: absolute;
+      left: 32px;
+      bottom: 24px;
+      z-index: 10;
+      color: white;
+      font-size: 20px;
+      background: rgba(0, 0, 0, 0.55);
+      padding: 8px 12px;
+      border-radius: 5px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="viewer">
+    <img
+      id="earth"
+      alt="GOES-East full-disk GeoColor imagery"
+    >
+
+    <div id="timestamp">
+      Loading GOES-East imagery…
+    </div>
+
+    <div id="credit">
+      GOES-19 GeoColor · NOAA/CIRA
+    </div>
+
+    <div id="status">
+      Loading imagery…
+    </div>
+  </div>
+
+  <script>
+    const IMAGE_INTERVAL_MINUTES = 10;
+
+    /*
+      144 frames at 10-minute intervals
+      provides approximately 24 hours of imagery.
+    */
+    const NUMBER_OF_FRAMES = 144;
+
+    /*
+      144 frames × 150 ms =
+      approximately 21.6 seconds per complete loop.
+    */
+    const FRAME_DURATION_MS = 150;
+
+    /*
+      Check NOAA for newer imagery every ten minutes.
+    */
+    const REFRESH_INTERVAL_MS = 10 * 60 * 1000;
+
+    /*
+      Search beyond the required 144 frames
+      to allow for delayed or missing NOAA images.
+    */
+    const NUMBER_OF_CANDIDATES = 170;
+
+    const imageElement =
+      document.getElementById("earth");
+
+    const timestampElement =
+      document.getElementById("timestamp");
+
+    const statusElement =
+      document.getElementById("status");
+
+    let frames = [];
+    let currentFrame = 0;
+    let animationTimer = null;
+
+    function pad(value, length = 2) {
+      return String(value).padStart(length, "0");
+    }
+
+    function getJulianDay(date) {
+      const startOfYear =
+        Date.UTC(date.getUTCFullYear(), 0, 0);
+
+      const difference =
+        date.getTime() - startOfYear;
+
+      return Math.floor(
+        difference / 86400000
+      );
+    }
+
+    function roundDownToTenMinutes(date) {
+      const rounded = new Date(date);
+
+      rounded.setUTCSeconds(0, 0);
+
+      const minute =
+        Math.floor(
+          rounded.getUTCMinutes() /
+          IMAGE_INTERVAL_MINUTES
+        ) * IMAGE_INTERVAL_MINUTES;
+
+      rounded.setUTCMinutes(minute);
+
+      return rounded;
+    }
+
+    function buildImageUrl(date) {
+      const year =
+        date.getUTCFullYear();
+
+      const julianDay =
+        pad(getJulianDay(date), 3);
+
+      const hour =
+        pad(date.getUTCHours());
+
+      const minute =
+        pad(date.getUTCMinutes());
+
+      const timestamp =
+        `${year}${julianDay}${hour}${minute}`;
+
+      return (
+        "https://cdn.star.nesdis.noaa.gov/" +
+        "GOES19/ABI/FD/GEOCOLOR/" +
+        `${timestamp}_GOES19-ABI-FD-GEOCOLOR-1808x1808.jpg`
+      );
+    }
+
+    function formatTimestamp(date) {
+      const formatted =
+        new Intl.DateTimeFormat("en-US", {
+          timeZone: "UTC",
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false
+        }).format(date);
+
+      return `${formatted} UTC`;
+    }
+
+    function testImage(url, date) {
+      return new Promise((resolve) => {
+        const test = new Image();
+
+        test.onload = () => {
+          resolve({
+            url,
+            date
+          });
+        };
+
+        test.onerror = () => {
+          resolve(null);
+        };
+
+        test.src = url;
+      });
+    }
+
+    async function preloadFrames(frameList) {
+      const preloadPromises =
+        frameList.map((frame) => {
+          return new Promise((resolve) => {
+            const image = new Image();
+
+            image.onload = resolve;
+            image.onerror = resolve;
+            image.src = frame.url;
+          });
+        });
+
+      await Promise.all(preloadPromises);
+    }
+
+    async function loadFrames() {
+      statusElement.style.display = "block";
+      statusElement.textContent =
+        "Updating GOES imagery…";
+
+      const latestExpectedTime =
+        roundDownToTenMinutes(new Date());
+
+      latestExpectedTime.setUTCMinutes(
+        latestExpectedTime.getUTCMinutes() - 20
+      );
+
+      const candidates = [];
+
+      for (
+        let i = 0;
+        i < NUMBER_OF_CANDIDATES;
+        i++
+      ) {
+        const frameDate =
+          new Date(
+            latestExpectedTime.getTime() -
+            i *
+            IMAGE_INTERVAL_MINUTES *
+            60000
+          );
+
+        candidates.push(
+          testImage(
+            buildImageUrl(frameDate),
+            frameDate
+          )
+        );
+      }
+
+      const results =
+        await Promise.all(candidates);
+
+      const validFrames =
+        results
+          .filter(Boolean)
+          .slice(0, NUMBER_OF_FRAMES)
+          .reverse();
+
+      if (validFrames.length === 0) {
+        statusElement.textContent =
+          "GOES imagery is temporarily unavailable.";
+
+        return;
+      }
+
+      statusElement.textContent =
+        `Loading ${validFrames.length} frames…`;
+
+      await preloadFrames(validFrames);
+
+      frames = validFrames;
+      currentFrame = 0;
+
+      statusElement.style.display = "none";
+
+      startAnimation();
+    }
+
+    function showFrame(index) {
+      const frame = frames[index];
+
+      if (!frame) {
+        return;
+      }
+
+      imageElement.src = frame.url;
+
+      timestampElement.textContent =
+        `GOES-19 GeoColor · ${formatTimestamp(frame.date)}`;
+    }
+
+    function startAnimation() {
+      if (animationTimer) {
+        clearInterval(animationTimer);
+      }
+
+      showFrame(currentFrame);
+
+      animationTimer =
+        setInterval(() => {
+          currentFrame =
+            (currentFrame + 1) % frames.length;
+
+          showFrame(currentFrame);
+        }, FRAME_DURATION_MS);
+    }
+
+    loadFrames();
+
+    setInterval(() => {
+      loadFrames();
+    }, REFRESH_INTERVAL_MS);
+  </script>
+</body>
+</html>
