@@ -13,7 +13,7 @@
     content="no-cache, no-store, must-revalidate"
   >
 
-  <title>South Florida Radar Test</title>
+  <title>South Florida Weather Radar</title>
 
   <link
     rel="stylesheet"
@@ -24,16 +24,28 @@
   <style>
     html,
     body,
+    #viewer,
     #map {
       width: 100%;
       height: 100%;
       margin: 0;
       overflow: hidden;
-      background: #d9d9d9;
     }
 
     body {
+      background: #d9d9d9;
       font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #viewer {
+      position: relative;
+      background: #d9d9d9;
+    }
+
+    #map {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
     }
 
     .leaflet-control-zoom {
@@ -41,39 +53,87 @@
     }
 
     .leaflet-control-attribution {
-      padding: 4px 7px;
-      background: rgba(255, 255, 255, 0.84);
-      font-size: 11px;
+      padding: 3px 6px;
+      background: rgba(255, 255, 255, 0.86);
+      font-size: 10px;
+      line-height: 1.2;
     }
 
-    #status {
+    #information {
       position: absolute;
       z-index: 1000;
-      top: 18px;
-      left: 50%;
-      min-width: 260px;
-      padding: 10px 16px;
-      border-radius: 6px;
-      transform: translateX(-50%);
+      top: 50%;
+      left: 2.1%;
+      width: 18%;
+      max-width: 345px;
+      padding: 20px 22px 22px;
+      transform: translateY(-50%);
+      border-radius: 8px;
       background: rgba(0, 0, 0, 0.74);
       color: #fff;
-      text-align: center;
-      font-size: 17px;
-      line-height: 1.25;
       pointer-events: none;
     }
 
-    #fau-label {
+    #information::before {
+      content: "";
+      display: block;
+      width: 58px;
+      height: 4px;
+      margin-bottom: 20px;
+      border-radius: 2px;
+      background: rgba(111, 190, 255, 0.95);
+    }
+
+    #information h1 {
+      margin: 0 0 14px;
+      font-size: clamp(25px, 2vw, 38px);
+      line-height: 1.08;
+      font-weight: 700;
+    }
+
+    #information .subtitle {
+      margin: 0 0 18px;
+      font-size: clamp(18px, 1.35vw, 25px);
+      line-height: 1.25;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.94);
+    }
+
+    #information .description {
+      margin: 0;
+      font-size: clamp(15px, 1.05vw, 20px);
+      line-height: 1.42;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    #status-panel {
       position: absolute;
       z-index: 1000;
-      right: 18px;
-      bottom: 34px;
-      padding: 8px 12px;
-      border-radius: 5px;
+      right: 2.1%;
+      bottom: 4.5%;
+      width: 21%;
+      max-width: 370px;
+      padding: 14px 16px;
+      border-radius: 7px;
       background: rgba(0, 0, 0, 0.72);
       color: #fff;
-      font-size: 15px;
+      text-align: right;
       pointer-events: none;
+    }
+
+    #frame-time {
+      margin: 0 0 7px;
+      font-size: clamp(16px, 1.05vw, 21px);
+      line-height: 1.25;
+      font-weight: 600;
+    }
+
+    #source {
+      margin: 0;
+      font-size: clamp(12px, 0.78vw, 16px);
+      line-height: 1.35;
+      color: rgba(255, 255, 255, 0.72);
     }
 
     .location-marker {
@@ -86,18 +146,66 @@
         0 0 0 3px rgba(0, 0, 0, 0.42),
         0 2px 6px rgba(0, 0, 0, 0.5);
     }
+
+    .fau-tooltip {
+      padding: 5px 8px;
+      border: 0;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.76);
+      box-shadow: none;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .fau-tooltip::before {
+      display: none;
+    }
+
+    @media (max-aspect-ratio: 3 / 2) {
+      #information {
+        top: 24px;
+        left: 24px;
+        width: 300px;
+        transform: none;
+      }
+
+      #status-panel {
+        right: 24px;
+        bottom: 34px;
+        width: 310px;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <div id="map"></div>
+  <div id="viewer">
+    <div id="map"></div>
 
-  <div id="status">
-    Loading current radar…
-  </div>
+    <section id="information" aria-label="Radar description">
+      <h1>South Florida Weather Radar</h1>
 
-  <div id="fau-label">
-    FAU Boca Raton
+      <p class="subtitle">
+        Recent precipitation movement
+      </p>
+
+      <p class="description">
+        Observe the location, intensity, and movement of rain
+        and thunderstorms across South Florida and nearby waters.
+      </p>
+    </section>
+
+    <aside id="status-panel" aria-label="Radar source and time">
+      <p id="frame-time">
+        Loading recent radar…
+      </p>
+
+      <p id="source">
+        Radar imagery: RainViewer<br>
+        Basemap: CARTO / OpenStreetMap
+      </p>
+    </aside>
   </div>
 
   <script
@@ -109,35 +217,23 @@
     const RAINVIEWER_API =
       "https://api.rainviewer.com/public/weather-maps.json";
 
-    /*
-      Centered farther east and north than the first test,
-      with Palm Beach County as the focus.
-    */
     const MAP_CENTER = [26.58, -80.28];
     const MAP_ZOOM = 9;
 
-    /*
-      Approximately one hour of radar history.
-    */
     const NUMBER_OF_FRAMES = 6;
-
     const FRAME_DURATION_MS = 850;
     const FINAL_FRAME_PAUSE_MS = 2200;
-
-    /*
-      Refresh the available frame list every ten minutes.
-    */
     const DATA_REFRESH_MS = 10 * 60 * 1000;
+    const TILE_LOAD_TIMEOUT_MS = 4500;
 
-    const statusElement =
-      document.getElementById("status");
+    const frameTimeElement =
+      document.getElementById("frame-time");
 
     const map = L.map("map", {
       center: MAP_CENTER,
       zoom: MAP_ZOOM,
       minZoom: MAP_ZOOM,
       maxZoom: MAP_ZOOM,
-
       zoomControl: false,
       dragging: false,
       scrollWheelZoom: false,
@@ -146,13 +242,9 @@
       keyboard: false,
       touchZoom: false,
       tap: false,
-
       attributionControl: true
     });
 
-    /*
-      CARTO light basemap without labels.
-    */
     L.tileLayer(
       "https://{s}.basemaps.cartocdn.com/light_nolabels/" +
       "{z}/{x}/{y}.png",
@@ -165,14 +257,6 @@
       }
     ).addTo(map);
 
-    /*
-      Dedicated panes guarantee this order:
-
-      1. basemap
-      2. radar
-      3. place-name and road labels
-      4. FAU marker
-    */
     map.createPane("radarPane");
     map.getPane("radarPane").style.zIndex = 350;
 
@@ -183,9 +267,6 @@
     map.createPane("markerPane");
     map.getPane("markerPane").style.zIndex = 500;
 
-    /*
-      Labels remain visible above the radar.
-    */
     L.tileLayer(
       "https://{s}.basemaps.cartocdn.com/light_only_labels/" +
       "{z}/{x}/{y}.png",
@@ -196,9 +277,6 @@
       }
     ).addTo(map);
 
-    /*
-      Approximate FAU Boca Raton campus location.
-    */
     const FAU_LOCATION = [26.3726, -80.1023];
 
     const locationIcon = L.divIcon({
@@ -212,7 +290,14 @@
       icon: locationIcon,
       interactive: false,
       pane: "markerPane"
-    }).addTo(map);
+    })
+      .addTo(map)
+      .bindTooltip("FAU", {
+        permanent: true,
+        direction: "right",
+        offset: [10, 0],
+        className: "fau-tooltip"
+      });
 
     let radarLayers = [];
     let radarFrames = [];
@@ -225,7 +310,8 @@
         month: "short",
         day: "numeric",
         hour: "numeric",
-        minute: "2-digit"
+        minute: "2-digit",
+        timeZoneName: "short"
       }).format(new Date(unixTimestamp * 1000));
     }
 
@@ -254,8 +340,8 @@
 
       currentFrameIndex = index;
 
-      statusElement.textContent =
-        `Radar: ${formatRadarTime(
+      frameTimeElement.textContent =
+        `Radar frame: ${formatRadarTime(
           radarFrames[index].time
         )}`;
     }
@@ -270,8 +356,7 @@
 
       animationTimer = window.setTimeout(() => {
         const nextFrameIndex =
-          (currentFrameIndex + 1) %
-          radarFrames.length;
+          (currentFrameIndex + 1) % radarFrames.length;
 
         showFrame(nextFrameIndex);
         scheduleNextFrame();
@@ -289,9 +374,27 @@
       scheduleNextFrame();
     }
 
+    function waitForLayer(layer) {
+      return new Promise((resolve) => {
+        let finished = false;
+
+        const finish = () => {
+          if (finished) {
+            return;
+          }
+
+          finished = true;
+          resolve();
+        };
+
+        layer.once("load", finish);
+        window.setTimeout(finish, TILE_LOAD_TIMEOUT_MS);
+      });
+    }
+
     async function loadRadar() {
-      statusElement.textContent =
-        "Updating current radar…";
+      frameTimeElement.textContent =
+        "Updating recent radar…";
 
       try {
         const response = await fetch(
@@ -329,26 +432,13 @@
 
           return L.tileLayer(tileUrl, {
             pane: "radarPane",
-
-            /*
-              The server image is 512 pixels, but it occupies
-              one standard 256-pixel map-tile footprint.
-            */
             tileSize: 256,
-
             opacity: 0,
-
-            /*
-              RainViewer's free native radar limit is zoom 7.
-              Leaflet enlarges those tiles at zoom 9.
-            */
             maxNativeZoom: 7,
             maxZoom: 10,
-
             updateWhenIdle: true,
             updateWhenZooming: false,
             keepBuffer: 1,
-
             attribution:
               'Weather data by ' +
               '<a href="https://www.rainviewer.com/">' +
@@ -362,22 +452,19 @@
         radarFrames = newFrames;
         radarLayers = newLayers;
 
-        radarLayers.forEach((layer) => {
+        const loadPromises = radarLayers.map((layer) => {
+          const promise = waitForLayer(layer);
           layer.addTo(map);
+          return promise;
         });
 
-        /*
-          Allow the browser to begin loading the new tiles
-          before starting the animation.
-        */
-        window.setTimeout(
-          startAnimation,
-          1800
-        );
+        await Promise.all(loadPromises);
+
+        startAnimation();
       } catch (error) {
         console.error(error);
 
-        statusElement.textContent =
+        frameTimeElement.textContent =
           "Radar temporarily unavailable";
 
         if (radarLayers.length > 0) {
