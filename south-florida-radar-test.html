@@ -59,62 +59,44 @@
       line-height: 1.2;
     }
 
-    #information {
+    #title-panel {
       position: absolute;
       z-index: 1000;
-      top: 50%;
-      left: 2.1%;
-      width: 18%;
-      max-width: 345px;
-      padding: 20px 22px 22px;
-      transform: translateY(-50%);
+      top: 4.5%;
+      right: 2.1%;
+      width: 22%;
+      max-width: 390px;
+      padding: 18px 20px 20px;
       border-radius: 8px;
-      background: rgba(0, 0, 0, 0.74);
+      background: rgba(0, 0, 0, 0.72);
       color: #fff;
       pointer-events: none;
     }
 
-    #information::before {
+    #title-panel::before {
       content: "";
       display: block;
       width: 58px;
       height: 4px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       border-radius: 2px;
       background: rgba(111, 190, 255, 0.95);
     }
 
-    #information h1 {
-      margin: 0 0 14px;
-      font-size: clamp(25px, 2vw, 38px);
+    #title-panel h1 {
+      margin: 0;
+      font-size: clamp(26px, 2vw, 38px);
       line-height: 1.08;
       font-weight: 700;
     }
 
-    #information .subtitle {
-      margin: 0 0 18px;
-      font-size: clamp(18px, 1.35vw, 25px);
-      line-height: 1.25;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.94);
-    }
-
-    #information .description {
-      margin: 0;
-      font-size: clamp(15px, 1.05vw, 20px);
-      line-height: 1.42;
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.82);
-    }
-
-    #status-panel {
+    #timestamp-panel {
       position: absolute;
       z-index: 1000;
       right: 2.1%;
       bottom: 4.5%;
-      width: 21%;
-      max-width: 370px;
-      padding: 14px 16px;
+      min-width: 250px;
+      padding: 12px 16px;
       border-radius: 7px;
       background: rgba(0, 0, 0, 0.72);
       color: #fff;
@@ -123,17 +105,10 @@
     }
 
     #frame-time {
-      margin: 0 0 7px;
+      margin: 0;
       font-size: clamp(16px, 1.05vw, 21px);
       line-height: 1.25;
       font-weight: 600;
-    }
-
-    #source {
-      margin: 0;
-      font-size: clamp(12px, 0.78vw, 16px);
-      line-height: 1.35;
-      color: rgba(255, 255, 255, 0.72);
     }
 
     .location-marker {
@@ -163,17 +138,15 @@
     }
 
     @media (max-aspect-ratio: 3 / 2) {
-      #information {
+      #title-panel {
         top: 24px;
-        left: 24px;
-        width: 300px;
-        transform: none;
+        right: 24px;
+        width: 340px;
       }
 
-      #status-panel {
+      #timestamp-panel {
         right: 24px;
         bottom: 34px;
-        width: 310px;
       }
     }
   </style>
@@ -183,27 +156,13 @@
   <div id="viewer">
     <div id="map"></div>
 
-    <section id="information" aria-label="Radar description">
+    <section id="title-panel" aria-label="Map title">
       <h1>South Florida Weather Radar</h1>
-
-      <p class="subtitle">
-        Recent precipitation movement
-      </p>
-
-      <p class="description">
-        Observe the location, intensity, and movement of rain
-        and thunderstorms across South Florida and nearby waters.
-      </p>
     </section>
 
-    <aside id="status-panel" aria-label="Radar source and time">
+    <aside id="timestamp-panel" aria-label="Radar time">
       <p id="frame-time">
         Loading recent radar…
-      </p>
-
-      <p id="source">
-        Radar imagery: RainViewer<br>
-        Basemap: CARTO / OpenStreetMap
       </p>
     </aside>
   </div>
@@ -341,9 +300,7 @@
       currentFrameIndex = index;
 
       frameTimeElement.textContent =
-        `Radar frame: ${formatRadarTime(
-          radarFrames[index].time
-        )}`;
+        formatRadarTime(radarFrames[index].time);
     }
 
     function scheduleNextFrame() {
