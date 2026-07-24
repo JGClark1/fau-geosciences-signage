@@ -21,12 +21,12 @@ SATELLITE = "GOES19"
 PRODUCT_PATH = "GOES19/ABI/FD/GEOCOLOR"
 SOURCE_SIZE = 1808
 
-# One frame every 10 minutes for approximately 24 hours.
+# One frame every 10 minutes for approximately 48 hours.
 IMAGE_INTERVAL_MINUTES = 10
-NUMBER_OF_FRAMES = 144
+NUMBER_OF_FRAMES = 288
 
 # Search farther back to accommodate occasional missing frames.
-NUMBER_OF_CANDIDATES = 175
+NUMBER_OF_CANDIDATES = 330
 
 # The most recent nominal NOAA frame may still be processing.
 LATEST_FRAME_DELAY_MINUTES = 30
