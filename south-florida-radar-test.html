@@ -59,56 +59,21 @@
       line-height: 1.2;
     }
 
-    #title-panel {
-      position: absolute;
-      z-index: 1000;
-      top: 4.5%;
-      right: 2.1%;
-      width: 22%;
-      max-width: 390px;
-      padding: 18px 20px 20px;
-      border-radius: 8px;
-      background: rgba(0, 0, 0, 0.72);
-      color: #fff;
-      pointer-events: none;
-    }
-
-    #title-panel::before {
-      content: "";
-      display: block;
-      width: 58px;
-      height: 4px;
-      margin-bottom: 18px;
-      border-radius: 2px;
-      background: rgba(111, 190, 255, 0.95);
-    }
-
-    #title-panel h1 {
-      margin: 0;
-      font-size: clamp(26px, 2vw, 38px);
-      line-height: 1.08;
-      font-weight: 700;
-    }
-
-    #timestamp-panel {
-      position: absolute;
-      z-index: 1000;
-      right: 2.1%;
-      bottom: 4.5%;
-      min-width: 250px;
-      padding: 12px 16px;
-      border-radius: 7px;
-      background: rgba(0, 0, 0, 0.72);
-      color: #fff;
-      text-align: right;
-      pointer-events: none;
-    }
-
     #frame-time {
+      position: absolute;
+      z-index: 1000;
+      top: 24px;
+      right: 28px;
       margin: 0;
-      font-size: clamp(16px, 1.05vw, 21px);
-      line-height: 1.25;
+      color: #fff;
+      font-size: clamp(17px, 1.15vw, 23px);
+      line-height: 1.2;
       font-weight: 600;
+      text-align: right;
+      text-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.95),
+        0 2px 5px rgba(0, 0, 0, 0.85);
+      pointer-events: none;
     }
 
     .location-marker {
@@ -121,34 +86,6 @@
         0 0 0 3px rgba(0, 0, 0, 0.42),
         0 2px 6px rgba(0, 0, 0, 0.5);
     }
-
-    .fau-tooltip {
-      padding: 5px 8px;
-      border: 0;
-      border-radius: 4px;
-      background: rgba(0, 0, 0, 0.76);
-      box-shadow: none;
-      color: #fff;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .fau-tooltip::before {
-      display: none;
-    }
-
-    @media (max-aspect-ratio: 3 / 2) {
-      #title-panel {
-        top: 24px;
-        right: 24px;
-        width: 340px;
-      }
-
-      #timestamp-panel {
-        right: 24px;
-        bottom: 34px;
-      }
-    }
   </style>
 </head>
 
@@ -156,15 +93,9 @@
   <div id="viewer">
     <div id="map"></div>
 
-    <section id="title-panel" aria-label="Map title">
-      <h1>South Florida Weather Radar</h1>
-    </section>
-
-    <aside id="timestamp-panel" aria-label="Radar time">
-      <p id="frame-time">
-        Loading recent radar…
-      </p>
-    </aside>
+    <p id="frame-time">
+      Loading recent radar…
+    </p>
   </div>
 
   <script
@@ -249,14 +180,7 @@
       icon: locationIcon,
       interactive: false,
       pane: "markerPane"
-    })
-      .addTo(map)
-      .bindTooltip("FAU", {
-        permanent: true,
-        direction: "right",
-        offset: [10, 0],
-        className: "fau-tooltip"
-      });
+    }).addTo(map);
 
     let radarLayers = [];
     let radarFrames = [];
