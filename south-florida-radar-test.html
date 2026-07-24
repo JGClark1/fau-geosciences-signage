@@ -76,6 +76,52 @@
       pointer-events: none;
     }
 
+    #radar-legend {
+      position: absolute;
+      z-index: 1000;
+      left: 24px;
+      bottom: 27px;
+      width: 290px;
+      padding: 9px 11px 8px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.84);
+      color: #222;
+      pointer-events: none;
+    }
+
+    #radar-legend .legend-title {
+      margin: 0 0 6px;
+      font-size: 13px;
+      line-height: 1.2;
+      font-weight: 600;
+    }
+
+    #radar-legend .legend-bar {
+      width: 100%;
+      height: 11px;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      border-radius: 2px;
+      background:
+        linear-gradient(
+          to right,
+          #0088b8 0%,
+          #00699c 22%,
+          #ffee00 43%,
+          #ff9500 61%,
+          #c10000 79%,
+          #ff77ff 100%
+        );
+    }
+
+    #radar-legend .legend-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 4px;
+      font-size: 11px;
+      line-height: 1.15;
+      color: #333;
+    }
+
     .location-marker {
       width: 16px;
       height: 16px;
@@ -96,6 +142,24 @@
     <p id="frame-time">
       Loading recent radar…
     </p>
+
+    <aside
+      id="radar-legend"
+      aria-label="Radar reflectivity legend"
+    >
+      <p class="legend-title">
+        Radar reflectivity
+      </p>
+
+      <div class="legend-bar"></div>
+
+      <div class="legend-labels">
+        <span>Light</span>
+        <span>Moderate</span>
+        <span>Heavy</span>
+        <span>Intense</span>
+      </div>
+    </aside>
   </div>
 
   <script
