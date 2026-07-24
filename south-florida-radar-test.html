@@ -36,20 +36,13 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    /*
-      Keep the map static for digital signage.
-    */
     .leaflet-control-zoom {
       display: none;
     }
 
-    /*
-      Retain attribution because both RainViewer and
-      the basemap provider require visible credit.
-    */
     .leaflet-control-attribution {
       padding: 4px 7px;
-      background: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.84);
       font-size: 11px;
     }
 
@@ -58,10 +51,10 @@
       z-index: 1000;
       top: 18px;
       left: 50%;
-      transform: translateX(-50%);
       min-width: 260px;
       padding: 10px 16px;
       border-radius: 6px;
+      transform: translateX(-50%);
       background: rgba(0, 0, 0, 0.74);
       color: #fff;
       text-align: center;
@@ -117,21 +110,14 @@
       "https://api.rainviewer.com/public/weather-maps.json";
 
     /*
-      Map center selected to show southeastern Florida,
-      Lake Okeechobee, and adjacent waters.
+      Centered farther east and north than the first test,
+      with Palm Beach County as the focus.
     */
-    const MAP_CENTER = [26.45, -80.35];
+    const MAP_CENTER = [26.58, -80.28];
+    const MAP_ZOOM = 9;
 
     /*
-      The map can display at zoom 8, but RainViewer's
-      free radar tiles have a maximum native zoom of 7.
-      Leaflet enlarges the radar tiles one level.
-    */
-    const MAP_ZOOM = 8;
-
-    /*
-      Six frames provide approximately one hour of history
-      while limiting the initial number of tile requests.
+      Approximately one hour of radar history.
     */
     const NUMBER_OF_FRAMES = 6;
 
@@ -198,8 +184,7 @@
     map.getPane("markerPane").style.zIndex = 500;
 
     /*
-      Labels appear above the radar layer so that city and
-      road names remain readable during heavy rainfall.
+      Labels remain visible above the radar.
     */
     L.tileLayer(
       "https://{s}.basemaps.cartocdn.com/light_only_labels/" +
@@ -340,17 +325,22 @@
         const newLayers = newFrames.map((frame) => {
           const tileUrl =
             `${data.host}${frame.path}` +
-            "/256/{z}/{x}/{y}/2/1_0.png";
+            "/512/{z}/{x}/{y}/2/1_0.png";
 
           return L.tileLayer(tileUrl, {
             pane: "radarPane",
+
+            /*
+              The server image is 512 pixels, but it occupies
+              one standard 256-pixel map-tile footprint.
+            */
             tileSize: 256,
+
             opacity: 0,
 
             /*
-              RainViewer's free native radar limit is
-              zoom level 7. Leaflet may enlarge those
-              tiles when the map displays at zoom 8.
+              RainViewer's free native radar limit is zoom 7.
+              Leaflet enlarges those tiles at zoom 9.
             */
             maxNativeZoom: 7,
             maxZoom: 10,
@@ -377,8 +367,8 @@
         });
 
         /*
-          Give the browser a brief period to begin loading
-          the radar tiles before starting the animation.
+          Allow the browser to begin loading the new tiles
+          before starting the animation.
         */
         window.setTimeout(
           startAnimation,
@@ -390,10 +380,6 @@
         statusElement.textContent =
           "Radar temporarily unavailable";
 
-        /*
-          If an earlier radar set is still present,
-          restart it rather than leaving the map blank.
-        */
         if (radarLayers.length > 0) {
           startAnimation();
         }
