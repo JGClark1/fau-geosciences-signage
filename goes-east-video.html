@@ -30,10 +30,14 @@
       position: relative;
       width: 100%;
       height: 100%;
+      overflow: hidden;
       background: #000;
     }
 
     #goes-video {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
       display: block;
       width: 100%;
       height: 100%;
@@ -41,37 +45,102 @@
       background: #000;
     }
 
-    #explanation {
+    /*
+      The video itself is 16:9, with the square GOES image
+      centered inside it. These panels occupy the resulting
+      black margins without covering the Earth.
+    */
+
+    #information {
       position: absolute;
-      top: 28px;
-      left: 30px;
-      max-width: 430px;
-      padding: 16px 20px;
-      border-radius: 8px;
-      background: rgba(0, 0, 0, 0.68);
+      z-index: 2;
+      top: 50%;
+      left: 2.1%;
+      width: 17%;
+      max-width: 330px;
+      transform: translateY(-50%);
       color: #fff;
       pointer-events: none;
     }
 
-    #explanation h1 {
-      margin: 0 0 7px;
-      font-size: 30px;
-      line-height: 1.1;
+    #information h1 {
+      margin: 0 0 14px;
+      font-size: clamp(24px, 2vw, 38px);
+      line-height: 1.08;
       font-weight: 700;
+      letter-spacing: 0.2px;
     }
 
-    #explanation p {
+    #information .subtitle {
+      margin: 0 0 18px;
+      font-size: clamp(18px, 1.35vw, 25px);
+      line-height: 1.25;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    #information .description {
       margin: 0;
-      font-size: 19px;
-      line-height: 1.35;
+      font-size: clamp(15px, 1.05vw, 20px);
+      line-height: 1.42;
       font-weight: 400;
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    #information::before {
+      content: "";
+      display: block;
+      width: 58px;
+      height: 4px;
+      margin-bottom: 20px;
+      border-radius: 2px;
+      background: rgba(111, 190, 255, 0.95);
+    }
+
+    #attribution {
+      position: absolute;
+      z-index: 2;
+      right: 2.1%;
+      bottom: 5%;
+      width: 16%;
+      max-width: 290px;
+      text-align: right;
+      color: rgba(255, 255, 255, 0.82);
+      pointer-events: none;
+    }
+
+    #attribution .source {
+      margin: 0 0 6px;
+      font-size: clamp(15px, 1vw, 19px);
+      line-height: 1.25;
+      font-weight: 600;
+    }
+
+    #attribution .update {
+      margin: 0;
+      font-size: clamp(13px, 0.85vw, 17px);
+      line-height: 1.3;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.62);
+    }
+
+    /*
+      On unusually narrow screens, hide the side information
+      rather than allowing it to overlap the satellite image.
+      The hallway display's 16:9 layout will show both panels.
+    */
+    @media (max-aspect-ratio: 3 / 2) {
+      #information,
+      #attribution {
+        display: none;
+      }
     }
   </style>
 </head>
 
 <body>
   <div id="viewer">
+
     <video
       id="goes-video"
       autoplay
@@ -80,13 +149,30 @@
       preload="auto"
     ></video>
 
-    <div id="explanation">
+    <section id="information" aria-label="Animation description">
       <h1>GOES-East GeoColor</h1>
-      <p>
-        48 hours of cloud movement and changing daylight
-        across the Western Hemisphere
+
+      <p class="subtitle">
+        48-hour satellite loop
       </p>
-    </div>
+
+      <p class="description">
+        Observe cloud movement, evolving weather systems,
+        and the changing pattern of daylight across the
+        Western Hemisphere.
+      </p>
+    </section>
+
+    <aside id="attribution" aria-label="Source information">
+      <p class="source">
+        NOAA / NESDIS / STAR
+      </p>
+
+      <p class="update">
+        Updated every six hours
+      </p>
+    </aside>
+
   </div>
 
   <script>
@@ -95,8 +181,8 @@
     /*
       GitHub Actions replaces this placeholder in the
       deployed copy. Each rebuilt movie receives a fresh
-      URL, while repeated card appearances can reuse the
-      cached video between builds.
+      URL, while repeated Appspace appearances can reuse
+      the cached video between builds.
     */
     const buildToken = "__BUILD_TOKEN__";
 
