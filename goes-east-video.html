@@ -99,6 +99,22 @@
       });
     }
 
+    function restartVideo() {
+      video.pause();
+      video.currentTime = 0;
+
+      video.play().catch(() => {
+        window.setTimeout(() => {
+          video.currentTime = 0;
+          video.play().catch(() => {
+            showStatus(
+              "GOES-East animation is temporarily unavailable."
+            );
+          });
+        }, 500);
+      });
+    }
+
     video.addEventListener("loadstart", () => {
       showStatus("Loading GOES-East animation…");
     });
@@ -110,6 +126,13 @@
     video.addEventListener("playing", hideStatus);
 
     video.addEventListener("canplay", startVideo);
+
+    /*
+      Some Samsung/Appspace players do not reliably honor
+      the native loop attribute. This explicitly restarts
+      the video when playback reaches the end.
+    */
+    video.addEventListener("ended", restartVideo);
 
     video.addEventListener("error", () => {
       showStatus(
