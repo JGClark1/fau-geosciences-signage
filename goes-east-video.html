@@ -13,7 +13,7 @@
     content="no-cache, no-store, must-revalidate"
   >
 
-  <title>GOES-East 24-Hour GeoColor Loop</title>
+  <title>GOES-East 48-Hour GeoColor Loop</title>
 
   <style>
     html,
@@ -32,18 +32,6 @@
       object-fit: contain;
       background: #000;
     }
-
-    #status {
-      position: absolute;
-      left: 30px;
-      bottom: 24px;
-      display: none;
-      padding: 10px 15px;
-      border-radius: 6px;
-      background: rgba(0, 0, 0, 0.68);
-      color: white;
-      font: 20px Arial, Helvetica, sans-serif;
-    }
   </style>
 </head>
 
@@ -52,93 +40,33 @@
     id="goes-video"
     autoplay
     muted
-    loop
     playsinline
     preload="auto"
   ></video>
 
-  <div id="status">
-    Loading GOES-East animation…
-  </div>
-
   <script>
     const video = document.getElementById("goes-video");
-    const status = document.getElementById("status");
 
     /*
-      The GitHub Actions build replaces this placeholder
-      in the deployed copy of the page. Each new movie
-      therefore receives a unique URL, while repeated card
-      appearances continue to reuse the same cached movie.
+      GitHub Actions replaces this placeholder in the
+      deployed copy. Each rebuilt movie therefore receives
+      a fresh URL while repeated card appearances can reuse
+      the cached video between builds.
     */
     const buildToken = "__BUILD_TOKEN__";
 
     video.src =
       `goes-east-24h.mp4?v=${encodeURIComponent(buildToken)}`;
 
-    function showStatus(message) {
-      status.textContent = message;
-      status.style.display = "block";
-    }
-
-    function hideStatus() {
-      status.style.display = "none";
-    }
-
     function startVideo() {
       video.play().catch(() => {
-        showStatus("Starting GOES-East animation…");
-
         window.setTimeout(() => {
-          video.play().catch(() => {
-            showStatus(
-              "GOES-East animation is temporarily unavailable."
-            );
-          });
-        }, 2000);
+          video.play().catch(() => {});
+        }, 1000);
       });
     }
-
-    function restartVideo() {
-      video.pause();
-      video.currentTime = 0;
-
-      video.play().catch(() => {
-        window.setTimeout(() => {
-          video.currentTime = 0;
-          video.play().catch(() => {
-            showStatus(
-              "GOES-East animation is temporarily unavailable."
-            );
-          });
-        }, 500);
-      });
-    }
-
-    video.addEventListener("loadstart", () => {
-      showStatus("Loading GOES-East animation…");
-    });
-
-    video.addEventListener("waiting", () => {
-      showStatus("Loading GOES-East animation…");
-    });
-
-    video.addEventListener("playing", hideStatus);
 
     video.addEventListener("canplay", startVideo);
-
-    /*
-      Some Samsung/Appspace players do not reliably honor
-      the native loop attribute. This explicitly restarts
-      the video when playback reaches the end.
-    */
-    video.addEventListener("ended", restartVideo);
-
-    video.addEventListener("error", () => {
-      showStatus(
-        "GOES-East animation is temporarily unavailable."
-      );
-    });
 
     startVideo();
   </script>
