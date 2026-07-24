@@ -23,6 +23,14 @@
       margin: 0;
       overflow: hidden;
       background: #000;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #viewer {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #000;
     }
 
     #goes-video {
@@ -32,26 +40,63 @@
       object-fit: contain;
       background: #000;
     }
+
+    #explanation {
+      position: absolute;
+      top: 28px;
+      left: 30px;
+      max-width: 430px;
+      padding: 16px 20px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.68);
+      color: #fff;
+      pointer-events: none;
+    }
+
+    #explanation h1 {
+      margin: 0 0 7px;
+      font-size: 30px;
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    #explanation p {
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.35;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.9);
+    }
   </style>
 </head>
 
 <body>
-  <video
-    id="goes-video"
-    autoplay
-    muted
-    playsinline
-    preload="auto"
-  ></video>
+  <div id="viewer">
+    <video
+      id="goes-video"
+      autoplay
+      muted
+      playsinline
+      preload="auto"
+    ></video>
+
+    <div id="explanation">
+      <h1>GOES-East GeoColor</h1>
+      <p>
+        48 hours of cloud movement and changing daylight
+        across the Western Hemisphere
+      </p>
+    </div>
+  </div>
 
   <script>
     const video = document.getElementById("goes-video");
 
     /*
       GitHub Actions replaces this placeholder in the
-      deployed copy. Each rebuilt movie therefore receives
-      a fresh URL while repeated card appearances can reuse
-      the cached video between builds.
+      deployed copy. Each rebuilt movie receives a fresh
+      URL, while repeated card appearances can reuse the
+      cached video between builds.
     */
     const buildToken = "__BUILD_TOKEN__";
 
