@@ -1,8 +1,12 @@
 name: Build and deploy GOES-East video
 
 on:
-  # Manual runs only during the initial test period.
   workflow_dispatch:
+
+  schedule:
+    # Rebuild four times daily.
+    # GitHub Actions schedules use UTC.
+    - cron: "17 0,6,12,18 * * *"
 
 permissions:
   contents: read
