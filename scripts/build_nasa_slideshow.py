@@ -34,6 +34,16 @@ USER_AGENT = (
 )
 
 EARTH_OBSERVATORY_PATH = "/earth/earth-observatory/"
+IOTD_IMAGE_PATH = "/eo/images/iotd/"
+
+EXCLUDED_SLUGS = {
+    "",
+    "about",
+    "explorer",
+    "image-of-the-day",
+    "subscribe",
+    "topics",
+}
 
 
 class ArticleMetadataParser(HTMLParser):
@@ -70,7 +80,7 @@ class ArticleMetadataParser(HTMLParser):
 
 
 class ArchiveLinkParser(HTMLParser):
-    """Collect Earth Observatory article links from the archive."""
+    """Collect likely article links from the NASA archive."""
 
     def __init__(self, base_url: str) -> None:
         super().__init__()
@@ -102,31 +112,44 @@ class ArchiveLinkParser(HTMLParser):
         )
 
         parsed = urllib.parse.urlparse(absolute_url)
+
+        if parsed.netloc not in {
+            "",
+            "science.nasa.gov",
+            "www.science.nasa.gov",
+        }:
+            return
+
         path = parsed.path.rstrip("/") + "/"
 
         if EARTH_OBSERVATORY_PATH not in path:
             return
 
-        excluded_endings = {
-            "/earth/earth-observatory/",
-            "/earth/earth-observatory/image-of-the-day/",
-            "/earth/earth-observatory/subscribe/",
-            "/earth/earth-observatory/subscribe/feeds/",
-            "/earth/earth-observatory/explorer/",
-        }
+        relative_part = path.split(
+            EARTH_OBSERVATORY_PATH,
+            maxsplit=1,
+        )[1].strip("/")
 
-        if path in excluded_endings:
+        if not relative_part:
             return
 
-        normalized_url = urllib.parse.urlunparse(
-            (
-                parsed.scheme or "https",
-                parsed.netloc or "science.nasa.gov",
-                path,
-                "",
-                "",
-                "",
-            )
+        path_parts = [
+            part
+            for part in relative_part.split("/")
+            if part
+        ]
+
+        if len(path_parts) != 1:
+            return
+
+        slug = path_parts[0].lower()
+
+        if slug in EXCLUDED_SLUGS:
+            return
+
+        normalized_url = (
+            "https://science.nasa.gov"
+            + path
         )
 
         if normalized_url not in self.links:
@@ -175,6 +198,17 @@ def clean_text(value: Optional[str]) -> str:
     text = re.sub(r"\s+", " ", text)
 
     return text.strip()
+
+
+def clean_title(value: str) -> str:
+    """Remove NASA's site-name suffix from article titles."""
+
+    return re.sub(
+        r"\s*[-–—|]\s*NASA Science\s*$",
+        "",
+        value,
+        flags=re.IGNORECASE,
+    ).strip()
 
 
 def remove_nasa_boilerplate(value: str) -> str:
@@ -280,10 +314,12 @@ def extract_article_metadata(
         or ""
     ).strip()
 
-    title = clean_text(
-        metadata.get("og:title")
-        or metadata.get("twitter:title")
-        or ""
+    title = clean_title(
+        clean_text(
+            metadata.get("og:title")
+            or metadata.get("twitter:title")
+            or ""
+        )
     )
 
     description = clean_text(
@@ -325,6 +361,14 @@ def extract_article_metadata(
     }
 
 
+def is_iotd_image(image_url: str) -> bool:
+    """Confirm that the image belongs to the IOTD collection."""
+
+    decoded_url = urllib.parse.unquote(image_url).lower()
+
+    return IOTD_IMAGE_PATH in decoded_url
+
+
 def make_record(
     *,
     article_url: str,
@@ -345,7 +389,17 @@ def make_record(
         print("  Skipped: no primary image found.")
         return None
 
-    title = metadata["title"] or fallback_title
+    if not is_iotd_image(image_url):
+        print(
+            "  Skipped: primary image is not from "
+            "the Earth Observatory IOTD collection."
+        )
+        return None
+
+    title = (
+        metadata["title"]
+        or clean_title(fallback_title)
+    )
 
     description = (
         metadata["description"]
@@ -433,7 +487,7 @@ def collect_feed_records(
 
 
 def collect_archive_links() -> list[str]:
-    """Collect article links from the IOTD archive page."""
+    """Collect candidate article links from the IOTD archive."""
 
     archive_html = download_text(ARCHIVE_URL)
 
