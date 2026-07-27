@@ -56,7 +56,7 @@ EXCLUDED_SLUGS = {
 
 
 class ArticleParser(HTMLParser):
-    """Extract metadata, text blocks, instruments, and images."""
+    """Extract metadata, text blocks, and image addresses."""
 
     BLOCK_TAGS = {
         "h1",
@@ -369,6 +369,8 @@ def parse_iso_date(value: str) -> Optional[datetime]:
 
 
 def word_count(value: str) -> int:
+    """Return the number of words in a string."""
+
     return len(value.split())
 
 
@@ -442,7 +444,6 @@ def build_abstract(
     """
 
     paragraphs: list[str] = []
-
     seen: set[str] = set()
 
     for tag, text in blocks:
@@ -477,40 +478,130 @@ def build_abstract(
     )
 
 
-def extract_instruments(
-    blocks: list[tuple[str, str]],
+def extract_instruments_from_html(
+    article_html: str,
 ) -> list[str]:
-    """Read NASA's visible Instruments list."""
+    """
+    Extract NASA's Instruments list directly from the article HTML.
+
+    NASA places platform and instrument names inside nested links,
+    so parsing the complete HTML section is more reliable than
+    relying on individual text blocks.
+    """
+
+    heading_match = re.search(
+        r"<(?:h[1-6]|div|span|p)\b[^>]*>"
+        r"\s*Instruments\s*:?\s*"
+        r"</(?:h[1-6]|div|span|p)>",
+        article_html,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+
+    if not heading_match:
+        heading_match = re.search(
+            r">\s*Instruments\s*:?\s*<",
+            article_html,
+            flags=re.IGNORECASE,
+        )
+
+    if not heading_match:
+        return []
+
+    section_start = heading_match.end()
+
+    section_end_match = re.search(
+        r">\s*(?:Collections|Topics|Downloads|"
+        r"References\s*&\s*Resources|Image Details)\s*:?\s*<",
+        article_html[section_start:],
+        flags=re.IGNORECASE,
+    )
+
+    if section_end_match:
+        section_html = article_html[
+            section_start:
+            section_start + section_end_match.start()
+        ]
+    else:
+        section_html = article_html[
+            section_start:
+            section_start + 8000
+        ]
+
+    list_items = re.findall(
+        r"<li\b[^>]*>(.*?)</li>",
+        section_html,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
 
     instruments: list[str] = []
 
-    for index, (_, text) in enumerate(blocks):
-        normalized = text.strip().lower().rstrip(":")
+    for item_html in list_items:
+        cleaned = clean_text(item_html)
 
-        if normalized != "instruments":
+        cleaned = re.sub(
+            r"\s*[—–-]\s*",
+            " — ",
+            cleaned,
+        )
+
+        cleaned = re.sub(
+            r"\s+",
+            " ",
+            cleaned,
+        ).strip()
+
+        if not cleaned:
             continue
 
-        for next_tag, next_text in blocks[
-            index + 1:index + 8
-        ]:
-            next_normalized = (
-                next_text.strip().lower().rstrip(":")
-            )
+        if len(cleaned) > 120:
+            continue
 
-            if next_normalized in {
-                "topics",
-                "downloads",
-                "references & resources",
-            }:
-                break
+        lowered = cleaned.lower()
 
-            if next_tag == "li":
-                cleaned = clean_text(next_text)
+        if lowered in {
+            "collections",
+            "topics",
+            "downloads",
+            "references & resources",
+            "image details",
+        }:
+            continue
 
-                if cleaned and cleaned not in instruments:
-                    instruments.append(cleaned)
+        if cleaned not in instruments:
+            instruments.append(cleaned)
 
-        break
+    if instruments:
+        return instruments
+
+    link_texts = re.findall(
+        r"<a\b[^>]*>(.*?)</a>",
+        section_html,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+
+    for link_html in link_texts:
+        cleaned = clean_text(link_html)
+
+        cleaned = re.sub(
+            r"\s*[—–-]\s*",
+            " — ",
+            cleaned,
+        )
+
+        cleaned = re.sub(
+            r"\s+",
+            " ",
+            cleaned,
+        ).strip()
+
+        if not cleaned:
+            continue
+
+        if len(cleaned) > 120:
+            continue
+
+        if cleaned not in instruments:
+            instruments.append(cleaned)
 
     return instruments
 
@@ -667,7 +758,9 @@ def extract_article_metadata(
         publication_date = parsed_date.date().isoformat()
         display_date = parsed_date.strftime("%B %-d, %Y")
 
-    instruments = extract_instruments(parser.blocks)
+    instruments = extract_instruments_from_html(
+        article_html
+    )
 
     abstract = build_abstract(
         parser.blocks,
