@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T18:39:52+00:00",
+  "generated_at": "2026-07-27T18:46:01+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
@@ -12,8 +12,11 @@
       "abstract": "The color of Adélie penguin droppings reveals what the birds are eating, offering scientists a way to track how sea ice conditions influence their diet. The pinkish orangey hues of Antarctica’s Danger Islands aren’t due to minerals in the rocks or lichens covering them. Instead, the color comes from the islands’ iconic black and white inhabitants. Dense colonies of Adélie penguins on Antarctica’s islands and coasts produce large quantities of guano, extensive enough to be seen in satellite images. The color of the droppings can even provide clues into the penguins’ diet, since krill tints the guano pink, giving researchers a unique way to monitor…",
       "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/reading-penguin-diets-in-shades-of-guano/dangerislands_oli_20230122_lrg.jpg?w=2744&h=2337&fit=clip&crop=faces%2Cfocalpoint",
       "image_alt": "Pink Penguin Guano Provides Diet Clues",
-      "instruments": [],
-      "image_source": "NASA Earth observation",
+      "instruments": [
+        "Landsat 8 — OLI",
+        "Photograph"
+      ],
+      "image_source": "Landsat 8 • OLI · Photography",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/pink-penguin-guano-provides-diet-clues/",
       "source": "NASA Earth Observatory"
     },
@@ -25,8 +28,10 @@
       "abstract": "Historically, central Utah’s Castle Valley has been a coal hub, with mining operations on the slopes of the Wasatch Plateau to the west active since the late 1800s. A different energy development arrived in the region in June 2026, when a large solar power and battery storage plant came online in the sunny valley about 130 miles (210 kilometers) southeast of Salt Lake City. The recently constructed Green River Energy Center, seen in the Landsat 8 image above (right), features nearly one million solar panels and roughly 500 batteries on several square miles of previously undeveloped land. The facility has 400 megawatts of solar-generating capacity…",
       "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-million-panel-project/solarutah_oli_20240616_lrg.jpg?w=3680&h=3250&fit=clip&crop=faces%2Cfocalpoint",
       "image_alt": "A Million-Panel Project",
-      "instruments": [],
-      "image_source": "NASA Earth observation",
+      "instruments": [
+        "Landsat 8 — OLI"
+      ],
+      "image_source": "Landsat 8 • OLI",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/a-million-panel-project/",
       "source": "NASA Earth Observatory"
     },
@@ -38,8 +43,10 @@
       "abstract": "Alpine glaciers, wild coastlines, temperate rainforests, and deep river valleys coexist on the Olympic Peninsula in the northwest corner of Washington state. Surrounded by blue waters, peaceful islands, and bustling population centers, its rugged interior remains a relatively remote bastion of wilderness. The Olympic Mountains’ imposing terrain comes into focus in this oblique view of the region, captured by an astronaut aboard the International Space Station. The image is a composite , made of several sequential, overlapping photos fused together into a panorama. Olympic National Park encompasses the peninsula’s mountainous core, along with some stretches of the Pacific coastline. Much of the remaining area is…",
       "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/olympic-mountain-glory/ISS047-E-104144_lrg.jpg?w=5537&h=2585&fit=clip&crop=faces%2Cfocalpoint",
       "image_alt": "Olympic Mountain Glory",
-      "instruments": [],
-      "image_source": "NASA Earth observation",
+      "instruments": [
+        "ISS — Digital Camera"
+      ],
+      "image_source": "ISS • Digital Camera",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/olympic-mountain-glory/",
       "source": "NASA Earth Observatory"
     },
@@ -51,8 +58,10 @@
       "abstract": "Brown carbon, emitted by wildland fires and tracked over the span of a week in July 2026, worsened air quality in parts of the U.S. and Canada. To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video Wildland fire activity in Canada ramped up in July 2026, a time of year when lightning ignitions typically increase, according to a seasonal outlook published by several North American fire agencies. The blazes sent smoke plumes pouring across the U.S. and Canada, affecting air quality in both countries.",
       "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-week-of-smoky-skies-across-north-america/nambrowncarbon_locatormap.png?w=300&h=150&fit=clip&crop=faces%2Cfocalpoint",
       "image_alt": "A Week of Smoky Skies Across North America",
-      "instruments": [],
-      "image_source": "NASA Earth observation",
+      "instruments": [
+        "Model"
+      ],
+      "image_source": "Model",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/a-week-of-smoky-skies-across-north-america/",
       "source": "NASA Earth Observatory"
     },
@@ -64,8 +73,10 @@
       "abstract": "Differences in the underlying bedrock and how rivers distribute sediment make the coastlines west of Portland look unlike those northeast of the city. The Wabanaki people have a deep well of creation myths explaining the rocky coastlines of the Bay of Fundy , Downeast Maine , and Acadia National Park . Many involve Glooscap —a magical figure said to have floated down the Bay of Fundy in a stone canoe , sculpting coastal features by scraping the vessel across the landscape and scattering enormous boulders during battles with primordial beavers, frogs, moose, whales, and other gigantic animals.",
       "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/why-maine's-sandy-shorelines-turn-jagged/mainecoast_oli2_20250831_lrg.jpg?w=3427&h=4229&fit=clip&crop=faces%2Cfocalpoint",
       "image_alt": "Why Maine's Sandy Shorelines Turn Jagged",
-      "instruments": [],
-      "image_source": "NASA Earth observation",
+      "instruments": [
+        "Landsat 9 — OLI"
+      ],
+      "image_source": "Landsat 9 • OLI",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/why-maines-sandy-shorelines-turn-jagged/",
       "source": "NASA Earth Observatory"
     },
@@ -77,8 +88,10 @@
       "abstract": "Seattle, Washington—sometimes known as the “Emerald City”—was glimmering in the morning sunlight when an astronaut aboard the International Space Station took this photo on June 16, 2026. The city’s parks and tree-filled neighborhoods lend a lush, green look to the metropolis, while tall buildings downtown cast long shadows and ships navigate surrounding waterways. The broad contours of the city’s landscape and the water around it owe their shape to the advance and retreat of glaciers during the last ice age. Between roughly 18,000 and 16,000 years ago, the Puget lobe of the Cordilleran ice sheet covered the area in a mass of ice up to…",
       "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/shaping-the-emerald-city/ISS074-E-723719_lrg.jpg?w=4128&h=2752&fit=clip&crop=faces%2Cfocalpoint",
       "image_alt": "Shaping the Emerald City",
-      "instruments": [],
-      "image_source": "NASA Earth observation",
+      "instruments": [
+        "ISS — Digital Camera"
+      ],
+      "image_source": "ISS • Digital Camera",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/shaping-the-emerald-city/",
       "source": "NASA Earth Observatory"
     },
@@ -90,8 +103,10 @@
       "abstract": "The expansive mudflats, sandy beaches, and mangrove forests of the Bijagós archipelago support an array of migratory shorebirds and large numbers of sea turtles. Twice each day, tides ebb and flow through a maze of sandy channels, mudflats, and mangrove forests that flank the 88 islands and islets of Guinea-Bissau's Bijagós Archipelago (Arquipélago dos Bijagós in Portuguese). Seen from above, the process leads to stark changes to the landscape: around low tide, intertidal mudflats and sandflats emerge from the sea, causing islands to grow significantly before shrinking again hours later.",
       "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-tide-fueled-trove-of-biodiversity-in-guinea-bissau/bijagosarchipelago_oli_20251128_lrg.jpg?w=7236&h=6030&fit=clip&crop=faces%2Cfocalpoint",
       "image_alt": "A Tide-Fueled Trove of Biodiversity in Guinea-Bissau",
-      "instruments": [],
-      "image_source": "NASA Earth observation",
+      "instruments": [
+        "Landsat 8 — OLI"
+      ],
+      "image_source": "Landsat 8 • OLI",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/a-tide-fueled-trove-of-biodiversity-in-guinea-bissau/",
       "source": "NASA Earth Observatory"
     }
