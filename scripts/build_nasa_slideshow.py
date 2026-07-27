@@ -27,6 +27,7 @@ ARCHIVE_URL = (
 OUTPUT_PATH = Path("data/nasa-earth-observatory.json")
 
 NUMBER_OF_ITEMS = 7
+ABSTRACT_WORD_LIMIT = 105
 
 USER_AGENT = (
     "FAU-Geosciences-Signage/1.0 "
@@ -39,27 +40,51 @@ IOTD_IMAGE_PATH = "/eo/images/iotd/"
 EXCLUDED_SLUGS = {
     "",
     "about",
+    "about-the-eo",
+    "blue-marble-next-generation",
+    "collections",
+    "contact-the-eo",
     "explorer",
+    "feature-articles",
+    "global-maps",
     "image-of-the-day",
+    "search",
     "subscribe",
     "topics",
+    "world-of-change",
 }
 
 
-class ArticleMetadataParser(HTMLParser):
-    """Extract Open Graph metadata from a NASA article."""
+class ArticleParser(HTMLParser):
+    """Extract metadata, text blocks, instruments, and images."""
+
+    BLOCK_TAGS = {
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "p",
+        "li",
+    }
 
     def __init__(self) -> None:
         super().__init__()
+
         self.metadata: dict[str, str] = {}
+        self.blocks: list[tuple[str, str]] = []
+        self.image_urls: list[str] = []
+
+        self.current_tag: Optional[str] = None
+        self.current_parts: list[str] = []
 
     def handle_starttag(
         self,
         tag: str,
         attrs: list[tuple[str, Optional[str]]],
     ) -> None:
-        if tag.lower() != "meta":
-            return
+        tag = tag.lower()
 
         attributes = {
             key.lower(): value
@@ -67,16 +92,67 @@ class ArticleMetadataParser(HTMLParser):
             if value is not None
         }
 
-        property_name = (
-            attributes.get("property")
-            or attributes.get("name")
-            or ""
-        ).lower()
+        if tag == "meta":
+            property_name = (
+                attributes.get("property")
+                or attributes.get("name")
+                or ""
+            ).lower()
 
-        content = attributes.get("content", "").strip()
+            content = attributes.get("content", "").strip()
 
-        if property_name and content:
-            self.metadata[property_name] = html.unescape(content)
+            if property_name and content:
+                self.metadata[property_name] = html.unescape(
+                    content
+                )
+
+        if tag == "img":
+            for attribute_name in ("src", "data-src"):
+                image_url = attributes.get(
+                    attribute_name,
+                    "",
+                ).strip()
+
+                if image_url:
+                    self.image_urls.append(image_url)
+
+            srcset = attributes.get("srcset", "")
+
+            if srcset:
+                for candidate in srcset.split(","):
+                    image_url = candidate.strip().split(" ")[0]
+
+                    if image_url:
+                        self.image_urls.append(image_url)
+
+        if tag in self.BLOCK_TAGS:
+            self.current_tag = tag
+            self.current_parts = []
+
+    def handle_data(self, data: str) -> None:
+        if self.current_tag:
+            self.current_parts.append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        tag = tag.lower()
+
+        if tag != self.current_tag:
+            return
+
+        text = clean_text(
+            " ".join(self.current_parts)
+        )
+
+        if text:
+            self.blocks.append(
+                (
+                    self.current_tag,
+                    text,
+                )
+            )
+
+        self.current_tag = None
+        self.current_parts = []
 
 
 class ArchiveLinkParser(HTMLParser):
@@ -84,6 +160,7 @@ class ArchiveLinkParser(HTMLParser):
 
     def __init__(self, base_url: str) -> None:
         super().__init__()
+
         self.base_url = base_url
         self.links: list[str] = []
 
@@ -129,9 +206,6 @@ class ArchiveLinkParser(HTMLParser):
             EARTH_OBSERVATORY_PATH,
             maxsplit=1,
         )[1].strip("/")
-
-        if not relative_part:
-            return
 
         path_parts = [
             part
@@ -214,14 +288,12 @@ def clean_title(value: str) -> str:
 def remove_nasa_boilerplate(value: str) -> str:
     """Remove the automatic WordPress footer from summaries."""
 
-    cleaned = re.sub(
+    return re.sub(
         r"\s*The post .*? appeared first on NASA Science\s*\.?\s*$",
         "",
         value,
         flags=re.IGNORECASE,
-    )
-
-    return cleaned.strip()
+    ).strip()
 
 
 def local_name(tag: str) -> str:
@@ -296,23 +368,267 @@ def parse_iso_date(value: str) -> Optional[datetime]:
     return parsed.astimezone(timezone.utc)
 
 
+def word_count(value: str) -> int:
+    return len(value.split())
+
+
+def truncate_words(
+    value: str,
+    limit: int,
+) -> str:
+    """Limit text without cutting a word in half."""
+
+    words = value.split()
+
+    if len(words) <= limit:
+        return value
+
+    shortened = " ".join(words[:limit]).rstrip(
+        " ,;:"
+    )
+
+    final_punctuation = shortened[-1:]
+
+    if final_punctuation in {".", "!", "?"}:
+        return shortened
+
+    return shortened + "…"
+
+
+def looks_like_story_paragraph(value: str) -> bool:
+    """Reject captions, credits, navigation, and boilerplate."""
+
+    if word_count(value) < 18:
+        return False
+
+    lowered = value.lower()
+
+    rejected_starts = (
+        "accessed ",
+        "image of the day",
+        "image:",
+        "jpeg",
+        "nasa earth observatory image",
+        "nasa earth observatory images",
+        "references",
+        "story by ",
+        "view more images",
+    )
+
+    if lowered.startswith(rejected_starts):
+        return False
+
+    rejected_phrases = (
+        "page last updated",
+        "responsible nasa official",
+        "download this image",
+    )
+
+    return not any(
+        phrase in lowered
+        for phrase in rejected_phrases
+    )
+
+
+def build_abstract(
+    blocks: list[tuple[str, str]],
+    fallback_description: str,
+) -> str:
+    """
+    Build a short editorial paragraph from the article body.
+
+    The first two useful article paragraphs are normally enough
+    to explain what is shown and why it matters.
+    """
+
+    paragraphs: list[str] = []
+
+    seen: set[str] = set()
+
+    for tag, text in blocks:
+        if tag != "p":
+            continue
+
+        if not looks_like_story_paragraph(text):
+            continue
+
+        normalized = text.lower()
+
+        if normalized in seen:
+            continue
+
+        seen.add(normalized)
+        paragraphs.append(text)
+
+        combined = " ".join(paragraphs)
+
+        if word_count(combined) >= 70:
+            break
+
+    if paragraphs:
+        return truncate_words(
+            " ".join(paragraphs),
+            ABSTRACT_WORD_LIMIT,
+        )
+
+    return truncate_words(
+        fallback_description,
+        ABSTRACT_WORD_LIMIT,
+    )
+
+
+def extract_instruments(
+    blocks: list[tuple[str, str]],
+) -> list[str]:
+    """Read NASA's visible Instruments list."""
+
+    instruments: list[str] = []
+
+    for index, (_, text) in enumerate(blocks):
+        normalized = text.strip().lower().rstrip(":")
+
+        if normalized != "instruments":
+            continue
+
+        for next_tag, next_text in blocks[
+            index + 1:index + 8
+        ]:
+            next_normalized = (
+                next_text.strip().lower().rstrip(":")
+            )
+
+            if next_normalized in {
+                "topics",
+                "downloads",
+                "references & resources",
+            }:
+                break
+
+            if next_tag == "li":
+                cleaned = clean_text(next_text)
+
+                if cleaned and cleaned not in instruments:
+                    instruments.append(cleaned)
+
+        break
+
+    return instruments
+
+
+def format_image_source(
+    instruments: list[str],
+) -> str:
+    """Create a concise source label for the signage page."""
+
+    if not instruments:
+        return "NASA Earth observation"
+
+    formatted: list[str] = []
+
+    for instrument in instruments:
+        cleaned = instrument.replace(" — ", " • ")
+
+        if cleaned.lower() == "photograph":
+            cleaned = "Photography"
+
+        if cleaned not in formatted:
+            formatted.append(cleaned)
+
+    return " · ".join(formatted)
+
+
+def normalize_image_url(url: str) -> str:
+    """Convert a relative NASA image address into an absolute URL."""
+
+    return urllib.parse.urljoin(
+        "https://science.nasa.gov/",
+        html.unescape(url),
+    )
+
+
+def image_score(url: str) -> int:
+    """Rank likely lead images above thumbnails and page graphics."""
+
+    lowered = urllib.parse.unquote(url).lower()
+
+    if IOTD_IMAGE_PATH not in lowered:
+        return -10_000
+
+    score = 0
+
+    if "_lrg." in lowered:
+        score += 500
+
+    if "_th." in lowered:
+        score -= 250
+
+    if "cq5dam.web.1280" in lowered:
+        score += 100
+
+    if "fit=clip" in lowered:
+        score += 30
+
+    if "logo" in lowered or "banner" in lowered:
+        score -= 1_000
+
+    return score
+
+
+def select_primary_image(
+    parser: ArticleParser,
+) -> str:
+    """Select the best available Earth Observatory story image."""
+
+    candidates: list[str] = []
+
+    social_image = (
+        parser.metadata.get("og:image")
+        or parser.metadata.get("twitter:image")
+        or ""
+    ).strip()
+
+    if social_image:
+        candidates.append(
+            normalize_image_url(social_image)
+        )
+
+    candidates.extend(
+        normalize_image_url(url)
+        for url in parser.image_urls
+    )
+
+    unique_candidates: list[str] = []
+
+    for candidate in candidates:
+        if candidate not in unique_candidates:
+            unique_candidates.append(candidate)
+
+    ranked = sorted(
+        unique_candidates,
+        key=image_score,
+        reverse=True,
+    )
+
+    if not ranked or image_score(ranked[0]) < 0:
+        return ""
+
+    return ranked[0]
+
+
 def extract_article_metadata(
     article_url: str,
-) -> dict[str, str]:
-    """Read title, image, description, and date from an article."""
+    fallback_description: str,
+) -> dict[str, object]:
+    """Read all slideshow fields from one NASA article."""
 
     article_html = download_text(article_url)
 
-    parser = ArticleMetadataParser()
+    parser = ArticleParser()
     parser.feed(article_html)
 
     metadata = parser.metadata
 
-    image_url = (
-        metadata.get("og:image")
-        or metadata.get("twitter:image")
-        or ""
-    ).strip()
+    image_url = select_primary_image(parser)
 
     title = clean_title(
         clean_text(
@@ -322,11 +638,11 @@ def extract_article_metadata(
         )
     )
 
-    description = clean_text(
+    short_description = clean_text(
         metadata.get("og:description")
         or metadata.get("description")
         or metadata.get("twitter:description")
-        or ""
+        or fallback_description
     )
 
     image_alt = clean_text(
@@ -351,20 +667,32 @@ def extract_article_metadata(
         publication_date = parsed_date.date().isoformat()
         display_date = parsed_date.strftime("%B %-d, %Y")
 
+    instruments = extract_instruments(parser.blocks)
+
+    abstract = build_abstract(
+        parser.blocks,
+        short_description,
+    )
+
     return {
         "title": title,
-        "description": description,
+        "short_description": short_description,
+        "abstract": abstract,
         "image_url": image_url,
         "image_alt": image_alt,
         "publication_date": publication_date,
         "display_date": display_date,
+        "instruments": instruments,
+        "image_source": format_image_source(instruments),
     }
 
 
 def is_iotd_image(image_url: str) -> bool:
     """Confirm that the image belongs to the IOTD collection."""
 
-    decoded_url = urllib.parse.unquote(image_url).lower()
+    decoded_url = urllib.parse.unquote(
+        image_url
+    ).lower()
 
     return IOTD_IMAGE_PATH in decoded_url
 
@@ -375,15 +703,18 @@ def make_record(
     fallback_title: str = "",
     fallback_description: str = "",
     fallback_date: str = "",
-) -> Optional[dict[str, str]]:
+) -> Optional[dict[str, object]]:
     """Create one complete slideshow record."""
 
     print(f"Reading: {fallback_title or article_url}")
     print(f"  {article_url}")
 
-    metadata = extract_article_metadata(article_url)
+    metadata = extract_article_metadata(
+        article_url,
+        fallback_description,
+    )
 
-    image_url = metadata["image_url"]
+    image_url = str(metadata["image_url"])
 
     if not image_url:
         print("  Skipped: no primary image found.")
@@ -397,17 +728,17 @@ def make_record(
         return None
 
     title = (
-        metadata["title"]
+        str(metadata["title"])
         or clean_title(fallback_title)
     )
 
-    description = (
-        metadata["description"]
-        or remove_nasa_boilerplate(fallback_description)
+    publication_date = str(
+        metadata["publication_date"]
     )
 
-    publication_date = metadata["publication_date"]
-    display_date = metadata["display_date"]
+    display_date = str(
+        metadata["display_date"]
+    )
 
     if not publication_date and fallback_date:
         publication_date, display_date = format_rss_date(
@@ -418,13 +749,24 @@ def make_record(
         print("  Skipped: title or publication date missing.")
         return None
 
+    short_description = (
+        str(metadata["short_description"])
+        or remove_nasa_boilerplate(fallback_description)
+    )
+
     return {
         "title": title,
         "publication_date": publication_date,
         "display_date": display_date,
-        "description": description,
+        "short_description": short_description,
+        "abstract": metadata["abstract"],
         "image_url": image_url,
-        "image_alt": metadata["image_alt"] or title,
+        "image_alt": (
+            str(metadata["image_alt"])
+            or title
+        ),
+        "instruments": metadata["instruments"],
+        "image_source": metadata["image_source"],
         "article_url": article_url,
         "source": "NASA Earth Observatory",
     }
@@ -432,7 +774,7 @@ def make_record(
 
 def collect_feed_records(
     feed_xml: str,
-) -> list[dict[str, str]]:
+) -> list[dict[str, object]]:
     """Collect qualifying records from NASA's mixed RSS feed."""
 
     root = ET.fromstring(feed_xml)
@@ -443,7 +785,7 @@ def collect_feed_records(
         if local_name(element.tag) in {"item", "entry"}
     ]
 
-    records: list[dict[str, str]] = []
+    records: list[dict[str, object]] = []
 
     for item in items:
         article_url = extract_article_link(item)
@@ -498,12 +840,12 @@ def collect_archive_links() -> list[str]:
 
 
 def supplement_from_archive(
-    records: list[dict[str, str]],
-) -> list[dict[str, str]]:
+    records: list[dict[str, object]],
+) -> list[dict[str, object]]:
     """Add older archive entries until seven records exist."""
 
     existing_urls = {
-        record["article_url"]
+        str(record["article_url"])
         for record in records
     }
 
@@ -528,26 +870,30 @@ def supplement_from_archive(
 
 
 def sort_and_trim(
-    records: list[dict[str, str]],
-) -> list[dict[str, str]]:
+    records: list[dict[str, object]],
+) -> list[dict[str, object]]:
     """Deduplicate, sort newest first, and keep seven."""
 
-    unique: dict[str, dict[str, str]] = {}
+    unique: dict[str, dict[str, object]] = {}
 
     for record in records:
-        unique[record["article_url"]] = record
+        unique[str(record["article_url"])] = record
 
     sorted_records = sorted(
         unique.values(),
-        key=lambda record: record["publication_date"],
+        key=lambda record: str(
+            record["publication_date"]
+        ),
         reverse=True,
     )
 
     return sorted_records[:NUMBER_OF_ITEMS]
 
 
-def write_json(records: list[dict[str, str]]) -> None:
-    """Write the clean slideshow dataset."""
+def write_json(
+    records: list[dict[str, object]],
+) -> None:
+    """Write the enriched slideshow dataset."""
 
     if len(records) < NUMBER_OF_ITEMS:
         raise RuntimeError(
@@ -621,6 +967,14 @@ def main() -> int:
             print(
                 f"{index}. {record['title']} "
                 f"({record['display_date']})"
+            )
+            print(
+                f"   Image source: "
+                f"{record['image_source']}"
+            )
+            print(
+                f"   Abstract words: "
+                f"{word_count(str(record['abstract']))}"
             )
 
         return 0
