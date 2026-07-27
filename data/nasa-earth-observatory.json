@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-27T18:12:01+00:00",
+  "generated_at": "2026-07-27T18:15:18+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
     {
-      "title": "Pink Penguin Guano Provides Diet Clues - NASA Science",
+      "title": "Pink Penguin Guano Provides Diet Clues",
       "publication_date": "2026-07-27",
       "display_date": "July 27, 2026",
       "description": "The color of Adélie penguin droppings reveals what the birds are eating, offering scientists a way to track how sea ice conditions influence their diet.",
@@ -15,7 +15,7 @@
       "source": "NASA Earth Observatory"
     },
     {
-      "title": "A Million-Panel Project - NASA Science",
+      "title": "A Million-Panel Project",
       "publication_date": "2026-07-24",
       "display_date": "July 24, 2026",
       "description": "Utah’s new solar power and battery storage facility is among the largest in the region.",
@@ -25,7 +25,7 @@
       "source": "NASA Earth Observatory"
     },
     {
-      "title": "Olympic Mountain Glory - NASA Science",
+      "title": "Olympic Mountain Glory",
       "publication_date": "2026-07-23",
       "display_date": "July 23, 2026",
       "description": "Snow-capped mountains carved by deep river valleys preside over northwestern Washington state.",
@@ -35,7 +35,7 @@
       "source": "NASA Earth Observatory"
     },
     {
-      "title": "A Week of Smoky Skies Across North America - NASA Science",
+      "title": "A Week of Smoky Skies Across North America",
       "publication_date": "2026-07-22",
       "display_date": "July 22, 2026",
       "description": "Brown carbon, emitted by wildland fires and tracked over the span of a week in July 2026, worsened air quality in parts of the U.S. and Canada.",
@@ -45,7 +45,7 @@
       "source": "NASA Earth Observatory"
     },
     {
-      "title": "Why Maine's Sandy Shorelines Turn Jagged - NASA Science",
+      "title": "Why Maine's Sandy Shorelines Turn Jagged",
       "publication_date": "2026-07-21",
       "display_date": "July 21, 2026",
       "description": "Differences in the underlying bedrock and how rivers distribute sediment make the coastlines west of Portland look unlike those northeast of the city.",
@@ -55,7 +55,7 @@
       "source": "NASA Earth Observatory"
     },
     {
-      "title": "Shaping the Emerald City - NASA Science",
+      "title": "Shaping the Emerald City",
       "publication_date": "2026-07-20",
       "display_date": "July 20, 2026",
       "description": "The hills and basins of Seattle, Washington, have been sculpted by glaciers and modified by humans.",
@@ -65,13 +65,13 @@
       "source": "NASA Earth Observatory"
     },
     {
-      "title": "All Earth Observatory Topics - NASA Science",
-      "publication_date": "2018-10-25",
-      "display_date": "October 25, 2018",
-      "description": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/about/NASA-EO-Logo-mediumBlue2016-stacked-mark.png/jcr:content/renditions/cq5dam.web.1280.1280.png",
-      "image_alt": "All Earth Observatory Topics",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/topics/",
+      "title": "A Tide-Fueled Trove of Biodiversity in Guinea-Bissau",
+      "publication_date": "2026-07-17",
+      "display_date": "July 17, 2026",
+      "description": "The expansive mudflats, sandy beaches, and mangrove forests of the Bijagós archipelago support an array of migratory shorebirds and large numbers of sea turtles.",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-tide-fueled-trove-of-biodiversity-in-guinea-bissau/bijagosarchipelago_oli_20251128_th.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
+      "image_alt": "A Tide-Fueled Trove of Biodiversity in Guinea-Bissau",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/a-tide-fueled-trove-of-biodiversity-in-guinea-bissau/",
       "source": "NASA Earth Observatory"
     }
   ]
