@@ -19,7 +19,7 @@
     :root {
       --slide-duration: 15000ms;
       --fade-duration: 1200ms;
-      --panel-width: 35%;
+      --panel-width: 37%;
       --accent: #67b7e8;
       --panel-background: #0b1520;
       --panel-background-secondary: #101f2d;
@@ -51,7 +51,7 @@
       position: relative;
       display: grid;
       grid-template-columns:
-        minmax(480px, var(--panel-width))
+        minmax(500px, var(--panel-width))
         minmax(0, 1fr);
       background: #000;
       isolation: isolate;
@@ -63,10 +63,11 @@
       display: flex;
       flex-direction: column;
       min-width: 0;
+      min-height: 0;
       padding:
-        clamp(34px, 3.2vw, 66px)
-        clamp(34px, 3.1vw, 64px)
-        clamp(28px, 2.6vw, 52px);
+        clamp(28px, 2.5vw, 48px)
+        clamp(34px, 2.8vw, 56px)
+        clamp(25px, 2.2vw, 42px);
       overflow: hidden;
       background:
         linear-gradient(
@@ -91,60 +92,63 @@
     #series-heading {
       margin: 0;
       color: var(--accent);
-      font-size: clamp(17px, 1.3vw, 26px);
-      line-height: 1.15;
+      font-size: clamp(15px, 1.05vw, 21px);
+      line-height: 1.28;
       font-weight: 700;
-      letter-spacing: 0.09em;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
     }
 
     #series-rule {
-      width: 78px;
+      width: 72px;
       height: 4px;
-      margin-top: 19px;
+      margin: 16px 0 0;
       border: 0;
       background: var(--accent);
     }
 
     #slide-title {
       margin:
-        clamp(30px, 3vw, 54px)
+        clamp(25px, 2.2vw, 39px)
         0
         0;
       color: #fff;
-      font-size: clamp(34px, 3vw, 60px);
-      line-height: 1.04;
+      font-size: clamp(29px, 2.35vw, 46px);
+      line-height: 1.08;
       font-weight: 700;
-      letter-spacing: -0.025em;
+      letter-spacing: -0.02em;
       text-wrap: balance;
     }
 
     #slide-abstract {
       margin:
-        clamp(25px, 2.4vw, 42px)
+        clamp(20px, 1.8vw, 31px)
         0
         0;
       color: rgba(255, 255, 255, 0.88);
-      font-size: clamp(17px, 1.35vw, 27px);
-      line-height: 1.48;
+      font-size: clamp(15px, 1.08vw, 21px);
+      line-height: 1.43;
       font-weight: 400;
-      text-wrap: pretty;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      overflow-wrap: break-word;
     }
 
     #metadata {
       margin-top: auto;
-      padding-top: clamp(24px, 2.2vw, 38px);
+      padding-top: clamp(18px, 1.6vw, 28px);
     }
 
     .metadata-item {
-      margin-top: 20px;
+      margin-top: 15px;
     }
 
     .metadata-label {
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       color: rgba(103, 183, 232, 0.95);
-      font-size: clamp(12px, 0.85vw, 17px);
+      font-size: clamp(11px, 0.7vw, 14px);
       line-height: 1.15;
       font-weight: 700;
       letter-spacing: 0.08em;
@@ -154,8 +158,8 @@
     .metadata-value {
       display: block;
       color: rgba(255, 255, 255, 0.9);
-      font-size: clamp(15px, 1.05vw, 21px);
-      line-height: 1.3;
+      font-size: clamp(13px, 0.9vw, 18px);
+      line-height: 1.28;
       font-weight: 500;
     }
 
@@ -164,15 +168,15 @@
       align-items: flex-end;
       justify-content: space-between;
       gap: 24px;
-      margin-top: clamp(28px, 2.5vw, 44px);
-      padding-top: 20px;
+      margin-top: clamp(18px, 1.6vw, 28px);
+      padding-top: 15px;
       border-top: 1px solid rgba(255, 255, 255, 0.14);
     }
 
     #attribution {
       margin: 0;
       color: rgba(255, 255, 255, 0.64);
-      font-size: clamp(12px, 0.8vw, 16px);
+      font-size: clamp(11px, 0.72vw, 14px);
       line-height: 1.25;
     }
 
@@ -180,7 +184,7 @@
       flex: 0 0 auto;
       margin: 0;
       color: rgba(255, 255, 255, 0.9);
-      font-size: clamp(14px, 0.95vw, 19px);
+      font-size: clamp(13px, 0.82vw, 17px);
       line-height: 1.2;
       font-weight: 700;
     }
@@ -303,7 +307,7 @@
 
     @media (max-aspect-ratio: 3 / 2) {
       :root {
-        --panel-width: 40%;
+        --panel-width: 42%;
       }
 
       #viewer {
@@ -313,11 +317,12 @@
       }
 
       #slide-title {
-        font-size: clamp(31px, 2.7vw, 50px);
+        font-size: clamp(27px, 2.15vw, 40px);
       }
 
       #slide-abstract {
-        font-size: clamp(16px, 1.25vw, 23px);
+        font-size: clamp(14px, 1vw, 19px);
+        line-height: 1.4;
       }
     }
   </style>
@@ -331,8 +336,8 @@
     <section id="information-panel">
       <header>
         <p id="series-heading">
-          Earth Observatory<br>
-          Image of the Day
+          Earth Observatory Image of the Day:
+          <span id="heading-date"></span>
         </p>
 
         <hr id="series-rule">
@@ -343,17 +348,6 @@
       <p id="slide-abstract"></p>
 
       <div id="metadata">
-        <div class="metadata-item">
-          <span class="metadata-label">
-            Published
-          </span>
-
-          <span
-            id="slide-date"
-            class="metadata-value"
-          ></span>
-        </div>
-
         <div class="metadata-item">
           <span class="metadata-label">
             Image source
@@ -411,23 +405,20 @@
     const viewer =
       document.getElementById("viewer");
 
-    const informationPanel =
-      document.getElementById("information-panel");
-
     const imageBackground =
       document.getElementById("image-background");
 
     const mainImage =
       document.getElementById("main-image");
 
+    const headingDate =
+      document.getElementById("heading-date");
+
     const slideTitle =
       document.getElementById("slide-title");
 
     const slideAbstract =
       document.getElementById("slide-abstract");
-
-    const slideDate =
-      document.getElementById("slide-date");
 
     const imageSource =
       document.getElementById("image-source");
@@ -496,6 +487,9 @@
       mainImage.alt =
         slide.image_alt || slide.title;
 
+      headingDate.textContent =
+        slide.display_date;
+
       slideTitle.textContent =
         slide.title;
 
@@ -503,9 +497,6 @@
         slide.abstract ||
         slide.short_description ||
         "";
-
-      slideDate.textContent =
-        slide.display_date;
 
       imageSource.textContent =
         slide.image_source ||
