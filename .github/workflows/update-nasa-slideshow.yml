@@ -1,0 +1,44 @@
+name: Update NASA Earth Observatory slideshow
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "17 10 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-nasa-slideshow
+  cancel-in-progress: false
+
+jobs:
+  update-slideshow:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build NASA slideshow data
+        run: python scripts/build_nasa_slideshow.py
+
+      - name: Commit updated slideshow data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/nasa-earth-observatory.json
+
+          if git diff --cached --quiet; then
+            echo "NASA slideshow data is already current."
+          else
+            git commit -m "Update NASA Earth Observatory slideshow"
+            git push
+          fi
