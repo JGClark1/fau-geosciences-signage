@@ -4,6 +4,7 @@ import html
 import json
 import re
 import sys
+import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
@@ -15,6 +16,11 @@ from typing import Optional
 
 FEED_URL = (
     "https://science.nasa.gov/feed/"
+    "earth-observatory/image-of-the-day/"
+)
+
+ARCHIVE_URL = (
+    "https://science.nasa.gov/earth/"
     "earth-observatory/image-of-the-day/"
 )
 
@@ -31,11 +37,10 @@ EARTH_OBSERVATORY_PATH = "/earth/earth-observatory/"
 
 
 class ArticleMetadataParser(HTMLParser):
-    """Extract useful Open Graph metadata from a NASA article."""
+    """Extract Open Graph metadata from a NASA article."""
 
     def __init__(self) -> None:
         super().__init__()
-
         self.metadata: dict[str, str] = {}
 
     def handle_starttag(
@@ -64,8 +69,72 @@ class ArticleMetadataParser(HTMLParser):
             self.metadata[property_name] = html.unescape(content)
 
 
+class ArchiveLinkParser(HTMLParser):
+    """Collect Earth Observatory article links from the archive."""
+
+    def __init__(self, base_url: str) -> None:
+        super().__init__()
+        self.base_url = base_url
+        self.links: list[str] = []
+
+    def handle_starttag(
+        self,
+        tag: str,
+        attrs: list[tuple[str, Optional[str]]],
+    ) -> None:
+        if tag.lower() != "a":
+            return
+
+        attributes = {
+            key.lower(): value
+            for key, value in attrs
+            if value is not None
+        }
+
+        href = attributes.get("href", "").strip()
+
+        if not href:
+            return
+
+        absolute_url = urllib.parse.urljoin(
+            self.base_url,
+            href,
+        )
+
+        parsed = urllib.parse.urlparse(absolute_url)
+        path = parsed.path.rstrip("/") + "/"
+
+        if EARTH_OBSERVATORY_PATH not in path:
+            return
+
+        excluded_endings = {
+            "/earth/earth-observatory/",
+            "/earth/earth-observatory/image-of-the-day/",
+            "/earth/earth-observatory/subscribe/",
+            "/earth/earth-observatory/subscribe/feeds/",
+            "/earth/earth-observatory/explorer/",
+        }
+
+        if path in excluded_endings:
+            return
+
+        normalized_url = urllib.parse.urlunparse(
+            (
+                parsed.scheme or "https",
+                parsed.netloc or "science.nasa.gov",
+                path,
+                "",
+                "",
+                "",
+            )
+        )
+
+        if normalized_url not in self.links:
+            self.links.append(normalized_url)
+
+
 def download_text(url: str) -> str:
-    """Download a UTF-8 webpage or feed."""
+    """Download a webpage or RSS feed as text."""
 
     request = urllib.request.Request(
         url,
@@ -84,7 +153,10 @@ def download_text(url: str) -> str:
         request,
         timeout=45,
     ) as response:
-        encoding = response.headers.get_content_charset() or "utf-8"
+        encoding = (
+            response.headers.get_content_charset()
+            or "utf-8"
+        )
 
         return response.read().decode(
             encoding,
@@ -93,7 +165,7 @@ def download_text(url: str) -> str:
 
 
 def clean_text(value: Optional[str]) -> str:
-    """Convert HTML or encoded text into clean plain text."""
+    """Convert encoded or HTML text into clean plain text."""
 
     if not value:
         return ""
@@ -106,7 +178,7 @@ def clean_text(value: Optional[str]) -> str:
 
 
 def remove_nasa_boilerplate(value: str) -> str:
-    """Remove the automatic WordPress sentence from feed summaries."""
+    """Remove the automatic WordPress footer from summaries."""
 
     cleaned = re.sub(
         r"\s*The post .*? appeared first on NASA Science\s*\.?\s*$",
@@ -119,7 +191,7 @@ def remove_nasa_boilerplate(value: str) -> str:
 
 
 def local_name(tag: str) -> str:
-    """Remove any XML namespace from an element name."""
+    """Remove an XML namespace from an element name."""
 
     return tag.split("}")[-1].lower()
 
@@ -155,14 +227,8 @@ def extract_article_link(item: ET.Element) -> str:
     return ""
 
 
-def format_publication_date(raw_date: str) -> tuple[str, str]:
-    """
-    Return an ISO date and a display-friendly date.
-
-    Example:
-    2026-07-27
-    July 27, 2026
-    """
+def format_rss_date(raw_date: str) -> tuple[str, str]:
+    """Convert an RSS date into ISO and display forms."""
 
     parsed = parsedate_to_datetime(raw_date)
 
@@ -177,44 +243,143 @@ def format_publication_date(raw_date: str) -> tuple[str, str]:
     )
 
 
+def parse_iso_date(value: str) -> Optional[datetime]:
+    """Parse an ISO date or datetime from article metadata."""
+
+    if not value:
+        return None
+
+    normalized = value.strip().replace("Z", "+00:00")
+
+    try:
+        parsed = datetime.fromisoformat(normalized)
+    except ValueError:
+        return None
+
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+
+    return parsed.astimezone(timezone.utc)
+
+
 def extract_article_metadata(
     article_url: str,
 ) -> dict[str, str]:
-    """Read the article's primary image and description."""
+    """Read title, image, description, and date from an article."""
 
     article_html = download_text(article_url)
 
     parser = ArticleMetadataParser()
     parser.feed(article_html)
 
+    metadata = parser.metadata
+
     image_url = (
-        parser.metadata.get("og:image")
-        or parser.metadata.get("twitter:image")
+        metadata.get("og:image")
+        or metadata.get("twitter:image")
+        or ""
+    ).strip()
+
+    title = clean_text(
+        metadata.get("og:title")
+        or metadata.get("twitter:title")
         or ""
     )
 
-    description = (
-        parser.metadata.get("og:description")
-        or parser.metadata.get("description")
-        or parser.metadata.get("twitter:description")
+    description = clean_text(
+        metadata.get("og:description")
+        or metadata.get("description")
+        or metadata.get("twitter:description")
         or ""
     )
 
-    image_alt = (
-        parser.metadata.get("og:image:alt")
-        or parser.metadata.get("twitter:image:alt")
+    image_alt = clean_text(
+        metadata.get("og:image:alt")
+        or metadata.get("twitter:image:alt")
         or ""
     )
+
+    raw_date = (
+        metadata.get("article:published_time")
+        or metadata.get("date")
+        or metadata.get("datepublished")
+        or ""
+    )
+
+    parsed_date = parse_iso_date(raw_date)
+
+    publication_date = ""
+    display_date = ""
+
+    if parsed_date is not None:
+        publication_date = parsed_date.date().isoformat()
+        display_date = parsed_date.strftime("%B %-d, %Y")
 
     return {
-        "image_url": image_url.strip(),
-        "description": clean_text(description),
-        "image_alt": clean_text(image_alt),
+        "title": title,
+        "description": description,
+        "image_url": image_url,
+        "image_alt": image_alt,
+        "publication_date": publication_date,
+        "display_date": display_date,
     }
 
 
-def collect_feed_entries(feed_xml: str) -> list[dict[str, str]]:
-    """Collect Earth Observatory records from NASA's mixed feed."""
+def make_record(
+    *,
+    article_url: str,
+    fallback_title: str = "",
+    fallback_description: str = "",
+    fallback_date: str = "",
+) -> Optional[dict[str, str]]:
+    """Create one complete slideshow record."""
+
+    print(f"Reading: {fallback_title or article_url}")
+    print(f"  {article_url}")
+
+    metadata = extract_article_metadata(article_url)
+
+    image_url = metadata["image_url"]
+
+    if not image_url:
+        print("  Skipped: no primary image found.")
+        return None
+
+    title = metadata["title"] or fallback_title
+
+    description = (
+        metadata["description"]
+        or remove_nasa_boilerplate(fallback_description)
+    )
+
+    publication_date = metadata["publication_date"]
+    display_date = metadata["display_date"]
+
+    if not publication_date and fallback_date:
+        publication_date, display_date = format_rss_date(
+            fallback_date
+        )
+
+    if not title or not publication_date:
+        print("  Skipped: title or publication date missing.")
+        return None
+
+    return {
+        "title": title,
+        "publication_date": publication_date,
+        "display_date": display_date,
+        "description": description,
+        "image_url": image_url,
+        "image_alt": metadata["image_alt"] or title,
+        "article_url": article_url,
+        "source": "NASA Earth Observatory",
+    }
+
+
+def collect_feed_records(
+    feed_xml: str,
+) -> list[dict[str, str]]:
+    """Collect qualifying records from NASA's mixed RSS feed."""
 
     root = ET.fromstring(feed_xml)
 
@@ -227,11 +392,12 @@ def collect_feed_entries(feed_xml: str) -> list[dict[str, str]]:
     records: list[dict[str, str]] = []
 
     for item in items:
-        title = first_child_text(item, {"title"})
         article_url = extract_article_link(item)
 
         if EARTH_OBSERVATORY_PATH not in article_url:
             continue
+
+        title = first_child_text(item, {"title"})
 
         raw_date = first_child_text(
             item,
@@ -243,7 +409,7 @@ def collect_feed_entries(feed_xml: str) -> list[dict[str, str]]:
             },
         )
 
-        feed_description = first_child_text(
+        description = first_child_text(
             item,
             {
                 "description",
@@ -253,51 +419,81 @@ def collect_feed_entries(feed_xml: str) -> list[dict[str, str]]:
             },
         )
 
-        if not title or not article_url or not raw_date:
-            continue
-
-        iso_date, display_date = format_publication_date(raw_date)
-
-        print(f"Reading: {title}")
-        print(f"  {article_url}")
-
-        metadata = extract_article_metadata(article_url)
-
-        image_url = metadata["image_url"]
-
-        if not image_url:
-            print("  Skipped: no primary image found.")
-            continue
-
-        description = (
-            metadata["description"]
-            or remove_nasa_boilerplate(feed_description)
+        record = make_record(
+            article_url=article_url,
+            fallback_title=title,
+            fallback_description=description,
+            fallback_date=raw_date,
         )
 
-        records.append(
-            {
-                "title": title,
-                "publication_date": iso_date,
-                "display_date": display_date,
-                "description": description,
-                "image_url": image_url,
-                "image_alt": (
-                    metadata["image_alt"]
-                    or title
-                ),
-                "article_url": article_url,
-                "source": "NASA Earth Observatory",
-            }
-        )
-
-        if len(records) == NUMBER_OF_ITEMS:
-            break
+        if record is not None:
+            records.append(record)
 
     return records
 
 
+def collect_archive_links() -> list[str]:
+    """Collect article links from the IOTD archive page."""
+
+    archive_html = download_text(ARCHIVE_URL)
+
+    parser = ArchiveLinkParser(ARCHIVE_URL)
+    parser.feed(archive_html)
+
+    return parser.links
+
+
+def supplement_from_archive(
+    records: list[dict[str, str]],
+) -> list[dict[str, str]]:
+    """Add older archive entries until seven records exist."""
+
+    existing_urls = {
+        record["article_url"]
+        for record in records
+    }
+
+    for article_url in collect_archive_links():
+        if len(records) >= NUMBER_OF_ITEMS:
+            break
+
+        if article_url in existing_urls:
+            continue
+
+        record = make_record(
+            article_url=article_url,
+        )
+
+        if record is None:
+            continue
+
+        records.append(record)
+        existing_urls.add(article_url)
+
+    return records
+
+
+def sort_and_trim(
+    records: list[dict[str, str]],
+) -> list[dict[str, str]]:
+    """Deduplicate, sort newest first, and keep seven."""
+
+    unique: dict[str, dict[str, str]] = {}
+
+    for record in records:
+        unique[record["article_url"]] = record
+
+    sorted_records = sorted(
+        unique.values(),
+        key=lambda record: record["publication_date"],
+        reverse=True,
+    )
+
+    return sorted_records[:NUMBER_OF_ITEMS]
+
+
 def write_json(records: list[dict[str, str]]) -> None:
-    """Write the slideshow records to the repository."""
+    """Write the clean slideshow dataset."""
 
     if len(records) < NUMBER_OF_ITEMS:
         raise RuntimeError(
@@ -310,6 +506,7 @@ def write_json(records: list[dict[str, str]]) -> None:
             timezone.utc
         ).isoformat(timespec="seconds"),
         "source_feed": FEED_URL,
+        "source_archive": ARCHIVE_URL,
         "item_count": len(records),
         "items": records,
     }
@@ -341,7 +538,22 @@ def main() -> int:
         print("Downloading NASA Earth Observatory feed…")
 
         feed_xml = download_text(FEED_URL)
-        records = collect_feed_entries(feed_xml)
+        records = collect_feed_records(feed_xml)
+
+        print()
+        print(
+            f"Feed supplied {len(records)} qualifying entries."
+        )
+
+        if len(records) < NUMBER_OF_ITEMS:
+            print(
+                "Checking the Image of the Day archive "
+                "for additional entries…"
+            )
+
+            records = supplement_from_archive(records)
+
+        records = sort_and_trim(records)
 
         write_json(records)
 
