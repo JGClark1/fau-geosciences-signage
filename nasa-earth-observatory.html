@@ -13,12 +13,16 @@
     content="no-cache, no-store, must-revalidate"
   >
 
-  <title>NASA Earth Observatory</title>
+  <title>Earth Observatory Image of the Day</title>
 
   <style>
     :root {
       --slide-duration: 15000ms;
-      --fade-duration: 1400ms;
+      --fade-duration: 1200ms;
+      --panel-width: 35%;
+      --accent: #67b7e8;
+      --panel-background: #0b1520;
+      --panel-background-secondary: #101f2d;
     }
 
     * {
@@ -45,151 +49,219 @@
 
     #viewer {
       position: relative;
+      display: grid;
+      grid-template-columns:
+        minmax(480px, var(--panel-width))
+        minmax(0, 1fr);
+      background: #000;
       isolation: isolate;
-      background: #000;
     }
 
-    .background-layer,
-    .image-layer {
-      position: absolute;
-      inset: 0;
-    }
-
-    .background-layer {
-      z-index: 1;
+    #information-panel {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding:
+        clamp(34px, 3.2vw, 66px)
+        clamp(34px, 3.1vw, 64px)
+        clamp(28px, 2.6vw, 52px);
       overflow: hidden;
-      background: #000;
+      background:
+        linear-gradient(
+          145deg,
+          var(--panel-background-secondary) 0%,
+          var(--panel-background) 56%,
+          #071019 100%
+        );
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .background-layer::after {
+    #information-panel::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 7px;
+      height: 100%;
+      background: var(--accent);
+    }
+
+    #series-heading {
+      margin: 0;
+      color: var(--accent);
+      font-size: clamp(17px, 1.3vw, 26px);
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    #series-rule {
+      width: 78px;
+      height: 4px;
+      margin-top: 19px;
+      border: 0;
+      background: var(--accent);
+    }
+
+    #slide-title {
+      margin:
+        clamp(30px, 3vw, 54px)
+        0
+        0;
+      color: #fff;
+      font-size: clamp(34px, 3vw, 60px);
+      line-height: 1.04;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      text-wrap: balance;
+    }
+
+    #slide-abstract {
+      margin:
+        clamp(25px, 2.4vw, 42px)
+        0
+        0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: clamp(17px, 1.35vw, 27px);
+      line-height: 1.48;
+      font-weight: 400;
+      text-wrap: pretty;
+    }
+
+    #metadata {
+      margin-top: auto;
+      padding-top: clamp(24px, 2.2vw, 38px);
+    }
+
+    .metadata-item {
+      margin-top: 20px;
+    }
+
+    .metadata-label {
+      display: block;
+      margin-bottom: 6px;
+      color: rgba(103, 183, 232, 0.95);
+      font-size: clamp(12px, 0.85vw, 17px);
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .metadata-value {
+      display: block;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: clamp(15px, 1.05vw, 21px);
+      line-height: 1.3;
+      font-weight: 500;
+    }
+
+    #panel-footer {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: clamp(28px, 2.5vw, 44px);
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    #attribution {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.64);
+      font-size: clamp(12px, 0.8vw, 16px);
+      line-height: 1.25;
+    }
+
+    #counter {
+      flex: 0 0 auto;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: clamp(14px, 0.95vw, 19px);
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    #image-panel {
+      position: relative;
+      min-width: 0;
+      min-height: 0;
+      overflow: hidden;
+      background: #020509;
+    }
+
+    #image-background {
+      position: absolute;
+      inset: -35px;
+      width: calc(100% + 70px);
+      height: calc(100% + 70px);
+      object-fit: cover;
+      transform: scale(1.04);
+      filter:
+        blur(25px)
+        brightness(0.42)
+        saturate(0.8);
+      opacity: 0.82;
+    }
+
+    #image-panel::after {
       content: "";
       position: absolute;
       inset: 0;
+      z-index: 2;
+      pointer-events: none;
       background:
         linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.08) 0%,
-          rgba(0, 0, 0, 0.04) 50%,
-          rgba(0, 0, 0, 0.48) 100%
+          to right,
+          rgba(0, 0, 0, 0.18),
+          transparent 12%,
+          transparent 88%,
+          rgba(0, 0, 0, 0.1)
         );
     }
 
-    #background-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: scale(1.08);
-      filter:
-        blur(24px)
-        brightness(0.55)
-        saturate(0.95);
-    }
-
-    .image-layer {
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-    }
-
     #main-image {
+      position: absolute;
+      z-index: 1;
+      inset: 0;
       display: block;
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
 
-    #background-image,
+    #information-panel,
+    #image-background,
     #main-image {
       opacity: 1;
       transition:
         opacity var(--fade-duration) ease-in-out;
     }
 
-    #viewer.is-changing #background-image,
+    #viewer.is-changing #information-panel,
+    #viewer.is-changing #image-background,
     #viewer.is-changing #main-image {
       opacity: 0;
     }
 
-    #caption-panel {
-      position: absolute;
-      z-index: 5;
-      left: 2.2%;
-      bottom: 4.4%;
-      width: min(760px, 54%);
-      padding: 18px 22px 20px;
-      border-left: 5px solid rgba(111, 190, 255, 0.95);
-      border-radius: 0 7px 7px 0;
-      background: rgba(0, 0, 0, 0.72);
-      pointer-events: none;
-    }
-
-    #slide-title {
-      margin: 0;
-      color: #fff;
-      font-size: clamp(26px, 2.15vw, 43px);
-      line-height: 1.08;
-      font-weight: 700;
-      text-wrap: balance;
-    }
-
-    #slide-description {
-      margin: 10px 0 0;
-      color: rgba(255, 255, 255, 0.94);
-      font-size: clamp(16px, 1.15vw, 23px);
-      line-height: 1.32;
-      font-weight: 400;
-      text-wrap: pretty;
-    }
-
-    #slide-meta {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      margin-top: 12px;
-      color: rgba(255, 255, 255, 0.77);
-      font-size: clamp(12px, 0.82vw, 16px);
-      line-height: 1.2;
-      font-weight: 500;
-    }
-
-    #slide-meta .separator {
-      opacity: 0.65;
-    }
-
-    #counter {
-      position: absolute;
-      z-index: 5;
-      right: 2.2%;
-      bottom: 4.4%;
-      margin: 0;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: clamp(14px, 0.95vw, 19px);
-      line-height: 1.2;
-      font-weight: 600;
-      text-align: right;
-      text-shadow:
-        0 1px 2px rgba(0, 0, 0, 0.95),
-        0 2px 5px rgba(0, 0, 0, 0.85);
-      pointer-events: none;
-    }
-
     #progress-track {
       position: absolute;
-      z-index: 6;
+      z-index: 10;
       left: 0;
       right: 0;
       bottom: 0;
       height: 5px;
-      background: rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.13);
       pointer-events: none;
     }
 
     #progress-bar {
       width: 0;
       height: 100%;
-      background: rgba(111, 190, 255, 0.95);
+      background: var(--accent);
     }
 
     #progress-bar.is-running {
@@ -202,14 +274,14 @@
 
     #status-message {
       position: absolute;
-      z-index: 10;
+      z-index: 20;
       inset: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0;
       padding: 40px;
-      background: #000;
+      background: #071019;
       color: rgba(255, 255, 255, 0.9);
       font-size: clamp(22px, 2vw, 38px);
       text-align: center;
@@ -229,9 +301,23 @@
       }
     }
 
-    @media (max-aspect-ratio: 4 / 3) {
-      #caption-panel {
-        width: 70%;
+    @media (max-aspect-ratio: 3 / 2) {
+      :root {
+        --panel-width: 40%;
+      }
+
+      #viewer {
+        grid-template-columns:
+          minmax(430px, var(--panel-width))
+          minmax(0, 1fr);
+      }
+
+      #slide-title {
+        font-size: clamp(31px, 2.7vw, 50px);
+      }
+
+      #slide-abstract {
+        font-size: clamp(16px, 1.25vw, 23px);
       }
     }
   </style>
@@ -242,37 +328,68 @@
     id="viewer"
     aria-label="Recent images from NASA Earth Observatory"
   >
-    <div class="background-layer">
+    <section id="information-panel">
+      <header>
+        <p id="series-heading">
+          Earth Observatory<br>
+          Image of the Day
+        </p>
+
+        <hr id="series-rule">
+      </header>
+
+      <h1 id="slide-title"></h1>
+
+      <p id="slide-abstract"></p>
+
+      <div id="metadata">
+        <div class="metadata-item">
+          <span class="metadata-label">
+            Published
+          </span>
+
+          <span
+            id="slide-date"
+            class="metadata-value"
+          ></span>
+        </div>
+
+        <div class="metadata-item">
+          <span class="metadata-label">
+            Image source
+          </span>
+
+          <span
+            id="image-source"
+            class="metadata-value"
+          ></span>
+        </div>
+      </div>
+
+      <footer id="panel-footer">
+        <p id="attribution">
+          NASA Earth Observatory
+        </p>
+
+        <p id="counter"></p>
+      </footer>
+    </section>
+
+    <section
+      id="image-panel"
+      aria-label="NASA Earth Observatory image"
+    >
       <img
-        id="background-image"
+        id="image-background"
         alt=""
         aria-hidden="true"
       >
-    </div>
 
-    <div class="image-layer">
       <img
         id="main-image"
         alt=""
       >
-    </div>
-
-    <section
-      id="caption-panel"
-      aria-live="polite"
-    >
-      <h1 id="slide-title"></h1>
-
-      <p id="slide-description"></p>
-
-      <div id="slide-meta">
-        <span id="slide-date"></span>
-        <span class="separator">•</span>
-        <span>NASA Earth Observatory</span>
-      </div>
     </section>
-
-    <p id="counter"></p>
 
     <div id="progress-track" aria-hidden="true">
       <div id="progress-bar"></div>
@@ -288,14 +405,17 @@
       "data/nasa-earth-observatory.json";
 
     const SLIDE_DURATION_MS = 15000;
-    const FADE_DURATION_MS = 1400;
+    const FADE_DURATION_MS = 1200;
     const DATA_REFRESH_MS = 60 * 60 * 1000;
 
     const viewer =
       document.getElementById("viewer");
 
-    const backgroundImage =
-      document.getElementById("background-image");
+    const informationPanel =
+      document.getElementById("information-panel");
+
+    const imageBackground =
+      document.getElementById("image-background");
 
     const mainImage =
       document.getElementById("main-image");
@@ -303,11 +423,14 @@
     const slideTitle =
       document.getElementById("slide-title");
 
-    const slideDescription =
-      document.getElementById("slide-description");
+    const slideAbstract =
+      document.getElementById("slide-abstract");
 
     const slideDate =
       document.getElementById("slide-date");
+
+    const imageSource =
+      document.getElementById("image-source");
 
     const counter =
       document.getElementById("counter");
@@ -321,7 +444,6 @@
     let slides = [];
     let currentIndex = 0;
     let slideTimer = null;
-    let refreshTimer = null;
 
     function cacheBustedDataUrl() {
       return (
@@ -364,15 +486,12 @@
       const nextIndex =
         (currentIndex + 1) % slides.length;
 
-      const nextUrl =
-        slides[nextIndex].image_url;
-
       const image = new Image();
-      image.src = nextUrl;
+      image.src = slides[nextIndex].image_url;
     }
 
     function applySlide(slide, index) {
-      backgroundImage.src = slide.image_url;
+      imageBackground.src = slide.image_url;
       mainImage.src = slide.image_url;
       mainImage.alt =
         slide.image_alt || slide.title;
@@ -380,11 +499,17 @@
       slideTitle.textContent =
         slide.title;
 
-      slideDescription.textContent =
-        slide.description;
+      slideAbstract.textContent =
+        slide.abstract ||
+        slide.short_description ||
+        "";
 
       slideDate.textContent =
         slide.display_date;
+
+      imageSource.textContent =
+        slide.image_source ||
+        "NASA Earth observation";
 
       counter.textContent =
         `${index + 1} of ${slides.length}`;
@@ -531,7 +656,7 @@
 
     loadSlides();
 
-    refreshTimer = window.setInterval(
+    window.setInterval(
       () => {
         loadSlides({
           preserveCurrentSlide: true
