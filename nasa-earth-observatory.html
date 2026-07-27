@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    http-equiv="Cache-Control"
+    content="no-cache, no-store, must-revalidate"
+  >
+
+  <title>NASA Earth Observatory</title>
+
+  <style>
+    :root {
+      --slide-duration: 15000ms;
+      --fade-duration: 1400ms;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body,
+    #viewer {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+    }
+
+    #viewer {
+      position: relative;
+      isolation: isolate;
+      background: #000;
+    }
+
+    .background-layer,
+    .image-layer {
+      position: absolute;
+      inset: 0;
+    }
+
+    .background-layer {
+      z-index: 1;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .background-layer::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.08) 0%,
+          rgba(0, 0, 0, 0.04) 50%,
+          rgba(0, 0, 0, 0.48) 100%
+        );
+    }
+
+    #background-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.08);
+      filter:
+        blur(24px)
+        brightness(0.55)
+        saturate(0.95);
+    }
+
+    .image-layer {
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    #main-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    #background-image,
+    #main-image {
+      opacity: 1;
+      transition:
+        opacity var(--fade-duration) ease-in-out;
+    }
+
+    #viewer.is-changing #background-image,
+    #viewer.is-changing #main-image {
+      opacity: 0;
+    }
+
+    #caption-panel {
+      position: absolute;
+      z-index: 5;
+      left: 2.2%;
+      bottom: 4.4%;
+      width: min(760px, 54%);
+      padding: 18px 22px 20px;
+      border-left: 5px solid rgba(111, 190, 255, 0.95);
+      border-radius: 0 7px 7px 0;
+      background: rgba(0, 0, 0, 0.72);
+      pointer-events: none;
+    }
+
+    #slide-title {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(26px, 2.15vw, 43px);
+      line-height: 1.08;
+      font-weight: 700;
+      text-wrap: balance;
+    }
+
+    #slide-description {
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, 0.94);
+      font-size: clamp(16px, 1.15vw, 23px);
+      line-height: 1.32;
+      font-weight: 400;
+      text-wrap: pretty;
+    }
+
+    #slide-meta {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 12px;
+      color: rgba(255, 255, 255, 0.77);
+      font-size: clamp(12px, 0.82vw, 16px);
+      line-height: 1.2;
+      font-weight: 500;
+    }
+
+    #slide-meta .separator {
+      opacity: 0.65;
+    }
+
+    #counter {
+      position: absolute;
+      z-index: 5;
+      right: 2.2%;
+      bottom: 4.4%;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: clamp(14px, 0.95vw, 19px);
+      line-height: 1.2;
+      font-weight: 600;
+      text-align: right;
+      text-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.95),
+        0 2px 5px rgba(0, 0, 0, 0.85);
+      pointer-events: none;
+    }
+
+    #progress-track {
+      position: absolute;
+      z-index: 6;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.16);
+      pointer-events: none;
+    }
+
+    #progress-bar {
+      width: 0;
+      height: 100%;
+      background: rgba(111, 190, 255, 0.95);
+    }
+
+    #progress-bar.is-running {
+      animation:
+        advance-progress
+        var(--slide-duration)
+        linear
+        forwards;
+    }
+
+    #status-message {
+      position: absolute;
+      z-index: 10;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 40px;
+      background: #000;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: clamp(22px, 2vw, 38px);
+      text-align: center;
+    }
+
+    #status-message[hidden] {
+      display: none;
+    }
+
+    @keyframes advance-progress {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    @media (max-aspect-ratio: 4 / 3) {
+      #caption-panel {
+        width: 70%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main
+    id="viewer"
+    aria-label="Recent images from NASA Earth Observatory"
+  >
+    <div class="background-layer">
+      <img
+        id="background-image"
+        alt=""
+        aria-hidden="true"
+      >
+    </div>
+
+    <div class="image-layer">
+      <img
+        id="main-image"
+        alt=""
+      >
+    </div>
+
+    <section
+      id="caption-panel"
+      aria-live="polite"
+    >
+      <h1 id="slide-title"></h1>
+
+      <p id="slide-description"></p>
+
+      <div id="slide-meta">
+        <span id="slide-date"></span>
+        <span class="separator">•</span>
+        <span>NASA Earth Observatory</span>
+      </div>
+    </section>
+
+    <p id="counter"></p>
+
+    <div id="progress-track" aria-hidden="true">
+      <div id="progress-bar"></div>
+    </div>
+
+    <p id="status-message">
+      Loading recent NASA Earth Observatory images…
+    </p>
+  </main>
+
+  <script>
+    const DATA_URL =
+      "data/nasa-earth-observatory.json";
+
+    const SLIDE_DURATION_MS = 15000;
+    const FADE_DURATION_MS = 1400;
+    const DATA_REFRESH_MS = 60 * 60 * 1000;
+
+    const viewer =
+      document.getElementById("viewer");
+
+    const backgroundImage =
+      document.getElementById("background-image");
+
+    const mainImage =
+      document.getElementById("main-image");
+
+    const slideTitle =
+      document.getElementById("slide-title");
+
+    const slideDescription =
+      document.getElementById("slide-description");
+
+    const slideDate =
+      document.getElementById("slide-date");
+
+    const counter =
+      document.getElementById("counter");
+
+    const progressBar =
+      document.getElementById("progress-bar");
+
+    const statusMessage =
+      document.getElementById("status-message");
+
+    let slides = [];
+    let currentIndex = 0;
+    let slideTimer = null;
+    let refreshTimer = null;
+
+    function cacheBustedDataUrl() {
+      return (
+        DATA_URL +
+        "?updated=" +
+        Date.now()
+      );
+    }
+
+    function stopSlideTimer() {
+      if (slideTimer !== null) {
+        window.clearTimeout(slideTimer);
+        slideTimer = null;
+      }
+    }
+
+    function restartProgressBar() {
+      progressBar.classList.remove("is-running");
+
+      void progressBar.offsetWidth;
+
+      progressBar.classList.add("is-running");
+    }
+
+    function preloadImage(url) {
+      return new Promise((resolve, reject) => {
+        const image = new Image();
+
+        image.onload = () => resolve(url);
+        image.onerror = reject;
+        image.src = url;
+      });
+    }
+
+    function preloadNextSlide() {
+      if (slides.length < 2) {
+        return;
+      }
+
+      const nextIndex =
+        (currentIndex + 1) % slides.length;
+
+      const nextUrl =
+        slides[nextIndex].image_url;
+
+      const image = new Image();
+      image.src = nextUrl;
+    }
+
+    function applySlide(slide, index) {
+      backgroundImage.src = slide.image_url;
+      mainImage.src = slide.image_url;
+      mainImage.alt =
+        slide.image_alt || slide.title;
+
+      slideTitle.textContent =
+        slide.title;
+
+      slideDescription.textContent =
+        slide.description;
+
+      slideDate.textContent =
+        slide.display_date;
+
+      counter.textContent =
+        `${index + 1} of ${slides.length}`;
+
+      currentIndex = index;
+
+      restartProgressBar();
+      preloadNextSlide();
+    }
+
+    async function showSlide(index, immediate = false) {
+      if (!slides.length) {
+        return;
+      }
+
+      stopSlideTimer();
+
+      const normalizedIndex =
+        ((index % slides.length) + slides.length)
+        % slides.length;
+
+      const slide =
+        slides[normalizedIndex];
+
+      try {
+        await preloadImage(slide.image_url);
+      } catch (error) {
+        console.error(
+          "Unable to load NASA image:",
+          slide.image_url,
+          error
+        );
+
+        scheduleNextSlide(normalizedIndex);
+        return;
+      }
+
+      if (immediate) {
+        applySlide(slide, normalizedIndex);
+      } else {
+        viewer.classList.add("is-changing");
+
+        window.setTimeout(() => {
+          applySlide(slide, normalizedIndex);
+          viewer.classList.remove("is-changing");
+        }, FADE_DURATION_MS);
+      }
+
+      slideTimer = window.setTimeout(
+        () => {
+          showSlide(normalizedIndex + 1);
+        },
+        immediate
+          ? SLIDE_DURATION_MS
+          : SLIDE_DURATION_MS + FADE_DURATION_MS
+      );
+    }
+
+    function scheduleNextSlide(index) {
+      slideTimer = window.setTimeout(
+        () => {
+          showSlide(index + 1);
+        },
+        1000
+      );
+    }
+
+    function validSlides(items) {
+      return items.filter((item) => {
+        return Boolean(
+          item &&
+          item.title &&
+          item.image_url &&
+          item.display_date
+        );
+      });
+    }
+
+    async function loadSlides({
+      preserveCurrentSlide = false
+    } = {}) {
+      try {
+        const response = await fetch(
+          cacheBustedDataUrl(),
+          {
+            cache: "no-store"
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error(
+            `Slideshow data returned HTTP ${response.status}`
+          );
+        }
+
+        const payload = await response.json();
+        const newSlides = validSlides(payload.items || []);
+
+        if (!newSlides.length) {
+          throw new Error(
+            "No usable NASA slideshow entries were found."
+          );
+        }
+
+        let nextIndex = 0;
+
+        if (
+          preserveCurrentSlide &&
+          slides.length &&
+          slides[currentIndex]
+        ) {
+          const currentArticle =
+            slides[currentIndex].article_url;
+
+          const matchingIndex =
+            newSlides.findIndex(
+              (item) =>
+                item.article_url === currentArticle
+            );
+
+          if (matchingIndex >= 0) {
+            nextIndex = matchingIndex;
+          }
+        }
+
+        slides = newSlides;
+        statusMessage.hidden = true;
+
+        await showSlide(
+          nextIndex,
+          true
+        );
+      } catch (error) {
+        console.error(error);
+
+        if (!slides.length) {
+          statusMessage.textContent =
+            "NASA Earth Observatory images are temporarily unavailable.";
+
+          statusMessage.hidden = false;
+        }
+      }
+    }
+
+    loadSlides();
+
+    refreshTimer = window.setInterval(
+      () => {
+        loadSlides({
+          preserveCurrentSlide: true
+        });
+      },
+      DATA_REFRESH_MS
+    );
+  </script>
+</body>
+</html>
