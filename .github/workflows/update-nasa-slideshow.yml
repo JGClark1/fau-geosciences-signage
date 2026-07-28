@@ -29,6 +29,9 @@ jobs:
       - name: Build NASA slideshow data
         run: python scripts/build_nasa_slideshow.py
 
+      - name: Select NASA story media
+        run: python scripts/enrich_nasa_media.py
+
       - name: Commit updated slideshow data
         run: |
           git config user.name "github-actions[bot]"
