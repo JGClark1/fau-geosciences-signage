@@ -2,23 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    http-equiv="Cache-Control"
-    content="no-cache, no-store, must-revalidate"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>Earth Observatory Image of the Day</title>
 
   <style>
     :root {
-      --slide-duration: 15000ms;
-      --fade-duration: 1200ms;
+      --story-duration: 10000ms;
+      --comparison-half: 5000ms;
+      --fade-duration: 900ms;
       --panel-width: 37%;
       --accent: #67b7e8;
       --panel-background: #0b1520;
@@ -41,10 +33,7 @@
     body {
       background: #000;
       color: #fff;
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     #viewer {
@@ -82,10 +71,8 @@
     #information-panel::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
+      inset: 0 auto 0 0;
       width: 7px;
-      height: 100%;
       background: var(--accent);
     }
 
@@ -128,7 +115,6 @@
       color: rgba(255, 255, 255, 0.88);
       font-size: clamp(15px, 1.08vw, 21px);
       line-height: 1.43;
-      font-weight: 400;
       text-align: justify;
       text-justify: inter-word;
       hyphens: auto;
@@ -177,19 +163,16 @@
       margin: 0;
       color: rgba(255, 255, 255, 0.64);
       font-size: clamp(11px, 0.72vw, 14px);
-      line-height: 1.25;
     }
 
     #counter {
-      flex: 0 0 auto;
       margin: 0;
       color: rgba(255, 255, 255, 0.9);
       font-size: clamp(13px, 0.82vw, 17px);
-      line-height: 1.2;
       font-weight: 700;
     }
 
-    #image-panel {
+    #media-panel {
       position: relative;
       min-width: 0;
       min-height: 0;
@@ -197,8 +180,9 @@
       background: #020509;
     }
 
-    #image-background {
+    #media-background {
       position: absolute;
+      z-index: 0;
       inset: -35px;
       width: calc(100% + 70px);
       height: calc(100% + 70px);
@@ -211,11 +195,27 @@
       opacity: 0.82;
     }
 
-    #image-panel::after {
+    #main-image,
+    #comparison-image,
+    #main-video {
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #020509;
+      opacity: 1;
+      transition:
+        opacity var(--fade-duration) ease-in-out;
+    }
+
+    #media-panel::after {
       content: "";
       position: absolute;
+      z-index: 3;
       inset: 0;
-      z-index: 2;
       pointer-events: none;
       background:
         linear-gradient(
@@ -227,41 +227,47 @@
         );
     }
 
-    #main-image,
-    #main-video {
+    #comparison-badge {
       position: absolute;
-      z-index: 1;
-      inset: 0;
+      z-index: 4;
+      right: clamp(22px, 2vw, 38px);
+      bottom: clamp(22px, 2vw, 38px);
+      min-width: 185px;
+      padding: 13px 17px 12px;
+      background: rgba(4, 13, 22, 0.84);
+      border-left: 5px solid var(--accent);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    #comparison-role {
       display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      background: #020509;
+      color: var(--accent);
+      font-size: clamp(16px, 1.15vw, 23px);
+      font-weight: 800;
+      letter-spacing: 0.09em;
     }
 
-    #main-video {
-      border: 0;
+    #comparison-date {
+      display: block;
+      margin-top: 4px;
+      color: #fff;
+      font-size: clamp(13px, 0.9vw, 18px);
+      font-weight: 600;
     }
 
-    #image-background[hidden],
-    #main-image[hidden],
-    #main-video[hidden] {
-      display: none;
+    [hidden] {
+      display: none !important;
     }
 
     #information-panel,
-    #image-background,
-    #main-image,
-    #main-video {
+    #media-panel {
       opacity: 1;
       transition:
         opacity var(--fade-duration) ease-in-out;
     }
 
     #viewer.is-changing #information-panel,
-    #viewer.is-changing #image-background,
-    #viewer.is-changing #main-image,
-    #viewer.is-changing #main-video {
+    #viewer.is-changing #media-panel {
       opacity: 0;
     }
 
@@ -285,7 +291,7 @@
     #progress-bar.is-running {
       animation:
         advance-progress
-        var(--slide-duration)
+        var(--story-duration)
         linear
         forwards;
     }
@@ -303,10 +309,6 @@
       color: rgba(255, 255, 255, 0.9);
       font-size: clamp(22px, 2vw, 38px);
       text-align: center;
-    }
-
-    #status-message[hidden] {
-      display: none;
     }
 
     @keyframes advance-progress {
@@ -345,7 +347,7 @@
 <body>
   <main
     id="viewer"
-    aria-label="Recent images and animations from NASA Earth Observatory"
+    aria-label="Recent NASA Earth Observatory stories"
   >
     <section id="information-panel">
       <header>
@@ -385,11 +387,11 @@
     </section>
 
     <section
-      id="image-panel"
+      id="media-panel"
       aria-label="NASA Earth Observatory media"
     >
       <img
-        id="image-background"
+        id="media-background"
         alt=""
         aria-hidden="true"
       >
@@ -397,6 +399,12 @@
       <img
         id="main-image"
         alt=""
+      >
+
+      <img
+        id="comparison-image"
+        alt=""
+        hidden
       >
 
       <video
@@ -407,9 +415,20 @@
         preload="auto"
         hidden
       ></video>
+
+      <div
+        id="comparison-badge"
+        hidden
+      >
+        <span id="comparison-role"></span>
+        <span id="comparison-date"></span>
+      </div>
     </section>
 
-    <div id="progress-track" aria-hidden="true">
+    <div
+      id="progress-track"
+      aria-hidden="true"
+    >
       <div id="progress-bar"></div>
     </div>
 
@@ -422,22 +441,34 @@
     const DATA_URL =
       "data/nasa-earth-observatory.json";
 
-    const SLIDE_DURATION_MS = 15000;
-    const FADE_DURATION_MS = 1200;
+    const STORY_DURATION_MS = 10000;
+    const COMPARISON_HALF_MS = 5000;
+    const FADE_DURATION_MS = 900;
     const DATA_REFRESH_MS = 60 * 60 * 1000;
-    const VIDEO_PRELOAD_TIMEOUT_MS = 12000;
 
     const viewer =
       document.getElementById("viewer");
 
-    const imageBackground =
-      document.getElementById("image-background");
+    const mediaBackground =
+      document.getElementById("media-background");
 
     const mainImage =
       document.getElementById("main-image");
 
+    const comparisonImage =
+      document.getElementById("comparison-image");
+
     const mainVideo =
       document.getElementById("main-video");
+
+    const comparisonBadge =
+      document.getElementById("comparison-badge");
+
+    const comparisonRole =
+      document.getElementById("comparison-role");
+
+    const comparisonDate =
+      document.getElementById("comparison-date");
 
     const headingDate =
       document.getElementById("heading-date");
@@ -462,27 +493,27 @@
 
     let slides = [];
     let currentIndex = 0;
-    let slideTimer = null;
+    let storyTimer = null;
+    let comparisonTimer = null;
     let transitionTimer = null;
 
-    function cacheBustedDataUrl() {
-      return (
-        DATA_URL +
-        "?updated=" +
-        Date.now()
-      );
-    }
-
-    function stopSlideTimer() {
-      if (slideTimer !== null) {
-        window.clearTimeout(slideTimer);
-        slideTimer = null;
+    function clearTimers() {
+      for (
+        const timer
+        of [
+          storyTimer,
+          comparisonTimer,
+          transitionTimer
+        ]
+      ) {
+        if (timer !== null) {
+          window.clearTimeout(timer);
+        }
       }
 
-      if (transitionTimer !== null) {
-        window.clearTimeout(transitionTimer);
-        transitionTimer = null;
-      }
+      storyTimer = null;
+      comparisonTimer = null;
+      transitionTimer = null;
     }
 
     function restartProgressBar() {
@@ -493,223 +524,173 @@
       progressBar.classList.add("is-running");
     }
 
-    function isVideoSlide(slide) {
-      return (
-        slide.media_type === "video" &&
-        Boolean(slide.media_url)
-      );
-    }
-
-    function slideMediaUrl(slide) {
-      return (
-        slide.media_url ||
-        slide.image_url ||
-        ""
-      );
-    }
-
     function preloadImage(url) {
       return new Promise((resolve, reject) => {
         const image = new Image();
 
-        image.onload = () => resolve(url);
-        image.onerror = () => {
-          reject(
-            new Error(
-              `Unable to preload image: ${url}`
-            )
-          );
-        };
-
+        image.onload = resolve;
+        image.onerror = reject;
         image.src = url;
       });
     }
 
-    function preloadVideo(url) {
-      return new Promise((resolve, reject) => {
-        const video =
-          document.createElement("video");
+    function slideMediaUrls(slide) {
+      if (
+        slide.media_type === "comparison" &&
+        Array.isArray(slide.media_items)
+      ) {
+        return slide.media_items
+          .map((item) => item && item.url)
+          .filter(Boolean);
+      }
 
-        let settled = false;
+      const url =
+        slide.media_url ||
+        slide.image_url;
 
-        const timeout =
-          window.setTimeout(
-            () => {
-              if (settled) {
-                return;
-              }
-
-              settled = true;
-
-              video.removeAttribute("src");
-              video.load();
-
-              reject(
-                new Error(
-                  `Video preload timed out: ${url}`
-                )
-              );
-            },
-            VIDEO_PRELOAD_TIMEOUT_MS
-          );
-
-        function cleanUp() {
-          window.clearTimeout(timeout);
-          video.removeAttribute("src");
-          video.load();
-        }
-
-        function finishSuccessfully() {
-          if (settled) {
-            return;
-          }
-
-          settled = true;
-          cleanUp();
-          resolve(url);
-        }
-
-        function finishWithError() {
-          if (settled) {
-            return;
-          }
-
-          settled = true;
-          cleanUp();
-
-          reject(
-            new Error(
-              `Unable to preload video: ${url}`
-            )
-          );
-        }
-
-        video.muted = true;
-        video.preload = "auto";
-        video.playsInline = true;
-
-        video.addEventListener(
-          "loadeddata",
-          finishSuccessfully,
-          {
-            once: true
-          }
-        );
-
-        video.addEventListener(
-          "error",
-          finishWithError,
-          {
-            once: true
-          }
-        );
-
-        video.src = url;
-        video.load();
-      });
+      return url ? [url] : [];
     }
 
-    function preloadSlideMedia(slide) {
-      const mediaUrl =
-        slideMediaUrl(slide);
+    async function preloadSlide(slide) {
+      const urls =
+        slideMediaUrls(slide);
 
-      if (!mediaUrl) {
-        return Promise.reject(
-          new Error(
-            "The slide has no usable media URL."
-          )
+      if (!urls.length) {
+        throw new Error(
+          "No slide media URL."
         );
       }
 
-      if (isVideoSlide(slide)) {
-        return preloadVideo(mediaUrl);
+      if (slide.media_type === "video") {
+        return;
       }
 
-      return preloadImage(mediaUrl);
+      await Promise.all(
+        urls.map(preloadImage)
+      );
     }
 
-    function preloadNextSlide() {
-      if (slides.length < 2) {
-        return;
-      }
-
-      const nextIndex =
-        (currentIndex + 1) % slides.length;
-
-      const nextSlide =
-        slides[nextIndex];
-
-      const mediaUrl =
-        slideMediaUrl(nextSlide);
-
-      if (!mediaUrl) {
-        return;
-      }
-
-      if (isVideoSlide(nextSlide)) {
-        const video =
-          document.createElement("video");
-
-        video.muted = true;
-        video.preload = "metadata";
-        video.playsInline = true;
-        video.src = mediaUrl;
-        video.load();
-
-        return;
-      }
-
-      const image = new Image();
-      image.src = mediaUrl;
-    }
-
-    function stopCurrentVideo() {
+    function stopVideo() {
       mainVideo.pause();
       mainVideo.removeAttribute("src");
       mainVideo.load();
+      mainVideo.hidden = true;
     }
 
-    function displayImageSlide(slide) {
-      const mediaUrl =
-        slideMediaUrl(slide);
+    function hideComparison() {
+      if (comparisonTimer !== null) {
+        window.clearTimeout(comparisonTimer);
+        comparisonTimer = null;
+      }
 
-      stopCurrentVideo();
+      comparisonImage.hidden = true;
+      comparisonImage.removeAttribute("src");
+      comparisonImage.style.opacity = "0";
+      comparisonBadge.hidden = true;
+    }
 
-      mainVideo.hidden = true;
+    function setBackground(url) {
+      if (!url) {
+        mediaBackground.hidden = true;
+        mediaBackground.removeAttribute("src");
+        return;
+      }
 
-      imageBackground.src = mediaUrl;
-      imageBackground.hidden = false;
+      mediaBackground.src = url;
+      mediaBackground.hidden = false;
+    }
 
-      mainImage.src = mediaUrl;
+    function displayImage(slide) {
+      stopVideo();
+      hideComparison();
+
+      const url =
+        slide.media_url ||
+        slide.image_url;
+
+      setBackground(url);
+
+      mainImage.src = url;
       mainImage.alt =
-        slide.image_alt || slide.title;
+        slide.image_alt ||
+        slide.title;
 
       mainImage.hidden = false;
     }
 
-    function displayVideoSlide(slide) {
-      const mediaUrl =
-        slideMediaUrl(slide);
+    function updateComparisonBadge(item) {
+      comparisonRole.textContent =
+        item.label ||
+        item.role ||
+        "";
+
+      comparisonDate.textContent =
+        item.date ||
+        "";
+
+      comparisonBadge.hidden = false;
+    }
+
+    function displayComparison(slide) {
+      stopVideo();
+      hideComparison();
+
+      const items =
+        Array.isArray(slide.media_items)
+          ? slide.media_items.slice(0, 2)
+          : [];
+
+      if (items.length < 2) {
+        displayImage(slide);
+        return;
+      }
+
+      const before = items[0];
+      const after = items[1];
+
+      setBackground(before.url);
+
+      mainImage.src = before.url;
+      mainImage.alt =
+        `${slide.title}: ${before.label || "before"}`;
+
+      mainImage.hidden = false;
+
+      updateComparisonBadge(before);
+
+      comparisonImage.src = after.url;
+      comparisonImage.alt =
+        `${slide.title}: ${after.label || "after"}`;
+
+      comparisonImage.hidden = false;
+      comparisonImage.style.opacity = "0";
+
+      comparisonTimer =
+        window.setTimeout(
+          () => {
+            comparisonImage.style.opacity = "1";
+            setBackground(after.url);
+            updateComparisonBadge(after);
+          },
+          COMPARISON_HALF_MS
+        );
+    }
+
+    function displayVideo(slide) {
+      hideComparison();
 
       mainImage.hidden = true;
       mainImage.removeAttribute("src");
-      mainImage.alt = "";
 
-      /*
-        The fallback image for some NASA animations is
-        only a small location map, so video slides do not
-        use it as the blurred background.
-      */
-      imageBackground.hidden = true;
-      imageBackground.removeAttribute("src");
+      setBackground("");
 
-      stopCurrentVideo();
+      stopVideo();
 
       mainVideo.hidden = false;
       mainVideo.muted = true;
       mainVideo.loop = true;
       mainVideo.playsInline = true;
-      mainVideo.src = mediaUrl;
+      mainVideo.src = slide.media_url;
       mainVideo.currentTime = 0;
       mainVideo.load();
 
@@ -730,10 +711,12 @@
     }
 
     function applySlide(slide, index) {
-      if (isVideoSlide(slide)) {
-        displayVideoSlide(slide);
+      if (slide.media_type === "comparison") {
+        displayComparison(slide);
+      } else if (slide.media_type === "video") {
+        displayVideo(slide);
       } else {
-        displayImageSlide(slide);
+        displayImage(slide);
       }
 
       headingDate.textContent =
@@ -757,7 +740,6 @@
       currentIndex = index;
 
       restartProgressBar();
-      preloadNextSlide();
     }
 
     async function showSlide(
@@ -768,25 +750,34 @@
         return;
       }
 
-      stopSlideTimer();
+      clearTimers();
 
       const normalizedIndex =
-        ((index % slides.length) + slides.length)
+        (
+          (index % slides.length)
+          + slides.length
+        )
         % slides.length;
 
       const slide =
         slides[normalizedIndex];
 
       try {
-        await preloadSlideMedia(slide);
+        await preloadSlide(slide);
       } catch (error) {
         console.error(
-          "Unable to load NASA slide media:",
-          slideMediaUrl(slide),
+          "Unable to preload NASA media:",
           error
         );
 
-        scheduleNextSlide(normalizedIndex);
+        storyTimer =
+          window.setTimeout(
+            () => {
+              showSlide(normalizedIndex + 1);
+            },
+            1000
+          );
+
         return;
       }
 
@@ -816,50 +807,49 @@
           );
       }
 
-      slideTimer =
+      storyTimer =
         window.setTimeout(
           () => {
             showSlide(normalizedIndex + 1);
           },
-          immediate
-            ? SLIDE_DURATION_MS
-            : SLIDE_DURATION_MS
-              + FADE_DURATION_MS
-        );
-    }
-
-    function scheduleNextSlide(index) {
-      slideTimer =
-        window.setTimeout(
-          () => {
-            showSlide(index + 1);
-          },
-          1000
+          STORY_DURATION_MS
+          + (
+            immediate
+              ? 0
+              : FADE_DURATION_MS
+          )
         );
     }
 
     function validSlides(items) {
       return items.filter((item) => {
-        if (!item) {
+        if (
+          !item ||
+          !item.title ||
+          !item.display_date
+        ) {
           return false;
         }
 
-        const hasMedia =
-          Boolean(
-            item.media_url ||
-            item.image_url
+        if (
+          item.media_type === "comparison"
+        ) {
+          return (
+            Array.isArray(item.media_items) &&
+            item.media_items.length >= 2 &&
+            item.media_items
+              .slice(0, 2)
+              .every(
+                (media) =>
+                  media &&
+                  media.url
+              )
           );
-
-        const validMediaType =
-          !item.media_type ||
-          item.media_type === "image" ||
-          item.media_type === "video";
+        }
 
         return Boolean(
-          item.title &&
-          item.display_date &&
-          hasMedia &&
-          validMediaType
+          item.media_url ||
+          item.image_url
         );
       });
     }
@@ -868,12 +858,13 @@
       preserveCurrentSlide = false
     } = {}) {
       try {
-        const response = await fetch(
-          cacheBustedDataUrl(),
-          {
-            cache: "no-store"
-          }
-        );
+        const response =
+          await fetch(
+            `${DATA_URL}?updated=${Date.now()}`,
+            {
+              cache: "no-store"
+            }
+          );
 
         if (!response.ok) {
           throw new Error(
@@ -885,7 +876,10 @@
           await response.json();
 
         const newSlides =
-          validSlides(payload.items || []);
+          validSlides(
+            payload.items ||
+            []
+          );
 
         if (!newSlides.length) {
           throw new Error(
@@ -897,20 +891,20 @@
 
         if (
           preserveCurrentSlide &&
-          slides.length &&
           slides[currentIndex]
         ) {
           const currentArticle =
             slides[currentIndex].article_url;
 
-          const matchingIndex =
+          const match =
             newSlides.findIndex(
               (item) =>
-                item.article_url === currentArticle
+                item.article_url
+                === currentArticle
             );
 
-          if (matchingIndex >= 0) {
-            nextIndex = matchingIndex;
+          if (match >= 0) {
+            nextIndex = match;
           }
         }
 
@@ -937,20 +931,18 @@
       "visibilitychange",
       () => {
         if (
-          document.hidden ||
-          mainVideo.hidden
+          !document.hidden &&
+          !mainVideo.hidden
         ) {
-          return;
-        }
+          const playAttempt =
+            mainVideo.play();
 
-        const playAttempt =
-          mainVideo.play();
-
-        if (
-          playAttempt &&
-          typeof playAttempt.catch === "function"
-        ) {
-          playAttempt.catch(() => {});
+          if (
+            playAttempt &&
+            typeof playAttempt.catch === "function"
+          ) {
+            playAttempt.catch(() => {});
+          }
         }
       }
     );
