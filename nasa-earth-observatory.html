@@ -227,7 +227,8 @@
         );
     }
 
-    #main-image {
+    #main-image,
+    #main-video {
       position: absolute;
       z-index: 1;
       inset: 0;
@@ -235,11 +236,23 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
+      background: #020509;
+    }
+
+    #main-video {
+      border: 0;
+    }
+
+    #image-background[hidden],
+    #main-image[hidden],
+    #main-video[hidden] {
+      display: none;
     }
 
     #information-panel,
     #image-background,
-    #main-image {
+    #main-image,
+    #main-video {
       opacity: 1;
       transition:
         opacity var(--fade-duration) ease-in-out;
@@ -247,7 +260,8 @@
 
     #viewer.is-changing #information-panel,
     #viewer.is-changing #image-background,
-    #viewer.is-changing #main-image {
+    #viewer.is-changing #main-image,
+    #viewer.is-changing #main-video {
       opacity: 0;
     }
 
@@ -331,7 +345,7 @@
 <body>
   <main
     id="viewer"
-    aria-label="Recent images from NASA Earth Observatory"
+    aria-label="Recent images and animations from NASA Earth Observatory"
   >
     <section id="information-panel">
       <header>
@@ -372,7 +386,7 @@
 
     <section
       id="image-panel"
-      aria-label="NASA Earth Observatory image"
+      aria-label="NASA Earth Observatory media"
     >
       <img
         id="image-background"
@@ -384,6 +398,15 @@
         id="main-image"
         alt=""
       >
+
+      <video
+        id="main-video"
+        muted
+        loop
+        playsinline
+        preload="auto"
+        hidden
+      ></video>
     </section>
 
     <div id="progress-track" aria-hidden="true">
@@ -391,7 +414,7 @@
     </div>
 
     <p id="status-message">
-      Loading recent NASA Earth Observatory images…
+      Loading recent NASA Earth Observatory stories…
     </p>
   </main>
 
@@ -402,6 +425,7 @@
     const SLIDE_DURATION_MS = 15000;
     const FADE_DURATION_MS = 1200;
     const DATA_REFRESH_MS = 60 * 60 * 1000;
+    const VIDEO_PRELOAD_TIMEOUT_MS = 12000;
 
     const viewer =
       document.getElementById("viewer");
@@ -411,6 +435,9 @@
 
     const mainImage =
       document.getElementById("main-image");
+
+    const mainVideo =
+      document.getElementById("main-video");
 
     const headingDate =
       document.getElementById("heading-date");
@@ -436,6 +463,7 @@
     let slides = [];
     let currentIndex = 0;
     let slideTimer = null;
+    let transitionTimer = null;
 
     function cacheBustedDataUrl() {
       return (
@@ -450,6 +478,11 @@
         window.clearTimeout(slideTimer);
         slideTimer = null;
       }
+
+      if (transitionTimer !== null) {
+        window.clearTimeout(transitionTimer);
+        transitionTimer = null;
+      }
     }
 
     function restartProgressBar() {
@@ -460,14 +493,139 @@
       progressBar.classList.add("is-running");
     }
 
+    function isVideoSlide(slide) {
+      return (
+        slide.media_type === "video" &&
+        Boolean(slide.media_url)
+      );
+    }
+
+    function slideMediaUrl(slide) {
+      return (
+        slide.media_url ||
+        slide.image_url ||
+        ""
+      );
+    }
+
     function preloadImage(url) {
       return new Promise((resolve, reject) => {
         const image = new Image();
 
         image.onload = () => resolve(url);
-        image.onerror = reject;
+        image.onerror = () => {
+          reject(
+            new Error(
+              `Unable to preload image: ${url}`
+            )
+          );
+        };
+
         image.src = url;
       });
+    }
+
+    function preloadVideo(url) {
+      return new Promise((resolve, reject) => {
+        const video =
+          document.createElement("video");
+
+        let settled = false;
+
+        const timeout =
+          window.setTimeout(
+            () => {
+              if (settled) {
+                return;
+              }
+
+              settled = true;
+
+              video.removeAttribute("src");
+              video.load();
+
+              reject(
+                new Error(
+                  `Video preload timed out: ${url}`
+                )
+              );
+            },
+            VIDEO_PRELOAD_TIMEOUT_MS
+          );
+
+        function cleanUp() {
+          window.clearTimeout(timeout);
+          video.removeAttribute("src");
+          video.load();
+        }
+
+        function finishSuccessfully() {
+          if (settled) {
+            return;
+          }
+
+          settled = true;
+          cleanUp();
+          resolve(url);
+        }
+
+        function finishWithError() {
+          if (settled) {
+            return;
+          }
+
+          settled = true;
+          cleanUp();
+
+          reject(
+            new Error(
+              `Unable to preload video: ${url}`
+            )
+          );
+        }
+
+        video.muted = true;
+        video.preload = "auto";
+        video.playsInline = true;
+
+        video.addEventListener(
+          "loadeddata",
+          finishSuccessfully,
+          {
+            once: true
+          }
+        );
+
+        video.addEventListener(
+          "error",
+          finishWithError,
+          {
+            once: true
+          }
+        );
+
+        video.src = url;
+        video.load();
+      });
+    }
+
+    function preloadSlideMedia(slide) {
+      const mediaUrl =
+        slideMediaUrl(slide);
+
+      if (!mediaUrl) {
+        return Promise.reject(
+          new Error(
+            "The slide has no usable media URL."
+          )
+        );
+      }
+
+      if (isVideoSlide(slide)) {
+        return preloadVideo(mediaUrl);
+      }
+
+      return preloadImage(mediaUrl);
     }
 
     function preloadNextSlide() {
@@ -478,15 +636,105 @@
       const nextIndex =
         (currentIndex + 1) % slides.length;
 
+      const nextSlide =
+        slides[nextIndex];
+
+      const mediaUrl =
+        slideMediaUrl(nextSlide);
+
+      if (!mediaUrl) {
+        return;
+      }
+
+      if (isVideoSlide(nextSlide)) {
+        const video =
+          document.createElement("video");
+
+        video.muted = true;
+        video.preload = "metadata";
+        video.playsInline = true;
+        video.src = mediaUrl;
+        video.load();
+
+        return;
+      }
+
       const image = new Image();
-      image.src = slides[nextIndex].image_url;
+      image.src = mediaUrl;
+    }
+
+    function stopCurrentVideo() {
+      mainVideo.pause();
+      mainVideo.removeAttribute("src");
+      mainVideo.load();
+    }
+
+    function displayImageSlide(slide) {
+      const mediaUrl =
+        slideMediaUrl(slide);
+
+      stopCurrentVideo();
+
+      mainVideo.hidden = true;
+
+      imageBackground.src = mediaUrl;
+      imageBackground.hidden = false;
+
+      mainImage.src = mediaUrl;
+      mainImage.alt =
+        slide.image_alt || slide.title;
+
+      mainImage.hidden = false;
+    }
+
+    function displayVideoSlide(slide) {
+      const mediaUrl =
+        slideMediaUrl(slide);
+
+      mainImage.hidden = true;
+      mainImage.removeAttribute("src");
+      mainImage.alt = "";
+
+      /*
+        The fallback image for some NASA animations is
+        only a small location map, so video slides do not
+        use it as the blurred background.
+      */
+      imageBackground.hidden = true;
+      imageBackground.removeAttribute("src");
+
+      stopCurrentVideo();
+
+      mainVideo.hidden = false;
+      mainVideo.muted = true;
+      mainVideo.loop = true;
+      mainVideo.playsInline = true;
+      mainVideo.src = mediaUrl;
+      mainVideo.currentTime = 0;
+      mainVideo.load();
+
+      const playAttempt =
+        mainVideo.play();
+
+      if (
+        playAttempt &&
+        typeof playAttempt.catch === "function"
+      ) {
+        playAttempt.catch((error) => {
+          console.error(
+            "NASA video autoplay was blocked:",
+            error
+          );
+        });
+      }
     }
 
     function applySlide(slide, index) {
-      imageBackground.src = slide.image_url;
-      mainImage.src = slide.image_url;
-      mainImage.alt =
-        slide.image_alt || slide.title;
+      if (isVideoSlide(slide)) {
+        displayVideoSlide(slide);
+      } else {
+        displayImageSlide(slide);
+      }
 
       headingDate.textContent =
         slide.display_date;
@@ -512,7 +760,10 @@
       preloadNextSlide();
     }
 
-    async function showSlide(index, immediate = false) {
+    async function showSlide(
+      index,
+      immediate = false
+    ) {
       if (!slides.length) {
         return;
       }
@@ -527,11 +778,11 @@
         slides[normalizedIndex];
 
       try {
-        await preloadImage(slide.image_url);
+        await preloadSlideMedia(slide);
       } catch (error) {
         console.error(
-          "Unable to load NASA image:",
-          slide.image_url,
+          "Unable to load NASA slide media:",
+          slideMediaUrl(slide),
           error
         );
 
@@ -540,42 +791,75 @@
       }
 
       if (immediate) {
-        applySlide(slide, normalizedIndex);
+        applySlide(
+          slide,
+          normalizedIndex
+        );
       } else {
         viewer.classList.add("is-changing");
 
-        window.setTimeout(() => {
-          applySlide(slide, normalizedIndex);
-          viewer.classList.remove("is-changing");
-        }, FADE_DURATION_MS);
+        transitionTimer =
+          window.setTimeout(
+            () => {
+              applySlide(
+                slide,
+                normalizedIndex
+              );
+
+              viewer.classList.remove(
+                "is-changing"
+              );
+
+              transitionTimer = null;
+            },
+            FADE_DURATION_MS
+          );
       }
 
-      slideTimer = window.setTimeout(
-        () => {
-          showSlide(normalizedIndex + 1);
-        },
-        immediate
-          ? SLIDE_DURATION_MS
-          : SLIDE_DURATION_MS + FADE_DURATION_MS
-      );
+      slideTimer =
+        window.setTimeout(
+          () => {
+            showSlide(normalizedIndex + 1);
+          },
+          immediate
+            ? SLIDE_DURATION_MS
+            : SLIDE_DURATION_MS
+              + FADE_DURATION_MS
+        );
     }
 
     function scheduleNextSlide(index) {
-      slideTimer = window.setTimeout(
-        () => {
-          showSlide(index + 1);
-        },
-        1000
-      );
+      slideTimer =
+        window.setTimeout(
+          () => {
+            showSlide(index + 1);
+          },
+          1000
+        );
     }
 
     function validSlides(items) {
       return items.filter((item) => {
+        if (!item) {
+          return false;
+        }
+
+        const hasMedia =
+          Boolean(
+            item.media_url ||
+            item.image_url
+          );
+
+        const validMediaType =
+          !item.media_type ||
+          item.media_type === "image" ||
+          item.media_type === "video";
+
         return Boolean(
-          item &&
           item.title &&
-          item.image_url &&
-          item.display_date
+          item.display_date &&
+          hasMedia &&
+          validMediaType
         );
       });
     }
@@ -597,8 +881,11 @@
           );
         }
 
-        const payload = await response.json();
-        const newSlides = validSlides(payload.items || []);
+        const payload =
+          await response.json();
+
+        const newSlides =
+          validSlides(payload.items || []);
 
         if (!newSlides.length) {
           throw new Error(
@@ -639,12 +926,34 @@
 
         if (!slides.length) {
           statusMessage.textContent =
-            "NASA Earth Observatory images are temporarily unavailable.";
+            "NASA Earth Observatory stories are temporarily unavailable.";
 
           statusMessage.hidden = false;
         }
       }
     }
+
+    document.addEventListener(
+      "visibilitychange",
+      () => {
+        if (
+          document.hidden ||
+          mainVideo.hidden
+        ) {
+          return;
+        }
+
+        const playAttempt =
+          mainVideo.play();
+
+        if (
+          playAttempt &&
+          typeof playAttempt.catch === "function"
+        ) {
+          playAttempt.catch(() => {});
+        }
+      }
+    );
 
     loadSlides();
 
