@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T15:16:38+00:00",
+  "generated_at": "2026-07-28T16:05:07+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
@@ -21,7 +21,8 @@
       ],
       "image_source": "Landsat 8 • OLI · Photography",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/pink-penguin-guano-provides-diet-clues/",
-      "source": "NASA Earth Observatory"
+      "source": "NASA Earth Observatory",
+      "media_items": []
     },
     {
       "title": "A Million-Panel Project",
@@ -29,7 +30,7 @@
       "display_date": "July 24, 2026",
       "short_description": "Utah’s new solar power and battery storage facility is among the largest in the region.",
       "abstract": "Utah’s new solar power and battery storage facility is among the largest in the region. A different energy development arrived in the region in June 2026, when a large solar power and battery storage plant came online in the sunny valley about 130 miles (210 kilometers) southeast of Salt Lake City. That places it among the many utility-scale solar power and battery storage projects that the U.S. Energy Information Administration expects to be plugged into the country’s grid in 2026. The Utah facility is slated to supply power to Salt Lake City and other areas across the state, according to news reports, and project staff estimate it could produce enough electricity for more than 100,000 homes. With its integrated battery storage, the plant has the potential to generate power at all hours, even when the Sun isn’t shining.",
-      "media_type": "image",
+      "media_type": "comparison",
       "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-million-panel-project/solarutah_oli_20240616_lrg.jpg?w=3680&h=3250&fit=clip&crop=faces%2Cfocalpoint",
       "video_url": "",
       "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-million-panel-project/solarutah_oli_20240616_lrg.jpg?w=3680&h=3250&fit=clip&crop=faces%2Cfocalpoint",
@@ -39,7 +40,21 @@
       ],
       "image_source": "Landsat 8 • OLI",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/a-million-panel-project/",
-      "source": "NASA Earth Observatory"
+      "source": "NASA Earth Observatory",
+      "media_items": [
+        {
+          "role": "before",
+          "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-million-panel-project/solarutah_oli_20240616_lrg.jpg?w=3680&h=3250&fit=clip&crop=faces%2Cfocalpoint",
+          "label": "BEFORE",
+          "date": "June 16, 2024"
+        },
+        {
+          "role": "after",
+          "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-million-panel-project/solarutah_oli_20260606_lrg.jpg?w=3680&h=3250&fit=clip&crop=faces%2Cfocalpoint",
+          "label": "AFTER",
+          "date": "June 6, 2026"
+        }
+      ]
     },
     {
       "title": "Olympic Mountain Glory",
@@ -57,7 +72,8 @@
       ],
       "image_source": "ISS • Digital Camera",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/olympic-mountain-glory/",
-      "source": "NASA Earth Observatory"
+      "source": "NASA Earth Observatory",
+      "media_items": []
     },
     {
       "title": "A Week of Smoky Skies Across North America",
@@ -75,7 +91,8 @@
       ],
       "image_source": "Model",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/a-week-of-smoky-skies-across-north-america/",
-      "source": "NASA Earth Observatory"
+      "source": "NASA Earth Observatory",
+      "media_items": []
     },
     {
       "title": "Why Maine's Sandy Shorelines Turn Jagged",
@@ -93,7 +110,8 @@
       ],
       "image_source": "Landsat 9 • OLI",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/why-maines-sandy-shorelines-turn-jagged/",
-      "source": "NASA Earth Observatory"
+      "source": "NASA Earth Observatory",
+      "media_items": []
     },
     {
       "title": "Shaping the Emerald City",
@@ -111,7 +129,8 @@
       ],
       "image_source": "ISS • Digital Camera",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/shaping-the-emerald-city/",
-      "source": "NASA Earth Observatory"
+      "source": "NASA Earth Observatory",
+      "media_items": []
     },
     {
       "title": "A Tide-Fueled Trove of Biodiversity in Guinea-Bissau",
@@ -129,7 +148,8 @@
       ],
       "image_source": "Landsat 8 • OLI",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/a-tide-fueled-trove-of-biodiversity-in-guinea-bissau/",
-      "source": "NASA Earth Observatory"
+      "source": "NASA Earth Observatory",
+      "media_items": []
     }
   ]
 }
