@@ -27,7 +27,10 @@ ARCHIVE_URL = (
 OUTPUT_PATH = Path("data/nasa-earth-observatory.json")
 
 NUMBER_OF_ITEMS = 7
-ABSTRACT_WORD_LIMIT = 105
+
+ABSTRACT_TARGET_WORDS = 120
+ABSTRACT_MAX_WORDS = 145
+ABSTRACT_MIN_WORDS = 75
 
 USER_AGENT = (
     "FAU-Geosciences-Signage/1.0 "
@@ -54,9 +57,126 @@ EXCLUDED_SLUGS = {
     "world-of-change",
 }
 
+STORY_STOP_HEADINGS = {
+    "downloads",
+    "image details",
+    "references",
+    "references & resources",
+    "references and resources",
+    "you may also be interested in",
+}
+
+INTRODUCTION_TERMS = {
+    "acquired",
+    "animation",
+    "captured",
+    "features",
+    "image",
+    "located",
+    "observed",
+    "region",
+    "shows",
+    "shown",
+}
+
+EXPLANATION_TERMS = {
+    "according",
+    "because",
+    "caused",
+    "come from",
+    "data",
+    "due to",
+    "enabled",
+    "explains",
+    "formed",
+    "generated",
+    "incorporates",
+    "influenced",
+    "model",
+    "produced",
+    "resulted",
+    "reveals",
+    "tracked",
+    "using",
+}
+
+SIGNIFICANCE_TERMS = {
+    "affect",
+    "air quality",
+    "allows",
+    "contributes",
+    "important",
+    "indicates",
+    "matters",
+    "provides",
+    "reveals",
+    "scientists",
+    "shows",
+    "significance",
+    "supports",
+    "therefore",
+    "understand",
+}
+
+LOCATION_TERMS = {
+    "africa",
+    "america",
+    "antarctica",
+    "asia",
+    "canada",
+    "city",
+    "coast",
+    "europe",
+    "florida",
+    "island",
+    "north america",
+    "ocean",
+    "region",
+    "state",
+    "united states",
+    "u.s.",
+}
+
+TIME_TERMS = {
+    "january",
+    "february",
+    "march",
+    "april",
+    "may",
+    "june",
+    "july",
+    "august",
+    "september",
+    "october",
+    "november",
+    "december",
+    "day",
+    "week",
+    "month",
+    "year",
+    "during",
+    "since",
+}
+
+SENTENCE_ABBREVIATIONS = {
+    "U.S.": "U§S§",
+    "D.C.": "D§C§",
+    "B.C.": "B§C§",
+    "U.K.": "U§K§",
+    "Dr.": "Dr§",
+    "Mr.": "Mr§",
+    "Mrs.": "Mrs§",
+    "Ms.": "Ms§",
+    "St.": "St§",
+    "No.": "No§",
+    "Fig.": "Fig§",
+    "e.g.": "e§g§",
+    "i.e.": "i§e§",
+}
+
 
 class ArticleParser(HTMLParser):
-    """Extract metadata, text blocks, and image addresses."""
+    """Extract metadata, text blocks, images, and media links."""
 
     BLOCK_TAGS = {
         "h1",
@@ -69,12 +189,19 @@ class ArticleParser(HTMLParser):
         "li",
     }
 
+    MEDIA_TAGS = {
+        "a",
+        "source",
+        "video",
+    }
+
     def __init__(self) -> None:
         super().__init__()
 
         self.metadata: dict[str, str] = {}
         self.blocks: list[tuple[str, str]] = []
         self.image_urls: list[str] = []
+        self.media_urls: list[str] = []
 
         self.current_tag: Optional[str] = None
         self.current_parts: list[str] = []
@@ -107,7 +234,11 @@ class ArticleParser(HTMLParser):
                 )
 
         if tag == "img":
-            for attribute_name in ("src", "data-src"):
+            for attribute_name in (
+                "src",
+                "data-src",
+                "data-lazy-src",
+            ):
                 image_url = attributes.get(
                     attribute_name,
                     "",
@@ -124,6 +255,20 @@ class ArticleParser(HTMLParser):
 
                     if image_url:
                         self.image_urls.append(image_url)
+
+        if tag in self.MEDIA_TAGS:
+            for attribute_name in (
+                "href",
+                "src",
+                "data-src",
+            ):
+                media_url = attributes.get(
+                    attribute_name,
+                    "",
+                ).strip()
+
+                if media_url:
+                    self.media_urls.append(media_url)
 
         if tag in self.BLOCK_TAGS:
             self.current_tag = tag
@@ -269,6 +414,7 @@ def clean_text(value: Optional[str]) -> str:
 
     text = html.unescape(value)
     text = re.sub(r"<[^>]+>", " ", text)
+    text = text.replace("\u00a0", " ")
     text = re.sub(r"\s+", " ", text)
 
     return text.strip()
@@ -374,46 +520,81 @@ def word_count(value: str) -> int:
     return len(value.split())
 
 
-def truncate_words(
-    value: str,
-    limit: int,
-) -> str:
-    """Limit text without cutting a word in half."""
+def split_sentences(value: str) -> list[str]:
+    """Split prose into complete sentences."""
 
-    words = value.split()
+    protected = value
 
-    if len(words) <= limit:
-        return value
+    for abbreviation, replacement in (
+        SENTENCE_ABBREVIATIONS.items()
+    ):
+        protected = protected.replace(
+            abbreviation,
+            replacement,
+        )
 
-    shortened = " ".join(words[:limit]).rstrip(
-        " ,;:"
+    parts = re.split(
+        r"(?<=[.!?])\s+(?=[A-Z0-9“\"'])",
+        protected,
     )
 
-    final_punctuation = shortened[-1:]
+    sentences: list[str] = []
 
-    if final_punctuation in {".", "!", "?"}:
-        return shortened
+    for part in parts:
+        restored = part
 
-    return shortened + "…"
+        for abbreviation, replacement in (
+            SENTENCE_ABBREVIATIONS.items()
+        ):
+            restored = restored.replace(
+                replacement,
+                abbreviation,
+            )
+
+        restored = clean_text(restored)
+
+        if restored:
+            sentences.append(restored)
+
+    return sentences
+
+
+def is_complete_sentence(value: str) -> bool:
+    """Return whether text ends as a complete sentence."""
+
+    return value.rstrip().endswith(
+        (
+            ".",
+            "!",
+            "?",
+            ".”",
+            "!”",
+            "?”",
+        )
+    )
 
 
 def looks_like_story_paragraph(value: str) -> bool:
-    """Reject captions, credits, navigation, and boilerplate."""
+    """Reject captions, credits, warnings, and boilerplate."""
 
-    if word_count(value) < 18:
+    if word_count(value) < 12:
         return False
 
-    lowered = value.lower()
+    lowered = value.lower().strip()
 
     rejected_starts = (
         "accessed ",
+        "download ",
         "image of the day",
         "image:",
         "jpeg",
-        "nasa earth observatory image",
-        "nasa earth observatory images",
+        "nasa earth observatory animation by",
+        "nasa earth observatory image by",
+        "nasa earth observatory images by",
+        "nasa earth observatory video by",
         "references",
         "story by ",
+        "to view this video",
         "view more images",
     )
 
@@ -421,9 +602,12 @@ def looks_like_story_paragraph(value: str) -> bool:
         return False
 
     rejected_phrases = (
+        "consider upgrading to a web browser",
+        "download this image",
+        "enable javascript",
         "page last updated",
         "responsible nasa official",
-        "download this image",
+        "supports html5 video",
     )
 
     return not any(
@@ -432,21 +616,27 @@ def looks_like_story_paragraph(value: str) -> bool:
     )
 
 
-def build_abstract(
+def extract_story_paragraphs(
     blocks: list[tuple[str, str]],
-    fallback_description: str,
-) -> str:
-    """
-    Build a short editorial paragraph from the article body.
-
-    The first two useful article paragraphs are normally enough
-    to explain what is shown and why it matters.
-    """
+) -> list[str]:
+    """Extract substantive article paragraphs before references."""
 
     paragraphs: list[str] = []
     seen: set[str] = set()
 
     for tag, text in blocks:
+        normalized_heading = (
+            text.lower()
+            .strip()
+            .rstrip(":")
+        )
+
+        if (
+            tag.startswith("h")
+            and normalized_heading in STORY_STOP_HEADINGS
+        ):
+            break
+
         if tag != "p":
             continue
 
@@ -461,33 +651,383 @@ def build_abstract(
         seen.add(normalized)
         paragraphs.append(text)
 
-        combined = " ".join(paragraphs)
+    return paragraphs
 
-        if word_count(combined) >= 70:
-            break
 
-    if paragraphs:
-        return truncate_words(
-            " ".join(paragraphs),
-            ABSTRACT_WORD_LIMIT,
+def keyword_hits(
+    sentence: str,
+    terms: set[str],
+) -> int:
+    """Count useful terms found in a sentence."""
+
+    lowered = sentence.lower()
+
+    return sum(
+        1
+        for term in terms
+        if term in lowered
+    )
+
+
+def sentence_score(
+    sentence: str,
+    index: int,
+    total: int,
+) -> float:
+    """Score a sentence for informational usefulness."""
+
+    if not sentence:
+        return -100.0
+
+    words = word_count(sentence)
+
+    if words < 7:
+        return -20.0
+
+    score = 0.0
+
+    score += min(words, 35) * 0.08
+
+    score += keyword_hits(
+        sentence,
+        INTRODUCTION_TERMS,
+    ) * 1.5
+
+    score += keyword_hits(
+        sentence,
+        EXPLANATION_TERMS,
+    ) * 2.0
+
+    score += keyword_hits(
+        sentence,
+        SIGNIFICANCE_TERMS,
+    ) * 2.0
+
+    score += keyword_hits(
+        sentence,
+        LOCATION_TERMS,
+    ) * 0.8
+
+    score += keyword_hits(
+        sentence,
+        TIME_TERMS,
+    ) * 0.7
+
+    if total > 1:
+        relative_position = index / (total - 1)
+    else:
+        relative_position = 0.0
+
+    if relative_position <= 0.25:
+        score += 2.0
+
+    if 0.25 < relative_position < 0.75:
+        score += 1.0
+
+    if relative_position >= 0.70:
+        score += 2.5
+
+    if sentence.endswith(":"):
+        score -= 4.0
+
+    return score
+
+
+def normalized_sentence(value: str) -> str:
+    """Normalize a sentence for duplicate comparison."""
+
+    return re.sub(
+        r"[^a-z0-9]+",
+        " ",
+        value.lower(),
+    ).strip()
+
+
+def sentence_similarity(
+    first: str,
+    second: str,
+) -> float:
+    """Estimate similarity using shared normalized words."""
+
+    first_words = set(
+        normalized_sentence(first).split()
+    )
+
+    second_words = set(
+        normalized_sentence(second).split()
+    )
+
+    if not first_words or not second_words:
+        return 0.0
+
+    overlap = len(first_words & second_words)
+    smaller = min(
+        len(first_words),
+        len(second_words),
+    )
+
+    return overlap / smaller
+
+
+def append_if_useful(
+    selected: set[int],
+    candidate_index: int,
+    sentences: list[str],
+    maximum_words: int,
+) -> bool:
+    """Add a candidate when it fits and is not repetitive."""
+
+    if candidate_index in selected:
+        return False
+
+    candidate = sentences[candidate_index]
+
+    if not is_complete_sentence(candidate):
+        return False
+
+    for existing_index in selected:
+        if sentence_similarity(
+            candidate,
+            sentences[existing_index],
+        ) >= 0.72:
+            return False
+
+    proposed_indices = sorted(
+        selected | {candidate_index}
+    )
+
+    proposed_text = " ".join(
+        sentences[index]
+        for index in proposed_indices
+    )
+
+    if word_count(proposed_text) > maximum_words:
+        return False
+
+    selected.add(candidate_index)
+    return True
+
+
+def best_index(
+    candidates: list[int],
+    scores: list[float],
+    excluded: set[int],
+) -> Optional[int]:
+    """Return the highest-scoring available candidate."""
+
+    available = [
+        index
+        for index in candidates
+        if index not in excluded
+    ]
+
+    if not available:
+        return None
+
+    return max(
+        available,
+        key=lambda index: scores[index],
+    )
+
+
+def build_extractive_abstract(
+    paragraphs: list[str],
+    fallback_description: str,
+) -> str:
+    """
+    Build a complete extractive abstract from several story zones.
+
+    The selection considers:
+    - opening context;
+    - explanatory or methodological material;
+    - the final substantive portion of the article;
+    - overall information density.
+    """
+
+    sentences: list[str] = []
+
+    for paragraph in paragraphs:
+        for sentence in split_sentences(paragraph):
+            if not is_complete_sentence(sentence):
+                continue
+
+            if not looks_like_story_paragraph(sentence):
+                continue
+
+            sentences.append(sentence)
+
+    if not sentences:
+        fallback_sentences = [
+            sentence
+            for sentence in split_sentences(
+                fallback_description
+            )
+            if is_complete_sentence(sentence)
+        ]
+
+        return " ".join(fallback_sentences)
+
+    total = len(sentences)
+
+    scores = [
+        sentence_score(
+            sentence,
+            index,
+            total,
+        )
+        for index, sentence in enumerate(sentences)
+    ]
+
+    selected: set[int] = set()
+
+    introduction_candidates = list(
+        range(
+            0,
+            max(1, (total + 3) // 4),
+        )
+    )
+
+    middle_start = max(
+        0,
+        total // 4,
+    )
+
+    middle_end = max(
+        middle_start + 1,
+        (total * 3) // 4,
+    )
+
+    middle_candidates = list(
+        range(
+            middle_start,
+            min(total, middle_end),
+        )
+    )
+
+    conclusion_start = max(
+        0,
+        (total * 2) // 3,
+    )
+
+    conclusion_candidates = list(
+        range(
+            conclusion_start,
+            total,
+        )
+    )
+
+    introduction_index = best_index(
+        introduction_candidates,
+        scores,
+        selected,
+    )
+
+    if introduction_index is not None:
+        append_if_useful(
+            selected,
+            introduction_index,
+            sentences,
+            ABSTRACT_MAX_WORDS,
         )
 
-    return truncate_words(
-        fallback_description,
-        ABSTRACT_WORD_LIMIT,
+    explanation_ranked = sorted(
+        middle_candidates,
+        key=lambda index: (
+            keyword_hits(
+                sentences[index],
+                EXPLANATION_TERMS,
+            ),
+            scores[index],
+        ),
+        reverse=True,
     )
+
+    for candidate_index in explanation_ranked:
+        if append_if_useful(
+            selected,
+            candidate_index,
+            sentences,
+            ABSTRACT_MAX_WORDS,
+        ):
+            break
+
+    conclusion_ranked = sorted(
+        conclusion_candidates,
+        key=lambda index: (
+            keyword_hits(
+                sentences[index],
+                SIGNIFICANCE_TERMS,
+            ),
+            scores[index],
+        ),
+        reverse=True,
+    )
+
+    for candidate_index in conclusion_ranked:
+        if append_if_useful(
+            selected,
+            candidate_index,
+            sentences,
+            ABSTRACT_MAX_WORDS,
+        ):
+            break
+
+    ranked_all = sorted(
+        range(total),
+        key=lambda index: scores[index],
+        reverse=True,
+    )
+
+    for candidate_index in ranked_all:
+        current_text = " ".join(
+            sentences[index]
+            for index in sorted(selected)
+        )
+
+        current_words = word_count(current_text)
+
+        if (
+            current_words >= ABSTRACT_TARGET_WORDS
+            and current_words >= ABSTRACT_MIN_WORDS
+        ):
+            break
+
+        append_if_useful(
+            selected,
+            candidate_index,
+            sentences,
+            ABSTRACT_MAX_WORDS,
+        )
+
+    final_text = " ".join(
+        sentences[index]
+        for index in sorted(selected)
+    ).strip()
+
+    if word_count(final_text) < ABSTRACT_MIN_WORDS:
+        for candidate_index in range(total):
+            append_if_useful(
+                selected,
+                candidate_index,
+                sentences,
+                ABSTRACT_MAX_WORDS,
+            )
+
+            final_text = " ".join(
+                sentences[index]
+                for index in sorted(selected)
+            ).strip()
+
+            if word_count(final_text) >= ABSTRACT_MIN_WORDS:
+                break
+
+    return final_text
 
 
 def extract_instruments_from_html(
     article_html: str,
 ) -> list[str]:
-    """
-    Extract NASA's Instruments list directly from the article HTML.
-
-    NASA places platform and instrument names inside nested links,
-    so parsing the complete HTML section is more reliable than
-    relying on individual text blocks.
-    """
+    """Extract NASA's visible Instruments list."""
 
     heading_match = re.search(
         r"<(?:h[1-6]|div|span|p)\b[^>]*>"
@@ -628,17 +1168,149 @@ def format_image_source(
     return " · ".join(formatted)
 
 
-def normalize_image_url(url: str) -> str:
-    """Convert a relative NASA image address into an absolute URL."""
+def normalize_url(
+    url: str,
+    article_url: str,
+) -> str:
+    """Normalize an escaped or relative media address."""
+
+    cleaned = html.unescape(url.strip())
+
+    cleaned = cleaned.replace("\\/", "/")
+    cleaned = cleaned.replace("\\u002F", "/")
+    cleaned = cleaned.replace("\\u002f", "/")
+    cleaned = cleaned.replace("\\u003A", ":")
+    cleaned = cleaned.replace("\\u003a", ":")
 
     return urllib.parse.urljoin(
-        "https://science.nasa.gov/",
-        html.unescape(url),
+        article_url,
+        cleaned,
     )
 
 
+def extract_raw_mp4_urls(
+    article_html: str,
+    article_url: str,
+) -> list[str]:
+    """Find MP4 addresses embedded in markup or page JSON."""
+
+    prepared = html.unescape(article_html)
+
+    prepared = prepared.replace("\\/", "/")
+    prepared = prepared.replace("\\u002F", "/")
+    prepared = prepared.replace("\\u002f", "/")
+    prepared = prepared.replace("\\u003A", ":")
+    prepared = prepared.replace("\\u003a", ":")
+
+    patterns = (
+        r'https?://[^"\'<>\s]+?\.mp4(?:\?[^"\'<>\s]*)?',
+        r'["\']([^"\']+?\.mp4(?:\?[^"\']*)?)["\']',
+    )
+
+    urls: list[str] = []
+
+    for pattern in patterns:
+        for match in re.findall(
+            pattern,
+            prepared,
+            flags=re.IGNORECASE,
+        ):
+            candidate = (
+                match
+                if isinstance(match, str)
+                else match[0]
+            )
+
+            normalized = normalize_url(
+                candidate,
+                article_url,
+            )
+
+            if normalized not in urls:
+                urls.append(normalized)
+
+    return urls
+
+
+def video_score(url: str) -> int:
+    """Rank likely NASA story videos."""
+
+    lowered = urllib.parse.unquote(url).lower()
+
+    if ".mp4" not in lowered:
+        return -10_000
+
+    score = 0
+
+    if "assets.science.nasa.gov" in lowered:
+        score += 200
+
+    if "/eo/" in lowered:
+        score += 150
+
+    if "/iotd/" in lowered:
+        score += 150
+
+    if "download" in lowered:
+        score += 20
+
+    if "preview" in lowered:
+        score -= 30
+
+    if "thumbnail" in lowered:
+        score -= 100
+
+    return score
+
+
+def select_primary_video(
+    parser: ArticleParser,
+    article_html: str,
+    article_url: str,
+) -> str:
+    """Select the best available MP4 for a video story."""
+
+    candidates: list[str] = []
+
+    for url in parser.media_urls:
+        normalized = normalize_url(
+            url,
+            article_url,
+        )
+
+        if ".mp4" in normalized.lower():
+            candidates.append(normalized)
+
+    candidates.extend(
+        extract_raw_mp4_urls(
+            article_html,
+            article_url,
+        )
+    )
+
+    unique_candidates: list[str] = []
+
+    for candidate in candidates:
+        if candidate not in unique_candidates:
+            unique_candidates.append(candidate)
+
+    ranked = sorted(
+        unique_candidates,
+        key=video_score,
+        reverse=True,
+    )
+
+    if not ranked:
+        return ""
+
+    if video_score(ranked[0]) < 0:
+        return ""
+
+    return ranked[0]
+
+
 def image_score(url: str) -> int:
-    """Rank likely lead images above thumbnails and page graphics."""
+    """Rank likely lead images above posters and page graphics."""
 
     lowered = urllib.parse.unquote(url).lower()
 
@@ -659,6 +1331,19 @@ def image_score(url: str) -> int:
     if "fit=clip" in lowered:
         score += 30
 
+    if any(
+        term in lowered
+        for term in (
+            "fallback",
+            "generic",
+            "location",
+            "map-placeholder",
+            "poster",
+            "thumbnail",
+        )
+    ):
+        score -= 1_000
+
     if "logo" in lowered or "banner" in lowered:
         score -= 1_000
 
@@ -667,6 +1352,7 @@ def image_score(url: str) -> int:
 
 def select_primary_image(
     parser: ArticleParser,
+    article_url: str,
 ) -> str:
     """Select the best available Earth Observatory story image."""
 
@@ -680,11 +1366,17 @@ def select_primary_image(
 
     if social_image:
         candidates.append(
-            normalize_image_url(social_image)
+            normalize_url(
+                social_image,
+                article_url,
+            )
         )
 
     candidates.extend(
-        normalize_image_url(url)
+        normalize_url(
+            url,
+            article_url,
+        )
         for url in parser.image_urls
     )
 
@@ -700,7 +1392,10 @@ def select_primary_image(
         reverse=True,
     )
 
-    if not ranked or image_score(ranked[0]) < 0:
+    if not ranked:
+        return ""
+
+    if image_score(ranked[0]) < 0:
         return ""
 
     return ranked[0]
@@ -719,7 +1414,16 @@ def extract_article_metadata(
 
     metadata = parser.metadata
 
-    image_url = select_primary_image(parser)
+    video_url = select_primary_video(
+        parser,
+        article_html,
+        article_url,
+    )
+
+    image_url = select_primary_image(
+        parser,
+        article_url,
+    )
 
     title = clean_title(
         clean_text(
@@ -762,15 +1466,29 @@ def extract_article_metadata(
         article_html
     )
 
-    abstract = build_abstract(
-        parser.blocks,
+    paragraphs = extract_story_paragraphs(
+        parser.blocks
+    )
+
+    abstract = build_extractive_abstract(
+        paragraphs,
         short_description,
     )
+
+    if video_url:
+        media_type = "video"
+        media_url = video_url
+    else:
+        media_type = "image"
+        media_url = image_url
 
     return {
         "title": title,
         "short_description": short_description,
         "abstract": abstract,
+        "media_type": media_type,
+        "media_url": media_url,
+        "video_url": video_url,
         "image_url": image_url,
         "image_alt": image_alt,
         "publication_date": publication_date,
@@ -807,13 +1525,19 @@ def make_record(
         fallback_description,
     )
 
+    media_type = str(metadata["media_type"])
+    media_url = str(metadata["media_url"])
     image_url = str(metadata["image_url"])
+    video_url = str(metadata["video_url"])
 
-    if not image_url:
-        print("  Skipped: no primary image found.")
+    if not media_url:
+        print("  Skipped: no usable primary media found.")
         return None
 
-    if not is_iotd_image(image_url):
+    if (
+        media_type == "image"
+        and not is_iotd_image(image_url)
+    ):
         print(
             "  Skipped: primary image is not from "
             "the Earth Observatory IOTD collection."
@@ -847,12 +1571,31 @@ def make_record(
         or remove_nasa_boilerplate(fallback_description)
     )
 
+    abstract = str(metadata["abstract"]).strip()
+
+    if not abstract:
+        abstract = short_description
+
+    if abstract.endswith("…"):
+        raise RuntimeError(
+            f"Abstract for '{title}' ends with an ellipsis."
+        )
+
+    if not is_complete_sentence(abstract):
+        raise RuntimeError(
+            f"Abstract for '{title}' does not end "
+            "with a complete sentence."
+        )
+
     return {
         "title": title,
         "publication_date": publication_date,
         "display_date": display_date,
         "short_description": short_description,
-        "abstract": metadata["abstract"],
+        "abstract": abstract,
+        "media_type": media_type,
+        "media_url": media_url,
+        "video_url": video_url,
         "image_url": image_url,
         "image_alt": (
             str(metadata["image_alt"])
@@ -1062,12 +1805,20 @@ def main() -> int:
                 f"({record['display_date']})"
             )
             print(
+                f"   Media type: "
+                f"{record['media_type']}"
+            )
+            print(
                 f"   Image source: "
                 f"{record['image_source']}"
             )
             print(
                 f"   Abstract words: "
                 f"{word_count(str(record['abstract']))}"
+            )
+            print(
+                f"   Abstract ending: "
+                f"{str(record['abstract'])[-80:]}"
             )
 
         return 0
