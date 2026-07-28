@@ -2,15 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    http-equiv="Cache-Control"
+    content="no-cache, no-store, must-revalidate"
+  >
+
   <title>Earth Observatory Image of the Day</title>
 
   <style>
     :root {
       --story-duration: 10000ms;
       --comparison-half: 5000ms;
-      --fade-duration: 900ms;
+      --story-fade-duration: 900ms;
+      --comparison-fade-duration: 500ms;
       --panel-width: 37%;
       --accent: #67b7e8;
       --panel-background: #0b1520;
@@ -33,7 +43,10 @@
     body {
       background: #000;
       color: #fff;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
     }
 
     #viewer {
@@ -65,7 +78,8 @@
           var(--panel-background) 56%,
           #071019 100%
         );
-      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      border-right:
+        1px solid rgba(255, 255, 255, 0.1);
     }
 
     #information-panel::before {
@@ -79,7 +93,8 @@
     #series-heading {
       margin: 0;
       color: var(--accent);
-      font-size: clamp(15px, 1.05vw, 21px);
+      font-size:
+        clamp(15px, 1.05vw, 21px);
       line-height: 1.28;
       font-weight: 700;
       letter-spacing: 0.07em;
@@ -100,7 +115,8 @@
         0
         0;
       color: #fff;
-      font-size: clamp(29px, 2.35vw, 46px);
+      font-size:
+        clamp(29px, 2.35vw, 46px);
       line-height: 1.08;
       font-weight: 700;
       letter-spacing: -0.02em;
@@ -112,8 +128,10 @@
         clamp(20px, 1.8vw, 31px)
         0
         0;
-      color: rgba(255, 255, 255, 0.88);
-      font-size: clamp(15px, 1.08vw, 21px);
+      color:
+        rgba(255, 255, 255, 0.88);
+      font-size:
+        clamp(15px, 1.08vw, 21px);
       line-height: 1.43;
       text-align: justify;
       text-justify: inter-word;
@@ -123,7 +141,8 @@
 
     #metadata {
       margin-top: auto;
-      padding-top: clamp(18px, 1.6vw, 28px);
+      padding-top:
+        clamp(18px, 1.6vw, 28px);
     }
 
     .metadata-item {
@@ -133,8 +152,10 @@
     .metadata-label {
       display: block;
       margin-bottom: 4px;
-      color: rgba(103, 183, 232, 0.95);
-      font-size: clamp(11px, 0.7vw, 14px);
+      color:
+        rgba(103, 183, 232, 0.95);
+      font-size:
+        clamp(11px, 0.7vw, 14px);
       line-height: 1.15;
       font-weight: 700;
       letter-spacing: 0.08em;
@@ -143,8 +164,10 @@
 
     .metadata-value {
       display: block;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: clamp(13px, 0.9vw, 18px);
+      color:
+        rgba(255, 255, 255, 0.9);
+      font-size:
+        clamp(13px, 0.9vw, 18px);
       line-height: 1.28;
       font-weight: 500;
     }
@@ -154,21 +177,27 @@
       align-items: flex-end;
       justify-content: space-between;
       gap: 24px;
-      margin-top: clamp(18px, 1.6vw, 28px);
+      margin-top:
+        clamp(18px, 1.6vw, 28px);
       padding-top: 15px;
-      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      border-top:
+        1px solid rgba(255, 255, 255, 0.14);
     }
 
     #attribution {
       margin: 0;
-      color: rgba(255, 255, 255, 0.64);
-      font-size: clamp(11px, 0.72vw, 14px);
+      color:
+        rgba(255, 255, 255, 0.64);
+      font-size:
+        clamp(11px, 0.72vw, 14px);
     }
 
     #counter {
       margin: 0;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: clamp(13px, 0.82vw, 17px);
+      color:
+        rgba(255, 255, 255, 0.9);
+      font-size:
+        clamp(13px, 0.82vw, 17px);
       font-weight: 700;
     }
 
@@ -180,23 +209,7 @@
       background: #020509;
     }
 
-    #media-background {
-      position: absolute;
-      z-index: 0;
-      inset: -35px;
-      width: calc(100% + 70px);
-      height: calc(100% + 70px);
-      object-fit: cover;
-      transform: scale(1.04);
-      filter:
-        blur(25px)
-        brightness(0.42)
-        saturate(0.8);
-      opacity: 0.82;
-    }
-
     #main-image,
-    #comparison-image,
     #main-video {
       position: absolute;
       z-index: 1;
@@ -204,11 +217,24 @@
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: contain;
       background: #020509;
-      opacity: 1;
-      transition:
-        opacity var(--fade-duration) ease-in-out;
+    }
+
+    /*
+      Still images fill the entire media panel.
+      Some edge cropping is intentional.
+    */
+    #main-image {
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /*
+      Videos remain uncropped so legends, coastlines,
+      and geographic extents remain visible.
+    */
+    #main-video {
+      object-fit: contain;
     }
 
     #media-panel::after {
@@ -220,29 +246,52 @@
       background:
         linear-gradient(
           to right,
-          rgba(0, 0, 0, 0.18),
+          rgba(0, 0, 0, 0.13),
           transparent 12%,
           transparent 88%,
-          rgba(0, 0, 0, 0.1)
+          rgba(0, 0, 0, 0.08)
         );
+    }
+
+    #comparison-fade {
+      position: absolute;
+      z-index: 4;
+      inset: 0;
+      pointer-events: none;
+      background: #000;
+      opacity: 0;
+      transition:
+        opacity
+        var(--comparison-fade-duration)
+        ease-in-out;
+    }
+
+    #comparison-fade.is-dark {
+      opacity: 1;
     }
 
     #comparison-badge {
       position: absolute;
-      z-index: 4;
-      right: clamp(22px, 2vw, 38px);
-      bottom: clamp(22px, 2vw, 38px);
+      z-index: 5;
+      right:
+        clamp(22px, 2vw, 38px);
+      bottom:
+        clamp(22px, 2vw, 38px);
       min-width: 185px;
       padding: 13px 17px 12px;
-      background: rgba(4, 13, 22, 0.84);
-      border-left: 5px solid var(--accent);
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
+      background:
+        rgba(4, 13, 22, 0.87);
+      border-left:
+        5px solid var(--accent);
+      box-shadow:
+        0 6px 25px rgba(0, 0, 0, 0.35);
     }
 
     #comparison-role {
       display: block;
       color: var(--accent);
-      font-size: clamp(16px, 1.15vw, 23px);
+      font-size:
+        clamp(16px, 1.15vw, 23px);
       font-weight: 800;
       letter-spacing: 0.09em;
     }
@@ -251,7 +300,8 @@
       display: block;
       margin-top: 4px;
       color: #fff;
-      font-size: clamp(13px, 0.9vw, 18px);
+      font-size:
+        clamp(13px, 0.9vw, 18px);
       font-weight: 600;
     }
 
@@ -263,11 +313,15 @@
     #media-panel {
       opacity: 1;
       transition:
-        opacity var(--fade-duration) ease-in-out;
+        opacity
+        var(--story-fade-duration)
+        ease-in-out;
     }
 
-    #viewer.is-changing #information-panel,
-    #viewer.is-changing #media-panel {
+    #viewer.is-changing
+    #information-panel,
+    #viewer.is-changing
+    #media-panel {
       opacity: 0;
     }
 
@@ -278,7 +332,8 @@
       right: 0;
       bottom: 0;
       height: 5px;
-      background: rgba(255, 255, 255, 0.13);
+      background:
+        rgba(255, 255, 255, 0.13);
       pointer-events: none;
     }
 
@@ -306,8 +361,10 @@
       margin: 0;
       padding: 40px;
       background: #071019;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: clamp(22px, 2vw, 38px);
+      color:
+        rgba(255, 255, 255, 0.9);
+      font-size:
+        clamp(22px, 2vw, 38px);
       text-align: center;
     }
 
@@ -333,11 +390,13 @@
       }
 
       #slide-title {
-        font-size: clamp(27px, 2.15vw, 40px);
+        font-size:
+          clamp(27px, 2.15vw, 40px);
       }
 
       #slide-abstract {
-        font-size: clamp(14px, 1vw, 19px);
+        font-size:
+          clamp(14px, 1vw, 19px);
         line-height: 1.4;
       }
     }
@@ -391,20 +450,8 @@
       aria-label="NASA Earth Observatory media"
     >
       <img
-        id="media-background"
-        alt=""
-        aria-hidden="true"
-      >
-
-      <img
         id="main-image"
         alt=""
-      >
-
-      <img
-        id="comparison-image"
-        alt=""
-        hidden
       >
 
       <video
@@ -415,6 +462,11 @@
         preload="auto"
         hidden
       ></video>
+
+      <div
+        id="comparison-fade"
+        aria-hidden="true"
+      ></div>
 
       <div
         id="comparison-badge"
@@ -442,24 +494,23 @@
       "data/nasa-earth-observatory.json";
 
     const STORY_DURATION_MS = 10000;
-    const COMPARISON_HALF_MS = 5000;
-    const FADE_DURATION_MS = 900;
-    const DATA_REFRESH_MS = 60 * 60 * 1000;
+    const COMPARISON_SWITCH_MS = 5000;
+    const COMPARISON_FADE_MS = 500;
+    const STORY_FADE_MS = 900;
+    const DATA_REFRESH_MS =
+      60 * 60 * 1000;
 
     const viewer =
       document.getElementById("viewer");
 
-    const mediaBackground =
-      document.getElementById("media-background");
-
     const mainImage =
       document.getElementById("main-image");
 
-    const comparisonImage =
-      document.getElementById("comparison-image");
-
     const mainVideo =
       document.getElementById("main-video");
+
+    const comparisonFade =
+      document.getElementById("comparison-fade");
 
     const comparisonBadge =
       document.getElementById("comparison-badge");
@@ -493,80 +544,131 @@
 
     let slides = [];
     let currentIndex = 0;
+
     let storyTimer = null;
-    let comparisonTimer = null;
+    let comparisonFadeTimer = null;
+    let comparisonSwitchTimer = null;
     let transitionTimer = null;
 
-    function clearTimers() {
-      for (
-        const timer
-        of [
-          storyTimer,
-          comparisonTimer,
-          transitionTimer
-        ]
-      ) {
-        if (timer !== null) {
-          window.clearTimeout(timer);
-        }
+    function clearTimer(timer) {
+      if (timer !== null) {
+        window.clearTimeout(timer);
       }
+    }
+
+    function clearAllTimers() {
+      clearTimer(storyTimer);
+      clearTimer(comparisonFadeTimer);
+      clearTimer(comparisonSwitchTimer);
+      clearTimer(transitionTimer);
 
       storyTimer = null;
-      comparisonTimer = null;
+      comparisonFadeTimer = null;
+      comparisonSwitchTimer = null;
       transitionTimer = null;
     }
 
     function restartProgressBar() {
-      progressBar.classList.remove("is-running");
+      progressBar.classList.remove(
+        "is-running"
+      );
 
       void progressBar.offsetWidth;
 
-      progressBar.classList.add("is-running");
+      progressBar.classList.add(
+        "is-running"
+      );
     }
 
     function preloadImage(url) {
-      return new Promise((resolve, reject) => {
-        const image = new Image();
+      return new Promise(
+        (resolve, reject) => {
+          const image = new Image();
 
-        image.onload = resolve;
-        image.onerror = reject;
-        image.src = url;
-      });
+          image.onload = () =>
+            resolve(url);
+
+          image.onerror = () =>
+            reject(
+              new Error(
+                `Unable to preload image: ${url}`
+              )
+            );
+
+          image.src = url;
+        }
+      );
     }
 
-    function slideMediaUrls(slide) {
+    function comparisonItems(slide) {
       if (
-        slide.media_type === "comparison" &&
-        Array.isArray(slide.media_items)
+        slide.media_type !== "comparison"
+        || !Array.isArray(slide.media_items)
       ) {
-        return slide.media_items
-          .map((item) => item && item.url)
-          .filter(Boolean);
+        return [];
       }
 
-      const url =
-        slide.media_url ||
-        slide.image_url;
+      return slide.media_items
+        .slice(0, 2)
+        .filter(
+          (item) =>
+            item
+            && item.url
+        );
+    }
 
-      return url ? [url] : [];
+    function primaryMediaUrl(slide) {
+      return (
+        slide.media_url
+        || slide.image_url
+        || ""
+      );
     }
 
     async function preloadSlide(slide) {
-      const urls =
-        slideMediaUrls(slide);
-
-      if (!urls.length) {
-        throw new Error(
-          "No slide media URL."
-        );
-      }
-
       if (slide.media_type === "video") {
+        if (!primaryMediaUrl(slide)) {
+          throw new Error(
+            "The video slide has no media URL."
+          );
+        }
+
         return;
       }
 
-      await Promise.all(
-        urls.map(preloadImage)
+      if (
+        slide.media_type === "comparison"
+      ) {
+        const items =
+          comparisonItems(slide);
+
+        if (items.length < 2) {
+          throw new Error(
+            "The comparison slide does not contain two images."
+          );
+        }
+
+        await Promise.all(
+          items.map(
+            (item) =>
+              preloadImage(item.url)
+          )
+        );
+
+        return;
+      }
+
+      const imageUrl =
+        primaryMediaUrl(slide);
+
+      if (!imageUrl) {
+        throw new Error(
+          "The image slide has no media URL."
+        );
+      }
+
+      await preloadImage(
+        imageUrl
       );
     }
 
@@ -577,68 +679,73 @@
       mainVideo.hidden = true;
     }
 
-    function hideComparison() {
-      if (comparisonTimer !== null) {
-        window.clearTimeout(comparisonTimer);
-        comparisonTimer = null;
-      }
+    function resetComparison() {
+      clearTimer(comparisonFadeTimer);
+      clearTimer(comparisonSwitchTimer);
 
-      comparisonImage.hidden = true;
-      comparisonImage.removeAttribute("src");
-      comparisonImage.style.opacity = "0";
+      comparisonFadeTimer = null;
+      comparisonSwitchTimer = null;
+
+      comparisonFade.classList.remove(
+        "is-dark"
+      );
+
       comparisonBadge.hidden = true;
-    }
-
-    function setBackground(url) {
-      if (!url) {
-        mediaBackground.hidden = true;
-        mediaBackground.removeAttribute("src");
-        return;
-      }
-
-      mediaBackground.src = url;
-      mediaBackground.hidden = false;
-    }
-
-    function displayImage(slide) {
-      stopVideo();
-      hideComparison();
-
-      const url =
-        slide.media_url ||
-        slide.image_url;
-
-      setBackground(url);
-
-      mainImage.src = url;
-      mainImage.alt =
-        slide.image_alt ||
-        slide.title;
-
-      mainImage.hidden = false;
+      comparisonRole.textContent = "";
+      comparisonDate.textContent = "";
     }
 
     function updateComparisonBadge(item) {
       comparisonRole.textContent =
-        item.label ||
-        item.role ||
-        "";
+        item.label
+        || item.role
+        || "";
 
       comparisonDate.textContent =
-        item.date ||
-        "";
+        item.date
+        || "";
 
       comparisonBadge.hidden = false;
     }
 
+    function displayImage(slide) {
+      stopVideo();
+      resetComparison();
+
+      const imageUrl =
+        primaryMediaUrl(slide);
+
+      mainImage.src = imageUrl;
+
+      mainImage.alt =
+        slide.image_alt
+        || slide.title;
+
+      mainImage.hidden = false;
+    }
+
+    function switchComparisonImage(
+      slide,
+      item
+    ) {
+      mainImage.src = item.url;
+
+      mainImage.alt =
+        `${slide.title}: ${
+          item.label
+          || item.role
+          || ""
+        }`;
+
+      updateComparisonBadge(item);
+    }
+
     function displayComparison(slide) {
       stopVideo();
-      hideComparison();
+      resetComparison();
 
       const items =
-        Array.isArray(slide.media_items)
-          ? slide.media_items.slice(0, 2)
-          : [];
+        comparisonItems(slide);
 
       if (items.length < 2) {
         displayImage(slide);
@@ -648,41 +755,64 @@
       const before = items[0];
       const after = items[1];
 
-      setBackground(before.url);
-
-      mainImage.src = before.url;
-      mainImage.alt =
-        `${slide.title}: ${before.label || "before"}`;
-
       mainImage.hidden = false;
 
-      updateComparisonBadge(before);
+      switchComparisonImage(
+        slide,
+        before
+      );
 
-      comparisonImage.src = after.url;
-      comparisonImage.alt =
-        `${slide.title}: ${after.label || "after"}`;
-
-      comparisonImage.hidden = false;
-      comparisonImage.style.opacity = "0";
-
-      comparisonTimer =
+      /*
+        At 4.5 seconds, fade to black.
+        At 5 seconds, switch to AFTER while fully dark.
+        The overlay then fades away over 0.5 seconds.
+      */
+      comparisonFadeTimer =
         window.setTimeout(
           () => {
-            comparisonImage.style.opacity = "1";
-            setBackground(after.url);
-            updateComparisonBadge(after);
+            comparisonFade.classList.add(
+              "is-dark"
+            );
           },
-          COMPARISON_HALF_MS
+          COMPARISON_SWITCH_MS
+          - COMPARISON_FADE_MS
+        );
+
+      comparisonSwitchTimer =
+        window.setTimeout(
+          () => {
+            switchComparisonImage(
+              slide,
+              after
+            );
+
+            /*
+              Two animation frames ensure that the
+              browser has painted the new image behind
+              the black overlay before it fades out.
+            */
+            window.requestAnimationFrame(
+              () => {
+                window.requestAnimationFrame(
+                  () => {
+                    comparisonFade.classList.remove(
+                      "is-dark"
+                    );
+                  }
+                );
+              }
+            );
+          },
+          COMPARISON_SWITCH_MS
         );
     }
 
     function displayVideo(slide) {
-      hideComparison();
+      resetComparison();
 
       mainImage.hidden = true;
       mainImage.removeAttribute("src");
-
-      setBackground("");
+      mainImage.alt = "";
 
       stopVideo();
 
@@ -690,7 +820,9 @@
       mainVideo.muted = true;
       mainVideo.loop = true;
       mainVideo.playsInline = true;
-      mainVideo.src = slide.media_url;
+      mainVideo.src =
+        primaryMediaUrl(slide);
+
       mainVideo.currentTime = 0;
       mainVideo.load();
 
@@ -698,22 +830,34 @@
         mainVideo.play();
 
       if (
-        playAttempt &&
-        typeof playAttempt.catch === "function"
+        playAttempt
+        && typeof playAttempt.catch
+        === "function"
       ) {
-        playAttempt.catch((error) => {
-          console.error(
-            "NASA video autoplay was blocked:",
-            error
-          );
-        });
+        playAttempt.catch(
+          (error) => {
+            console.error(
+              "NASA video autoplay was blocked:",
+              error
+            );
+          }
+        );
       }
     }
 
-    function applySlide(slide, index) {
-      if (slide.media_type === "comparison") {
+    function applySlide(
+      slide,
+      index
+    ) {
+      if (
+        slide.media_type
+        === "comparison"
+      ) {
         displayComparison(slide);
-      } else if (slide.media_type === "video") {
+      } else if (
+        slide.media_type
+        === "video"
+      ) {
         displayVideo(slide);
       } else {
         displayImage(slide);
@@ -726,13 +870,13 @@
         slide.title;
 
       slideAbstract.textContent =
-        slide.abstract ||
-        slide.short_description ||
-        "";
+        slide.abstract
+        || slide.short_description
+        || "";
 
       imageSource.textContent =
-        slide.image_source ||
-        "NASA Earth observation";
+        slide.image_source
+        || "NASA Earth observation";
 
       counter.textContent =
         `${index + 1} of ${slides.length}`;
@@ -750,7 +894,7 @@
         return;
       }
 
-      clearTimers();
+      clearAllTimers();
 
       const normalizedIndex =
         (
@@ -773,7 +917,9 @@
         storyTimer =
           window.setTimeout(
             () => {
-              showSlide(normalizedIndex + 1);
+              showSlide(
+                normalizedIndex + 1
+              );
             },
             1000
           );
@@ -787,7 +933,9 @@
           normalizedIndex
         );
       } else {
-        viewer.classList.add("is-changing");
+        viewer.classList.add(
+          "is-changing"
+        );
 
         transitionTimer =
           window.setTimeout(
@@ -803,55 +951,52 @@
 
               transitionTimer = null;
             },
-            FADE_DURATION_MS
+            STORY_FADE_MS
           );
       }
 
       storyTimer =
         window.setTimeout(
           () => {
-            showSlide(normalizedIndex + 1);
+            showSlide(
+              normalizedIndex + 1
+            );
           },
           STORY_DURATION_MS
           + (
             immediate
               ? 0
-              : FADE_DURATION_MS
+              : STORY_FADE_MS
           )
         );
     }
 
     function validSlides(items) {
-      return items.filter((item) => {
-        if (
-          !item ||
-          !item.title ||
-          !item.display_date
-        ) {
-          return false;
-        }
+      return items.filter(
+        (item) => {
+          if (
+            !item
+            || !item.title
+            || !item.display_date
+          ) {
+            return false;
+          }
 
-        if (
-          item.media_type === "comparison"
-        ) {
-          return (
-            Array.isArray(item.media_items) &&
-            item.media_items.length >= 2 &&
-            item.media_items
-              .slice(0, 2)
-              .every(
-                (media) =>
-                  media &&
-                  media.url
-              )
+          if (
+            item.media_type
+            === "comparison"
+          ) {
+            return (
+              comparisonItems(item).length
+              >= 2
+            );
+          }
+
+          return Boolean(
+            primaryMediaUrl(item)
           );
         }
-
-        return Boolean(
-          item.media_url ||
-          item.image_url
-        );
-      });
+      );
     }
 
     async function loadSlides({
@@ -877,8 +1022,8 @@
 
         const newSlides =
           validSlides(
-            payload.items ||
-            []
+            payload.items
+            || []
           );
 
         if (!newSlides.length) {
@@ -890,21 +1035,23 @@
         let nextIndex = 0;
 
         if (
-          preserveCurrentSlide &&
-          slides[currentIndex]
+          preserveCurrentSlide
+          && slides[currentIndex]
         ) {
           const currentArticle =
-            slides[currentIndex].article_url;
+            slides[currentIndex]
+              .article_url;
 
-          const match =
+          const matchingIndex =
             newSlides.findIndex(
               (item) =>
                 item.article_url
                 === currentArticle
             );
 
-          if (match >= 0) {
-            nextIndex = match;
+          if (matchingIndex >= 0) {
+            nextIndex =
+              matchingIndex;
           }
         }
 
@@ -931,17 +1078,20 @@
       "visibilitychange",
       () => {
         if (
-          !document.hidden &&
-          !mainVideo.hidden
+          !document.hidden
+          && !mainVideo.hidden
         ) {
           const playAttempt =
             mainVideo.play();
 
           if (
-            playAttempt &&
-            typeof playAttempt.catch === "function"
+            playAttempt
+            && typeof playAttempt.catch
+            === "function"
           ) {
-            playAttempt.catch(() => {});
+            playAttempt.catch(
+              () => {}
+            );
           }
         }
       }
