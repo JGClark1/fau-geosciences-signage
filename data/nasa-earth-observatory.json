@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T16:25:07+00:00",
+  "generated_at": "2026-07-28T16:37:06+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
@@ -11,9 +11,9 @@
       "short_description": "The color of Adélie penguin droppings reveals what the birds are eating, offering scientists a way to track how sea ice conditions influence their diet.",
       "abstract": "The color of Adélie penguin droppings reveals what the birds are eating, offering scientists a way to track how sea ice conditions influence their diet. The color of the droppings can even provide clues into the penguins’ diet, since krill tints the guano pink, giving researchers a unique way to monitor penguin populations. Analyzing three decades of Landsat images, scientists found that Adélie penguin diets vary around the Antarctic continent and are tied to sea ice conditions. Now, surveying more than 100 sites around the perimeter of Antarctica with Landsat images captured between 1984 and 2013, the scientists have connected penguin diets to the surrounding sea ice conditions during the breeding and nesting seasons. The researchers are now developing computer models to use Landsat 8 and Landsat 9 data to continue tracking penguin diet and how the population responds to environmental change.",
       "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/reading-penguin-diets-in-shades-of-guano/dangerislands_oli_20230122_lrg.jpg?w=2744&h=2337&fit=clip&crop=faces%2Cfocalpoint",
+      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/reading-penguin-diets-in-shades-of-guano/eo_image_map_1784856348.png?w=300&h=150&fit=clip&crop=faces%2Cfocalpoint",
       "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/reading-penguin-diets-in-shades-of-guano/dangerislands_oli_20230122_lrg.jpg?w=2744&h=2337&fit=clip&crop=faces%2Cfocalpoint",
+      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/reading-penguin-diets-in-shades-of-guano/eo_image_map_1784856348.png?w=300&h=150&fit=clip&crop=faces%2Cfocalpoint",
       "image_alt": "Pink Penguin Guano Provides Diet Clues",
       "instruments": [
         "Landsat 8 — OLI",
@@ -66,7 +66,7 @@
       "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/olympic-mountain-glory/ISS047-E-104144_lrg.jpg?w=5537&h=2585&fit=clip&crop=faces%2Cfocalpoint",
       "video_url": "",
       "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/olympic-mountain-glory/ISS047-E-104144_lrg.jpg?w=5537&h=2585&fit=clip&crop=faces%2Cfocalpoint",
-      "image_alt": "Olympic Mountain Glory",
+      "image_alt": "The Olympic Peninsula, viewed at an angle from above, features snow-capped mountains surrounded by deep, forested river valleys. Islands in Puget Sound and developed areas including Seattle and Tacoma appear across the top of the photo.",
       "instruments": [
         "ISS — Digital Camera"
       ],
@@ -101,9 +101,9 @@
       "short_description": "Differences in the underlying bedrock and how rivers distribute sediment make the coastlines west of Portland look unlike those northeast of the city.",
       "abstract": "Differences in the underlying bedrock and how rivers distribute sediment make the coastlines west of Portland look unlike those northeast of the city. Fewer Indigenous creation myths survive to explain the origins of the sandy and marshy shorelines of southern Maine and the rocky, indented coasts of the state's Midcoast region. The coastal transition reflects both differences in the underlying bedrock and the distribution of sediment left behind by the last glacial maximum, coastal geologists say. While erosion-resistant granite juts from the sandy shorelines in southern Maine to form rocky headlands, metamorphic bedrock becomes the dominant surface feature east of Portland. The various forms that coastlines take fascinate geologists, but they also carry everyday implications for the economies of Maine's coastal communities.",
       "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/why-maine's-sandy-shorelines-turn-jagged/mainecoast_oli2_20250831_lrg.jpg?w=3427&h=4229&fit=clip&crop=faces%2Cfocalpoint",
+      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/why-maine's-sandy-shorelines-turn-jagged/eo_image_map_1784558939.png?w=300&h=150&fit=clip&crop=faces%2Cfocalpoint",
       "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/why-maine's-sandy-shorelines-turn-jagged/mainecoast_oli2_20250831_lrg.jpg?w=3427&h=4229&fit=clip&crop=faces%2Cfocalpoint",
+      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/why-maine's-sandy-shorelines-turn-jagged/eo_image_map_1784558939.png?w=300&h=150&fit=clip&crop=faces%2Cfocalpoint",
       "image_alt": "Why Maine's Sandy Shorelines Turn Jagged",
       "instruments": [
         "Landsat 9 — OLI"
@@ -123,7 +123,7 @@
       "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/shaping-the-emerald-city/ISS074-E-723719_lrg.jpg?w=4128&h=2752&fit=clip&crop=faces%2Cfocalpoint",
       "video_url": "",
       "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/shaping-the-emerald-city/ISS074-E-723719_lrg.jpg?w=4128&h=2752&fit=clip&crop=faces%2Cfocalpoint",
-      "image_alt": "Shaping the Emerald City",
+      "image_alt": "A top-down photo of the greater Seattle area shows a mix of light-colored developed areas and green parks and neighborhoods. Puget Sound and Lake Washington run along Seattle’s west and east sides, respectively.",
       "instruments": [
         "ISS — Digital Camera"
       ],
@@ -142,7 +142,7 @@
       "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-tide-fueled-trove-of-biodiversity-in-guinea-bissau/bijagosarchipelago_oli_20251128_lrg.jpg?w=7236&h=6030&fit=clip&crop=faces%2Cfocalpoint",
       "video_url": "",
       "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-tide-fueled-trove-of-biodiversity-in-guinea-bissau/bijagosarchipelago_oli_20251128_lrg.jpg?w=7236&h=6030&fit=clip&crop=faces%2Cfocalpoint",
-      "image_alt": "A Tide-Fueled Trove of Biodiversity in Guinea-Bissau",
+      "image_alt": "A satellite image shows a cluster of green islands surrounded by beige sand flats and networks of channels full of dark blue water.",
       "instruments": [
         "Landsat 8 — OLI"
       ],
