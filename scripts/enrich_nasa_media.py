@@ -107,6 +107,7 @@ COMPARISON_CONTROL_TERMS = {
 
 REJECTED_IMAGE_TERMS = {
     "banner",
+    "eo_image_map_",
     "fallback",
     "generic",
     "icon",
