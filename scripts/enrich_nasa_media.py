@@ -118,6 +118,32 @@ REJECTED_IMAGE_TERMS = {
     "thumbnail",
 }
 
+LOCATOR_MAP_PHRASES = {
+    "inset map",
+    "location map",
+    "locator map",
+    "map showing the location",
+    "map shows the location",
+    "reference map",
+    "red dot",
+    "red marker",
+    "site location",
+    "site map",
+    "world locator",
+}
+
+LOCATOR_FILENAME_TERMS = {
+    "inset",
+    "locmap",
+    "location",
+    "locator",
+    "overview-map",
+    "reference-map",
+    "site-map",
+    "world-map",
+    "worldmap",
+}
+
 MONTH_NAMES = {
     1: "January",
     2: "February",
@@ -413,8 +439,110 @@ class ArticleMediaParser(HTMLParser):
                 self.videos.append(url)
 
 
-def is_story_image(url: str) -> bool:
-    """Reject page graphics and retain Earth Observatory story assets."""
+def looks_like_locator_map(
+    image: dict[str, str],
+) -> bool:
+    """
+    Identify supporting locator or inset maps.
+
+    The test deliberately combines filename and descriptive-text evidence.
+    It does not reject a scientific map merely because the word "map"
+    appears somewhere in its metadata.
+    """
+
+    decoded_url = urllib.parse.unquote(
+        image.get("url", "")
+    ).lower()
+
+    filename = Path(
+        urllib.parse.urlparse(
+            decoded_url
+        ).path
+    ).name.lower()
+
+    descriptive_text = clean_text(
+        " ".join(
+            [
+                image.get("alt", ""),
+                image.get("title", ""),
+                image.get("caption", ""),
+                image.get("nearby_text", ""),
+            ]
+        )
+    ).lower()
+
+    combined_text = (
+        f"{filename} {descriptive_text}"
+    )
+
+    if any(
+        phrase in combined_text
+        for phrase in LOCATOR_MAP_PHRASES
+    ):
+        return True
+
+    if any(
+        term in filename
+        for term in LOCATOR_FILENAME_TERMS
+    ):
+        return True
+
+    locator_context_terms = {
+        "location",
+        "locator",
+        "inset",
+        "reference",
+        "site",
+        "world",
+    }
+
+    marker_terms = {
+        "dot",
+        "marker",
+        "point",
+        "pin",
+    }
+
+    map_present = (
+        "map" in filename
+        or "map" in descriptive_text
+    )
+
+    has_locator_context = any(
+        term in combined_text
+        for term in locator_context_terms
+    )
+
+    has_marker_context = any(
+        term in descriptive_text
+        for term in marker_terms
+    )
+
+    if (
+        map_present
+        and has_locator_context
+    ):
+        return True
+
+    if (
+        map_present
+        and has_marker_context
+        and (
+            "red" in descriptive_text
+            or "highlight" in descriptive_text
+        )
+    ):
+        return True
+
+    return False
+
+
+def is_story_image(
+    image: dict[str, str],
+) -> bool:
+    """Reject page graphics and retain substantive story assets."""
+
+    url = image.get("url", "")
 
     lowered = urllib.parse.unquote(
         url
@@ -426,10 +554,16 @@ def is_story_image(url: str) -> bool:
     if "_th." in lowered:
         return False
 
-    return not any(
+    if any(
         term in lowered
         for term in REJECTED_IMAGE_TERMS
-    )
+    ):
+        return False
+
+    if looks_like_locator_map(image):
+        return False
+
+    return True
 
 
 def canonical_image_key(url: str) -> str:
@@ -469,7 +603,7 @@ def image_quality_score(
 
     score = 0.0
 
-    if is_story_image(image["url"]):
+    if is_story_image(image):
         score += 1000.0
 
     if "_lrg." in lowered_url:
@@ -503,7 +637,7 @@ def deduplicate_images(
     best: dict[str, dict[str, str]] = {}
 
     for image in images:
-        if not is_story_image(image["url"]):
+        if not is_story_image(image):
             continue
 
         key = canonical_image_key(
