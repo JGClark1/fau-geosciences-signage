@@ -102,8 +102,8 @@ EXPLANATION_TERMS = {
 
 SIGNIFICANCE_TERMS = {
     "affect",
-    "air quality",
     "allows",
+    "benefit",
     "contributes",
     "important",
     "indicates",
@@ -158,6 +158,87 @@ TIME_TERMS = {
     "since",
 }
 
+TOPIC_STOPWORDS = {
+    "about",
+    "above",
+    "across",
+    "after",
+    "again",
+    "against",
+    "along",
+    "also",
+    "among",
+    "around",
+    "because",
+    "before",
+    "being",
+    "below",
+    "between",
+    "both",
+    "could",
+    "during",
+    "each",
+    "from",
+    "have",
+    "into",
+    "itself",
+    "more",
+    "most",
+    "other",
+    "over",
+    "same",
+    "some",
+    "such",
+    "than",
+    "that",
+    "their",
+    "there",
+    "these",
+    "they",
+    "this",
+    "those",
+    "through",
+    "under",
+    "very",
+    "what",
+    "when",
+    "where",
+    "which",
+    "while",
+    "with",
+    "would",
+    "earth",
+    "image",
+    "images",
+    "observatory",
+    "nasa",
+}
+
+REJECTED_SENTENCE_PHRASES = {
+    "astronaut photography from the international space station",
+    "consider upgrading to a web browser",
+    "download this image",
+    "enable javascript",
+    "for captioning to other images taken by astronauts",
+    "help astronauts take pictures of earth",
+    "images freely available on the internet",
+    "make those images freely available",
+    "page last updated",
+    "responsible nasa official",
+    "supports html5 video",
+    "the international space station program supports",
+    "to view this video",
+}
+
+WEAK_DETAIL_PHRASES = {
+    "camera using a focal length",
+    "digital camera using a focal length",
+    "focal length of",
+    "image was acquired",
+    "photograph was acquired",
+    "was acquired on",
+}
+
 SENTENCE_ABBREVIATIONS = {
     "U.S.": "U§S§",
     "D.C.": "D§C§",
@@ -176,7 +257,7 @@ SENTENCE_ABBREVIATIONS = {
 
 
 class ArticleParser(HTMLParser):
-    """Extract metadata, text blocks, images, and media links."""
+    """Extract metadata, story text, images, and media links."""
 
     BLOCK_TAGS = {
         "h1",
@@ -415,6 +496,7 @@ def clean_text(value: Optional[str]) -> str:
     text = html.unescape(value)
     text = re.sub(r"<[^>]+>", " ", text)
     text = text.replace("\u00a0", " ")
+    text = re.sub(r"\s+([,.;:!?])", r"\1", text)
     text = re.sub(r"\s+", " ", text)
 
     return text.strip()
@@ -574,10 +656,78 @@ def is_complete_sentence(value: str) -> bool:
     )
 
 
+def normalized_words(value: str) -> list[str]:
+    """Return normalized meaningful words."""
+
+    words = re.findall(
+        r"[a-z0-9][a-z0-9'-]*",
+        value.lower(),
+    )
+
+    return [
+        word
+        for word in words
+        if (
+            len(word) >= 4
+            and word not in TOPIC_STOPWORDS
+        )
+    ]
+
+
+def build_topic_terms(
+    title: str,
+    short_description: str,
+) -> set[str]:
+    """Build terms describing the article's central subject."""
+
+    return set(
+        normalized_words(
+            f"{title} {short_description}"
+        )
+    )
+
+
+def topic_overlap(
+    sentence: str,
+    topic_terms: set[str],
+) -> int:
+    """Count central article terms appearing in a sentence."""
+
+    sentence_words = set(
+        normalized_words(sentence)
+    )
+
+    return len(
+        sentence_words & topic_terms
+    )
+
+
+def contains_rejected_phrase(value: str) -> bool:
+    """Identify credits, warnings, and institutional boilerplate."""
+
+    lowered = value.lower()
+
+    return any(
+        phrase in lowered
+        for phrase in REJECTED_SENTENCE_PHRASES
+    )
+
+
+def contains_weak_detail(value: str) -> bool:
+    """Identify low-value acquisition or camera details."""
+
+    lowered = value.lower()
+
+    return any(
+        phrase in lowered
+        for phrase in WEAK_DETAIL_PHRASES
+    )
+
+
 def looks_like_story_paragraph(value: str) -> bool:
     """Reject captions, credits, warnings, and boilerplate."""
 
-    if word_count(value) < 12:
+    if word_count(value) < 10:
         return False
 
     lowered = value.lower().strip()
@@ -601,19 +751,25 @@ def looks_like_story_paragraph(value: str) -> bool:
     if lowered.startswith(rejected_starts):
         return False
 
-    rejected_phrases = (
-        "consider upgrading to a web browser",
-        "download this image",
-        "enable javascript",
-        "page last updated",
-        "responsible nasa official",
-        "supports html5 video",
-    )
+    if contains_rejected_phrase(value):
+        return False
 
-    return not any(
-        phrase in lowered
-        for phrase in rejected_phrases
-    )
+    return True
+
+
+def looks_like_story_sentence(value: str) -> bool:
+    """Determine whether a sentence is suitable for an abstract."""
+
+    if word_count(value) < 7:
+        return False
+
+    if not is_complete_sentence(value):
+        return False
+
+    if contains_rejected_phrase(value):
+        return False
+
+    return True
 
 
 def extract_story_paragraphs(
@@ -673,45 +829,48 @@ def sentence_score(
     sentence: str,
     index: int,
     total: int,
+    topic_terms: set[str],
 ) -> float:
-    """Score a sentence for informational usefulness."""
+    """Score a sentence for relevance and information value."""
 
-    if not sentence:
+    if not looks_like_story_sentence(sentence):
         return -100.0
 
     words = word_count(sentence)
-
-    if words < 7:
-        return -20.0
+    overlap = topic_overlap(
+        sentence,
+        topic_terms,
+    )
 
     score = 0.0
 
-    score += min(words, 35) * 0.08
+    score += min(words, 36) * 0.06
+    score += overlap * 3.8
 
     score += keyword_hits(
         sentence,
         INTRODUCTION_TERMS,
-    ) * 1.5
-
-    score += keyword_hits(
-        sentence,
-        EXPLANATION_TERMS,
-    ) * 2.0
-
-    score += keyword_hits(
-        sentence,
-        SIGNIFICANCE_TERMS,
-    ) * 2.0
-
-    score += keyword_hits(
-        sentence,
-        LOCATION_TERMS,
     ) * 0.8
 
     score += keyword_hits(
         sentence,
+        EXPLANATION_TERMS,
+    ) * 1.8
+
+    score += keyword_hits(
+        sentence,
+        SIGNIFICANCE_TERMS,
+    ) * 1.8
+
+    score += keyword_hits(
+        sentence,
+        LOCATION_TERMS,
+    ) * 0.5
+
+    score += keyword_hits(
+        sentence,
         TIME_TERMS,
-    ) * 0.7
+    ) * 0.4
 
     if total > 1:
         relative_position = index / (total - 1)
@@ -719,13 +878,19 @@ def sentence_score(
         relative_position = 0.0
 
     if relative_position <= 0.25:
-        score += 2.0
+        score += 1.5
 
     if 0.25 < relative_position < 0.75:
-        score += 1.0
+        score += 0.5
 
     if relative_position >= 0.70:
-        score += 2.5
+        score += 1.8
+
+    if overlap == 0:
+        score -= 3.0
+
+    if contains_weak_detail(sentence):
+        score -= 7.0
 
     if sentence.endswith(":"):
         score -= 4.0
@@ -774,16 +939,25 @@ def append_if_useful(
     candidate_index: int,
     sentences: list[str],
     maximum_words: int,
+    minimum_topic_overlap: int = 0,
+    topic_terms: Optional[set[str]] = None,
 ) -> bool:
-    """Add a candidate when it fits and is not repetitive."""
+    """Add a candidate when relevant, nonrepetitive, and within length."""
 
     if candidate_index in selected:
         return False
 
     candidate = sentences[candidate_index]
 
-    if not is_complete_sentence(candidate):
+    if not looks_like_story_sentence(candidate):
         return False
+
+    if topic_terms is not None:
+        if (
+            topic_overlap(candidate, topic_terms)
+            < minimum_topic_overlap
+        ):
+            return False
 
     for existing_index in selected:
         if sentence_similarity(
@@ -808,64 +982,64 @@ def append_if_useful(
     return True
 
 
-def best_index(
-    candidates: list[int],
-    scores: list[float],
-    excluded: set[int],
-) -> Optional[int]:
-    """Return the highest-scoring available candidate."""
-
-    available = [
-        index
-        for index in candidates
-        if index not in excluded
-    ]
-
-    if not available:
-        return None
-
-    return max(
-        available,
-        key=lambda index: scores[index],
-    )
-
-
 def build_extractive_abstract(
     paragraphs: list[str],
-    fallback_description: str,
+    title: str,
+    short_description: str,
 ) -> str:
     """
-    Build a complete extractive abstract from several story zones.
+    Build an extractive abstract grounded in the article's topic.
 
-    The selection considers:
-    - opening context;
-    - explanatory or methodological material;
-    - the final substantive portion of the article;
-    - overall information density.
+    The NASA short description supplies the opening summary.
+    Additional sentences are chosen for explanation, context,
+    and a relevant concluding takeaway.
     """
 
-    sentences: list[str] = []
+    topic_terms = build_topic_terms(
+        title,
+        short_description,
+    )
+
+    article_sentences: list[str] = []
 
     for paragraph in paragraphs:
         for sentence in split_sentences(paragraph):
-            if not is_complete_sentence(sentence):
-                continue
+            if looks_like_story_sentence(sentence):
+                article_sentences.append(sentence)
 
-            if not looks_like_story_paragraph(sentence):
-                continue
+    anchor_sentences = [
+        sentence
+        for sentence in split_sentences(
+            short_description
+        )
+        if looks_like_story_sentence(sentence)
+    ]
 
+    if not anchor_sentences and is_complete_sentence(
+        short_description
+    ):
+        anchor_sentences = [short_description]
+
+    sentences: list[str] = []
+    anchor_count = 0
+
+    for sentence in anchor_sentences:
+        if not any(
+            sentence_similarity(sentence, existing) >= 0.72
+            for existing in sentences
+        ):
+            sentences.append(sentence)
+            anchor_count += 1
+
+    for sentence in article_sentences:
+        if not any(
+            sentence_similarity(sentence, existing) >= 0.72
+            for existing in sentences
+        ):
             sentences.append(sentence)
 
     if not sentences:
-        fallback_sentences = [
-            sentence
-            for sentence in split_sentences(
-                fallback_description
-            )
-            if is_complete_sentence(sentence)
-        ]
-
-        return " ".join(fallback_sentences)
+        return short_description
 
     total = len(sentences)
 
@@ -874,68 +1048,47 @@ def build_extractive_abstract(
             sentence,
             index,
             total,
+            topic_terms,
         )
         for index, sentence in enumerate(sentences)
     ]
 
-    selected: set[int] = set()
+    selected: set[int] = set(
+        range(anchor_count)
+    )
 
-    introduction_candidates = list(
-        range(
-            0,
-            max(1, (total + 3) // 4),
+    article_indices = list(
+        range(anchor_count, total)
+    )
+
+    relevant_indices = [
+        index
+        for index in article_indices
+        if (
+            topic_overlap(
+                sentences[index],
+                topic_terms,
+            ) >= 1
+            or keyword_hits(
+                sentences[index],
+                EXPLANATION_TERMS,
+            ) >= 2
         )
-    )
+    ]
 
-    middle_start = max(
-        0,
-        total // 4,
-    )
-
-    middle_end = max(
-        middle_start + 1,
-        (total * 3) // 4,
-    )
-
-    middle_candidates = list(
-        range(
-            middle_start,
-            min(total, middle_end),
-        )
-    )
-
-    conclusion_start = max(
-        0,
-        (total * 2) // 3,
-    )
-
-    conclusion_candidates = list(
-        range(
-            conclusion_start,
-            total,
-        )
-    )
-
-    introduction_index = best_index(
-        introduction_candidates,
-        scores,
-        selected,
-    )
-
-    if introduction_index is not None:
-        append_if_useful(
-            selected,
-            introduction_index,
-            sentences,
-            ABSTRACT_MAX_WORDS,
-        )
+    if not relevant_indices:
+        relevant_indices = article_indices
 
     explanation_ranked = sorted(
-        middle_candidates,
+        relevant_indices,
         key=lambda index: (
             keyword_hits(
                 sentences[index],
                 EXPLANATION_TERMS,
+            ),
+            topic_overlap(
+                sentences[index],
+                topic_terms,
             ),
             scores[index],
         ),
@@ -948,17 +1101,33 @@ def build_extractive_abstract(
             candidate_index,
             sentences,
             ABSTRACT_MAX_WORDS,
+            minimum_topic_overlap=1,
+            topic_terms=topic_terms,
         ):
             break
 
+    later_relevant = [
+        index
+        for index in relevant_indices
+        if index >= max(
+            anchor_count,
+            total // 2,
+        )
+    ]
+
     conclusion_ranked = sorted(
-        conclusion_candidates,
+        later_relevant,
         key=lambda index: (
             keyword_hits(
                 sentences[index],
                 SIGNIFICANCE_TERMS,
             ),
+            topic_overlap(
+                sentences[index],
+                topic_terms,
+            ),
             scores[index],
+            index,
         ),
         reverse=True,
     )
@@ -969,12 +1138,20 @@ def build_extractive_abstract(
             candidate_index,
             sentences,
             ABSTRACT_MAX_WORDS,
+            minimum_topic_overlap=1,
+            topic_terms=topic_terms,
         ):
             break
 
     ranked_all = sorted(
-        range(total),
-        key=lambda index: scores[index],
+        relevant_indices,
+        key=lambda index: (
+            topic_overlap(
+                sentences[index],
+                topic_terms,
+            ),
+            scores[index],
+        ),
         reverse=True,
     )
 
@@ -984,12 +1161,7 @@ def build_extractive_abstract(
             for index in sorted(selected)
         )
 
-        current_words = word_count(current_text)
-
-        if (
-            current_words >= ABSTRACT_TARGET_WORDS
-            and current_words >= ABSTRACT_MIN_WORDS
-        ):
+        if word_count(current_text) >= ABSTRACT_TARGET_WORDS:
             break
 
         append_if_useful(
@@ -997,6 +1169,8 @@ def build_extractive_abstract(
             candidate_index,
             sentences,
             ABSTRACT_MAX_WORDS,
+            minimum_topic_overlap=1,
+            topic_terms=topic_terms,
         )
 
     final_text = " ".join(
@@ -1005,12 +1179,19 @@ def build_extractive_abstract(
     ).strip()
 
     if word_count(final_text) < ABSTRACT_MIN_WORDS:
-        for candidate_index in range(total):
+        fallback_ranked = sorted(
+            article_indices,
+            key=lambda index: scores[index],
+            reverse=True,
+        )
+
+        for candidate_index in fallback_ranked:
             append_if_useful(
                 selected,
                 candidate_index,
                 sentences,
                 ABSTRACT_MAX_WORDS,
+                topic_terms=topic_terms,
             )
 
             final_text = " ".join(
@@ -1215,14 +1396,8 @@ def extract_raw_mp4_urls(
             prepared,
             flags=re.IGNORECASE,
         ):
-            candidate = (
-                match
-                if isinstance(match, str)
-                else match[0]
-            )
-
             normalized = normalize_url(
-                candidate,
+                match,
                 article_url,
             )
 
@@ -1337,6 +1512,7 @@ def image_score(url: str) -> int:
             "fallback",
             "generic",
             "location",
+            "locatormap",
             "map-placeholder",
             "poster",
             "thumbnail",
@@ -1472,6 +1648,7 @@ def extract_article_metadata(
 
     abstract = build_extractive_abstract(
         paragraphs,
+        title,
         short_description,
     )
 
@@ -1817,8 +1994,8 @@ def main() -> int:
                 f"{word_count(str(record['abstract']))}"
             )
             print(
-                f"   Abstract ending: "
-                f"{str(record['abstract'])[-80:]}"
+                f"   Abstract: "
+                f"{record['abstract']}"
             )
 
         return 0
