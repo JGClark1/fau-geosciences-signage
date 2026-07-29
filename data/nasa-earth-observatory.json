@@ -1,9 +1,30 @@
 {
-  "generated_at": "2026-07-28T16:58:54+00:00",
+  "generated_at": "2026-07-29T16:02:11+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Sizing Up the Sargassum Belt",
+      "publication_date": "2026-07-29",
+      "display_date": "July 29, 2026",
+      "short_description": "Seaweed composing the Great Atlantic Sargassum Belt hit near-record levels in June 2026, with the Caribbean Sea and Gulf of America both reaching all-time highs.",
+      "abstract": "Seaweed composing the Great Atlantic Sargassum Belt hit near-record levels in June 2026, with the Caribbean Sea and Gulf of America both reaching all-time highs. Regionally, the Caribbean Sea and the Gulf of America (Gulf of Mexico) both hit record highs, according to USF’s June 2026 Sargassum outlook. This team first developed Sargassum detection techniques using MODIS (Moderate Resolution Imaging Spectroradiometer) on NASA’s long-running Terra and Aqua satellites and VIIRS (Visible Infrared Imaging Radiometer Suite) on the NOAA-20 satellite—data that have been a key component of USF’s Sargassum Watch System and of research into the seaweed’s longer-term trends. Scientists flag pixels where the reflectance spikes above the levels produced by plain seawater, and then they use the strength of this spike to estimate Sargassum density, which refers to the fraction of ocean surface covered by the seaweed in each pixel.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassumzm_pace_202606.jpg?w=1440&h=1090&fit=clip&crop=faces%2Cfocalpoint",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassumzm_pace_202606.jpg?w=1440&h=1090&fit=clip&crop=faces%2Cfocalpoint",
+      "image_alt": "A detailed map of the Atlantic Ocean centered on the Caribbean Sea shows Sargassum density from low (blue) to high (red) in June 2026.",
+      "instruments": [
+        "Aqua — MODIS",
+        "Terra — MODIS",
+        "PACE"
+      ],
+      "image_source": "Aqua • MODIS · Terra • MODIS · PACE",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/sizing-up-the-sargassum-belt/",
+      "source": "NASA Earth Observatory",
+      "media_items": []
+    },
     {
       "title": "Pink Penguin Guano Provides Diet Clues",
       "publication_date": "2026-07-27",
@@ -129,25 +150,6 @@
       ],
       "image_source": "ISS • Digital Camera",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/shaping-the-emerald-city/",
-      "source": "NASA Earth Observatory",
-      "media_items": []
-    },
-    {
-      "title": "A Tide-Fueled Trove of Biodiversity in Guinea-Bissau",
-      "publication_date": "2026-07-17",
-      "display_date": "July 17, 2026",
-      "short_description": "The expansive mudflats, sandy beaches, and mangrove forests of the Bijagós archipelago support an array of migratory shorebirds and large numbers of sea turtles.",
-      "abstract": "The expansive mudflats, sandy beaches, and mangrove forests of the Bijagós archipelago support an array of migratory shorebirds and large numbers of sea turtles. Twice each day, tides ebb and flow through a maze of sandy channels, mudflats, and mangrove forests that flank the 88 islands and islets of Guinea-Bissau's Bijagós Archipelago (Arquipélago dos Bijagós in Portuguese). Seen from above, the process leads to stark changes to the landscape: around low tide, intertidal mudflats and sandflats emerge from the sea, causing islands to grow significantly before shrinking again hours later. During high tides, manatees, dolphins, and schools of fish move closer to the islands, pushing deeper into the mangrove forests that ring them, and tens of thousands of sea turtles swim inland to sandy beaches as they hunt for nesting sites.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-tide-fueled-trove-of-biodiversity-in-guinea-bissau/bijagosarchipelago_oli_20251128_lrg.jpg?w=7236&h=6030&fit=clip&crop=faces%2Cfocalpoint",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-tide-fueled-trove-of-biodiversity-in-guinea-bissau/bijagosarchipelago_oli_20251128_lrg.jpg?w=7236&h=6030&fit=clip&crop=faces%2Cfocalpoint",
-      "image_alt": "A satellite image shows a cluster of green islands surrounded by beige sand flats and networks of channels full of dark blue water.",
-      "instruments": [
-        "Landsat 8 — OLI"
-      ],
-      "image_source": "Landsat 8 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/a-tide-fueled-trove-of-biodiversity-in-guinea-bissau/",
       "source": "NASA Earth Observatory",
       "media_items": []
     }
