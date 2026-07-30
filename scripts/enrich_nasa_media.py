@@ -5,7 +5,6 @@ import json
 import re
 import urllib.parse
 import urllib.request
-from datetime import datetime
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Optional
@@ -19,97 +18,34 @@ USER_AGENT = (
 
 IOTD_PATH = "/eo/images/iotd/"
 
-TOPIC_STOPWORDS = {
-    "about",
-    "above",
-    "across",
-    "after",
-    "again",
-    "against",
-    "along",
-    "also",
-    "among",
-    "around",
-    "because",
-    "before",
-    "being",
-    "below",
-    "between",
-    "both",
-    "could",
-    "during",
-    "each",
-    "from",
-    "have",
-    "into",
-    "itself",
-    "more",
-    "most",
-    "other",
-    "over",
-    "same",
-    "some",
-    "such",
-    "than",
-    "that",
-    "their",
-    "there",
-    "these",
-    "they",
-    "this",
-    "those",
-    "through",
-    "under",
-    "very",
-    "what",
-    "when",
-    "where",
-    "which",
-    "while",
-    "with",
-    "would",
-    "earth",
-    "image",
-    "images",
-    "observatory",
-    "nasa",
-}
-
-DIRECT_DEPICTION_TERMS = {
-    "aerial",
-    "close-up",
-    "closeup",
-    "depicts",
-    "drone",
-    "photograph",
-    "photographed",
-    "shows",
-    "visible",
-}
-
-BROAD_CONTEXT_TERMS = {
-    "context",
-    "locator",
-    "location",
-    "map",
-    "overview",
-    "regional",
-    "wide view",
-}
-
-COMPARISON_CONTROL_TERMS = {
-    "2-up",
-    "before",
+COMPARISON_CONTAINER_TERMS = {
+    "before-after",
+    "before_after",
     "comparison",
     "curtain",
-    "toggle",
+    "image-compare",
+    "image_compare",
+    "juxtapose",
+    "twentytwenty",
 }
 
-REJECTED_IMAGE_TERMS = {
-    "banner",
+BEFORE_TERMS = {
+    "before",
+    "earlier",
+    "previous",
+    "prior",
+}
+
+AFTER_TERMS = {
+    "after",
+    "later",
+    "current",
+    "recent",
+}
+
+REJECTED_ASSET_TERMS = {
     "eo_image_map_",
     "fallback",
-    "generic",
     "icon",
     "locatormap",
     "location-map",
@@ -119,64 +55,28 @@ REJECTED_IMAGE_TERMS = {
     "thumbnail",
 }
 
-LOCATOR_MAP_PHRASES = {
-    "inset map",
-    "location map",
-    "locator map",
-    "map showing the location",
-    "map shows the location",
-    "reference map",
-    "red dot",
-    "red marker",
-    "site location",
-    "site map",
-    "world locator",
-}
-
-LOCATOR_FILENAME_TERMS = {
-    "inset",
-    "locmap",
-    "location",
-    "locator",
-    "overview-map",
-    "reference-map",
-    "site-map",
-    "world-map",
-    "worldmap",
-}
-
-MONTH_NAMES = {
-    1: "January",
-    2: "February",
-    3: "March",
-    4: "April",
-    5: "May",
-    6: "June",
-    7: "July",
-    8: "August",
-    9: "September",
-    10: "October",
-    11: "November",
-    12: "December",
-}
-
 
 def clean_text(value: str) -> str:
-    """Convert HTML or irregular whitespace into clean text."""
+    """Normalize HTML entities and whitespace."""
 
-    value = html.unescape(value or "")
-    value = re.sub(r"<[^>]+>", " ", value)
-    value = value.replace("\u00a0", " ")
-    value = re.sub(r"\s+([,.;:!?])", r"\1", value)
-    value = re.sub(r"\s+", " ", value)
+    text = html.unescape(value or "")
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = text.replace("\u00a0", " ")
+    text = re.sub(r"\s+([,.;:!?])", r"\1", text)
+    text = re.sub(r"\s+", " ", text)
 
-    return value.strip()
+    return text.strip()
 
 
-def normalize_url(url: str, base_url: str) -> str:
+def normalize_url(
+    url: str,
+    base_url: str,
+) -> str:
     """Normalize escaped and relative media URLs."""
 
-    normalized = html.unescape((url or "").strip())
+    normalized = html.unescape(
+        (url or "").strip()
+    )
 
     normalized = normalized.replace("\\/", "/")
     normalized = normalized.replace("\\u002F", "/")
@@ -184,11 +84,14 @@ def normalize_url(url: str, base_url: str) -> str:
     normalized = normalized.replace("\\u003A", ":")
     normalized = normalized.replace("\\u003a", ":")
 
-    return urllib.parse.urljoin(base_url, normalized)
+    return urllib.parse.urljoin(
+        base_url,
+        normalized,
+    )
 
 
 def download_text(url: str) -> str:
-    """Download an article page as text."""
+    """Download one NASA article page."""
 
     request = urllib.request.Request(
         url,
@@ -200,7 +103,7 @@ def download_text(url: str) -> str:
 
     with urllib.request.urlopen(
         request,
-        timeout=45,
+        timeout=60,
     ) as response:
         encoding = (
             response.headers.get_content_charset()
@@ -213,367 +116,32 @@ def download_text(url: str) -> str:
         )
 
 
-def normalized_words(value: str) -> list[str]:
-    """Return meaningful lowercase terms for topical comparison."""
-
-    words = re.findall(
-        r"[a-z0-9][a-z0-9'-]*",
-        (value or "").lower(),
-    )
-
-    return [
-        word
-        for word in words
-        if (
-            len(word) >= 4
-            and word not in TOPIC_STOPWORDS
-        )
-    ]
-
-
-def topic_terms(
-    title: str,
-    short_description: str,
-) -> set[str]:
-    """Build a compact vocabulary describing the story."""
-
-    return set(
-        normalized_words(
-            f"{title} {short_description}"
-        )
-    )
-
-
-class ArticleMediaParser(HTMLParser):
-    """
-    Collect images, captions, alt text, nearby prose, and MP4 URLs.
-
-    Figure captions are associated with every image inside the same
-    <figure>. This is more reliable than using only text appearing before
-    an image, because NASA often places the useful caption after the image.
-    """
-
-    TEXT_TAGS = {
-        "figcaption",
-        "h1",
-        "h2",
-        "h3",
-        "h4",
-        "p",
-    }
-
-    def __init__(self, base_url: str) -> None:
-        super().__init__()
-
-        self.base_url = base_url
-        self.images: list[dict[str, str]] = []
-        self.videos: list[str] = []
-
-        self.recent_text: list[str] = []
-
-        self.current_text_tag: Optional[str] = None
-        self.current_text_parts: list[str] = []
-
-        self.figure_stack: list[list[int]] = []
-        self.current_caption_targets: list[int] = []
-
-    def handle_starttag(
-        self,
-        tag: str,
-        attrs: list[tuple[str, Optional[str]]],
-    ) -> None:
-        tag = tag.lower()
-
-        attributes = {
-            key.lower(): value
-            for key, value in attrs
-            if value is not None
-        }
-
-        if tag == "figure":
-            self.figure_stack.append([])
-
-        if tag in self.TEXT_TAGS:
-            self.current_text_tag = tag
-            self.current_text_parts = []
-
-            if tag == "figcaption" and self.figure_stack:
-                self.current_caption_targets = list(
-                    self.figure_stack[-1]
-                )
-
-        if tag == "img":
-            self._collect_image(attributes)
-
-        if tag in {"a", "source", "video"}:
-            self._collect_video_urls(attributes)
-
-    def handle_data(self, data: str) -> None:
-        if self.current_text_tag:
-            self.current_text_parts.append(data)
-
-    def handle_endtag(self, tag: str) -> None:
-        tag = tag.lower()
-
-        if tag == self.current_text_tag:
-            text = clean_text(
-                " ".join(self.current_text_parts)
-            )
-
-            if text:
-                if tag == "figcaption":
-                    for index in self.current_caption_targets:
-                        self.images[index]["caption"] = clean_text(
-                            " ".join(
-                                [
-                                    self.images[index].get(
-                                        "caption",
-                                        "",
-                                    ),
-                                    text,
-                                ]
-                            )
-                        )
-                else:
-                    self.recent_text.append(text)
-                    self.recent_text = self.recent_text[-8:]
-
-            self.current_text_tag = None
-            self.current_text_parts = []
-            self.current_caption_targets = []
-
-        if tag == "figure" and self.figure_stack:
-            self.figure_stack.pop()
-
-    def _collect_image(
-        self,
-        attributes: dict[str, str],
-    ) -> None:
-        urls: list[str] = []
-
-        for attribute_name in (
-            "src",
-            "data-src",
-            "data-lazy-src",
-        ):
-            raw_url = attributes.get(
-                attribute_name,
-                "",
-            ).strip()
-
-            if raw_url:
-                urls.append(raw_url)
-
-        srcset = attributes.get("srcset", "")
-
-        if srcset:
-            for candidate in srcset.split(","):
-                raw_url = candidate.strip().split(" ")[0]
-
-                if raw_url:
-                    urls.append(raw_url)
-
-        nearby_text = clean_text(
-            " ".join(self.recent_text[-4:])
-        )
-
-        alt_text = clean_text(
-            attributes.get("alt", "")
-        )
-
-        title_text = clean_text(
-            attributes.get("title", "")
-        )
-
-        for raw_url in urls:
-            url = normalize_url(
-                raw_url,
-                self.base_url,
-            )
-
-            if not url:
-                continue
-
-            image_index = len(self.images)
-
-            self.images.append(
-                {
-                    "url": url,
-                    "alt": alt_text,
-                    "title": title_text,
-                    "caption": "",
-                    "nearby_text": nearby_text,
-                }
-            )
-
-            if self.figure_stack:
-                self.figure_stack[-1].append(
-                    image_index
-                )
-
-    def _collect_video_urls(
-        self,
-        attributes: dict[str, str],
-    ) -> None:
-        for attribute_name in (
-            "href",
-            "src",
-            "data-src",
-        ):
-            raw_url = attributes.get(
-                attribute_name,
-                "",
-            ).strip()
-
-            if not raw_url:
-                continue
-
-            if ".mp4" not in raw_url.lower():
-                continue
-
-            url = normalize_url(
-                raw_url,
-                self.base_url,
-            )
-
-            if url not in self.videos:
-                self.videos.append(url)
-
-
-def looks_like_locator_map(
-    image: dict[str, str],
-) -> bool:
-    """
-    Identify supporting locator or inset maps.
-
-    The test deliberately combines filename and descriptive-text evidence.
-    It does not reject a scientific map merely because the word "map"
-    appears somewhere in its metadata.
-    """
-
-    decoded_url = urllib.parse.unquote(
-        image.get("url", "")
-    ).lower()
-
-    filename = Path(
-        urllib.parse.urlparse(
-            decoded_url
-        ).path
-    ).name.lower()
-
-    descriptive_text = clean_text(
-        " ".join(
-            [
-                image.get("alt", ""),
-                image.get("title", ""),
-                image.get("caption", ""),
-                image.get("nearby_text", ""),
-            ]
-        )
-    ).lower()
-
-    combined_text = (
-        f"{filename} {descriptive_text}"
-    )
-
-    if any(
-        phrase in combined_text
-        for phrase in LOCATOR_MAP_PHRASES
-    ):
-        return True
-
-    if any(
-        term in filename
-        for term in LOCATOR_FILENAME_TERMS
-    ):
-        return True
-
-    locator_context_terms = {
-        "location",
-        "locator",
-        "inset",
-        "reference",
-        "site",
-        "world",
-    }
-
-    marker_terms = {
-        "dot",
-        "marker",
-        "point",
-        "pin",
-    }
-
-    map_present = (
-        "map" in filename
-        or "map" in descriptive_text
-    )
-
-    has_locator_context = any(
-        term in combined_text
-        for term in locator_context_terms
-    )
-
-    has_marker_context = any(
-        term in descriptive_text
-        for term in marker_terms
-    )
-
-    if (
-        map_present
-        and has_locator_context
-    ):
-        return True
-
-    if (
-        map_present
-        and has_marker_context
-        and (
-            "red" in descriptive_text
-            or "highlight" in descriptive_text
-        )
-    ):
-        return True
-
-    return False
-
-
-def is_story_image(
-    image: dict[str, str],
-) -> bool:
-    """Reject page graphics and retain substantive story assets."""
-
-    url = image.get("url", "")
+def is_story_asset(url: str) -> bool:
+    """Retain substantive Earth Observatory image assets."""
 
     lowered = urllib.parse.unquote(
-        url
+        url or ""
     ).lower()
 
     if IOTD_PATH not in lowered:
         return False
 
-    if "_th." in lowered:
-        return False
-
     if any(
         term in lowered
-        for term in REJECTED_IMAGE_TERMS
+        for term in REJECTED_ASSET_TERMS
     ):
         return False
 
-    if looks_like_locator_map(image):
-        return False
-
-    return True
+    return bool(
+        re.search(
+            r"\.(?:jpe?g|png|webp)(?:\?|$)",
+            lowered,
+        )
+    )
 
 
 def canonical_image_key(url: str) -> str:
-    """
-    Build a key that groups differently sized versions of one NASA image.
-
-    NASA often exposes the same underlying asset through src, srcset, and
-    transformed URLs. The filename is usually stable across those variants.
-    """
+    """Group resized variants of one underlying image."""
 
     parsed = urllib.parse.urlparse(url)
     filename = Path(parsed.path).name.lower()
@@ -593,263 +161,73 @@ def canonical_image_key(url: str) -> str:
     return filename
 
 
-def image_quality_score(
-    image: dict[str, str],
-) -> float:
-    """Estimate the technical quality of an image candidate."""
+def image_quality_score(url: str) -> float:
+    """Estimate relative image quality from the URL."""
 
-    lowered_url = urllib.parse.unquote(
-        image["url"]
-    ).lower()
-
+    lowered = urllib.parse.unquote(url).lower()
     score = 0.0
 
-    if is_story_image(image):
+    if "_lrg." in lowered:
+        score += 10000.0
+
+    if "/content/dam/" in lowered:
+        score += 3000.0
+
+    if "/dynamicimage/" in lowered:
         score += 1000.0
 
-    if "_lrg." in lowered_url:
-        score += 350.0
+    for pattern in (
+        r"(?:[?&]w=)(\d{2,5})",
+        r"(?:[?&]width=)(\d{2,5})",
+        r"cq5dam\.web\.(\d{2,5})",
+    ):
+        match = re.search(pattern, lowered)
 
-    if "cq5dam.web.1280" in lowered_url:
-        score += 130.0
-
-    if "fit=clip" in lowered_url:
-        score += 30.0
-
-    width_match = re.search(
-        r"(?:[?&]w=|width=)(\d{3,5})",
-        lowered_url,
-    )
-
-    if width_match:
-        score += min(
-            int(width_match.group(1)),
-            3000,
-        ) / 20.0
+        if match:
+            score += min(
+                int(match.group(1)),
+                10000,
+            )
 
     return score
 
 
-def deduplicate_images(
-    images: list[dict[str, str]],
-) -> list[dict[str, str]]:
-    """Keep the best version of each underlying story image."""
+def best_variant(urls: list[str]) -> str:
+    """Return the highest-quality variant of an image."""
 
-    best: dict[str, dict[str, str]] = {}
+    valid = [
+        url
+        for url in urls
+        if is_story_asset(url)
+    ]
 
-    for image in images:
-        if not is_story_image(image):
-            continue
+    if not valid:
+        return ""
 
-        key = canonical_image_key(
-            image["url"]
-        )
-
-        if not key:
-            continue
-
-        existing = best.get(key)
-
-        if (
-            existing is None
-            or image_quality_score(image)
-            > image_quality_score(existing)
-        ):
-            best[key] = image
-
-    return list(best.values())
-
-
-def image_descriptive_text(
-    image: dict[str, str],
-) -> str:
-    """Combine the text most likely to describe what the image depicts."""
-
-    return clean_text(
-        " ".join(
-            [
-                image.get("alt", ""),
-                image.get("title", ""),
-                image.get("caption", ""),
-                image.get("nearby_text", ""),
-            ]
-        )
+    return max(
+        valid,
+        key=image_quality_score,
     )
 
 
-def topical_overlap_score(
-    image: dict[str, str],
-    central_terms: set[str],
-) -> float:
-    """
-    Score how directly an image depicts the central subject.
+def extract_date_label(value: str) -> str:
+    """Extract a readable date already present in NASA markup."""
 
-    Caption, alt text, and title receive substantially more weight than
-    nearby prose or filenames. This favors a specific subject photograph
-    over a broad contextual view when NASA supplies both.
-    """
+    cleaned = clean_text(value)
 
-    alt_words = set(
-        normalized_words(
-            image.get("alt", "")
-        )
+    match = re.search(
+        r"\b("
+        r"January|February|March|April|May|June|"
+        r"July|August|September|October|November|December"
+        r")\s+\d{1,2},\s+\d{4}\b",
+        cleaned,
+        flags=re.IGNORECASE,
     )
 
-    title_words = set(
-        normalized_words(
-            image.get("title", "")
-        )
-    )
+    if match:
+        return match.group(0)
 
-    caption_words = set(
-        normalized_words(
-            image.get("caption", "")
-        )
-    )
-
-    nearby_words = set(
-        normalized_words(
-            image.get("nearby_text", "")
-        )
-    )
-
-    url_words = set(
-        normalized_words(
-            urllib.parse.unquote(
-                image.get("url", "")
-            )
-        )
-    )
-
-    score = 0.0
-
-    score += len(
-        alt_words & central_terms
-    ) * 16.0
-
-    score += len(
-        title_words & central_terms
-    ) * 14.0
-
-    score += len(
-        caption_words & central_terms
-    ) * 20.0
-
-    score += len(
-        nearby_words & central_terms
-    ) * 3.0
-
-    score += len(
-        url_words & central_terms
-    ) * 2.0
-
-    descriptive_text = (
-        image_descriptive_text(image)
-        .lower()
-    )
-
-    direct_hits = sum(
-        1
-        for term in DIRECT_DEPICTION_TERMS
-        if term in descriptive_text
-    )
-
-    broad_hits = sum(
-        1
-        for term in BROAD_CONTEXT_TERMS
-        if term in descriptive_text
-    )
-
-    score += direct_hits * 5.0
-    score -= broad_hits * 3.0
-
-    # Reward descriptive metadata itself. A well-captioned image is a more
-    # defensible editorial choice than an equally relevant unlabeled asset.
-    if image.get("caption"):
-        score += 8.0
-
-    if image.get("alt"):
-        score += 4.0
-
-    return score
-
-
-def select_best_story_image(
-    images: list[dict[str, str]],
-    title: str,
-    short_description: str,
-    current_url: str = "",
-) -> Optional[dict[str, str]]:
-    """
-    Select the image that best communicates the article's central subject.
-
-    The current builder choice receives only a small stability bonus. It will
-    remain selected when candidates are similar, but a much more topically
-    specific image can replace it.
-    """
-
-    if not images:
-        return None
-
-    central_terms = topic_terms(
-        title,
-        short_description,
-    )
-
-    ranked: list[
-        tuple[
-            float,
-            float,
-            dict[str, str],
-        ]
-    ] = []
-
-    current_key = canonical_image_key(
-        current_url
-    ) if current_url else ""
-
-    for image in images:
-        editorial_score = topical_overlap_score(
-            image,
-            central_terms,
-        )
-
-        quality_score = image_quality_score(
-            image
-        )
-
-        if (
-            current_key
-            and canonical_image_key(image["url"])
-            == current_key
-        ):
-            editorial_score += 6.0
-
-        ranked.append(
-            (
-                editorial_score,
-                quality_score,
-                image,
-            )
-        )
-
-    ranked.sort(
-        key=lambda item: (
-            item[0],
-            item[1],
-        ),
-        reverse=True,
-    )
-
-    return ranked[0][2]
-
-
-def extract_compact_dates(
-    value: str,
-) -> list[str]:
-    """Extract YYYYMMDD dates from URLs and captions."""
-
-    matches = re.findall(
+    compact = re.search(
         r"(?<!\d)"
         r"((?:19|20)\d{2})"
         r"[-_/]?"
@@ -857,184 +235,123 @@ def extract_compact_dates(
         r"[-_/]?"
         r"(0[1-9]|[12]\d|3[01])"
         r"(?!\d)",
-        value or "",
+        cleaned,
     )
 
-    return [
-        f"{year}{month}{day}"
-        for year, month, day in matches
+    if not compact:
+        return ""
+
+    year, month, day = compact.groups()
+
+    month_names = [
+        "",
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
     ]
-
-
-def display_date(
-    compact_date: str,
-) -> str:
-    """Convert YYYYMMDD into a display date."""
-
-    parsed = datetime.strptime(
-        compact_date,
-        "%Y%m%d",
-    )
 
     return (
-        f"{MONTH_NAMES[parsed.month]} "
-        f"{parsed.day}, "
-        f"{parsed.year}"
+        f"{month_names[int(month)]} "
+        f"{int(day)}, "
+        f"{year}"
     )
 
 
-def comparison_signal_score(
-    article_html: str,
-) -> int:
-    """Measure whether NASA presents the article as a comparison."""
+class VideoParser(HTMLParser):
+    """Collect MP4 URLs from article markup."""
 
-    lowered = article_html.lower()
+    def __init__(self, base_url: str) -> None:
+        super().__init__()
+        self.base_url = base_url
+        self.urls: list[str] = []
 
-    return sum(
-        1
-        for term in COMPARISON_CONTROL_TERMS
-        if term in lowered
-    )
+    def handle_starttag(
+        self,
+        tag: str,
+        attrs: list[tuple[str, Optional[str]]],
+    ) -> None:
+        if tag.lower() not in {
+            "a",
+            "source",
+            "video",
+        }:
+            return
 
+        attributes = {
+            key.lower(): value
+            for key, value in attrs
+            if value is not None
+        }
 
-def detect_comparison(
-    article_html: str,
-    images: list[dict[str, str]],
-) -> Optional[list[dict[str, str]]]:
-    """
-    Detect a before-and-after image pair without story-specific rules.
-
-    The article must contain multiple comparison-interface signals and two
-    distinct dated story images. The earliest image becomes BEFORE and the
-    latest becomes AFTER.
-    """
-
-    if comparison_signal_score(article_html) < 2:
-        return None
-
-    candidates_by_date: dict[
-        str,
-        dict[str, str],
-    ] = {}
-
-    for image in images:
-        descriptive_text = image_descriptive_text(
-            image
-        )
-
-        search_text = (
-            urllib.parse.unquote(
-                image["url"]
-            )
-            + " "
-            + descriptive_text
-        )
-
-        for compact_date in extract_compact_dates(
-            search_text
+        for attribute_name in (
+            "href",
+            "src",
+            "data-src",
         ):
-            existing = candidates_by_date.get(
-                compact_date
+            raw_url = attributes.get(
+                attribute_name,
+                "",
+            ).strip()
+
+            if ".mp4" not in raw_url.lower():
+                continue
+
+            url = normalize_url(
+                raw_url,
+                self.base_url,
             )
 
-            if (
-                existing is None
-                or image_quality_score(image)
-                > image_quality_score(existing)
-            ):
-                candidates_by_date[
-                    compact_date
-                ] = image
-
-    if len(candidates_by_date) < 2:
-        return None
-
-    ordered_dates = sorted(
-        candidates_by_date
-    )
-
-    before_date = ordered_dates[0]
-    after_date = ordered_dates[-1]
-
-    before_image = candidates_by_date[
-        before_date
-    ]
-
-    after_image = candidates_by_date[
-        after_date
-    ]
-
-    if (
-        canonical_image_key(
-            before_image["url"]
-        )
-        == canonical_image_key(
-            after_image["url"]
-        )
-    ):
-        return None
-
-    return [
-        {
-            "role": "before",
-            "url": before_image["url"],
-            "label": "BEFORE",
-            "date": display_date(before_date),
-        },
-        {
-            "role": "after",
-            "url": after_image["url"],
-            "label": "AFTER",
-            "date": display_date(after_date),
-        },
-    ]
+            if url not in self.urls:
+                self.urls.append(url)
 
 
-def extract_embedded_mp4_urls(
+def extract_video_urls(
     article_html: str,
     article_url: str,
 ) -> list[str]:
-    """Find MP4 addresses stored in ordinary markup or embedded page JSON."""
+    """Collect MP4 URLs from markup and embedded page JSON."""
 
-    prepared = html.unescape(
-        article_html
-    )
+    parser = VideoParser(article_url)
+    parser.feed(article_html)
 
+    prepared = html.unescape(article_html)
     prepared = prepared.replace("\\/", "/")
     prepared = prepared.replace("\\u002F", "/")
     prepared = prepared.replace("\\u002f", "/")
     prepared = prepared.replace("\\u003A", ":")
     prepared = prepared.replace("\\u003a", ":")
 
-    matches = re.findall(
+    for match in re.findall(
         r'https?://[^"\'<>\s]+?'
         r'\.mp4'
         r'(?:\?[^"\'<>\s]*)?',
         prepared,
         flags=re.IGNORECASE,
-    )
-
-    urls: list[str] = []
-
-    for match in matches:
+    ):
         url = normalize_url(
             match,
             article_url,
         )
 
-        if url not in urls:
-            urls.append(url)
+        if url not in parser.urls:
+            parser.urls.append(url)
 
-    return urls
+    return parser.urls
 
 
 def video_score(url: str) -> int:
-    """Rank NASA Earth Observatory story videos."""
+    """Prefer NASA Earth Observatory article videos."""
 
-    lowered = urllib.parse.unquote(
-        url
-    ).lower()
-
+    lowered = urllib.parse.unquote(url).lower()
     score = 0
 
     if "assets.science.nasa.gov" in lowered:
@@ -1055,60 +372,315 @@ def video_score(url: str) -> int:
     return score
 
 
-def enrich_record(
-    record: dict,
-) -> dict:
-    """Add the most suitable image, video, or comparison to one record."""
+class ComparisonParser(HTMLParser):
+    """
+    Find images only inside explicit comparison widgets.
+
+    A generic mention of "before" or "comparison" elsewhere on the page is
+    insufficient. A container must identify itself through a comparison-
+    specific class, id, or data attribute and contain both images.
+    """
+
+    def __init__(self, base_url: str) -> None:
+        super().__init__()
+
+        self.base_url = base_url
+        self.depth = 0
+        self.container_stack: list[dict] = []
+        self.completed: list[dict] = []
+
+    def handle_starttag(
+        self,
+        tag: str,
+        attrs: list[tuple[str, Optional[str]]],
+    ) -> None:
+        self.depth += 1
+
+        attributes = {
+            key.lower(): value
+            for key, value in attrs
+            if value is not None
+        }
+
+        marker_text = " ".join(
+            [
+                attributes.get("class", ""),
+                attributes.get("id", ""),
+                attributes.get("data-component", ""),
+                attributes.get("data-block", ""),
+                attributes.get("data-module", ""),
+                attributes.get("data-testid", ""),
+            ]
+        ).lower()
+
+        is_comparison_container = any(
+            term in marker_text
+            for term in COMPARISON_CONTAINER_TERMS
+        )
+
+        if is_comparison_container:
+            self.container_stack.append(
+                {
+                    "start_depth": self.depth,
+                    "marker_text": marker_text,
+                    "images": [],
+                    "text_parts": [],
+                }
+            )
+
+        if not self.container_stack:
+            return
+
+        current = self.container_stack[-1]
+
+        if tag.lower() == "img":
+            urls: list[str] = []
+
+            for attribute_name in (
+                "src",
+                "data-src",
+                "data-lazy-src",
+            ):
+                raw_url = attributes.get(
+                    attribute_name,
+                    "",
+                ).strip()
+
+                if raw_url:
+                    urls.append(
+                        normalize_url(
+                            raw_url,
+                            self.base_url,
+                        )
+                    )
+
+            srcset = attributes.get("srcset", "")
+
+            for candidate in srcset.split(","):
+                raw_url = candidate.strip().split(" ")[0]
+
+                if raw_url:
+                    urls.append(
+                        normalize_url(
+                            raw_url,
+                            self.base_url,
+                        )
+                    )
+
+            valid_urls = [
+                url
+                for url in urls
+                if is_story_asset(url)
+            ]
+
+            if valid_urls:
+                current["images"].append(
+                    {
+                        "urls": valid_urls,
+                        "alt": clean_text(
+                            attributes.get("alt", "")
+                        ),
+                        "title": clean_text(
+                            attributes.get("title", "")
+                        ),
+                    }
+                )
+
+    def handle_data(self, data: str) -> None:
+        if self.container_stack:
+            cleaned = clean_text(data)
+
+            if cleaned:
+                self.container_stack[-1][
+                    "text_parts"
+                ].append(cleaned)
+
+    def handle_endtag(self, tag: str) -> None:
+        if self.container_stack:
+            current = self.container_stack[-1]
+
+            if self.depth == current["start_depth"]:
+                self.completed.append(
+                    self.container_stack.pop()
+                )
+
+        self.depth -= 1
+
+
+def classify_comparison_role(
+    image: dict,
+    container_text: str,
+) -> str:
+    """Classify an image only when its own metadata supplies a role."""
+
+    descriptive = clean_text(
+        " ".join(
+            [
+                image.get("alt", ""),
+                image.get("title", ""),
+            ]
+        )
+    ).lower()
+
+    before = any(
+        re.search(
+            rf"\b{re.escape(term)}\b",
+            descriptive,
+        )
+        for term in BEFORE_TERMS
+    )
+
+    after = any(
+        re.search(
+            rf"\b{re.escape(term)}\b",
+            descriptive,
+        )
+        for term in AFTER_TERMS
+    )
+
+    if before and not after:
+        return "before"
+
+    if after and not before:
+        return "after"
+
+    return ""
+
+
+def detect_explicit_comparison(
+    article_html: str,
+    article_url: str,
+) -> Optional[list[dict[str, str]]]:
+    """
+    Return a comparison only when one explicit widget contains two distinct
+    images and supplies unambiguous BEFORE and AFTER roles.
+    """
+
+    parser = ComparisonParser(article_url)
+    parser.feed(article_html)
+
+    for container in parser.completed:
+        images = container.get("images", [])
+
+        if len(images) < 2:
+            continue
+
+        deduplicated: list[dict] = []
+        seen: set[str] = set()
+
+        for image in images:
+            url = best_variant(
+                image.get("urls", [])
+            )
+
+            if not url:
+                continue
+
+            key = canonical_image_key(url)
+
+            if key in seen:
+                continue
+
+            seen.add(key)
+
+            deduplicated.append(
+                {
+                    **image,
+                    "url": url,
+                }
+            )
+
+        if len(deduplicated) != 2:
+            continue
+
+        container_text = clean_text(
+            " ".join(
+                container.get(
+                    "text_parts",
+                    [],
+                )
+            )
+        )
+
+        roles = [
+            classify_comparison_role(
+                image,
+                container_text,
+            )
+            for image in deduplicated
+        ]
+
+        if set(roles) != {
+            "before",
+            "after",
+        }:
+            continue
+
+        before_image = deduplicated[
+            roles.index("before")
+        ]
+
+        after_image = deduplicated[
+            roles.index("after")
+        ]
+
+        before_date = extract_date_label(
+            " ".join(
+                [
+                    before_image.get("alt", ""),
+                    before_image.get("title", ""),
+                    before_image.get("url", ""),
+                ]
+            )
+        )
+
+        after_date = extract_date_label(
+            " ".join(
+                [
+                    after_image.get("alt", ""),
+                    after_image.get("title", ""),
+                    after_image.get("url", ""),
+                ]
+            )
+        )
+
+        return [
+            {
+                "role": "before",
+                "url": before_image["url"],
+                "label": "BEFORE",
+                "date": before_date,
+            },
+            {
+                "role": "after",
+                "url": after_image["url"],
+                "label": "AFTER",
+                "date": after_date,
+            },
+        ]
+
+    return None
+
+
+def enrich_record(record: dict) -> dict:
+    """
+    Preserve the archive-selected hero unless the article clearly supplies
+    a primary video or a genuine explicit comparison widget.
+    """
 
     article_url = str(
         record.get("article_url", "")
     )
 
     if not article_url:
-        record.setdefault(
-            "media_items",
-            [],
-        )
         return record
 
-    article_html = download_text(
-        article_url
-    )
+    article_html = download_text(article_url)
 
-    parser = ArticleMediaParser(
-        article_url
-    )
-
-    parser.feed(article_html)
-
-    images = deduplicate_images(
-        parser.images
-    )
-
-    comparison = detect_comparison(
-        article_html,
-        images,
-    )
-
-    if comparison:
-        record["media_type"] = "comparison"
-        record["media_items"] = comparison
-        record["media_url"] = comparison[0]["url"]
-        record["image_url"] = comparison[0]["url"]
-        record["video_url"] = ""
-
-        return record
-
-    video_urls = list(
-        parser.videos
-    )
-
-    for video_url in extract_embedded_mp4_urls(
+    video_urls = extract_video_urls(
         article_html,
         article_url,
-    ):
-        if video_url not in video_urls:
-            video_urls.append(video_url)
+    )
 
     if video_urls:
         selected_video = max(
@@ -1121,73 +693,60 @@ def enrich_record(
         record["video_url"] = selected_video
         record["media_items"] = []
 
+        print(
+            f"{record.get('title')}: "
+            f"video -> {selected_video}"
+        )
+
         return record
 
-    selected_image = select_best_story_image(
-        images=images,
-        title=str(
-            record.get("title", "")
-        ),
-        short_description=str(
-            record.get(
-                "short_description",
-                "",
-            )
-        ),
-        current_url=str(
-            record.get("image_url", "")
-        ),
+    comparison = detect_explicit_comparison(
+        article_html,
+        article_url,
     )
 
-    if selected_image:
-        record["media_type"] = "image"
-        record["media_url"] = selected_image["url"]
-        record["image_url"] = selected_image["url"]
+    if comparison:
+        record["media_type"] = "comparison"
+        record["media_items"] = comparison
+        record["media_url"] = comparison[0]["url"]
+        record["image_url"] = comparison[0]["url"]
         record["video_url"] = ""
-        record["media_items"] = []
 
-        selected_description = clean_text(
-            " ".join(
-                [
-                    selected_image.get(
-                        "alt",
-                        "",
-                    ),
-                    selected_image.get(
-                        "caption",
-                        "",
-                    ),
-                ]
-            )
+        print(
+            f"{record.get('title')}: "
+            "explicit comparison preserved"
         )
 
-        if selected_description:
-            record["image_alt"] = selected_description
+        return record
 
-    else:
-        record.setdefault(
-            "media_type",
-            "image",
+    # The hero resolver has already made the archive-selected image the
+    # default. Do not run semantic image ranking here.
+    record["media_type"] = "image"
+    record["video_url"] = ""
+    record["media_items"] = []
+
+    if not record.get("media_url"):
+        record["media_url"] = record.get(
+            "image_url",
+            "",
         )
 
-        record.setdefault(
+    if not record.get("image_url"):
+        record["image_url"] = record.get(
             "media_url",
-            record.get(
-                "image_url",
-                "",
-            ),
+            "",
         )
 
-        record.setdefault(
-            "media_items",
-            [],
-        )
+    print(
+        f"{record.get('title')}: "
+        "archive hero preserved"
+    )
 
     return record
 
 
 def main() -> None:
-    """Enrich the current seven-record slideshow dataset."""
+    """Apply only high-confidence media upgrades."""
 
     payload = json.loads(
         DATA_PATH.read_text(
@@ -1195,44 +754,16 @@ def main() -> None:
         )
     )
 
-    items = payload.get(
-        "items",
-        [],
-    )
-
-    enriched_items: list[dict] = []
-
-    for original_record in items:
-        record = enrich_record(
-            dict(original_record)
+    payload["items"] = [
+        enrich_record(
+            dict(record)
         )
-
-        enriched_items.append(record)
-
-        if record.get("media_type") == "comparison":
-            media_summary = "comparison: " + " | ".join(
-                (
-                    f"{item.get('label', '')} "
-                    f"{item.get('date', '')} "
-                    f"{item.get('url', '')}"
-                ).strip()
-                for item in record.get(
-                    "media_items",
-                    [],
-                )
-            )
-        else:
-            media_summary = (
-                f"{record.get('media_type')}: "
-                f"{record.get('media_url', '')}"
-            )
-
-        print(
-            f"{record.get('title')}: "
-            f"{media_summary}"
+        for record
+        in payload.get(
+            "items",
+            [],
         )
-
-    payload["items"] = enriched_items
+    ]
 
     DATA_PATH.write_text(
         json.dumps(
