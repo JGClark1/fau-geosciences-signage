@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-07-30T16:11:29+00:00",
+  "generated_at": "2026-07-30T19:41:32+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
     {
-      "title": "New Zealand's Southern Wilderness",
+      "title": "3 min read New Zealand’s Southern Wilderness article 16 hours ago",
       "publication_date": "2026-07-30",
       "display_date": "July 30, 2026",
       "short_description": "Stewart Island/Rakiura, New Zealand’s third-largest island, is known for its vibrant birdlife, unique forests, wilderness beaches, and views of the night sky.",
       "abstract": "Stewart Island/Rakiura, New Zealand’s third-largest island, is known for its vibrant birdlife, unique forests, wilderness beaches, and views of the night sky. Stewart Island/Rakiura is the third-largest island in New Zealand, diminutive in comparison to the country’s North Island and South Island. Conservationists have since embarked on a project on the much larger Stewart Island/Rakiura to eliminate rats, possums, feral cats, and hedgehogs. When darkness falls, Stewart Island/Rakiura’s human denizens can look skyward for the chance to observe stars, auroras, nearby dwarf galaxies, and other features of the Southern Hemisphere night sky. In May, when this image was acquired, targets imaged by NASA’s Hubble Space Telescope that were also visible from Earth’s southern latitudes included a star cluster called the Jewel Box and a peculiar elliptical galaxy known as Centaurus A, which may have resulted from two galaxies colliding.",
-      "media_type": "comparison",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/StewartIsland_20100703.jpg?w=1600&h=1200&fit=clip&crop=faces%2Cfocalpoint",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/nzstewartisland_oli2_20260514_lrg.jpg?w=3817&h=3361&fit=crop&crop=faces%2Cfocalpoint",
       "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/StewartIsland_20100703.jpg?w=1600&h=1200&fit=clip&crop=faces%2Cfocalpoint",
+      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/nzstewartisland_oli2_20260514_lrg.jpg?w=3817&h=3361&fit=crop&crop=faces%2Cfocalpoint",
       "image_alt": "new zealand",
       "instruments": [
         "Landsat 9 — OLI"
@@ -21,32 +21,20 @@
       "image_source": "Landsat 9 • OLI",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/new-zealands-southern-wilderness/",
       "source": "NASA Earth Observatory",
-      "media_items": [
-        {
-          "role": "before",
-          "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/StewartIsland_20100703.jpg?w=1600&h=1200&fit=clip&crop=faces%2Cfocalpoint",
-          "label": "BEFORE",
-          "date": "July 3, 2010"
-        },
-        {
-          "role": "after",
-          "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/nzstewartisland_oli2_20260514_lrg.jpg?w=3817&h=3361&fit=clip&crop=faces%2Cfocalpoint",
-          "label": "AFTER",
-          "date": "May 14, 2026"
-        }
-      ]
+      "archive_thumbnail_url": "https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo.svg",
+      "media_items": []
     },
     {
-      "title": "Sizing Up the Sargassum Belt",
-      "publication_date": "2026-07-29",
-      "display_date": "July 29, 2026",
+      "title": "6 min read Sizing Up the Sargassum Belt article 2 days ago",
+      "publication_date": "2026-07-30",
+      "display_date": "July 30, 2026",
       "short_description": "Seaweed composing the Great Atlantic Sargassum Belt hit near-record levels in June 2026, with the Caribbean Sea and Gulf of America both reaching all-time highs.",
       "abstract": "Seaweed composing the Great Atlantic Sargassum Belt hit near-record levels in June 2026, with the Caribbean Sea and Gulf of America both reaching all-time highs. Regionally, the Caribbean Sea and the Gulf of America (Gulf of Mexico) both hit record highs, according to USF’s June 2026 Sargassum outlook. This team first developed Sargassum detection techniques using MODIS (Moderate Resolution Imaging Spectroradiometer) on NASA’s long-running Terra and Aqua satellites and VIIRS (Visible Infrared Imaging Radiometer Suite) on the NOAA-20 satellite—data that have been a key component of USF’s Sargassum Watch System and of research into the seaweed’s longer-term trends. Scientists flag pixels where the reflectance spikes above the levels produced by plain seawater, and then they use the strength of this spike to estimate Sargassum density, which refers to the fraction of ocean surface covered by the seaweed in each pixel.",
       "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassumzm_pace_202606.jpg?w=1440&h=1090&fit=clip&crop=faces%2Cfocalpoint",
+      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassum_pace_202606_lrg.jpg?w=2818&h=1879&fit=crop&crop=faces%2Cfocalpoint",
       "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassumzm_pace_202606.jpg?w=1440&h=1090&fit=clip&crop=faces%2Cfocalpoint",
-      "image_alt": "A detailed map of the Atlantic Ocean centered on the Caribbean Sea shows Sargassum density from low (blue) to high (red) in June 2026.",
+      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassum_pace_202606_lrg.jpg?w=2818&h=1879&fit=crop&crop=faces%2Cfocalpoint",
+      "image_alt": "Sizing Up the Sargassum Belt",
       "instruments": [
         "Aqua — MODIS",
         "Terra — MODIS",
@@ -55,6 +43,7 @@
       "image_source": "Aqua • MODIS · Terra • MODIS · PACE",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/sizing-up-the-sargassum-belt/",
       "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo.svg",
       "media_items": []
     },
     {
@@ -64,10 +53,10 @@
       "short_description": "The color of Adélie penguin droppings reveals what the birds are eating, offering scientists a way to track how sea ice conditions influence their diet.",
       "abstract": "The color of Adélie penguin droppings reveals what the birds are eating, offering scientists a way to track how sea ice conditions influence their diet. The color of the droppings can even provide clues into the penguins’ diet, since krill tints the guano pink, giving researchers a unique way to monitor penguin populations. Analyzing three decades of Landsat images, scientists found that Adélie penguin diets vary around the Antarctic continent and are tied to sea ice conditions. Now, surveying more than 100 sites around the perimeter of Antarctica with Landsat images captured between 1984 and 2013, the scientists have connected penguin diets to the surrounding sea ice conditions during the breeding and nesting seasons. The researchers are now developing computer models to use Landsat 8 and Landsat 9 data to continue tracking penguin diet and how the population responds to environmental change.",
       "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/reading-penguin-diets-in-shades-of-guano/dangerislands_oli_20230122_lrg.jpg?w=2744&h=2337&fit=clip&crop=faces%2Cfocalpoint",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/reading-penguin-diets-in-shades-of-guano/dangerislands_drone_th.jpg",
       "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/reading-penguin-diets-in-shades-of-guano/dangerislands_oli_20230122_lrg.jpg?w=2744&h=2337&fit=clip&crop=faces%2Cfocalpoint",
-      "image_alt": "Several small islands, their surfaces tinged pink-orange, dot a dark ocean scattered with drifting sea ice.",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/reading-penguin-diets-in-shades-of-guano/dangerislands_drone_th.jpg",
+      "image_alt": "Pink Penguin Guano Provides Diet Clues",
       "instruments": [
         "Landsat 8 — OLI",
         "Photograph"
@@ -75,6 +64,7 @@
       "image_source": "Landsat 8 • OLI · Photography",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/pink-penguin-guano-provides-diet-clues/",
       "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/reading-penguin-diets-in-shades-of-guano/dangerislands_drone_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     },
     {
@@ -83,10 +73,10 @@
       "display_date": "July 24, 2026",
       "short_description": "Utah’s new solar power and battery storage facility is among the largest in the region.",
       "abstract": "Utah’s new solar power and battery storage facility is among the largest in the region. A different energy development arrived in the region in June 2026, when a large solar power and battery storage plant came online in the sunny valley about 130 miles (210 kilometers) southeast of Salt Lake City. That places it among the many utility-scale solar power and battery storage projects that the U.S. Energy Information Administration expects to be plugged into the country’s grid in 2026. The Utah facility is slated to supply power to Salt Lake City and other areas across the state, according to news reports, and project staff estimate it could produce enough electricity for more than 100,000 homes. With its integrated battery storage, the plant has the potential to generate power at all hours, even when the Sun isn’t shining.",
-      "media_type": "comparison",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-million-panel-project/solarutah_oli_20240616_lrg.jpg?w=3680&h=3250&fit=clip&crop=faces%2Cfocalpoint",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-million-panel-project/solarutah_oli_20260606_th.jpg",
       "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-million-panel-project/solarutah_oli_20240616_lrg.jpg?w=3680&h=3250&fit=clip&crop=faces%2Cfocalpoint",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-million-panel-project/solarutah_oli_20260606_th.jpg",
       "image_alt": "A Million-Panel Project",
       "instruments": [
         "Landsat 8 — OLI"
@@ -94,20 +84,8 @@
       "image_source": "Landsat 8 • OLI",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/a-million-panel-project/",
       "source": "NASA Earth Observatory",
-      "media_items": [
-        {
-          "role": "before",
-          "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-million-panel-project/solarutah_oli_20240616_lrg.jpg?w=3680&h=3250&fit=clip&crop=faces%2Cfocalpoint",
-          "label": "BEFORE",
-          "date": "June 16, 2024"
-        },
-        {
-          "role": "after",
-          "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-million-panel-project/solarutah_oli_20260606_lrg.jpg?w=3680&h=3250&fit=clip&crop=faces%2Cfocalpoint",
-          "label": "AFTER",
-          "date": "June 6, 2026"
-        }
-      ]
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-million-panel-project/solarutah_oli_20260606_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
     },
     {
       "title": "Olympic Mountain Glory",
@@ -116,16 +94,17 @@
       "short_description": "Snow-capped mountains carved by deep river valleys preside over northwestern Washington state.",
       "abstract": "Snow-capped mountains carved by deep river valleys preside over northwestern Washington state. Alpine glaciers, wild coastlines, temperate rainforests, and deep river valleys coexist on the Olympic Peninsula in the northwest corner of Washington state. The Olympic Mountains’ imposing terrain comes into focus in this oblique view of the region, captured by an astronaut aboard the International Space Station. Olympic National Park encompasses the peninsula’s mountainous core, along with some stretches of the Pacific coastline. Other erosion is evidenced by the deep valleys radiating out from the snowy peaks. These verdant valleys are known for their temperate rainforests, and the ancient forest in the Hoh River valley was once considered among the most naturally quiet places in the U.S., uninterrupted by human-caused noise. Two dams constructed on the river produced power for local industry.",
       "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/olympic-mountain-glory/ISS047-E-104144_lrg.jpg?w=5537&h=2585&fit=clip&crop=faces%2Cfocalpoint",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/olympic-mountain-glory/ISS047-E-104144_th.jpg",
       "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/olympic-mountain-glory/ISS047-E-104144_lrg.jpg?w=5537&h=2585&fit=clip&crop=faces%2Cfocalpoint",
-      "image_alt": "The Olympic Peninsula, viewed at an angle from above, features snow-capped mountains surrounded by deep, forested river valleys. Islands in Puget Sound and developed areas including Seattle and Tacoma appear across the top of the photo.",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/olympic-mountain-glory/ISS047-E-104144_th.jpg",
+      "image_alt": "Olympic Mountain Glory",
       "instruments": [
         "ISS — Digital Camera"
       ],
       "image_source": "ISS • Digital Camera",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/olympic-mountain-glory/",
       "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/olympic-mountain-glory/ISS047-E-104144_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     },
     {
@@ -137,7 +116,7 @@
       "media_type": "video",
       "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-week-of-smoky-skies-across-north-america/nambrowncarbon_geos5_20260720.mp4",
       "video_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-week-of-smoky-skies-across-north-america/nambrowncarbon_geos5_20260720.mp4",
-      "image_url": "",
+      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-week-of-smoky-skies-across-north-america/nambrowncarbon_geos5_20260720_th.jpg?w=3209&h=2139&fit=clip&crop=faces%2Cfocalpoint",
       "image_alt": "A Week of Smoky Skies Across North America",
       "instruments": [
         "Model"
@@ -145,6 +124,7 @@
       "image_source": "Model",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/a-week-of-smoky-skies-across-north-america/",
       "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-week-of-smoky-skies-across-north-america/nambrowncarbon_geos5_20260720_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     },
     {
@@ -154,16 +134,17 @@
       "short_description": "Differences in the underlying bedrock and how rivers distribute sediment make the coastlines west of Portland look unlike those northeast of the city.",
       "abstract": "Differences in the underlying bedrock and how rivers distribute sediment make the coastlines west of Portland look unlike those northeast of the city. Fewer Indigenous creation myths survive to explain the origins of the sandy and marshy shorelines of southern Maine and the rocky, indented coasts of the state's Midcoast region. The coastal transition reflects both differences in the underlying bedrock and the distribution of sediment left behind by the last glacial maximum, coastal geologists say. While erosion-resistant granite juts from the sandy shorelines in southern Maine to form rocky headlands, metamorphic bedrock becomes the dominant surface feature east of Portland. The various forms that coastlines take fascinate geologists, but they also carry everyday implications for the economies of Maine's coastal communities.",
       "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/why-maine's-sandy-shorelines-turn-jagged/mainecoast_oli2_20250831_lrg.jpg?w=3427&h=4229&fit=clip&crop=faces%2Cfocalpoint",
+      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/why-maine's-sandy-shorelines-turn-jagged/mainecoast_oli2_20250831_lrg.jpg?w=3427&h=4229&fit=crop&crop=faces%2Cfocalpoint",
       "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/why-maine's-sandy-shorelines-turn-jagged/mainecoast_oli2_20250831_lrg.jpg?w=3427&h=4229&fit=clip&crop=faces%2Cfocalpoint",
-      "image_alt": "A satellite image of the Maine coastline highlights smooth, sandy beaches near Saco Bay on the left and the rocky, jagged coastal features near Casco Bay on the right.",
+      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/why-maine's-sandy-shorelines-turn-jagged/mainecoast_oli2_20250831_lrg.jpg?w=3427&h=4229&fit=crop&crop=faces%2Cfocalpoint",
+      "image_alt": "Why Maine's Sandy Shorelines Turn Jagged",
       "instruments": [
         "Landsat 9 — OLI"
       ],
       "image_source": "Landsat 9 • OLI",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/why-maines-sandy-shorelines-turn-jagged/",
       "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/why-maine's-sandy-shorelines-turn-jagged/mainecoast_oli2_20250831_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
