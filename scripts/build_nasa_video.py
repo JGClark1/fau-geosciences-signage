@@ -601,7 +601,7 @@ def draw_source_header(
         (
             50,
             rule_y,
-            122,
+            LEFT_PANEL_WIDTH - 50,
             rule_y + 4,
         ),
         fill=ACCENT,
@@ -901,6 +901,15 @@ def encode_still_segment(
     frame_path: Path,
     segment_path: Path,
 ) -> None:
+    progress_filter = (
+        "[1:v]"
+        f"scale=w='max(2,iw*min(t/{STORY_DURATION_SECONDS},1))':"
+        "h=8:eval=frame[progress];"
+        "[0:v][progress]"
+        f"overlay=0:{OUTPUT_HEIGHT - 8}:"
+        "shortest=1[out]"
+    )
+
     command = [
         "ffmpeg",
         "-hide_banner",
@@ -911,6 +920,19 @@ def encode_still_segment(
         "1",
         "-i",
         str(frame_path),
+        "-f",
+        "lavfi",
+        "-i",
+        (
+            f"color=c=0x67B7E8:"
+            f"s={OUTPUT_WIDTH}x8:"
+            f"r={FRAME_RATE}:"
+            f"d={STORY_DURATION_SECONDS}"
+        ),
+        "-filter_complex",
+        progress_filter,
+        "-map",
+        "[out]",
         "-t",
         str(
             STORY_DURATION_SECONDS
@@ -935,7 +957,6 @@ def encode_still_segment(
         command,
         check=True,
     )
-
 
 def make_video_background(
     story: dict[str, Any],
@@ -988,6 +1009,12 @@ def encode_video_segment(
         "setsar=1[media];"
         f"[0:v][media]"
         f"overlay={LEFT_PANEL_WIDTH}:0:"
+        "shortest=1[composite];"
+        "[2:v]"
+        f"scale=w='max(2,iw*min(t/{STORY_DURATION_SECONDS},1))':"
+        "h=8:eval=frame[progress];"
+        "[composite][progress]"
+        f"overlay=0:{OUTPUT_HEIGHT - 8}:"
         "shortest=1[out]"
     )
 
@@ -1005,6 +1032,15 @@ def encode_video_segment(
         "-1",
         "-i",
         str(media_path),
+        "-f",
+        "lavfi",
+        "-i",
+        (
+            f"color=c=0x67B7E8:"
+            f"s={OUTPUT_WIDTH}x8:"
+            f"r={FRAME_RATE}:"
+            f"d={STORY_DURATION_SECONDS}"
+        ),
         "-filter_complex",
         video_filter,
         "-map",
