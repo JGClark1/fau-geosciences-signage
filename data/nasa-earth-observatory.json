@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-30T19:57:39+00:00",
+  "generated_at": "2026-07-30T20:01:20+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
@@ -45,6 +45,27 @@
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassum_pace_202606_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
+    },
+    {
+      "title": "Smoke Blankets Oregon",
+      "publication_date": "2026-07-28",
+      "display_date": "July 28, 2026",
+      "short_description": "Lightning storms have ignited dozens of fires in central and eastern Oregon.",
+      "abstract": "Lightning storms have ignited dozens of fires in central and eastern Oregon. NASA Sets Coverage for August Northern Hemisphere Total Solar Eclipse NASA Fuels Roman Space Telescope for Late August Launch NASA to Cover Three US Spacewalks, Host Preview News Conference NASA’s Curiosity Mars Rover Discovers Field of Honeycomb Textures NASA Webb Explores Family Tree of Newly Discovered Distant Objects NASA’s Swift Sees ‘Wandering’ Mega Black Hole Shredding Star Establishing a VTE Risk Score for Astronauts Algorithm NASA Seeks Industry Input on Second Phase of Commercial Space Stations NASA Science Soars During August Total Solar Eclipse NASA’s Hubble Shows Star Formation in Andromeda Galaxy Winding Down NASA, GE Aerospace Work Enables Hybrid-Electric Flight Demonstration NASA Pushes New Wing Design to Find Structural Limits Request for Information – Potential [Placeholder for Prize]",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/smoke-blankets-oregon/oregonfires_amo_20260726_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/smoke-blankets-oregon/oregonfires_amo_20260726_th.jpg",
+      "image_alt": "Smoke Blankets Oregon",
+      "instruments": [
+        "ISS",
+        "MODIS"
+      ],
+      "image_source": "ISS • MODIS",
+      "article_url": "https://science.nasa.gov/earth/natural-disasters/wildfires/smoke-blankets-oregon/",
+      "source": "NASA Earth Observatory",
+      "media_items": [],
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/smoke-blankets-oregon/oregonfires_amo_20260726_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300"
     },
     {
       "title": "Pink Penguin Guano Provides Diet Clues",
@@ -125,26 +146,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/a-week-of-smoky-skies-across-north-america/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-week-of-smoky-skies-across-north-america/nambrowncarbon_geos5_20260720_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "Why Maine’s Sandy Shorelines Turn Jagged",
-      "publication_date": "2026-07-21",
-      "display_date": "July 21, 2026",
-      "short_description": "Differences in the underlying bedrock and how rivers distribute sediment make the coastlines west of Portland look unlike those northeast of the city.",
-      "abstract": "Differences in the underlying bedrock and how rivers distribute sediment make the coastlines west of Portland look unlike those northeast of the city. Fewer Indigenous creation myths survive to explain the origins of the sandy and marshy shorelines of southern Maine and the rocky, indented coasts of the state's Midcoast region. The coastal transition reflects both differences in the underlying bedrock and the distribution of sediment left behind by the last glacial maximum, coastal geologists say. While erosion-resistant granite juts from the sandy shorelines in southern Maine to form rocky headlands, metamorphic bedrock becomes the dominant surface feature east of Portland. The various forms that coastlines take fascinate geologists, but they also carry everyday implications for the economies of Maine's coastal communities.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/why-maine's-sandy-shorelines-turn-jagged/mainecoast_oli2_20250831_lrg.jpg?w=3427&h=4229&fit=crop&crop=faces%2Cfocalpoint",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/why-maine's-sandy-shorelines-turn-jagged/mainecoast_oli2_20250831_lrg.jpg?w=3427&h=4229&fit=crop&crop=faces%2Cfocalpoint",
-      "image_alt": "Why Maine's Sandy Shorelines Turn Jagged",
-      "instruments": [
-        "Landsat 9 — OLI"
-      ],
-      "image_source": "Landsat 9 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/why-maines-sandy-shorelines-turn-jagged/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/why-maine's-sandy-shorelines-turn-jagged/mainecoast_oli2_20250831_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
