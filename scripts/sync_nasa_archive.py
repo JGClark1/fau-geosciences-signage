@@ -423,27 +423,210 @@ def find_story_card(
     return None
 
 
+def find_archive_start(
+    soup: BeautifulSoup,
+) -> Tag:
+    """
+    Locate the actual IOTD results area.
+
+    NASA's global navigation contains unrelated "Highlights" links that may
+    point to the same Earth Observatory stories. The archive results begin
+    only after the page's Filter by Topic controls.
+    """
+
+    for heading in soup.find_all(
+        ["h1", "h2", "h3", "h4"],
+    ):
+        if clean_text(
+            heading.get_text(
+                " ",
+                strip=True,
+            )
+        ).lower() == "filter by topic":
+            return heading
+
+    raise RuntimeError(
+        "Could not locate the NASA IOTD "
+        "'Filter by Topic' archive marker."
+    )
+
+
+def is_after_archive_start(
+    tag: Tag,
+    archive_start: Tag,
+) -> bool:
+    """Return whether a tag appears after the archive-start marker."""
+
+    for element in archive_start.next_elements:
+        if element is tag:
+            return True
+
+    return False
+
+
+def is_before_archive_end(
+    tag: Tag,
+) -> bool:
+    """
+    Reject links appearing after the archive grid.
+
+    The IOTD result list ends when NASA begins its Keep Exploring section.
+    """
+
+    for previous in tag.previous_elements:
+        if not isinstance(previous, Tag):
+            continue
+
+        if previous.name not in {
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+        }:
+            continue
+
+        heading_text = clean_text(
+            previous.get_text(
+                " ",
+                strip=True,
+            )
+        ).lower()
+
+        if heading_text == "keep exploring":
+            return False
+
+    return True
+
+
+def card_date(
+    card: Tag,
+) -> datetime | None:
+    """Return the visible publication date inside one archive card."""
+
+    for text_node in card.stripped_strings:
+        parsed = parse_visible_date(
+            str(text_node)
+        )
+
+        if parsed is not None:
+            return parsed
+
+    return None
+
+
+def card_description(
+    card: Tag,
+    title: str,
+) -> str:
+    """Extract the story-card description without title, read time, or date."""
+
+    candidates: list[str] = []
+
+    for element in card.find_all(
+        ["p", "div", "span"],
+    ):
+        text = clean_text(
+            element.get_text(
+                " ",
+                strip=True,
+            )
+        )
+
+        if not text:
+            continue
+
+        if text == title:
+            continue
+
+        if parse_visible_date(text):
+            continue
+
+        if re.fullmatch(
+            r"\d+\s+min\s+read",
+            text,
+            flags=re.IGNORECASE,
+        ):
+            continue
+
+        lowered = text.lower()
+
+        if (
+            "min read" in lowered
+            and len(text.split()) <= 5
+        ):
+            continue
+
+        if text not in candidates:
+            candidates.append(text)
+
+    # Prefer a concise sentence-like description rather than a wrapper that
+    # repeats the complete card.
+    sentence_candidates = [
+        text
+        for text in candidates
+        if (
+            len(text.split()) >= 8
+            and title.lower()
+            not in text.lower()
+            and "min read" not in text.lower()
+        )
+    ]
+
+    if sentence_candidates:
+        return min(
+            sentence_candidates,
+            key=len,
+        )
+
+    return ""
+
+
 def archive_records(
     archive_html: str,
 ) -> list[dict[str, Any]]:
-    """Read dated story cards from the IOTD archive."""
+    """
+    Read story cards only from the actual IOTD archive grid.
+
+    Results remain in NASA's displayed order. We do not collect links from
+    the site's global Highlights navigation, and we do not resort the cards
+    after parsing.
+    """
 
     soup = BeautifulSoup(
         archive_html,
         "html.parser",
     )
 
-    records_by_url: dict[
-        str,
-        dict[str, Any],
-    ] = {}
+    archive_start = find_archive_start(
+        soup
+    )
+
+    records: list[
+        dict[str, Any]
+    ] = []
+
+    seen_urls: set[str] = set()
 
     for link in soup.find_all(
         "a",
         href=True,
     ):
+        if not is_after_archive_start(
+            link,
+            archive_start,
+        ):
+            continue
+
+        if not is_before_archive_end(
+            link
+        ):
+            break
+
         href = str(
-            link.get("href", "")
+            link.get(
+                "href",
+                "",
+            )
         ).strip()
 
         if not is_story_url(href):
@@ -453,18 +636,38 @@ def archive_records(
             href
         )
 
-        card = find_story_card(link)
+        if article_url in seen_urls:
+            continue
+
+        title = clean_text(
+            link.get_text(
+                " ",
+                strip=True,
+            )
+        )
+
+        if not title:
+            continue
+
+        # Highlight links include metadata such as "3 min read ... article
+        # 16 hours ago". Archive-grid titles are clean heading text. Reject
+        # any contaminated anchor as an extra safeguard.
+        if re.search(
+            r"\bmin\s+read\b|\barticle\b|\bago\b",
+            title,
+            flags=re.IGNORECASE,
+        ):
+            continue
+
+        card = find_story_card(
+            link
+        )
 
         if card is None:
             continue
 
-        publication_datetime = (
-            parse_visible_date(
-                card.get_text(
-                    " ",
-                    strip=True,
-                )
-            )
+        publication_datetime = card_date(
+            card
         )
 
         if publication_datetime is None:
@@ -477,119 +680,50 @@ def archive_records(
                 image,
                 ARCHIVE_URL,
             )
-            if isinstance(image, Tag)
+            if isinstance(
+                image,
+                Tag,
+            )
             else ""
         )
 
-        title = clean_text(
-            link.get_text(
-                " ",
-                strip=True,
+        short_description = (
+            card_description(
+                card,
+                title,
             )
         )
 
-        if not title and isinstance(
-            image,
-            Tag,
-        ):
-            title = clean_text(
-                str(
-                    image.get(
-                        "alt",
-                        "",
-                    )
-                )
-            )
-
-        card_text = clean_text(
-            card.get_text(
-                " ",
-                strip=True,
-            )
+        records.append(
+            {
+                "title": title,
+                "publication_datetime":
+                    publication_datetime,
+                "publication_date":
+                    publication_datetime.strftime(
+                        "%Y-%m-%d"
+                    ),
+                "display_date":
+                    f"{publication_datetime.strftime('%B')} "
+                    f"{publication_datetime.day}, "
+                    f"{publication_datetime.year}",
+                "short_description":
+                    short_description,
+                "article_url":
+                    article_url,
+                "archive_thumbnail_url":
+                    thumbnail_url,
+            }
         )
 
-        date_text = (
-            f"{publication_datetime.strftime('%b')} "
-            f"{publication_datetime.day}, "
-            f"{publication_datetime.year}"
-        )
-
-        short_description = card_text
-
-        for removable in (
-            title,
-            date_text,
-            "1 min read",
-            "2 min read",
-            "3 min read",
-            "4 min read",
-            "5 min read",
-            "6 min read",
-            "7 min read",
-            "8 min read",
-            "9 min read",
-            "10 min read",
-        ):
-            if removable:
-                short_description = (
-                    short_description.replace(
-                        removable,
-                        " ",
-                    )
-                )
-
-        short_description = clean_text(
-            short_description
-        )
-
-        candidate = {
-            "title": title,
-            "publication_datetime":
-                publication_datetime,
-            "publication_date":
-                publication_datetime.strftime(
-                    "%Y-%m-%d"
-                ),
-            "display_date":
-                f"{publication_datetime.strftime('%B')} "
-                f"{publication_datetime.day}, "
-                f"{publication_datetime.year}",
-            "short_description":
-                short_description,
-            "article_url": article_url,
-            "archive_thumbnail_url":
-                thumbnail_url,
-        }
-
-        existing = records_by_url.get(
+        seen_urls.add(
             article_url
         )
 
-        if (
-            existing is None
-            or (
-                not existing.get(
-                    "archive_thumbnail_url"
-                )
-                and thumbnail_url
-            )
-        ):
-            records_by_url[
-                article_url
-            ] = candidate
-
-    records = list(
-        records_by_url.values()
-    )
-
-    records.sort(
-        key=lambda item:
-            item["publication_datetime"],
-        reverse=True,
-    )
+        if len(records) >= NUMBER_OF_ITEMS:
+            break
 
     return records
-
 
 def metadata_value(
     soup: BeautifulSoup,
@@ -1031,9 +1165,7 @@ def main() -> None:
             f"only {len(records)} dated story cards."
         )
 
-    newest = records[
-        :NUMBER_OF_ITEMS
-    ]
+    newest = records
 
     existing_payload: dict[str, Any] = {}
 
@@ -1152,6 +1284,24 @@ def main() -> None:
             "the first JSON record does not "
             "match the first archive story."
         )
+
+    for item in payload["items"]:
+        title = str(
+            item.get(
+                "title",
+                "",
+            )
+        )
+
+        if re.search(
+            r"\bmin\s+read\b|\barticle\b|\bago\b",
+            title,
+            flags=re.IGNORECASE,
+        ):
+            raise RuntimeError(
+                "Archive validation failed: "
+                f"contaminated story title: {title}"
+            )
 
     print(
         "Archive membership validation passed."
