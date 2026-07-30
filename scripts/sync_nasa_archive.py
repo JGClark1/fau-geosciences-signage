@@ -429,9 +429,8 @@ def find_archive_start(
     """
     Locate the actual IOTD results area.
 
-    NASA's global navigation contains unrelated "Highlights" links that may
-    point to the same Earth Observatory stories. The archive results begin
-    only after the page's Filter by Topic controls.
+    NASA's global navigation contains unrelated Highlights links. The archive
+    result list begins only after the visible Filter by Topic heading.
     """
 
     for heading in soup.find_all(
@@ -451,176 +450,329 @@ def find_archive_start(
     )
 
 
-def is_after_archive_start(
-    tag: Tag,
+def archive_end_marker(
+    soup: BeautifulSoup,
     archive_start: Tag,
-) -> bool:
-    """Return whether a tag appears after the archive-start marker."""
+) -> Tag | None:
+    """Return the first Keep Exploring heading after the archive begins."""
 
-    for element in archive_start.next_elements:
-        if element is tag:
-            return True
-
-    return False
-
-
-def is_before_archive_end(
-    tag: Tag,
-) -> bool:
-    """
-    Reject links appearing after the archive grid.
-
-    The IOTD result list ends when NASA begins its Keep Exploring section.
-    """
-
-    for previous in tag.previous_elements:
-        if not isinstance(previous, Tag):
-            continue
-
-        if previous.name not in {
-            "h1",
-            "h2",
-            "h3",
-            "h4",
-        }:
-            continue
-
-        heading_text = clean_text(
-            previous.get_text(
-                " ",
-                strip=True,
-            )
-        ).lower()
-
-        if heading_text == "keep exploring":
-            return False
-
-    return True
-
-
-def card_date(
-    card: Tag,
-) -> datetime | None:
-    """Return the visible publication date inside one archive card."""
-
-    for text_node in card.stripped_strings:
-        parsed = parse_visible_date(
-            str(text_node)
-        )
-
-        if parsed is not None:
-            return parsed
-
-    return None
-
-
-def card_description(
-    card: Tag,
-    title: str,
-) -> str:
-    """Extract the story-card description without title, read time, or date."""
-
-    candidates: list[str] = []
-
-    for element in card.find_all(
-        ["p", "div", "span"],
+    for element in archive_start.find_all_next(
+        ["h1", "h2", "h3", "h4"],
     ):
-        text = clean_text(
+        if clean_text(
             element.get_text(
                 " ",
                 strip=True,
             )
+        ).lower() == "keep exploring":
+            return element
+
+    return None
+
+
+def is_between_markers(
+    tag: Tag,
+    start: Tag,
+    end: Tag | None,
+) -> bool:
+    """Return whether a tag lies between the archive start and end markers."""
+
+    reached_start = False
+
+    for element in start.next_elements:
+        if element is tag:
+            return True
+
+        if end is not None and element is end:
+            return False
+
+        reached_start = True
+
+    return False
+
+
+def clean_archive_title(
+    link: Tag,
+) -> str:
+    """
+    Extract only the story title from one archive result link.
+
+    NASA may wrap read-time or article metadata in the same anchor. Prefer a
+    heading inside the link, then fall back to the visible anchor text with
+    known metadata removed.
+    """
+
+    heading = link.find(
+        ["h2", "h3", "h4", "h5", "h6"],
+    )
+
+    if isinstance(
+        heading,
+        Tag,
+    ):
+        title = clean_text(
+            heading.get_text(
+                " ",
+                strip=True,
+            )
         )
 
-        if not text:
-            continue
+        if title:
+            return title
 
-        if text == title:
-            continue
+    title = clean_text(
+        link.get_text(
+            " ",
+            strip=True,
+        )
+    )
 
-        if parse_visible_date(text):
-            continue
+    title = re.sub(
+        r"^\s*\d+\s+min\s+read\s+",
+        "",
+        title,
+        flags=re.IGNORECASE,
+    )
 
-        if re.fullmatch(
-            r"\d+\s+min\s+read",
-            text,
-            flags=re.IGNORECASE,
+    title = re.sub(
+        r"\s+article(?:\s+\d+\s+"
+        r"(?:minute|minutes|hour|hours|day|days)\s+ago)?\s*$",
+        "",
+        title,
+        flags=re.IGNORECASE,
+    )
+
+    return clean_text(title)
+
+
+def nearest_archive_thumbnail(
+    link: Tag,
+    next_story_link: Tag | None,
+) -> str:
+    """
+    Find the nearest image associated with a story link.
+
+    Thumbnail discovery is deliberately optional. A story is never discarded
+    merely because NASA's card markup prevents a reliable image association.
+    """
+
+    # First inspect the anchor itself.
+    image = link.find("img")
+
+    if isinstance(
+        image,
+        Tag,
+    ):
+        url = image_url_from_tag(
+            image,
+            ARCHIVE_URL,
+        )
+
+        if url:
+            return url
+
+    # Then inspect a small number of ancestors. Unlike the earlier parser,
+    # this search does not control whether the story is included.
+    current: Tag | None = link
+
+    for _ in range(6):
+        parent = (
+            current.parent
+            if isinstance(
+                current,
+                Tag,
+            )
+            else None
+        )
+
+        current = (
+            parent
+            if isinstance(
+                parent,
+                Tag,
+            )
+            else None
+        )
+
+        if current is None:
+            break
+
+        image = current.find("img")
+
+        if isinstance(
+            image,
+            Tag,
         ):
-            continue
+            url = image_url_from_tag(
+                image,
+                ARCHIVE_URL,
+            )
 
-        lowered = text.lower()
+            if url:
+                return url
 
-        if (
-            "min read" in lowered
-            and len(text.split()) <= 5
-        ):
-            continue
+    # Finally inspect following elements until the next story link.
+    for element in link.next_elements:
+        if element is next_story_link:
+            break
 
-        if text not in candidates:
-            candidates.append(text)
+        if isinstance(
+            element,
+            Tag,
+        ) and element.name == "img":
+            url = image_url_from_tag(
+                element,
+                ARCHIVE_URL,
+            )
 
-    # Prefer a concise sentence-like description rather than a wrapper that
-    # repeats the complete card.
-    sentence_candidates = [
-        text
-        for text in candidates
-        if (
-            len(text.split()) >= 8
-            and title.lower()
-            not in text.lower()
-            and "min read" not in text.lower()
-        )
-    ]
-
-    if sentence_candidates:
-        return min(
-            sentence_candidates,
-            key=len,
-        )
+            if url:
+                return url
 
     return ""
 
 
-def archive_records(
-    archive_html: str,
-) -> list[dict[str, Any]]:
-    """
-    Read story cards only from the actual IOTD archive grid.
+def text_between_story_links(
+    link: Tag,
+    next_story_link: Tag | None,
+) -> list[str]:
+    """Collect clean visible strings between consecutive story links."""
 
-    Results remain in NASA's displayed order. We do not collect links from
-    the site's global Highlights navigation, and we do not resort the cards
-    after parsing.
+    strings: list[str] = []
+
+    for element in link.next_elements:
+        if element is next_story_link:
+            break
+
+        if isinstance(
+            element,
+            Tag,
+        ):
+            continue
+
+        value = clean_text(
+            str(element)
+        )
+
+        if not value:
+            continue
+
+        if value not in strings:
+            strings.append(value)
+
+    return strings
+
+
+def date_and_description_after_link(
+    link: Tag,
+    next_story_link: Tag | None,
+    title: str,
+) -> tuple[
+    datetime | None,
+    str,
+]:
+    """
+    Read the publication date and description following one story link.
+
+    This does not depend on a particular card container or image structure.
     """
 
-    soup = BeautifulSoup(
-        archive_html,
-        "html.parser",
+    strings = text_between_story_links(
+        link,
+        next_story_link,
     )
 
-    archive_start = find_archive_start(
+    publication_datetime: datetime | None = None
+    description_candidates: list[str] = []
+
+    for value in strings:
+        parsed_date = parse_visible_date(
+            value
+        )
+
+        if (
+            publication_datetime is None
+            and parsed_date is not None
+        ):
+            publication_datetime = parsed_date
+            continue
+
+        lowered = value.lower()
+
+        if value == title:
+            continue
+
+        if re.fullmatch(
+            r"\d+\s+min\s+read",
+            value,
+            flags=re.IGNORECASE,
+        ):
+            continue
+
+        if lowered in {
+            "article",
+            "read more",
+        }:
+            continue
+
+        if re.search(
+            r"\b(?:minute|minutes|hour|hours|day|days)\s+ago\b",
+            lowered,
+        ):
+            continue
+
+        if len(value.split()) >= 7:
+            description_candidates.append(
+                value
+            )
+
+    description = ""
+
+    if description_candidates:
+        # Prefer a compact sentence over a large wrapper containing multiple
+        # pieces of card text.
+        description = min(
+            description_candidates,
+            key=len,
+        )
+
+    return (
+        publication_datetime,
+        description,
+    )
+
+
+def archive_story_links(
+    soup: BeautifulSoup,
+) -> list[Tag]:
+    """
+    Return unique Earth Observatory story links from the archive results.
+
+    Membership is based only on link order. Missing dates, descriptions, or
+    thumbnails never cause a story to be dropped.
+    """
+
+    start = find_archive_start(
         soup
     )
 
-    records: list[
-        dict[str, Any]
-    ] = []
+    end = archive_end_marker(
+        soup,
+        start,
+    )
 
+    links: list[Tag] = []
     seen_urls: set[str] = set()
 
     for link in soup.find_all(
         "a",
         href=True,
     ):
-        if not is_after_archive_start(
+        if not is_between_markers(
             link,
-            archive_start,
+            start,
+            end,
         ):
             continue
-
-        if not is_before_archive_end(
-            link
-        ):
-            break
 
         href = str(
             link.get(
@@ -639,58 +791,103 @@ def archive_records(
         if article_url in seen_urls:
             continue
 
-        title = clean_text(
-            link.get_text(
-                " ",
-                strip=True,
-            )
+        title = clean_archive_title(
+            link
         )
 
         if not title:
             continue
 
-        # Highlight links include metadata such as "3 min read ... article
-        # 16 hours ago". Archive-grid titles are clean heading text. Reject
-        # any contaminated anchor as an extra safeguard.
-        if re.search(
-            r"\bmin\s+read\b|\barticle\b|\bago\b",
+        # Exclude obvious navigation/promotional metadata while allowing the
+        # cleaner title extraction to handle anchors that wrap extra text.
+        if re.fullmatch(
+            r"\d+\s+min\s+read",
             title,
             flags=re.IGNORECASE,
         ):
             continue
 
-        card = find_story_card(
+        links.append(link)
+        seen_urls.add(article_url)
+
+        if len(links) >= NUMBER_OF_ITEMS:
+            break
+
+    return links
+
+
+def archive_records(
+    archive_html: str,
+) -> list[dict[str, Any]]:
+    """
+    Read the first seven archive stories in NASA's displayed order.
+
+    The story URL alone controls membership. Dates, descriptions, and
+    thumbnails are supplemental metadata and may be filled from the article
+    page later when absent.
+    """
+
+    soup = BeautifulSoup(
+        archive_html,
+        "html.parser",
+    )
+
+    links = archive_story_links(
+        soup
+    )
+
+    records: list[
+        dict[str, Any]
+    ] = []
+
+    for index, link in enumerate(
+        links
+    ):
+        next_link = (
+            links[index + 1]
+            if index + 1 < len(links)
+            else None
+        )
+
+        href = str(
+            link.get(
+                "href",
+                "",
+            )
+        ).strip()
+
+        article_url = normalize_article_url(
+            href
+        )
+
+        title = clean_archive_title(
             link
         )
 
-        if card is None:
-            continue
-
-        publication_datetime = card_date(
-            card
+        (
+            publication_datetime,
+            short_description,
+        ) = date_and_description_after_link(
+            link,
+            next_link,
+            title,
         )
 
+        # Missing archive dates must not remove a valid story. The article
+        # builder can provide the true date later. Use a stable placeholder
+        # only for ordering and overwrite it when article metadata is read.
         if publication_datetime is None:
-            continue
-
-        image = card.find("img")
+            publication_datetime = datetime(
+                1970,
+                1,
+                1,
+                tzinfo=timezone.utc,
+            )
 
         thumbnail_url = (
-            image_url_from_tag(
-                image,
-                ARCHIVE_URL,
-            )
-            if isinstance(
-                image,
-                Tag,
-            )
-            else ""
-        )
-
-        short_description = (
-            card_description(
-                card,
-                title,
+            nearest_archive_thumbnail(
+                link,
+                next_link,
             )
         )
 
@@ -715,13 +912,6 @@ def archive_records(
                     thumbnail_url,
             }
         )
-
-        seen_urls.add(
-            article_url
-        )
-
-        if len(records) >= NUMBER_OF_ITEMS:
-            break
 
     return records
 
@@ -1009,6 +1199,50 @@ def build_missing_record(
         archive_record["title"],
     )
 
+    publication_date = archive_record[
+        "publication_date"
+    ]
+
+    display_date = archive_record[
+        "display_date"
+    ]
+
+    if publication_date == "1970-01-01":
+        article_date = metadata_value(
+            soup,
+            "article:published_time",
+            "date",
+            "datepublished",
+        )
+
+        parsed_article_date = None
+
+        if article_date:
+            try:
+                parsed_article_date = datetime.fromisoformat(
+                    article_date.replace(
+                        "Z",
+                        "+00:00",
+                    )
+                )
+            except ValueError:
+                parsed_article_date = parse_visible_date(
+                    article_date
+                )
+
+        if parsed_article_date is not None:
+            publication_date = (
+                parsed_article_date.strftime(
+                    "%Y-%m-%d"
+                )
+            )
+
+            display_date = (
+                f"{parsed_article_date.strftime('%B')} "
+                f"{parsed_article_date.day}, "
+                f"{parsed_article_date.year}"
+            )
+
     short_description = (
         article_description(
             soup,
@@ -1046,13 +1280,9 @@ def build_missing_record(
     return {
         "title": title,
         "publication_date":
-            archive_record[
-                "publication_date"
-            ],
+            publication_date,
         "display_date":
-            archive_record[
-                "display_date"
-            ],
+            display_date,
         "short_description":
             short_description,
         "abstract": abstract,
@@ -1101,17 +1331,23 @@ def merge_record(
         )
     )
 
-    record["publication_date"] = (
+    if (
         archive_record[
             "publication_date"
         ]
-    )
+        != "1970-01-01"
+    ):
+        record["publication_date"] = (
+            archive_record[
+                "publication_date"
+            ]
+        )
 
-    record["display_date"] = (
-        archive_record[
-            "display_date"
-        ]
-    )
+        record["display_date"] = (
+            archive_record[
+                "display_date"
+            ]
+        )
 
     record["article_url"] = (
         archive_record[
