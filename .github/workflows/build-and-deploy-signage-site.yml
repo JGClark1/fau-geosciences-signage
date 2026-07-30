@@ -1,4 +1,4 @@
-name: Build and deploy GOES-East video
+name: Build and deploy signage site
 
 on:
   workflow_dispatch:
