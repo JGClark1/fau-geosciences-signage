@@ -30,14 +30,28 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Install FFmpeg
+      - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install --yes ffmpeg
+          sudo apt-get install --yes \
+            ffmpeg \
+            libcairo2 \
+            fonts-dejavu-core
 
-      - name: Build GOES-East video
+      - name: Install Python dependencies
+        run: |
+          python -m pip install \
+            --upgrade \
+            pillow \
+            cairosvg
+
+      - name: Build GOES-East video and site directory
         run: |
           python scripts/build_goes_video.py
+
+      - name: Build NASA Earth Observatory video
+        run: |
+          python scripts/build_nasa_video.py
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
