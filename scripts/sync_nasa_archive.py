@@ -209,37 +209,43 @@ def normalize_article_url(url: str) -> str:
 
 
 def article_slug(url: str) -> str:
-    """Return the single Earth Observatory path segment."""
+    """Return the final path segment of a NASA Science Earth article."""
 
     path = urllib.parse.urlparse(
         url
     ).path.rstrip("/")
 
-    if EARTH_OBSERVATORY_PATH not in path:
-        return ""
-
-    relative = path.split(
-        EARTH_OBSERVATORY_PATH,
-        maxsplit=1,
-    )[1]
-
     parts = [
         part
-        for part in relative.split("/")
+        for part in path.split("/")
         if part
     ]
 
-    if len(parts) != 1:
+    if not parts:
         return ""
 
-    return parts[0].lower()
+    return parts[-1].lower()
 
 
 def is_story_url(url: str) -> bool:
-    """Identify a one-page Earth Observatory story URL."""
+    """
+    Identify a NASA Science Earth story linked from the IOTD archive.
+
+    Newer Earth Observatory stories are not always stored directly under
+    /earth/earth-observatory/. For example, wildfire stories may live under
+    /earth/natural-disasters/wildfires/. Because archive parsing is already
+    restricted to the IOTD results area, any ordinary NASA Science /earth/
+    article is eligible unless it is the archive page itself or another
+    known non-story route.
+    """
+
+    absolute_url = urllib.parse.urljoin(
+        ARCHIVE_URL,
+        url,
+    )
 
     parsed = urllib.parse.urlparse(
-        url
+        absolute_url
     )
 
     if parsed.netloc not in {
@@ -249,14 +255,27 @@ def is_story_url(url: str) -> bool:
     }:
         return False
 
+    path = parsed.path.rstrip("/") + "/"
+
+    if not path.startswith("/earth/"):
+        return False
+
     slug = article_slug(
-        normalize_article_url(url)
+        absolute_url
     )
 
-    return bool(
-        slug
-        and slug not in EXCLUDED_SLUGS
-    )
+    if not slug:
+        return False
+
+    if slug in EXCLUDED_SLUGS:
+        return False
+
+    if path == urllib.parse.urlparse(
+        ARCHIVE_URL
+    ).path.rstrip("/") + "/":
+        return False
+
+    return True
 
 
 def parse_visible_date(value: str) -> datetime | None:
