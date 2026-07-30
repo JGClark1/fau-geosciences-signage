@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
 
   schedule:
+    # GitHub Actions schedules use UTC.
+    # 10:17 UTC is 6:17 a.m. EDT / 5:17 a.m. EST.
     - cron: "17 10 * * *"
 
 permissions:
@@ -19,18 +21,92 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
-          python-version: "3.12"
+          python-version: "3.13"
+
+      - name: Install Python dependencies
+        run: python -m pip install --upgrade beautifulsoup4
 
       - name: Build NASA slideshow data
         run: python scripts/build_nasa_slideshow.py
 
-      - name: Select NASA story media
+      - name: Make NASA archive authoritative
+        run: python scripts/sync_nasa_archive.py
+
+      - name: Resolve NASA archive hero images
+        run: python scripts/resolve_nasa_hero_media.py
+
+      - name: Detect primary videos and explicit comparisons
         run: python scripts/enrich_nasa_media.py
+
+      - name: Validate slideshow membership and media
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("data/nasa-earth-observatory.json")
+          payload = json.loads(path.read_text(encoding="utf-8"))
+          items = payload.get("items", [])
+
+          if len(items) != 7:
+              raise SystemExit(
+                  f"Expected seven NASA stories; found {len(items)}."
+              )
+
+          seen = set()
+
+          for item in items:
+              url = item.get("article_url", "")
+
+              if not url:
+                  raise SystemExit("A NASA story has no article URL.")
+
+              if url in seen:
+                  raise SystemExit(f"Duplicate NASA story: {url}")
+
+              seen.add(url)
+
+              media_type = item.get("media_type", "image")
+
+              if media_type == "comparison":
+                  media_items = item.get("media_items", [])
+
+                  if len(media_items) != 2:
+                      raise SystemExit(
+                          f"Comparison story does not have exactly "
+                          f"two images: {url}"
+                      )
+
+                  labels = {
+                      media.get("label")
+                      for media in media_items
+                  }
+
+                  if labels != {"BEFORE", "AFTER"}:
+                      raise SystemExit(
+                          f"Comparison story has invalid labels: {url}"
+                      )
+
+              elif not item.get("media_url"):
+                  raise SystemExit(
+                      f"NASA story has no media URL: {url}"
+                  )
+
+          print("NASA slideshow validation passed.")
+          print("Newest story:", items[0]["title"])
+
+          for index, item in enumerate(items, start=1):
+              print(
+                  f"{index}. "
+                  f"{item['title']} "
+                  f"[{item.get('media_type', 'image')}]"
+              )
+          PY
 
       - name: Commit updated slideshow data
         run: |
