@@ -1,9 +1,41 @@
 {
-  "generated_at": "2026-07-29T16:02:11+00:00",
+  "generated_at": "2026-07-30T16:11:29+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "New Zealand's Southern Wilderness",
+      "publication_date": "2026-07-30",
+      "display_date": "July 30, 2026",
+      "short_description": "Stewart Island/Rakiura, New Zealand’s third-largest island, is known for its vibrant birdlife, unique forests, wilderness beaches, and views of the night sky.",
+      "abstract": "Stewart Island/Rakiura, New Zealand’s third-largest island, is known for its vibrant birdlife, unique forests, wilderness beaches, and views of the night sky. Stewart Island/Rakiura is the third-largest island in New Zealand, diminutive in comparison to the country’s North Island and South Island. Conservationists have since embarked on a project on the much larger Stewart Island/Rakiura to eliminate rats, possums, feral cats, and hedgehogs. When darkness falls, Stewart Island/Rakiura’s human denizens can look skyward for the chance to observe stars, auroras, nearby dwarf galaxies, and other features of the Southern Hemisphere night sky. In May, when this image was acquired, targets imaged by NASA’s Hubble Space Telescope that were also visible from Earth’s southern latitudes included a star cluster called the Jewel Box and a peculiar elliptical galaxy known as Centaurus A, which may have resulted from two galaxies colliding.",
+      "media_type": "comparison",
+      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/StewartIsland_20100703.jpg?w=1600&h=1200&fit=clip&crop=faces%2Cfocalpoint",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/StewartIsland_20100703.jpg?w=1600&h=1200&fit=clip&crop=faces%2Cfocalpoint",
+      "image_alt": "new zealand",
+      "instruments": [
+        "Landsat 9 — OLI"
+      ],
+      "image_source": "Landsat 9 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/new-zealands-southern-wilderness/",
+      "source": "NASA Earth Observatory",
+      "media_items": [
+        {
+          "role": "before",
+          "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/StewartIsland_20100703.jpg?w=1600&h=1200&fit=clip&crop=faces%2Cfocalpoint",
+          "label": "BEFORE",
+          "date": "July 3, 2010"
+        },
+        {
+          "role": "after",
+          "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/nzstewartisland_oli2_20260514_lrg.jpg?w=3817&h=3361&fit=clip&crop=faces%2Cfocalpoint",
+          "label": "AFTER",
+          "date": "May 14, 2026"
+        }
+      ]
+    },
     {
       "title": "Sizing Up the Sargassum Belt",
       "publication_date": "2026-07-29",
@@ -131,25 +163,6 @@
       ],
       "image_source": "Landsat 9 • OLI",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/why-maines-sandy-shorelines-turn-jagged/",
-      "source": "NASA Earth Observatory",
-      "media_items": []
-    },
-    {
-      "title": "Shaping the Emerald City",
-      "publication_date": "2026-07-20",
-      "display_date": "July 20, 2026",
-      "short_description": "The hills and basins of Seattle, Washington, have been sculpted by glaciers and modified by humans.",
-      "abstract": "The hills and basins of Seattle, Washington, have been sculpted by glaciers and modified by humans. Seattle, Washington—sometimes known as the “Emerald City”—was glimmering in the morning sunlight when an astronaut aboard the International Space Station took this photo on June 16, 2026. The broad contours of the city’s landscape and the water around it owe their shape to the advance and retreat of glaciers during the last ice age. Several of Seattle’s notorious hills (of which there are seven or more, depending on who’s counting) are drumlins. In the 1910s, the Army Corps of Engineers built canals on either side of Lake Union to connect Puget Sound (an inlet of the Pacific Ocean) with Lake Washington. And as for Seattle’s emerald nickname, pockets of old-growth forest still exist within city limits, containing centuries-old trees such as Douglas fir, Western red cedar, and Western hemlock.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/shaping-the-emerald-city/ISS074-E-723719_lrg.jpg?w=4128&h=2752&fit=clip&crop=faces%2Cfocalpoint",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/shaping-the-emerald-city/ISS074-E-723719_lrg.jpg?w=4128&h=2752&fit=clip&crop=faces%2Cfocalpoint",
-      "image_alt": "A top-down photo of the greater Seattle area shows a mix of light-colored developed areas and green parks and neighborhoods. Puget Sound and Lake Washington run along Seattle’s west and east sides, respectively.",
-      "instruments": [
-        "ISS — Digital Camera"
-      ],
-      "image_source": "ISS • Digital Camera",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/shaping-the-emerald-city/",
       "source": "NASA Earth Observatory",
       "media_items": []
     }
