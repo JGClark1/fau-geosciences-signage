@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-07-30T19:41:32+00:00",
+  "generated_at": "2026-07-30T19:50:47+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
     {
-      "title": "3 min read New Zealand’s Southern Wilderness article 16 hours ago",
+      "title": "New Zealand’s Southern Wilderness",
       "publication_date": "2026-07-30",
       "display_date": "July 30, 2026",
       "short_description": "Stewart Island/Rakiura, New Zealand’s third-largest island, is known for its vibrant birdlife, unique forests, wilderness beaches, and views of the night sky.",
       "abstract": "Stewart Island/Rakiura, New Zealand’s third-largest island, is known for its vibrant birdlife, unique forests, wilderness beaches, and views of the night sky. Stewart Island/Rakiura is the third-largest island in New Zealand, diminutive in comparison to the country’s North Island and South Island. Conservationists have since embarked on a project on the much larger Stewart Island/Rakiura to eliminate rats, possums, feral cats, and hedgehogs. When darkness falls, Stewart Island/Rakiura’s human denizens can look skyward for the chance to observe stars, auroras, nearby dwarf galaxies, and other features of the Southern Hemisphere night sky. In May, when this image was acquired, targets imaged by NASA’s Hubble Space Telescope that were also visible from Earth’s southern latitudes included a star cluster called the Jewel Box and a peculiar elliptical galaxy known as Centaurus A, which may have resulted from two galaxies colliding.",
       "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/nzstewartisland_oli2_20260514_lrg.jpg?w=3817&h=3361&fit=crop&crop=faces%2Cfocalpoint",
+      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/nzstewartisland_oli2_20260514_th.jpg?w=1024",
       "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/nzstewartisland_oli2_20260514_lrg.jpg?w=3817&h=3361&fit=crop&crop=faces%2Cfocalpoint",
+      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/nzstewartisland_oli2_20260514_th.jpg?w=1024",
       "image_alt": "new zealand",
       "instruments": [
         "Landsat 9 — OLI"
@@ -21,19 +21,19 @@
       "image_source": "Landsat 9 • OLI",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/new-zealands-southern-wilderness/",
       "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo.svg",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/nzstewartisland_oli2_20260514_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     },
     {
-      "title": "6 min read Sizing Up the Sargassum Belt article 2 days ago",
-      "publication_date": "2026-07-30",
-      "display_date": "July 30, 2026",
+      "title": "Sizing Up the Sargassum Belt",
+      "publication_date": "2026-07-29",
+      "display_date": "July 29, 2026",
       "short_description": "Seaweed composing the Great Atlantic Sargassum Belt hit near-record levels in June 2026, with the Caribbean Sea and Gulf of America both reaching all-time highs.",
       "abstract": "Seaweed composing the Great Atlantic Sargassum Belt hit near-record levels in June 2026, with the Caribbean Sea and Gulf of America both reaching all-time highs. Regionally, the Caribbean Sea and the Gulf of America (Gulf of Mexico) both hit record highs, according to USF’s June 2026 Sargassum outlook. This team first developed Sargassum detection techniques using MODIS (Moderate Resolution Imaging Spectroradiometer) on NASA’s long-running Terra and Aqua satellites and VIIRS (Visible Infrared Imaging Radiometer Suite) on the NOAA-20 satellite—data that have been a key component of USF’s Sargassum Watch System and of research into the seaweed’s longer-term trends. Scientists flag pixels where the reflectance spikes above the levels produced by plain seawater, and then they use the strength of this spike to estimate Sargassum density, which refers to the fraction of ocean surface covered by the seaweed in each pixel.",
       "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassum_pace_202606_lrg.jpg?w=2818&h=1879&fit=crop&crop=faces%2Cfocalpoint",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassum_pace_202606_th.jpg",
       "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassum_pace_202606_lrg.jpg?w=2818&h=1879&fit=crop&crop=faces%2Cfocalpoint",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassum_pace_202606_th.jpg",
       "image_alt": "Sizing Up the Sargassum Belt",
       "instruments": [
         "Aqua — MODIS",
@@ -43,7 +43,7 @@
       "image_source": "Aqua • MODIS · Terra • MODIS · PACE",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/sizing-up-the-sargassum-belt/",
       "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo.svg",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassum_pace_202606_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     },
     {
@@ -128,7 +128,7 @@
       "media_items": []
     },
     {
-      "title": "Why Maine's Sandy Shorelines Turn Jagged",
+      "title": "Why Maine’s Sandy Shorelines Turn Jagged",
       "publication_date": "2026-07-21",
       "display_date": "July 21, 2026",
       "short_description": "Differences in the underlying bedrock and how rivers distribute sediment make the coastlines west of Portland look unlike those northeast of the city.",
