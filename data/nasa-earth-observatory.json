@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-07-30T20:01:20+00:00",
+  "generated_at": "2026-07-31T16:27:50+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Destructive Fires Char Western Europe",
+      "publication_date": "2026-07-31",
+      "display_date": "July 31, 2026",
+      "short_description": "Raging wildfires disrupted summer in Spain and France amid sweltering heat waves and prolonged drought.",
+      "abstract": "Raging wildfires disrupted summer in Spain and France amid sweltering heat waves and prolonged drought. Wildland fires occur across Europe every summer, but those that erupted in Spain and France in July 2026 were among the largest and most disruptive the two countries have faced in decades. As of late July, fires had burned more than 90,000 hectares across France, more than any other season in decades, according to data from the European Forest Fire Information System. An international group of atmospheric scientists and fire experts who track the unusual clouds has documented the occasional formation of the clouds in Spain and Portugal in recent decades, but members of the group note that this is the first report of a fire in France producing one.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/destructive-fires-char-western-europe/spainfires_oli2_20260729_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/destructive-fires-char-western-europe/spainfires_oli2_20260729_th.jpg",
+      "image_alt": "Destructive Fires Char Western Europe",
+      "instruments": [
+        "Landsat 9 — OLI"
+      ],
+      "image_source": "Landsat 9 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/destructive-fires-char-western-europe/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/destructive-fires-char-western-europe/spainfires_oli2_20260729_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "New Zealand’s Southern Wilderness",
       "publication_date": "2026-07-30",
@@ -11,9 +31,9 @@
       "short_description": "Stewart Island/Rakiura, New Zealand’s third-largest island, is known for its vibrant birdlife, unique forests, wilderness beaches, and views of the night sky.",
       "abstract": "Stewart Island/Rakiura, New Zealand’s third-largest island, is known for its vibrant birdlife, unique forests, wilderness beaches, and views of the night sky. Stewart Island/Rakiura is the third-largest island in New Zealand, diminutive in comparison to the country’s North Island and South Island. Conservationists have since embarked on a project on the much larger Stewart Island/Rakiura to eliminate rats, possums, feral cats, and hedgehogs. When darkness falls, Stewart Island/Rakiura’s human denizens can look skyward for the chance to observe stars, auroras, nearby dwarf galaxies, and other features of the Southern Hemisphere night sky. In May, when this image was acquired, targets imaged by NASA’s Hubble Space Telescope that were also visible from Earth’s southern latitudes included a star cluster called the Jewel Box and a peculiar elliptical galaxy known as Centaurus A, which may have resulted from two galaxies colliding.",
       "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/nzstewartisland_oli2_20260514_th.jpg?w=1024",
+      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/nzstewartisland_oli2_20260514_lrg.jpg?w=3817&h=3361&fit=crop&crop=faces%2Cfocalpoint",
       "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/nzstewartisland_oli2_20260514_th.jpg?w=1024",
+      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/nzstewartisland_oli2_20260514_lrg.jpg?w=3817&h=3361&fit=crop&crop=faces%2Cfocalpoint",
       "image_alt": "new zealand",
       "instruments": [
         "Landsat 9 — OLI"
@@ -51,7 +71,7 @@
       "publication_date": "2026-07-28",
       "display_date": "July 28, 2026",
       "short_description": "Lightning storms have ignited dozens of fires in central and eastern Oregon.",
-      "abstract": "Lightning storms have ignited dozens of fires in central and eastern Oregon. NASA Sets Coverage for August Northern Hemisphere Total Solar Eclipse NASA Fuels Roman Space Telescope for Late August Launch NASA to Cover Three US Spacewalks, Host Preview News Conference NASA’s Curiosity Mars Rover Discovers Field of Honeycomb Textures NASA Webb Explores Family Tree of Newly Discovered Distant Objects NASA’s Swift Sees ‘Wandering’ Mega Black Hole Shredding Star Establishing a VTE Risk Score for Astronauts Algorithm NASA Seeks Industry Input on Second Phase of Commercial Space Stations NASA Science Soars During August Total Solar Eclipse NASA’s Hubble Shows Star Formation in Andromeda Galaxy Winding Down NASA, GE Aerospace Work Enables Hybrid-Electric Flight Demonstration NASA Pushes New Wing Design to Find Structural Limits Request for Information – Potential [Placeholder for Prize]",
+      "abstract": "Lightning storms have ignited dozens of fires in central and eastern Oregon. NASA Sets Coverage for August Northern Hemisphere Total Solar Eclipse NASA Fuels Roman Space Telescope for Late August Launch NASA to Cover Three US Spacewalks, Host Preview News Conference NASA’s Curiosity Mars Rover Discovers Field of Honeycomb Textures NASA Webb Explores Family Tree of Newly Discovered Distant Objects NASA’s Swift Sees ‘Wandering’ Mega Black Hole Shredding Star Establishing a VTE Risk Score for Astronauts Algorithm NASA Seeks Industry Input on Second Phase of Commercial Space Stations Students Take on Airborne Field Research with NASA NASA Science Soars During August Total Solar Eclipse NASA’s Hubble Shows Star Formation in Andromeda Galaxy Winding Down NASA, GE Aerospace Work Enables Hybrid-Electric Flight Demonstration NASA Pushes New Wing Design to Find Structural Limits",
       "media_type": "image",
       "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/smoke-blankets-oregon/oregonfires_amo_20260726_th.jpg",
       "video_url": "",
@@ -126,26 +146,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/olympic-mountain-glory/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/olympic-mountain-glory/ISS047-E-104144_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "A Week of Smoky Skies Across North America",
-      "publication_date": "2026-07-22",
-      "display_date": "July 22, 2026",
-      "short_description": "Brown carbon, emitted by wildland fires and tracked over the span of a week in July 2026, worsened air quality in parts of the U.S. and Canada.",
-      "abstract": "Brown carbon, emitted by wildland fires and tracked over the span of a week in July 2026, worsened air quality in parts of the U.S. and Canada. Wildland fire activity in Canada ramped up in July 2026, a time of year when lightning ignitions typically increase, according to a seasonal outlook published by several North American fire agencies. This animation tracks brown carbon, the organic aerosols emitted by fires that give smoke plumes their characteristic yellow, orange, and brown tint. In addition to satellite observations of aerosols and fires, the model also incorporates meteorological data such as air temperature, moisture, and winds to project the plume’s behavior. On July 19 and 20, smoke continued to affect air quality downwind, including in the Great Lakes region, according to the National Weather Service.",
-      "media_type": "video",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-week-of-smoky-skies-across-north-america/nambrowncarbon_geos5_20260720.mp4",
-      "video_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-week-of-smoky-skies-across-north-america/nambrowncarbon_geos5_20260720.mp4",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-week-of-smoky-skies-across-north-america/nambrowncarbon_geos5_20260720_th.jpg?w=3209&h=2139&fit=clip&crop=faces%2Cfocalpoint",
-      "image_alt": "A Week of Smoky Skies Across North America",
-      "instruments": [
-        "Model"
-      ],
-      "image_source": "Model",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/a-week-of-smoky-skies-across-north-america/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-week-of-smoky-skies-across-north-america/nambrowncarbon_geos5_20260720_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
