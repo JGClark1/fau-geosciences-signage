@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-08-02T14:48:29+00:00",
+  "generated_at": "2026-08-03T17:26:49+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "A Bare Summer for Barnes Ice Cap",
+      "publication_date": "2026-08-03",
+      "display_date": "August 3, 2026",
+      "short_description": "The expanse of glacial ice on Canada’s Baffin Island lost its snow cover quickly and early in summer 2026, revealing a network of melt features.",
+      "abstract": "The expanse of glacial ice on Canada’s Baffin Island lost its snow cover quickly and early in summer 2026, revealing a network of melt features. By summer, that snow melts back, and the ice cap transforms in texture, its bare ice dotted with turquoise ponds and its surface threaded with meltwater channels. By mid-July, its snow cover was effectively gone—“the earliest it has been this bare,” said glaciologist Mauri Pelto of Nichols College, who has monitored the ice cap using images from Landsat satellites and, when possible, field observations. Once snow cover melts away and bare ice is exposed, melting speeds up in the Arctic summer sunshine. The early snow loss and return of meltwater channels in 2026 means that meltwater runoff is starting earlier too, with implications for the ice cap's mass balance.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-bare-summer-for-barnes-ice-cap/barnesicecapwide_oli2_20260712_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-bare-summer-for-barnes-ice-cap/barnesicecapwide_oli2_20260712_th.jpg",
+      "image_alt": "A Bare Summer for Barnes Ice Cap",
+      "instruments": [
+        "Landsat 9 — OLI"
+      ],
+      "image_source": "Landsat 9 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/a-bare-summer-for-barnes-ice-cap/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-bare-summer-for-barnes-ice-cap/barnesicecapwide_oli2_20260712_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "Destructive Fires Char Western Europe",
       "publication_date": "2026-07-31",
@@ -71,7 +91,7 @@
       "publication_date": "2026-07-28",
       "display_date": "July 28, 2026",
       "short_description": "Lightning storms have ignited dozens of fires in central and eastern Oregon.",
-      "abstract": "Lightning storms have ignited dozens of fires in central and eastern Oregon. NASA Opens New Flight Dynamics Research Facility in Virginia NASA Sets Coverage for August Northern Hemisphere Total Solar Eclipse Commissioning Update for Spacecraft to Boost NASA’s Swift NASA’s Curiosity Mars Rover Discovers Field of Honeycomb Textures NASA Webb Explores Family Tree of Newly Discovered Distant Objects NASA Fuels Roman Space Telescope for Late August Launch Establishing a VTE Risk Score for Astronauts Algorithm NASA Seeks Industry Input on Second Phase of Commercial Space Stations What’s Up: August 2026 Skywatching Tips from NASA NASA’s Swift Sees ‘Wandering’ Mega Black Hole Shredding Star NASA’s Hubble Shows Star Formation in Andromeda Galaxy Winding Down NASA, GE Aerospace Work Enables Hybrid-Electric Flight Demonstration NASA Pushes New Wing Design to Find Structural Limits",
+      "abstract": "Lightning storms have ignited dozens of fires in central and eastern Oregon. NASA Opens New Flight Dynamics Research Facility in Virginia NASA Sets Coverage for August Northern Hemisphere Total Solar Eclipse Commissioning Update for Spacecraft to Boost NASA’s Swift NASA’s Curiosity Mars Rover Discovers Field of Honeycomb Textures NASA Webb Explores Family Tree of Newly Discovered Distant Objects NASA Fuels Roman Space Telescope for Late August Launch NASA Delivers Navigation System for Commercial Lunar Relay Establishing a VTE Risk Score for Astronauts Algorithm What’s Up: August 2026 Skywatching Tips from NASA NASA’s Swift Sees ‘Wandering’ Mega Black Hole Shredding Star NASA’s Hubble Shows Star Formation in Andromeda Galaxy Winding Down NASA, GE Aerospace Work Enables Hybrid-Electric Flight Demonstration NASA Pushes New Wing Design to Find Structural Limits",
       "media_type": "image",
       "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/smoke-blankets-oregon/oregonfires_amo_20260726_th.jpg",
       "video_url": "",
@@ -126,26 +146,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/a-million-panel-project/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-million-panel-project/solarutah_oli_20260606_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "Olympic Mountain Glory",
-      "publication_date": "2026-07-23",
-      "display_date": "July 23, 2026",
-      "short_description": "Snow-capped mountains carved by deep river valleys preside over northwestern Washington state.",
-      "abstract": "Snow-capped mountains carved by deep river valleys preside over northwestern Washington state. Alpine glaciers, wild coastlines, temperate rainforests, and deep river valleys coexist on the Olympic Peninsula in the northwest corner of Washington state. The Olympic Mountains’ imposing terrain comes into focus in this oblique view of the region, captured by an astronaut aboard the International Space Station. Olympic National Park encompasses the peninsula’s mountainous core, along with some stretches of the Pacific coastline. Other erosion is evidenced by the deep valleys radiating out from the snowy peaks. These verdant valleys are known for their temperate rainforests, and the ancient forest in the Hoh River valley was once considered among the most naturally quiet places in the U.S., uninterrupted by human-caused noise. Two dams constructed on the river produced power for local industry.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/olympic-mountain-glory/ISS047-E-104144_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/olympic-mountain-glory/ISS047-E-104144_th.jpg",
-      "image_alt": "Olympic Mountain Glory",
-      "instruments": [
-        "ISS — Digital Camera"
-      ],
-      "image_source": "ISS • Digital Camera",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/olympic-mountain-glory/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/olympic-mountain-glory/ISS047-E-104144_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
