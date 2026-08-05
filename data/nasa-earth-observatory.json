@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-08-04T17:05:19+00:00",
+  "generated_at": "2026-08-05T16:22:43+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "The Paradox of Lençóis Maranhenses National Park",
+      "publication_date": "2026-08-05",
+      "display_date": "August 5, 2026",
+      "short_description": "The coastal dune field in Brazil looks like a desert but fills with freshwater lagoons every year.",
+      "abstract": "The coastal dune field in Brazil looks like a desert but fills with freshwater lagoons every year. The coastal dune system in Lençóis Maranhenses National Park in northeastern Brazil is among the most surreal landscapes on Earth. At first glance, the park looks like a desert, but it is far from it. From that perspective, the sweeping curves of the largest coastal dune field in South America resemble a rumpled, white bedsheet. The dune field exists because of the rare convergence of geologic and climatic conditions. Landsat images, meanwhile, show the dune field at Lençóis Maranhenses has extended westward by about 0.5 kilometers between 1986 and 2026 in some areas due to the conveyor belt of dunes running inland from the coastline.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-paradox-of-lençóis-maranhenses-national-park/brazillencois_oli_20260608_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-paradox-of-lençóis-maranhenses-national-park/brazillencois_oli_20260608_th.jpg",
+      "image_alt": "The Paradox of Lençóis Maranhenses National Park",
+      "instruments": [
+        "Landsat 9"
+      ],
+      "image_source": "Landsat 9",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/the-paradox-of-lencois-maranhenses-national-park/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-paradox-of-lençóis-maranhenses-national-park/brazillencois_oli_20260608_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "Smoke Streams Across Eastern Washington",
       "publication_date": "2026-08-04",
@@ -111,7 +131,7 @@
       "publication_date": "2026-07-28",
       "display_date": "July 28, 2026",
       "short_description": "Lightning storms have ignited dozens of fires in central and eastern Oregon.",
-      "abstract": "Lightning storms have ignited dozens of fires in central and eastern Oregon. NASA Opens New Flight Dynamics Research Facility in Virginia NASA Sets Coverage for August Northern Hemisphere Total Solar Eclipse Commissioning Update for Spacecraft to Boost NASA’s Swift NASA’s Curiosity Mars Rover Discovers Field of Honeycomb Textures NASA Webb Explores Family Tree of Newly Discovered Distant Objects NASA Fuels Roman Space Telescope for Late August Launch NASA Delivers Navigation System for Commercial Lunar Relay Establishing a VTE Risk Score for Astronauts Algorithm What’s Up: August 2026 Skywatching Tips from NASA NASA’s Swift Sees ‘Wandering’ Mega Black Hole Shredding Star NASA’s Hubble Shows Star Formation in Andromeda Galaxy Winding Down NASA, GE Aerospace Work Enables Hybrid-Electric Flight Demonstration NASA Pushes New Wing Design to Find Structural Limits",
+      "abstract": "Lightning storms have ignited dozens of fires in central and eastern Oregon. NASA Provides Updates on Moon Base Cargo Landers, Tech Demonstrations NASA Delivers Navigation System for Commercial Lunar Relay What’s Up: August 2026 Skywatching Tips from NASA Efforts Continue to Stabilize LINK Spacecraft for NASA’s Swift Boost NASA’s Curiosity Mars Rover Discovers Field of Honeycomb Textures NASA Will Attempt to Observe Rocket Part’s Lunar Impact NASA’s Perseverance Rover Watches Earth Vanish Behind Martian Moon NASA’s PUNCH Sharpens Solar Storm Forecasting in First Test NASA Webb Explores Family Tree of Newly Discovered Distant Objects NASA’s Swift Sees ‘Wandering’ Mega Black Hole Shredding Star NASA, GE Aerospace Work Enables Hybrid-Electric Flight Demonstration NASA Pushes New Wing Design to Find Structural Limits Update to A.1 Earth Science Research Overview: Earth Science proposals that include NASA high-end computing resources must include costs",
       "media_type": "image",
       "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/smoke-blankets-oregon/oregonfires_amo_20260726_th.jpg",
       "video_url": "",
@@ -126,27 +146,6 @@
       "source": "NASA Earth Observatory",
       "media_items": [],
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/smoke-blankets-oregon/oregonfires_amo_20260726_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300"
-    },
-    {
-      "title": "Pink Penguin Guano Provides Diet Clues",
-      "publication_date": "2026-07-27",
-      "display_date": "July 27, 2026",
-      "short_description": "The color of Adélie penguin droppings reveals what the birds are eating, offering scientists a way to track how sea ice conditions influence their diet.",
-      "abstract": "The color of Adélie penguin droppings reveals what the birds are eating, offering scientists a way to track how sea ice conditions influence their diet. The color of the droppings can even provide clues into the penguins’ diet, since krill tints the guano pink, giving researchers a unique way to monitor penguin populations. Analyzing three decades of Landsat images, scientists found that Adélie penguin diets vary around the Antarctic continent and are tied to sea ice conditions. Now, surveying more than 100 sites around the perimeter of Antarctica with Landsat images captured between 1984 and 2013, the scientists have connected penguin diets to the surrounding sea ice conditions during the breeding and nesting seasons. The researchers are now developing computer models to use Landsat 8 and Landsat 9 data to continue tracking penguin diet and how the population responds to environmental change.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/reading-penguin-diets-in-shades-of-guano/dangerislands_drone_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/reading-penguin-diets-in-shades-of-guano/dangerislands_drone_th.jpg",
-      "image_alt": "Pink Penguin Guano Provides Diet Clues",
-      "instruments": [
-        "Landsat 8 — OLI",
-        "Photograph"
-      ],
-      "image_source": "Landsat 8 • OLI · Photography",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/pink-penguin-guano-provides-diet-clues/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/reading-penguin-diets-in-shades-of-guano/dangerislands_drone_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
     }
   ]
 }
