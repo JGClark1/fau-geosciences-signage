@@ -1,9 +1,47 @@
 {
-  "generated_at": "2026-08-05T16:22:43+00:00",
+  "generated_at": "2026-08-07T12:32:19+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Sensing the Poles’ Hidden Heat",
+      "publication_date": "2026-08-07",
+      "display_date": "August 7, 2026",
+      "short_description": "New animations from NASA's PREFIRE mission reveal two years of seasonal temperature swings at the Arctic and Antarctic.",
+      "abstract": "New animations from NASA's PREFIRE mission reveal two years of seasonal temperature swings at the Arctic and Antarctic. Satellite data from a mission measuring infrared energy reveal just how differently—and how dramatically—surface temperatures swing across two full years at the poles. Atmospheric and ocean circulation carries excess heat absorbed in the tropics toward the poles, where it radiates away to space, helping regulate the planet’s temperature. “By measuring invisible heat radiating from Earth's coldest places, PREFIRE is helping scientists understand why the poles are changing so rapidly, and what those changes might mean for the rest of the planet,” said Chad Greene, a glaciologist at NASA’s Jet Propulsion Laboratory. Maps courtesy of Chad Greene, NASA/JPL, using data from NASA’s PREFIRE mission.",
+      "media_type": "video",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/sensing-the-poles’-hidden-heat/seasonaltempbal_prefire_2026_loop.mp4",
+      "video_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/sensing-the-poles’-hidden-heat/seasonaltempbal_prefire_2026_loop.mp4",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/sensing-the-poles’-hidden-heat/seasonaltempbal_prefire_2026_th.jpg",
+      "image_alt": "Sensing the Poles’ Hidden Heat",
+      "instruments": [],
+      "image_source": "NASA Earth observation",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/sensing-the-poles-hidden-heat/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/sensing-the-poles’-hidden-heat/seasonaltempbal_prefire_2026_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
+    {
+      "title": "How the Tide Turns at the Mouth of the Elbe",
+      "publication_date": "2026-08-06",
+      "display_date": "August 6, 2026",
+      "short_description": "The ocean’s ebbs and flows reveal dynamic tidal flats and a well-traveled shipping route along the coast of Germany.",
+      "abstract": "The ocean’s ebbs and flows reveal dynamic tidal flats and a well-traveled shipping route along the coast of Germany. One of the major rivers of Europe, the Elbe flows more than 1,000 kilometers (600 miles) across the continent before reaching the North Sea. These dynamic tidal flats are a boon to biodiversity while sometimes posing challenges for those navigating its waters and for communities living along its shores. The Elbe’s mouth also provides access to the Kiel Canal, which connects the North Sea and Baltic Sea and is the world’s busiest human-made waterway navigable by seagoing ships. In addition, early data from NASA’s SWOT (Surface Water and Ocean Topography) satellite has demonstrated the potential to accurately measure water levels around complex coastlines and to improve tidal models.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/how-the-tide-turns-at-the-mouth-of-the-elbe/germanytide_oli2_20250815_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/how-the-tide-turns-at-the-mouth-of-the-elbe/germanytide_oli2_20250815_th.jpg",
+      "image_alt": "Mouth of the Elbe",
+      "instruments": [
+        "Landsat 9 — OLI"
+      ],
+      "image_source": "Landsat 9 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/how-the-tide-turns-at-the-mouth-of-the-elbe/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/how-the-tide-turns-at-the-mouth-of-the-elbe/germanytide_oli2_20250815_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "The Paradox of Lençóis Maranhenses National Park",
       "publication_date": "2026-08-05",
@@ -103,49 +141,6 @@
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/nzstewartisland_oli2_20260514_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
-    },
-    {
-      "title": "Sizing Up the Sargassum Belt",
-      "publication_date": "2026-07-29",
-      "display_date": "July 29, 2026",
-      "short_description": "Seaweed composing the Great Atlantic Sargassum Belt hit near-record levels in June 2026, with the Caribbean Sea and Gulf of America both reaching all-time highs.",
-      "abstract": "Seaweed composing the Great Atlantic Sargassum Belt hit near-record levels in June 2026, with the Caribbean Sea and Gulf of America both reaching all-time highs. Regionally, the Caribbean Sea and the Gulf of America (Gulf of Mexico) both hit record highs, according to USF’s June 2026 Sargassum outlook. This team first developed Sargassum detection techniques using MODIS (Moderate Resolution Imaging Spectroradiometer) on NASA’s long-running Terra and Aqua satellites and VIIRS (Visible Infrared Imaging Radiometer Suite) on the NOAA-20 satellite—data that have been a key component of USF’s Sargassum Watch System and of research into the seaweed’s longer-term trends. Scientists flag pixels where the reflectance spikes above the levels produced by plain seawater, and then they use the strength of this spike to estimate Sargassum density, which refers to the fraction of ocean surface covered by the seaweed in each pixel.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassum_pace_202606_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassum_pace_202606_th.jpg",
-      "image_alt": "Sizing Up the Sargassum Belt",
-      "instruments": [
-        "Aqua — MODIS",
-        "Terra — MODIS",
-        "PACE"
-      ],
-      "image_source": "Aqua • MODIS · Terra • MODIS · PACE",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/sizing-up-the-sargassum-belt/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/sizing-up-the-sargassum-belt/sargassum_pace_202606_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "Smoke Blankets Oregon",
-      "publication_date": "2026-07-28",
-      "display_date": "July 28, 2026",
-      "short_description": "Lightning storms have ignited dozens of fires in central and eastern Oregon.",
-      "abstract": "Lightning storms have ignited dozens of fires in central and eastern Oregon. NASA Provides Updates on Moon Base Cargo Landers, Tech Demonstrations NASA Delivers Navigation System for Commercial Lunar Relay What’s Up: August 2026 Skywatching Tips from NASA Efforts Continue to Stabilize LINK Spacecraft for NASA’s Swift Boost NASA’s Curiosity Mars Rover Discovers Field of Honeycomb Textures NASA Will Attempt to Observe Rocket Part’s Lunar Impact NASA’s Perseverance Rover Watches Earth Vanish Behind Martian Moon NASA’s PUNCH Sharpens Solar Storm Forecasting in First Test NASA Webb Explores Family Tree of Newly Discovered Distant Objects NASA’s Swift Sees ‘Wandering’ Mega Black Hole Shredding Star NASA, GE Aerospace Work Enables Hybrid-Electric Flight Demonstration NASA Pushes New Wing Design to Find Structural Limits Update to A.1 Earth Science Research Overview: Earth Science proposals that include NASA high-end computing resources must include costs",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/smoke-blankets-oregon/oregonfires_amo_20260726_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/smoke-blankets-oregon/oregonfires_amo_20260726_th.jpg",
-      "image_alt": "Smoke Blankets Oregon",
-      "instruments": [
-        "ISS",
-        "MODIS"
-      ],
-      "image_source": "ISS • MODIS",
-      "article_url": "https://science.nasa.gov/earth/natural-disasters/wildfires/smoke-blankets-oregon/",
-      "source": "NASA Earth Observatory",
-      "media_items": [],
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/smoke-blankets-oregon/oregonfires_amo_20260726_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300"
     }
   ]
 }
