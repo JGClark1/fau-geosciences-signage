@@ -206,12 +206,45 @@ def font(
 # Download helpers
 # ------------------------------------------------------------
 
+def safe_download_url(
+    url: str,
+) -> str:
+    """
+    Percent-encode Unicode and other unsafe characters in URLs
+    while preserving normal URL syntax and existing escapes.
+    """
+
+    parsed = urllib.parse.urlsplit(url)
+
+    safe_path = urllib.parse.quote(
+        parsed.path,
+        safe="/%:@-._~!$&'()*+,;=",
+    )
+
+    safe_query = urllib.parse.quote(
+        parsed.query,
+        safe="=&;%:+,/?@-._~!$'()*",
+    )
+
+    return urllib.parse.urlunsplit(
+        (
+            parsed.scheme,
+            parsed.netloc,
+            safe_path,
+            safe_query,
+            parsed.fragment,
+        )
+    )
+
+
 def download_bytes(
     url: str,
     timeout: int = 60,
 ) -> bytes:
+    safe_url = safe_download_url(url)
+
     request = urllib.request.Request(
-        url,
+        safe_url,
         headers={
             "User-Agent": USER_AGENT,
             "Accept": "*/*",
