@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-08-09T11:50:32+00:00",
+  "generated_at": "2026-08-10T14:34:20+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "El Niño Alters Marine Life in the Pacific",
+      "publication_date": "2026-08-10",
+      "display_date": "August 10, 2026",
+      "short_description": "Satellite measurements of chlorophyll at the sea surface signal shifts in the ocean’s nutrient supplies in mid-2026.",
+      "abstract": "Satellite measurements of chlorophyll at the sea surface signal shifts in the ocean’s nutrient supplies in mid-2026. The maps above show chlorophyll-a concentrations—the pigment present in most phytoplankton —as observed by the OCI (Ocean Color Instrument) on NASA’s PACE (Plankton, Aerosol, Cloud, ocean Ecosystem) satellite. That’s because during an El Niño, easterly equatorial trade winds weaken, the warm surface layer of the ocean extends deeper, and the upwelling of cool, nutrient-rich water that typically fuels phytoplankton growth is suppressed. Although the disruptions to marine life can be severe, a post-El Niño “chlorophyll rebound,” with higher-than-normal concentrations in the equatorial Pacific, can occur. To better understand effects on life in the ocean, researchers hope to use PACE data to gauge the responses of specific phytoplankton communities to El Niño. And the possibilities extend beyond the marine realm, the scientists note.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/el-niño alters-marine-life-in-the-pacific/chlorophyll_pace_globes_lrg.jpg?w=3080&h=1925&fit=clip&crop=faces%2Cfocalpoint",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/el-niño alters-marine-life-in-the-pacific/chlorophyll_pace_globes_lrg.jpg?w=3080&h=1925&fit=clip&crop=faces%2Cfocalpoint",
+      "image_alt": "el nino",
+      "instruments": [
+        "PACE"
+      ],
+      "image_source": "PACE",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/el-nino-alters-marine-life-in-the-pacific/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/el-niño",
+      "media_items": []
+    },
     {
       "title": "Sensing the Poles’ Hidden Heat",
       "publication_date": "2026-08-07",
@@ -120,26 +140,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/destructive-fires-char-western-europe/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/destructive-fires-char-western-europe/spainfires_oli2_20260729_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "New Zealand’s Southern Wilderness",
-      "publication_date": "2026-07-30",
-      "display_date": "July 30, 2026",
-      "short_description": "Stewart Island/Rakiura, New Zealand’s third-largest island, is known for its vibrant birdlife, unique forests, wilderness beaches, and views of the night sky.",
-      "abstract": "Stewart Island/Rakiura, New Zealand’s third-largest island, is known for its vibrant birdlife, unique forests, wilderness beaches, and views of the night sky. Stewart Island/Rakiura is the third-largest island in New Zealand, diminutive in comparison to the country’s North Island and South Island. Conservationists have since embarked on a project on the much larger Stewart Island/Rakiura to eliminate rats, possums, feral cats, and hedgehogs. When darkness falls, Stewart Island/Rakiura’s human denizens can look skyward for the chance to observe stars, auroras, nearby dwarf galaxies, and other features of the Southern Hemisphere night sky. In May, when this image was acquired, targets imaged by NASA’s Hubble Space Telescope that were also visible from Earth’s southern latitudes included a star cluster called the Jewel Box and a peculiar elliptical galaxy known as Centaurus A, which may have resulted from two galaxies colliding.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/nzstewartisland_oli2_20260514_lrg.jpg?w=3817&h=3361&fit=crop&crop=faces%2Cfocalpoint",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/nzstewartisland_oli2_20260514_lrg.jpg?w=3817&h=3361&fit=crop&crop=faces%2Cfocalpoint",
-      "image_alt": "new zealand",
-      "instruments": [
-        "Landsat 9 — OLI"
-      ],
-      "image_source": "Landsat 9 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/new-zealands-southern-wilderness/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-zealand's-southern-wilderness/nzstewartisland_oli2_20260514_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
