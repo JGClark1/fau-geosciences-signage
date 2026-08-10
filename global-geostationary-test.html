@@ -28,16 +28,23 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 18px;
+
+      /*
+        Keep only a narrow visual separation between the two
+        full-disk views.
+      */
+      gap: 10px;
     }
 
     /*
-      Keep both panels at roughly 95% of the original test size.
+      Push each panel close to the maximum size that will fit
+      side-by-side on a 16:9 display while retaining a small
+      center gap.
     */
     .hemisphere {
       position: relative;
-      width: min(47.5vw, 95vh);
-      height: min(47.5vw, 95vh);
+      width: min(49vw, 98vh);
+      height: min(49vw, 98vh);
       flex: 0 0 auto;
       overflow: hidden;
       background: #000;
@@ -65,8 +72,8 @@
 
     /*
       GOES:
-      Keep NOAA's complete source image untouched.
-      The original footer remains baked into the JPG.
+      Preserve the complete NOAA source image with its original
+      embedded logo and annotation strip.
     */
     #goes-image {
       transform: scale(1.00);
@@ -75,37 +82,39 @@
 
     /*
       Meteosat:
-      Retain the 1.20 scale used in the earlier test so the
-      visible disk has a comparable apparent diameter.
+      The EUMETSAT WMS frame has more black space surrounding
+      the disk, so keep the existing enlargement.
 
-      A modest brightness/contrast/saturation adjustment helps
-      the Meteosat image sit more comfortably beside GOES.
-      These are intentionally conservative values that we can
-      tune visually after the next test.
+      The image is also somewhat darker than the NOAA GeoColor
+      product. These modest display-only adjustments bring the
+      two products closer visually without changing the source.
     */
     #meteosat-image {
       transform: scale(1.20);
       transform-origin: center center;
+
       filter:
-        brightness(1.09)
-        contrast(1.04)
-        saturate(1.05);
+        brightness(1.13)
+        contrast(1.05)
+        saturate(1.06);
     }
 
     /*
-      Meteosat footer:
-      This is an OVERLAY inside the image frame, so it does not
-      push or resize the satellite imagery.
+      Meteosat annotation strip.
 
-      NOAA's embedded footer is very small, so the typography
-      here is intentionally restrained.
+      NOAA's strip is very shallow and begins to the right of
+      the lower-left logo. Mirror that structure here.
+
+      This strip is an overlay. It does not resize or displace
+      the Meteosat imagery.
     */
     .meteosat-footer {
       position: absolute;
-      left: 0;
+      left: 7.4%;
       right: 0;
       bottom: 0;
-      height: 28px;
+
+      height: 13px;
       background: #fff;
       color: #111;
       z-index: 5;
@@ -114,61 +123,48 @@
       align-items: center;
       justify-content: center;
 
-      padding: 0 54px 0 58px;
+      padding: 0 10px;
 
       font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      font-size: 9px;
+      font-size: 7px;
       font-weight: 400;
       line-height: 1;
-      letter-spacing: 0;
       white-space: nowrap;
 
       pointer-events: none;
     }
 
-    /*
-      Temporary circular EUMETSAT-style source badge.
-      This is deliberately a simple test badge rather than
-      depending on an external logo URL.
-    */
-    .meteosat-badge {
-      position: absolute;
-      left: 8px;
-      bottom: 5px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      z-index: 6;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: #165d9b;
-      border: 2px solid #fff;
-      color: #fff;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-
-      pointer-events: none;
-    }
-
     .meteosat-footer-text {
+      width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;
       text-align: center;
-      width: 100%;
+    }
+
+    /*
+      Older emblem-style EUMETSAT logo.
+
+      Position and visual weight are intentionally matched to
+      NOAA's lower-left badge: the logo sits above and overlaps
+      the annotation strip rather than living inside the strip.
+    */
+    .meteosat-logo {
+      position: absolute;
+      left: 1.0%;
+      bottom: 4px;
+
+      width: 62px;
+      height: 50px;
+
+      object-fit: contain;
+
+      z-index: 6;
+      user-select: none;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -208,12 +204,12 @@
         </div>
       </div>
 
-      <div
-        class="meteosat-badge"
+      <img
+        class="meteosat-logo"
+        id="eumetsat-logo"
+        alt=""
         aria-hidden="true"
       >
-        EUM
-      </div>
     </div>
   </section>
 
@@ -229,9 +225,23 @@
         "meteosat-footer-text"
       );
 
+    const EUMETSAT_LOGO =
+      document.getElementById(
+        "eumetsat-logo"
+      );
+
     const IMAGE_INTERVAL_MINUTES = 10;
     const GOES_CANDIDATES = 12;
     const GOES_DELAY_MINUTES = 20;
+
+    /*
+      For the aesthetic test, use the older compact EUMETSAT
+      emblem from Wikimedia Commons. We can later save a local
+      copy in the repository if this treatment is retained.
+    */
+    const EUMETSAT_LOGO_URL =
+      "https://commons.wikimedia.org/wiki/" +
+      "Special:Redirect/file/EUMETSAT_logo.svg";
 
     const METEOSAT_WMS_BASE =
       "https://view.eumetsat.int/geoserver/wms" +
@@ -415,10 +425,12 @@
 
     function loadLatestMeteosat() {
       /*
-        For this aesthetic test, the displayed timestamp is
-        rounded to the nearest preceding ten-minute interval.
-        We will replace it with an authoritative data timestamp
-        after the visual design is settled.
+        The WMS endpoint supplies the latest available image.
+        For this aesthetic test, the displayed time is rounded
+        down to the nearest preceding ten-minute interval.
+
+        We will replace this with the actual product timestamp
+        once the composition is finalized.
       */
       const timestampDate =
         roundDownToTenMinutes(
@@ -438,6 +450,9 @@
       loadLatestGoes();
       loadLatestMeteosat();
     }
+
+    EUMETSAT_LOGO.src =
+      EUMETSAT_LOGO_URL;
 
     refreshImages();
 
