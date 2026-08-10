@@ -36,7 +36,8 @@ jobs:
           sudo apt-get install --yes \
             ffmpeg \
             libcairo2 \
-            fonts-dejavu-core
+            fonts-dejavu-core \
+            fonts-liberation
 
       - name: Install Python dependencies
         run: |
@@ -48,6 +49,10 @@ jobs:
       - name: Build GOES-East video and site directory
         run: |
           python scripts/build_goes_video.py
+
+      - name: Build paired global geostationary video
+        run: |
+          python scripts/build_global_geostationary_video.py
 
       - name: Build NASA Earth Observatory video
         run: |
