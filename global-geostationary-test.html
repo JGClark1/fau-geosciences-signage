@@ -25,14 +25,28 @@
     }
 
     body {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
     }
 
+    /*
+      Keep both panels at roughly 95% of the original test size.
+    */
     .hemisphere {
       position: relative;
-      width: 50vw;
-      height: 100vh;
+      width: min(47.5vw, 95vh);
+      height: min(47.5vw, 95vh);
+      flex: 0 0 auto;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .image-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
       overflow: hidden;
       background: #000;
       display: flex;
@@ -40,17 +54,7 @@
       justify-content: center;
     }
 
-    .image-wrap {
-      position: relative;
-      width: min(50vw, 100vh);
-      height: min(50vw, 100vh);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: visible;
-    }
-
-    .image-wrap img {
+    .image-wrap > img {
       display: block;
       width: 100%;
       height: 100%;
@@ -60,8 +64,9 @@
     }
 
     /*
-      NOAA's 1808 x 1808 product already fills its source
-      frame efficiently, so no additional scale is needed.
+      GOES:
+      Keep NOAA's complete source image untouched.
+      The original footer remains baked into the JPG.
     */
     #goes-image {
       transform: scale(1.00);
@@ -69,19 +74,110 @@
     }
 
     /*
-      The Meteosat WMS product contains more black margin
-      around the Earth disk. Enlarge it so that the two
-      visible hemispheres have comparable diameters.
+      Meteosat:
+      Retain the 1.20 scale used in the earlier test so the
+      visible disk has a comparable apparent diameter.
+
+      A modest brightness/contrast/saturation adjustment helps
+      the Meteosat image sit more comfortably beside GOES.
+      These are intentionally conservative values that we can
+      tune visually after the next test.
     */
     #meteosat-image {
       transform: scale(1.20);
       transform-origin: center center;
+      filter:
+        brightness(1.09)
+        contrast(1.04)
+        saturate(1.05);
+    }
+
+    /*
+      Meteosat footer:
+      This is an OVERLAY inside the image frame, so it does not
+      push or resize the satellite imagery.
+
+      NOAA's embedded footer is very small, so the typography
+      here is intentionally restrained.
+    */
+    .meteosat-footer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 28px;
+      background: #fff;
+      color: #111;
+      z-index: 5;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 0 54px 0 58px;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 9px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0;
+      white-space: nowrap;
+
+      pointer-events: none;
+    }
+
+    /*
+      Temporary circular EUMETSAT-style source badge.
+      This is deliberately a simple test badge rather than
+      depending on an external logo URL.
+    */
+    .meteosat-badge {
+      position: absolute;
+      left: 8px;
+      bottom: 5px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      z-index: 6;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #165d9b;
+      border: 2px solid #fff;
+      color: #fff;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+
+      pointer-events: none;
+    }
+
+    .meteosat-footer-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: center;
+      width: 100%;
     }
   </style>
 </head>
 
 <body>
-  <section class="hemisphere">
+  <section
+    class="hemisphere"
+    aria-label="Western Hemisphere"
+  >
     <div class="image-wrap">
       <img
         id="goes-image"
@@ -90,12 +186,34 @@
     </div>
   </section>
 
-  <section class="hemisphere">
+  <section
+    class="hemisphere"
+    aria-label="Eastern Hemisphere"
+  >
     <div class="image-wrap">
       <img
         id="meteosat-image"
         alt="Latest Meteosat-12 GeoColour full-disk imagery"
       >
+
+      <div
+        class="meteosat-footer"
+        aria-hidden="true"
+      >
+        <div
+          class="meteosat-footer-text"
+          id="meteosat-footer-text"
+        >
+          METEOSAT-12 · GEOCOLOUR Composite
+        </div>
+      </div>
+
+      <div
+        class="meteosat-badge"
+        aria-hidden="true"
+      >
+        EUM
+      </div>
     </div>
   </section>
 
@@ -105,6 +223,11 @@
 
     const METEOSAT_IMAGE =
       document.getElementById("meteosat-image");
+
+    const METEOSAT_FOOTER_TEXT =
+      document.getElementById(
+        "meteosat-footer-text"
+      );
 
     const IMAGE_INTERVAL_MINUTES = 10;
     const GOES_CANDIDATES = 12;
@@ -129,12 +252,19 @@
       10 * 60 * 1000;
 
     function pad(value, length = 2) {
-      return String(value).padStart(length, "0");
+      return String(value).padStart(
+        length,
+        "0"
+      );
     }
 
     function getJulianDay(date) {
       const startOfYear =
-        Date.UTC(date.getUTCFullYear(), 0, 0);
+        Date.UTC(
+          date.getUTCFullYear(),
+          0,
+          0
+        );
 
       return Math.floor(
         (
@@ -242,9 +372,66 @@
       }
     }
 
+    function formatMeteosatFooter(date) {
+      const day =
+        pad(date.getUTCDate());
+
+      const monthNames = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ];
+
+      const month =
+        monthNames[
+          date.getUTCMonth()
+        ];
+
+      const year =
+        date.getUTCFullYear();
+
+      const hour =
+        pad(date.getUTCHours());
+
+      const minute =
+        pad(date.getUTCMinutes());
+
+      return (
+        `${day} ${month} ${year} ` +
+        `${hour}:${minute}Z · ` +
+        "EUMETSAT · METEOSAT-12 · " +
+        "GEOCOLOUR Composite"
+      );
+    }
+
     function loadLatestMeteosat() {
+      /*
+        For this aesthetic test, the displayed timestamp is
+        rounded to the nearest preceding ten-minute interval.
+        We will replace it with an authoritative data timestamp
+        after the visual design is settled.
+      */
+      const timestampDate =
+        roundDownToTenMinutes(
+          new Date()
+        );
+
       METEOSAT_IMAGE.src =
         `${METEOSAT_WMS_BASE}&cb=${Date.now()}`;
+
+      METEOSAT_FOOTER_TEXT.textContent =
+        formatMeteosatFooter(
+          timestampDate
+        );
     }
 
     function refreshImages() {
