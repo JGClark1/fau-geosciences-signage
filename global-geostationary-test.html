@@ -32,7 +32,8 @@
     }
 
     /*
-      Globe size stays exactly where you liked it.
+      Globe size and spacing are intentionally unchanged from
+      the version you approved visually.
     */
     .hemisphere {
       position: relative;
@@ -54,12 +55,6 @@
       justify-content: center;
     }
 
-    /*
-      IMPORTANT:
-      Only the satellite images receive full-frame sizing.
-      The previous selector also caught the EUMETSAT logo,
-      which is why the logo expanded across the globe.
-    */
     .satellite-image {
       display: block;
       width: 100%;
@@ -75,25 +70,25 @@
     }
 
     /*
-      Continue bringing Meteosat closer to the GOES visual
-      character. The changes remain display-only.
+      Meteosat receives one final modest brightness increase.
+      Contrast stays restrained so cloud detail is not crushed.
     */
     #meteosat-image {
       transform: scale(1.20);
       transform-origin: center center;
 
       filter:
-        brightness(1.17)
+        brightness(1.20)
         contrast(1.03)
         saturate(1.07);
     }
 
     /*
       Meteosat annotation strip:
-      - full width of the imagery, matching GOES
-      - slightly shallower than the prior version
-      - larger text, closer to NOAA's embedded annotation
-      - overlay only; the imagery is not displaced
+      - full image width
+      - same shallow visual treatment as GOES
+      - slightly larger/heavier text than the previous pass
+      - overlay only, so the image is never displaced
     */
     .meteosat-footer {
       position: absolute;
@@ -117,8 +112,8 @@
         Helvetica,
         sans-serif;
 
-      font-size: 8px;
-      font-weight: 400;
+      font-size: 8.5px;
+      font-weight: 500;
       line-height: 1;
       white-space: nowrap;
 
@@ -133,21 +128,20 @@
     }
 
     /*
-      Older emblem-style EUMETSAT logo.
-
-      Sized and positioned independently of the satellite image.
-      It overlaps the white footer in the same general manner as
-      the NOAA badge on the GOES product.
+      EUMETSAT emblem:
+      - about 22% larger than the previous pass
+      - shifted upward to give it similar visual weight
+        and overlap to NOAA's badge
     */
     #eumetsat-logo {
       position: absolute;
       left: 8px;
-      bottom: 4px;
+      bottom: 10px;
 
-      width: 54px;
-      height: 54px;
-      max-width: 54px;
-      max-height: 54px;
+      width: 66px;
+      height: 66px;
+      max-width: 66px;
+      max-height: 66px;
 
       object-fit: contain;
 
@@ -191,7 +185,7 @@
           class="meteosat-footer-text"
           id="meteosat-footer-text"
         >
-          METEOSAT-12 · GEOCOLOUR Composite
+          METEOSAT-12 - GEOCOLOUR Composite
         </div>
       </div>
 
