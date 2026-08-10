@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Global Geostationary Weather Test</title>
+
+  <style>
+    :root {
+      --background: #000000;
+      --foreground: #ffffff;
+      --muted: #b9c2cb;
+      --accent: #67b7e8;
+      --divider: #26313a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: var(--background);
+      color: var(--foreground);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      display: grid;
+      grid-template-rows: 96px 1fr;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--divider);
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 34px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+    }
+
+    header h1 span {
+      color: var(--accent);
+    }
+
+    main {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .hemisphere {
+      min-width: 0;
+      min-height: 0;
+      display: grid;
+      grid-template-rows: 1fr 104px;
+      align-items: center;
+      justify-items: center;
+      padding: 18px 30px 22px;
+    }
+
+    .hemisphere + .hemisphere {
+      border-left: 1px solid var(--divider);
+    }
+
+    .image-frame {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: 820px;
+      max-height: 820px;
+      object-fit: contain;
+      background: #000;
+    }
+
+    .label {
+      width: 100%;
+      align-self: end;
+      text-align: center;
+    }
+
+    .label h2 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: 0.25px;
+    }
+
+    .source {
+      margin: 0;
+      color: var(--accent);
+      font-size: 21px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    .status {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .error {
+      color: #ffb4b4;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>
+      Global Geostationary Weather
+      <span>· Latest Full-Disk Imagery</span>
+    </h1>
+  </header>
+
+  <main>
+    <section class="hemisphere">
+      <div class="image-frame">
+        <img
+          id="goes-image"
+          alt="Latest GOES-19 GeoColor full-disk imagery"
+        >
+      </div>
+
+      <div class="label">
+        <h2>Western Hemisphere</h2>
+        <p class="source">
+          GOES-19 GeoColor · NOAA/NESDIS
+        </p>
+        <p
+          id="goes-status"
+          class="status"
+        >
+          Locating latest available image…
+        </p>
+      </div>
+    </section>
+
+    <section class="hemisphere">
+      <div class="image-frame">
+        <img
+          id="meteosat-image"
+          alt="Latest Meteosat-12 GeoColour full-disk imagery"
+        >
+      </div>
+
+      <div class="label">
+        <h2>Eastern Hemisphere</h2>
+        <p class="source">
+          Meteosat-12 GeoColour · EUMETSAT
+        </p>
+        <p
+          id="meteosat-status"
+          class="status"
+        >
+          Loading latest available image…
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const GOES_IMAGE =
+      document.getElementById("goes-image");
+
+    const GOES_STATUS =
+      document.getElementById("goes-status");
+
+    const METEOSAT_IMAGE =
+      document.getElementById("meteosat-image");
+
+    const METEOSAT_STATUS =
+      document.getElementById("meteosat-status");
+
+    const IMAGE_INTERVAL_MINUTES = 10;
+
+    /*
+      NOAA full-disk GeoColor files are timestamped.
+      We search backward from approximately 20 minutes ago
+      so the page can find the newest image that is actually
+      available on the NOAA CDN.
+    */
+    const GOES_CANDIDATES = 12;
+    const GOES_DELAY_MINUTES = 20;
+
+    /*
+      EUMETView returns the latest available image when
+      the WMS request omits the time parameter.
+    */
+    const METEOSAT_WMS_BASE =
+      "https://view.eumetsat.int/geoserver/wms" +
+      "?service=WMS" +
+      "&version=1.3.0" +
+      "&request=GetMap" +
+      "&layers=" +
+      "mtg_fd:rgb_geocolour," +
+      "backgrounds:ne_10m_coastline," +
+      "backgrounds:ne_boundary_lines_land" +
+      "&bbox=-6500000,-6500000,6500000,6500000" +
+      "&width=1800" +
+      "&height=1800" +
+      "&srs=AUTO:97004,9001,0,0" +
+      "&styles=" +
+      "&format=image/jpeg" +
+      "&bgcolor=0x000000";
+
+    const REFRESH_INTERVAL_MS =
+      10 * 60 * 1000;
+
+    function pad(value, length = 2) {
+      return String(value).padStart(length, "0");
+    }
+
+    function getJulianDay(date) {
+      const startOfYear =
+        Date.UTC(date.getUTCFullYear(), 0, 0);
+
+      return Math.floor(
+        (
+          date.getTime() -
+          startOfYear
+        ) / 86400000
+      );
+    }
+
+    function roundDownToTenMinutes(date) {
+      const rounded =
+        new Date(date);
+
+      rounded.setUTCSeconds(0, 0);
+
+      const minute =
+        Math.floor(
+          rounded.getUTCMinutes() /
+          IMAGE_INTERVAL_MINUTES
+        ) * IMAGE_INTERVAL_MINUTES;
+
+      rounded.setUTCMinutes(minute);
+
+      return rounded;
+    }
+
+    function buildGoesUrl(date) {
+      const year =
+        date.getUTCFullYear();
+
+      const julianDay =
+        pad(
+          getJulianDay(date),
+          3
+        );
+
+      const hour =
+        pad(date.getUTCHours());
+
+      const minute =
+        pad(date.getUTCMinutes());
+
+      const timestamp =
+        `${year}${julianDay}${hour}${minute}`;
+
+      return (
+        "https://cdn.star.nesdis.noaa.gov/" +
+        "GOES19/ABI/FD/GEOCOLOR/" +
+        `${timestamp}_GOES19-ABI-FD-GEOCOLOR-` +
+        "1808x1808.jpg"
+      );
+    }
+
+    function formatUtc(date) {
+      const formatted =
+        new Intl.DateTimeFormat(
+          "en-US",
+          {
+            timeZone: "UTC",
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false
+          }
+        ).format(date);
+
+      return `${formatted} UTC`;
+    }
+
+    function testImage(url) {
+      return new Promise(
+        (resolve) => {
+          const test =
+            new Image();
+
+          test.onload =
+            () => resolve(true);
+
+          test.onerror =
+            () => resolve(false);
+
+          test.src =
+            `${url}?cb=${Date.now()}`;
+        }
+      );
+    }
+
+    async function loadLatestGoes() {
+      GOES_STATUS.classList.remove("error");
+
+      GOES_STATUS.textContent =
+        "Locating latest available image…";
+
+      const start =
+        roundDownToTenMinutes(
+          new Date()
+        );
+
+      start.setUTCMinutes(
+        start.getUTCMinutes() -
+        GOES_DELAY_MINUTES
+      );
+
+      for (
+        let i = 0;
+        i < GOES_CANDIDATES;
+        i++
+      ) {
+        const candidateDate =
+          new Date(
+            start.getTime() -
+            i *
+            IMAGE_INTERVAL_MINUTES *
+            60000
+          );
+
+        const url =
+          buildGoesUrl(candidateDate);
+
+        if (await testImage(url)) {
+          GOES_IMAGE.src =
+            `${url}?cb=${Date.now()}`;
+
+          GOES_STATUS.textContent =
+            formatUtc(candidateDate);
+
+          return;
+        }
+      }
+
+      GOES_STATUS.textContent =
+        "GOES imagery is temporarily unavailable.";
+
+      GOES_STATUS.classList.add("error");
+    }
+
+    function loadLatestMeteosat() {
+      METEOSAT_STATUS.classList.remove("error");
+
+      METEOSAT_STATUS.textContent =
+        "Loading latest available image…";
+
+      METEOSAT_IMAGE.onload =
+        () => {
+          METEOSAT_STATUS.textContent =
+            "Latest available EUMETView image";
+        };
+
+      METEOSAT_IMAGE.onerror =
+        () => {
+          METEOSAT_STATUS.textContent =
+            "Meteosat imagery is temporarily unavailable.";
+
+          METEOSAT_STATUS.classList.add("error");
+        };
+
+      METEOSAT_IMAGE.src =
+        `${METEOSAT_WMS_BASE}&cb=${Date.now()}`;
+    }
+
+    function refreshImages() {
+      loadLatestGoes();
+      loadLatestMeteosat();
+    }
+
+    refreshImages();
+
+    setInterval(
+      refreshImages,
+      REFRESH_INTERVAL_MS
+    );
+  </script>
+</body>
+</html>
