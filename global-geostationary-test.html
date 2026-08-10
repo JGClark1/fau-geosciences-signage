@@ -28,18 +28,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-
-      /*
-        Keep only a narrow visual separation between the two
-        full-disk views.
-      */
       gap: 10px;
     }
 
     /*
-      Push each panel close to the maximum size that will fit
-      side-by-side on a 16:9 display while retaining a small
-      center gap.
+      Globe size stays exactly where you liked it.
     */
     .hemisphere {
       position: relative;
@@ -61,7 +54,13 @@
       justify-content: center;
     }
 
-    .image-wrap > img {
+    /*
+      IMPORTANT:
+      Only the satellite images receive full-frame sizing.
+      The previous selector also caught the EUMETSAT logo,
+      which is why the logo expanded across the globe.
+    */
+    .satellite-image {
       display: block;
       width: 100%;
       height: 100%;
@@ -70,51 +69,39 @@
       pointer-events: none;
     }
 
-    /*
-      GOES:
-      Preserve the complete NOAA source image with its original
-      embedded logo and annotation strip.
-    */
     #goes-image {
       transform: scale(1.00);
       transform-origin: center center;
     }
 
     /*
-      Meteosat:
-      The EUMETSAT WMS frame has more black space surrounding
-      the disk, so keep the existing enlargement.
-
-      The image is also somewhat darker than the NOAA GeoColor
-      product. These modest display-only adjustments bring the
-      two products closer visually without changing the source.
+      Continue bringing Meteosat closer to the GOES visual
+      character. The changes remain display-only.
     */
     #meteosat-image {
       transform: scale(1.20);
       transform-origin: center center;
 
       filter:
-        brightness(1.13)
-        contrast(1.05)
-        saturate(1.06);
+        brightness(1.17)
+        contrast(1.03)
+        saturate(1.07);
     }
 
     /*
-      Meteosat annotation strip.
-
-      NOAA's strip is very shallow and begins to the right of
-      the lower-left logo. Mirror that structure here.
-
-      This strip is an overlay. It does not resize or displace
-      the Meteosat imagery.
+      Meteosat annotation strip:
+      - full width of the imagery, matching GOES
+      - slightly shallower than the prior version
+      - larger text, closer to NOAA's embedded annotation
+      - overlay only; the imagery is not displaced
     */
     .meteosat-footer {
       position: absolute;
-      left: 7.4%;
+      left: 0;
       right: 0;
       bottom: 0;
 
-      height: 13px;
+      height: 11px;
       background: #fff;
       color: #111;
       z-index: 5;
@@ -123,14 +110,14 @@
       align-items: center;
       justify-content: center;
 
-      padding: 0 10px;
+      padding: 0 8px;
 
       font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-      font-size: 7px;
+      font-size: 8px;
       font-weight: 400;
       line-height: 1;
       white-space: nowrap;
@@ -148,17 +135,19 @@
     /*
       Older emblem-style EUMETSAT logo.
 
-      Position and visual weight are intentionally matched to
-      NOAA's lower-left badge: the logo sits above and overlaps
-      the annotation strip rather than living inside the strip.
+      Sized and positioned independently of the satellite image.
+      It overlaps the white footer in the same general manner as
+      the NOAA badge on the GOES product.
     */
-    .meteosat-logo {
+    #eumetsat-logo {
       position: absolute;
-      left: 1.0%;
+      left: 8px;
       bottom: 4px;
 
-      width: 62px;
-      height: 50px;
+      width: 54px;
+      height: 54px;
+      max-width: 54px;
+      max-height: 54px;
 
       object-fit: contain;
 
@@ -176,6 +165,7 @@
   >
     <div class="image-wrap">
       <img
+        class="satellite-image"
         id="goes-image"
         alt="Latest GOES-19 GeoColor full-disk imagery"
       >
@@ -188,6 +178,7 @@
   >
     <div class="image-wrap">
       <img
+        class="satellite-image"
         id="meteosat-image"
         alt="Latest Meteosat-12 GeoColour full-disk imagery"
       >
@@ -205,7 +196,6 @@
       </div>
 
       <img
-        class="meteosat-logo"
         id="eumetsat-logo"
         alt=""
         aria-hidden="true"
@@ -234,11 +224,6 @@
     const GOES_CANDIDATES = 12;
     const GOES_DELAY_MINUTES = 20;
 
-    /*
-      For the aesthetic test, use the older compact EUMETSAT
-      emblem from Wikimedia Commons. We can later save a local
-      copy in the repository if this treatment is retained.
-    */
     const EUMETSAT_LOGO_URL =
       "https://commons.wikimedia.org/wiki/" +
       "Special:Redirect/file/EUMETSAT_logo.svg";
@@ -417,21 +402,13 @@
 
       return (
         `${day} ${month} ${year} ` +
-        `${hour}:${minute}Z · ` +
-        "EUMETSAT · METEOSAT-12 · " +
+        `${hour}:${minute}Z - ` +
+        "EUMETSAT - METEOSAT-12 - " +
         "GEOCOLOUR Composite"
       );
     }
 
     function loadLatestMeteosat() {
-      /*
-        The WMS endpoint supplies the latest available image.
-        For this aesthetic test, the displayed time is rounded
-        down to the nearest preceding ten-minute interval.
-
-        We will replace this with the actual product timestamp
-        once the composition is finalized.
-      */
       const timestampDate =
         roundDownToTenMinutes(
           new Date()
