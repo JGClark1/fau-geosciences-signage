@@ -32,7 +32,7 @@
     }
 
     /*
-      Globe size and spacing remain unchanged.
+      Globe size and spacing are now locked in.
     */
     .hemisphere {
       position: relative;
@@ -69,9 +69,7 @@
     }
 
     /*
-      Meteosat:
-      One more small brightness lift, while keeping contrast
-      restrained so cloud detail remains intact.
+      Meteosat levels are now locked in.
     */
     #meteosat-image {
       transform: scale(1.20);
@@ -85,8 +83,11 @@
 
     /*
       Meteosat annotation strip:
-      Full image width, centered text, and a slightly larger
-      font to better match NOAA's embedded annotation.
+      - full image width
+      - same shallow visual treatment as GOES
+      - text slightly larger than the previous pass
+      - flex centering plus a small optical correction so the
+        baseline sits visually centered in the white strip
     */
     .meteosat-footer {
       position: absolute;
@@ -110,9 +111,9 @@
         Helvetica,
         sans-serif;
 
-      font-size: 9.5px;
+      font-size: 10px;
       font-weight: 500;
-      line-height: 1;
+      line-height: 11px;
       white-space: nowrap;
 
       pointer-events: none;
@@ -123,23 +124,28 @@
       overflow: hidden;
       text-overflow: ellipsis;
       text-align: center;
+
+      /*
+        Optical centering correction for this tiny font/strip.
+      */
+      transform: translateY(0.5px);
     }
 
     /*
       EUMETSAT emblem:
-      Enlarged to more closely match the visual weight of
-      NOAA's circular badge and nudged downward toward the
-      white annotation strip.
+      one final increase in visual weight and a small downward
+      nudge so it sits closer to the annotation strip, matching
+      NOAA's relationship to its footer.
     */
     #eumetsat-logo {
       position: absolute;
       left: 8px;
-      bottom: 6px;
+      bottom: 3px;
 
-      width: 80px;
-      height: 80px;
-      max-width: 80px;
-      max-height: 80px;
+      width: 90px;
+      height: 90px;
+      max-width: 90px;
+      max-height: 90px;
 
       object-fit: contain;
 
