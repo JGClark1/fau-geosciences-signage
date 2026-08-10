@@ -32,8 +32,7 @@
     }
 
     /*
-      Globe size and spacing are intentionally unchanged from
-      the version you approved visually.
+      Globe size and spacing remain unchanged.
     */
     .hemisphere {
       position: relative;
@@ -70,25 +69,24 @@
     }
 
     /*
-      Meteosat receives one final modest brightness increase.
-      Contrast stays restrained so cloud detail is not crushed.
+      Meteosat:
+      One more small brightness lift, while keeping contrast
+      restrained so cloud detail remains intact.
     */
     #meteosat-image {
       transform: scale(1.20);
       transform-origin: center center;
 
       filter:
-        brightness(1.20)
+        brightness(1.24)
         contrast(1.03)
         saturate(1.07);
     }
 
     /*
       Meteosat annotation strip:
-      - full image width
-      - same shallow visual treatment as GOES
-      - slightly larger/heavier text than the previous pass
-      - overlay only, so the image is never displaced
+      Full image width, centered text, and a slightly larger
+      font to better match NOAA's embedded annotation.
     */
     .meteosat-footer {
       position: absolute;
@@ -112,7 +110,7 @@
         Helvetica,
         sans-serif;
 
-      font-size: 8.5px;
+      font-size: 9.5px;
       font-weight: 500;
       line-height: 1;
       white-space: nowrap;
@@ -129,19 +127,19 @@
 
     /*
       EUMETSAT emblem:
-      - about 22% larger than the previous pass
-      - shifted upward to give it similar visual weight
-        and overlap to NOAA's badge
+      Enlarged to more closely match the visual weight of
+      NOAA's circular badge and nudged downward toward the
+      white annotation strip.
     */
     #eumetsat-logo {
       position: absolute;
       left: 8px;
-      bottom: 10px;
+      bottom: 6px;
 
-      width: 66px;
-      height: 66px;
-      max-width: 66px;
-      max-height: 66px;
+      width: 80px;
+      height: 80px;
+      max-width: 80px;
+      max-height: 80px;
 
       object-fit: contain;
 
