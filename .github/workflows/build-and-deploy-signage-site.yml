@@ -1,12 +1,18 @@
-name: Build and deploy signage site
+name: Deploy static signage site
 
 on:
   workflow_dispatch:
 
-  schedule:
-    # Rebuild four times daily.
-    # GitHub Actions schedules use UTC.
-    - cron: "17 0,6,12,18 * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - "*.html"
+      - "**/*.html"
+      - "*.css"
+      - "**/*.css"
+      - "*.js"
+      - "**/*.js"
 
 permissions:
   contents: read
@@ -24,39 +30,35 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v6
+        with:
+          ref: main
 
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version: "3.13"
 
-      - name: Install system dependencies
+      - name: Prepare static site
         run: |
-          sudo apt-get update
-          sudo apt-get install --yes \
-            ffmpeg \
-            libcairo2 \
-            fonts-dejavu-core \
-            fonts-liberation
+          python scripts/prepare_site.py
 
-      - name: Install Python dependencies
+      - name: Preserve current generated videos
         run: |
-          python -m pip install \
-            --upgrade \
-            pillow \
-            cairosvg
+          curl -fL --retry 3 --retry-delay 2 \
+            -o site/global-geostationary-48h.mp4 \
+            https://jgclark1.github.io/fau-geosciences-signage/global-geostationary-48h.mp4
 
-      - name: Build GOES-East video and site directory
-        run: |
-          python scripts/build_goes_video.py
+          curl -fL --retry 3 --retry-delay 2 \
+            -o site/nasa-earth-observatory.mp4 \
+            https://jgclark1.github.io/fau-geosciences-signage/nasa-earth-observatory.mp4
 
-      - name: Build paired global geostationary video
-        run: |
-          python scripts/build_global_geostationary_video.py
+          curl -fL --retry 3 --retry-delay 2 \
+            -o site/goes-east-24h.mp4 \
+            https://jgclark1.github.io/fau-geosciences-signage/goes-east-24h.mp4
 
-      - name: Build NASA Earth Observatory video
+      - name: Finalize player cache tokens
         run: |
-          python scripts/build_nasa_video.py
+          python scripts/finalize_site.py
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
