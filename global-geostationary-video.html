@@ -239,9 +239,11 @@
     const FOOTER_HEIGHT = 10.75;
     const FOOTER_FONT_SIZE = 9.75;
     const FOOTER_HORIZONTAL_PADDING = 8;
+    const FOOTER_OPTICAL_SCALE = 1.10;
 
     const LOGO_SIZE = 94;
     const LOGO_LEFT_OFFSET = 8;
+    const LOGO_OPTICAL_SCALE = 1.15;
 
     const video =
       document.getElementById("global-video");
@@ -285,13 +287,13 @@
         PANEL_SIZE * scale;
 
       const footerHeight =
-        FOOTER_HEIGHT * scale;
+        FOOTER_HEIGHT * scale * FOOTER_OPTICAL_SCALE;
 
       const footerFontSize =
-        FOOTER_FONT_SIZE * scale;
+        FOOTER_FONT_SIZE * scale * FOOTER_OPTICAL_SCALE;
 
       const footerPadding =
-        FOOTER_HORIZONTAL_PADDING * scale;
+        FOOTER_HORIZONTAL_PADDING * scale * FOOTER_OPTICAL_SCALE;
 
       footer.style.left =
         `${panelLeft}px`;
@@ -315,7 +317,7 @@
         `0 ${footerPadding}px`;
 
       const logoSize =
-        LOGO_SIZE * scale;
+        LOGO_SIZE * scale * LOGO_OPTICAL_SCALE;
 
       const logoLeftOffset =
         LOGO_LEFT_OFFSET * scale;
