@@ -13,9 +13,13 @@
     content="no-cache, no-store, must-revalidate"
   >
 
-  <title>Global Geostationary Weather</title>
+  <title>Earth in Motion</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     html,
     body {
       width: 100%;
@@ -25,28 +29,294 @@
       background: #000;
     }
 
+    body {
+      position: relative;
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+    }
+
+    .stage {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1920px;
+      height: 1080px;
+      transform-origin: center center;
+      background: #000;
+      overflow: hidden;
+    }
+
     video {
-      display: block;
-      width: 100%;
-      height: 100%;
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
       object-fit: contain;
       background: #000;
+    }
+
+    .header-left,
+    .header-right {
+      position: absolute;
+      top: 18px;
+      z-index: 20;
+      color: #fff;
+      pointer-events: none;
+    }
+
+    .header-left {
+      left: 20px;
+      width: 390px;
+      padding-left: 12px;
+    }
+
+    .header-left::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 1px;
+      width: 4px;
+      height: 42px;
+      background: #4db3ff;
+    }
+
+    .title-line {
+      display: block;
+      margin: 0;
+      font-weight: 700;
+      line-height: 0.98;
+      white-space: nowrap;
+    }
+
+    .title-line-1 {
+      font-size: 22px;
+      letter-spacing: 0.15px;
+    }
+
+    .title-line-2 {
+      margin-top: 5px;
+      font-size: 16.5px;
+      font-weight: 700;
+      letter-spacing: 0.05px;
+      color: #e8e8e8;
+    }
+
+    .header-right {
+      right: 14px;
+      width: 470px;
+      text-align: right;
+    }
+
+    .description-line {
+      display: block;
+      margin: 0 0 3px auto;
+      color: #e6e6e6;
+      font-weight: 400;
+      line-height: 1.12;
+      white-space: nowrap;
+    }
+
+    .description-line-1,
+    .description-line-2,
+    .description-line-3 {
+      font-size: 14.5px;
+      letter-spacing: -0.15px;
+      word-spacing: -0.35px;
+    }
+
+    .meteosat-footer {
+      position: absolute;
+      left: 962px;
+      top: 999.25px;
+      width: 941px;
+      height: 10.75px;
+      z-index: 15;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 8px;
+      overflow: hidden;
+      background: #fff;
+      color: #111;
+      font-size: 9.75px;
+      font-weight: 500;
+      line-height: 10.75px;
+      white-space: nowrap;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    #eumetsat-logo {
+      position: absolute;
+      left: 970px;
+      top: 916px;
+      width: 94px;
+      height: 94px;
+      z-index: 16;
+      object-fit: contain;
+      pointer-events: none;
     }
   </style>
 </head>
 
 <body>
-  <video
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto"
-  >
-    <source
-      src="global-geostationary-48h.mp4?v=__BUILD_TOKEN__"
-      type="video/mp4"
+  <div class="stage" id="stage">
+    <video
+      id="global-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
     >
-  </video>
+      <source
+        src="global-geostationary-48h.mp4?v=__BUILD_TOKEN__"
+        type="video/mp4"
+      >
+    </video>
+
+    <div class="header-left" aria-label="Display title">
+      <span class="title-line title-line-1">Earth in Motion</span>
+      <span class="title-line title-line-2">The past 48 hours</span>
+    </div>
+
+    <div class="header-right" aria-label="Display description">
+      <span class="description-line description-line-1">Watch weather evolve across Earth</span>
+      <span class="description-line description-line-2">through the changing cycle</span>
+      <span class="description-line description-line-3">of day and night</span>
+    </div>
+
+    <div class="meteosat-footer" id="meteosat-footer">
+      EUMETSAT - METEOSAT-12 - GEOCOLOUR Composite
+    </div>
+
+    <img
+      id="eumetsat-logo"
+      src="assets/eumetsat-logo.png?v=__BUILD_TOKEN__"
+      alt=""
+      aria-hidden="true"
+    >
+  </div>
+
+  <script>
+    const STAGE_WIDTH = 1920;
+    const STAGE_HEIGHT = 1080;
+
+    const stage =
+      document.getElementById("stage");
+
+    const video =
+      document.getElementById("global-video");
+
+    const footer =
+      document.getElementById("meteosat-footer");
+
+    let metadata = null;
+
+    function fitStage() {
+      const scale = Math.min(
+        window.innerWidth / STAGE_WIDTH,
+        window.innerHeight / STAGE_HEIGHT
+      );
+
+      stage.style.transform =
+        `translate(-50%, -50%) scale(${scale})`;
+    }
+
+    function formatTimestamp(iso) {
+      const date = new Date(iso);
+
+      const months = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ];
+
+      const day =
+        String(date.getUTCDate()).padStart(2, "0");
+
+      const month =
+        months[date.getUTCMonth()];
+
+      const year =
+        date.getUTCFullYear();
+
+      const hour =
+        String(date.getUTCHours()).padStart(2, "0");
+
+      const minute =
+        String(date.getUTCMinutes()).padStart(2, "0");
+
+      return (
+        `${day} ${month} ${year} ` +
+        `${hour}:${minute}Z`
+      );
+    }
+
+    function updateFooter() {
+      if (
+        metadata &&
+        metadata.timestamps &&
+        metadata.timestamps.length
+      ) {
+        const fps =
+          metadata.frame_rate || (20 / 3);
+
+        const index = Math.min(
+          Math.floor(
+            video.currentTime * fps + 0.0001
+          ),
+          metadata.timestamps.length - 1
+        );
+
+        footer.textContent =
+          `${formatTimestamp(metadata.timestamps[index])} - ` +
+          "EUMETSAT - METEOSAT-12 - GEOCOLOUR Composite";
+      }
+
+      requestAnimationFrame(updateFooter);
+    }
+
+    fetch(
+      "global-geostationary-timestamps.json?v=__BUILD_TOKEN__",
+      {
+        cache: "no-store"
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            `Metadata request failed: ${response.status}`
+          );
+        }
+
+        return response.json();
+      })
+      .then((data) => {
+        metadata = data;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    window.addEventListener(
+      "resize",
+      fitStage
+    );
+
+    fitStage();
+    requestAnimationFrame(updateFooter);
+  </script>
 </body>
 </html>
