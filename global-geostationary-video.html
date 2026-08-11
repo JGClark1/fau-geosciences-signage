@@ -37,26 +37,21 @@
         sans-serif;
     }
 
-    .stage {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 1920px;
-      height: 1080px;
-      transform-origin: center center;
-      background: #000;
-      overflow: hidden;
-    }
-
     video {
       position: absolute;
       inset: 0;
-      width: 1920px;
-      height: 1080px;
+      display: block;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
       background: #000;
     }
 
+    /*
+      Title and descriptor are intentionally NOT scaled with
+      the 1920x1080 video. This reproduces the approved test
+      page, where CSS text remained at its defined pixel size.
+    */
     .header-left,
     .header-right {
       position: absolute;
@@ -126,23 +121,35 @@
       word-spacing: -0.35px;
     }
 
+    /*
+      Meteosat attribution uses the same CSS dimensions as the
+      approved test page. JavaScript positions it over the
+      actually displayed right-hand video panel.
+    */
     .meteosat-footer {
       position: absolute;
-      left: 962px;
-      top: 999.25px;
-      width: 941px;
-      height: 10.75px;
       z-index: 15;
+
+      height: 10.75px;
       display: flex;
       align-items: center;
       justify-content: center;
+
       padding: 0 8px;
       overflow: hidden;
+
       background: #fff;
       color: #111;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       font-size: 9.75px;
       font-weight: 500;
       line-height: 10.75px;
+
       white-space: nowrap;
       text-align: center;
       pointer-events: none;
@@ -150,62 +157,88 @@
 
     #eumetsat-logo {
       position: absolute;
-      left: 970px;
-      top: 916px;
+      z-index: 16;
+
       width: 94px;
       height: 94px;
-      z-index: 16;
       object-fit: contain;
+
       pointer-events: none;
+      user-select: none;
     }
   </style>
 </head>
 
 <body>
-  <div class="stage" id="stage">
-    <video
-      id="global-video"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
+  <video
+    id="global-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+  >
+    <source
+      src="global-geostationary-48h.mp4?v=__BUILD_TOKEN__"
+      type="video/mp4"
     >
-      <source
-        src="global-geostationary-48h.mp4?v=__BUILD_TOKEN__"
-        type="video/mp4"
-      >
-    </video>
+  </video>
 
-    <div class="header-left" aria-label="Display title">
-      <span class="title-line title-line-1">Earth in Motion</span>
-      <span class="title-line title-line-2">The past 48 hours</span>
-    </div>
+  <div
+    class="header-left"
+    aria-label="Display title"
+  >
+    <span class="title-line title-line-1">
+      Earth in Motion
+    </span>
 
-    <div class="header-right" aria-label="Display description">
-      <span class="description-line description-line-1">Watch weather evolve across Earth</span>
-      <span class="description-line description-line-2">through the changing cycle</span>
-      <span class="description-line description-line-3">of day and night</span>
-    </div>
-
-    <div class="meteosat-footer" id="meteosat-footer">
-      EUMETSAT - METEOSAT-12 - GEOCOLOUR Composite
-    </div>
-
-    <img
-      id="eumetsat-logo"
-      src="assets/eumetsat-logo.png?v=__BUILD_TOKEN__"
-      alt=""
-      aria-hidden="true"
-    >
+    <span class="title-line title-line-2">
+      The past 48 hours
+    </span>
   </div>
 
-  <script>
-    const STAGE_WIDTH = 1920;
-    const STAGE_HEIGHT = 1080;
+  <div
+    class="header-right"
+    aria-label="Display description"
+  >
+    <span class="description-line description-line-1">
+      Watch weather evolve across Earth
+    </span>
 
-    const stage =
-      document.getElementById("stage");
+    <span class="description-line description-line-2">
+      through the changing cycle
+    </span>
+
+    <span class="description-line description-line-3">
+      of day and night
+    </span>
+  </div>
+
+  <div
+    class="meteosat-footer"
+    id="meteosat-footer"
+  >
+    EUMETSAT - METEOSAT-12 - GEOCOLOUR Composite
+  </div>
+
+  <img
+    id="eumetsat-logo"
+    src="assets/eumetsat-logo.png?v=__BUILD_TOKEN__"
+    alt=""
+    aria-hidden="true"
+  >
+
+  <script>
+    const SOURCE_WIDTH = 1920;
+    const SOURCE_HEIGHT = 1080;
+
+    const PANEL_SIZE = 941;
+    const PANEL_TOP = (SOURCE_HEIGHT - PANEL_SIZE) / 2;
+    const RIGHT_PANEL_X = 962;
+
+    const FOOTER_HEIGHT = 10.75;
+    const LOGO_SIZE = 94;
+    const LOGO_LEFT_OFFSET = 8;
 
     const video =
       document.getElementById("global-video");
@@ -213,16 +246,55 @@
     const footer =
       document.getElementById("meteosat-footer");
 
+    const logo =
+      document.getElementById("eumetsat-logo");
+
     let metadata = null;
 
-    function fitStage() {
+    function positionMeteosatOverlay() {
       const scale = Math.min(
-        window.innerWidth / STAGE_WIDTH,
-        window.innerHeight / STAGE_HEIGHT
+        window.innerWidth / SOURCE_WIDTH,
+        window.innerHeight / SOURCE_HEIGHT
       );
 
-      stage.style.transform =
-        `translate(-50%, -50%) scale(${scale})`;
+      const renderedWidth =
+        SOURCE_WIDTH * scale;
+
+      const renderedHeight =
+        SOURCE_HEIGHT * scale;
+
+      const videoLeft =
+        (window.innerWidth - renderedWidth) / 2;
+
+      const videoTop =
+        (window.innerHeight - renderedHeight) / 2;
+
+      const panelLeft =
+        videoLeft + RIGHT_PANEL_X * scale;
+
+      const panelTop =
+        videoTop + PANEL_TOP * scale;
+
+      const panelWidth =
+        PANEL_SIZE * scale;
+
+      const panelHeight =
+        PANEL_SIZE * scale;
+
+      footer.style.left =
+        `${panelLeft}px`;
+
+      footer.style.top =
+        `${panelTop + panelHeight - FOOTER_HEIGHT}px`;
+
+      footer.style.width =
+        `${panelWidth}px`;
+
+      logo.style.left =
+        `${panelLeft + LOGO_LEFT_OFFSET}px`;
+
+      logo.style.top =
+        `${panelTop + panelHeight - LOGO_SIZE}px`;
     }
 
     function formatTimestamp(iso) {
@@ -312,10 +384,10 @@
 
     window.addEventListener(
       "resize",
-      fitStage
+      positionMeteosatOverlay
     );
 
-    fitStage();
+    positionMeteosatOverlay();
     requestAnimationFrame(updateFooter);
   </script>
 </body>
