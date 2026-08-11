@@ -3,16 +3,10 @@ name: Build global geostationary video
 on:
   workflow_dispatch:
 
-  push:
-    branches:
-      - main
-    paths:
-      - "*.html"
-      - "**/*.html"
-      - "*.css"
-      - "**/*.css"
-      - "*.js"
-      - "**/*.js"
+  schedule:
+    # Rebuild four times daily.
+    # GitHub Actions schedules use UTC.
+    - cron: "17 0,6,12,18 * * *"
 
 permissions:
   contents: read
@@ -38,16 +32,28 @@ jobs:
         with:
           python-version: "3.13"
 
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes \
+            ffmpeg \
+            libcairo2 \
+            fonts-dejavu-core \
+            fonts-liberation
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install \
+            --upgrade \
+            pillow \
+            cairosvg
+
       - name: Prepare static site
         run: |
           python scripts/prepare_site.py
 
-      - name: Preserve current generated videos
+      - name: Preserve other generated videos
         run: |
-          curl -fL --retry 3 --retry-delay 2 \
-            -o site/global-geostationary-48h.mp4 \
-            https://jgclark1.github.io/fau-geosciences-signage/global-geostationary-48h.mp4
-
           curl -fL --retry 3 --retry-delay 2 \
             -o site/nasa-earth-observatory.mp4 \
             https://jgclark1.github.io/fau-geosciences-signage/nasa-earth-observatory.mp4
@@ -56,7 +62,11 @@ jobs:
             -o site/goes-east-24h.mp4 \
             https://jgclark1.github.io/fau-geosciences-signage/goes-east-24h.mp4
 
-      - name: Finalize player cache tokens
+      - name: Build paired global geostationary video
+        run: |
+          python scripts/build_global_geostationary_video.py
+
+      - name: Finalize remaining player cache tokens
         run: |
           python scripts/finalize_site.py
 
