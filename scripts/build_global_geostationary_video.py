@@ -5,6 +5,7 @@ from __future__ import annotations
 import concurrent.futures
 import datetime as dt
 import io
+import json
 import shutil
 import subprocess
 import sys
@@ -100,14 +101,6 @@ METEOSAT_BRIGHTNESS = 1.24
 METEOSAT_CONTRAST = 1.03
 METEOSAT_SATURATION = 1.07
 
-METEOSAT_FOOTER_HEIGHT = 11
-METEOSAT_FONT_SIZE = 10
-
-# Matched to the approved test-page proportions.
-EUMETSAT_LOGO_SIZE = 112
-EUMETSAT_LOGO_LEFT = 8
-EUMETSAT_LOGO_BOTTOM = 0
-
 
 
 
@@ -151,11 +144,11 @@ OUTPUT_VIDEO = (
     / "global-geostationary-48h.mp4"
 )
 
-EUMETSAT_LOGO_PNG = (
-    ROOT_DIRECTORY
-    / "assets"
-    / "eumetsat-logo.png"
+FRAME_METADATA = (
+    SITE_DIRECTORY
+    / "global-geostationary-timestamps.json"
 )
+
 
 USER_AGENT = (
     "FAU-Geosciences-Digital-Signage/1.0"
@@ -352,18 +345,6 @@ def prepare_directories() -> None:
     SITE_DIRECTORY.mkdir(
         parents=True,
         exist_ok=True,
-    )
-
-
-def prepare_eumetsat_logo() -> None:
-    if not EUMETSAT_LOGO_PNG.exists():
-        raise FileNotFoundError(
-            "Local EUMETSAT logo asset was not found: "
-            f"{EUMETSAT_LOGO_PNG}"
-        )
-
-    log(
-        "Using local EUMETSAT logo asset."
     )
 
 
@@ -566,8 +547,6 @@ def render_goes_panel(
 
 def render_meteosat_panel(
     data: bytes,
-    timestamp: dt.datetime,
-    logo: Image.Image,
 ) -> Image.Image:
     with Image.open(
         io.BytesIO(data)
@@ -630,104 +609,7 @@ def render_meteosat_panel(
         )
     )
 
-    draw = ImageDraw.Draw(panel)
-
-    footer_top = (
-        PANEL_SIZE
-        - METEOSAT_FOOTER_HEIGHT
-    )
-
-    draw.rectangle(
-        (
-            0,
-            footer_top,
-            PANEL_SIZE,
-            PANEL_SIZE,
-        ),
-        fill=(255, 255, 255),
-    )
-
-    text = (
-        timestamp.strftime(
-            "%d %b %Y %H:%MZ"
-        )
-        + " - EUMETSAT - "
-        "METEOSAT-12 - "
-        "GEOCOLOUR Composite"
-    )
-
-    footer_font = load_font(
-        METEOSAT_FONT_SIZE
-    )
-
-    bbox = draw.textbbox(
-        (0, 0),
-        text,
-        font=footer_font,
-    )
-
-    text_width = (
-        bbox[2] - bbox[0]
-    )
-
-    text_height = (
-        bbox[3] - bbox[1]
-    )
-
-    text_x = (
-        PANEL_SIZE
-        - text_width
-    ) // 2
-
-    # Optical vertical centering for the very shallow footer.
-    text_y = (
-        footer_top
-        + (
-            METEOSAT_FOOTER_HEIGHT
-            - text_height
-        ) // 2
-        - bbox[1]
-    )
-
-    draw.text(
-        (
-            text_x,
-            text_y,
-        ),
-        text,
-        font=footer_font,
-        fill=(17, 17, 17),
-    )
-
-    logo_copy = logo.copy()
-
-    logo_copy.thumbnail(
-        (
-            EUMETSAT_LOGO_SIZE,
-            EUMETSAT_LOGO_SIZE,
-        ),
-        Image.Resampling.LANCZOS,
-    )
-
-    logo_x = EUMETSAT_LOGO_LEFT
-
-    logo_y = (
-        PANEL_SIZE
-        - EUMETSAT_LOGO_BOTTOM
-        - logo_copy.height
-    )
-
-    panel.paste(
-        logo_copy,
-        (
-            logo_x,
-            logo_y,
-        ),
-        logo_copy,
-    )
-
     return panel
-
 
 
 
@@ -736,7 +618,6 @@ def render_frame(
     timestamp: dt.datetime,
     goes_data: bytes,
     meteosat_data: bytes,
-    logo: Image.Image,
 ) -> None:
     canvas = Image.new(
         "RGB",
@@ -754,8 +635,6 @@ def render_frame(
     meteosat_panel = (
         render_meteosat_panel(
             meteosat_data,
-            timestamp,
-            logo,
         )
     )
 
@@ -806,13 +685,6 @@ def save_frames(
         ]
     ],
 ) -> None:
-    with Image.open(
-        EUMETSAT_LOGO_PNG
-    ) as logo_source:
-        logo = logo_source.convert(
-            "RGBA"
-        )
-
     for index, (
         timestamp,
         goes_data,
@@ -823,8 +695,41 @@ def save_frames(
             timestamp,
             goes_data,
             meteosat_data,
-            logo,
         )
+
+
+def write_frame_metadata(
+    selected: list[
+        tuple[
+            dt.datetime,
+            bytes,
+            bytes,
+        ]
+    ],
+) -> None:
+    payload = {
+        "frame_rate": 20 / 3,
+        "frame_interval_minutes": IMAGE_INTERVAL_MINUTES,
+        "timestamps": [
+            timestamp.strftime(
+                "%Y-%m-%dT%H:%M:%SZ"
+            )
+            for timestamp, _, _ in selected
+        ],
+    }
+
+    FRAME_METADATA.write_text(
+        json.dumps(
+            payload,
+            indent=2,
+        ) + "\n",
+        encoding="utf-8",
+    )
+
+    log(
+        f"Created {FRAME_METADATA.name} "
+        f"with {len(payload['timestamps'])} timestamps."
+    )
 
 
 def encode_video() -> None:
@@ -935,7 +840,6 @@ def add_build_token() -> None:
 
 def main() -> int:
     prepare_directories()
-    prepare_eumetsat_logo()
 
     selected = select_paired_frames()
 
@@ -968,6 +872,7 @@ def main() -> int:
     )
 
     save_frames(selected)
+    write_frame_metadata(selected)
     encode_video()
     add_build_token()
 
