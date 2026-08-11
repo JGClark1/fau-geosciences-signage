@@ -42,19 +42,15 @@ jobs:
         run: |
           python scripts/prepare_site.py
 
-      - name: Preserve current generated videos
+      - name: Preserve current generated media and metadata
         run: |
-          curl -fL --retry 3 --retry-delay 2 \
-            -o site/global-geostationary-48h.mp4 \
-            https://jgclark1.github.io/fau-geosciences-signage/global-geostationary-48h.mp4
+          curl -fL --retry 3 --retry-delay 2             -o site/global-geostationary-48h.mp4             https://jgclark1.github.io/fau-geosciences-signage/global-geostationary-48h.mp4
 
-          curl -fL --retry 3 --retry-delay 2 \
-            -o site/nasa-earth-observatory.mp4 \
-            https://jgclark1.github.io/fau-geosciences-signage/nasa-earth-observatory.mp4
+          curl -fL --retry 3 --retry-delay 2             -o site/global-geostationary-timestamps.json             https://jgclark1.github.io/fau-geosciences-signage/global-geostationary-timestamps.json
 
-          curl -fL --retry 3 --retry-delay 2 \
-            -o site/goes-east-24h.mp4 \
-            https://jgclark1.github.io/fau-geosciences-signage/goes-east-24h.mp4
+          curl -fL --retry 3 --retry-delay 2             -o site/nasa-earth-observatory.mp4             https://jgclark1.github.io/fau-geosciences-signage/nasa-earth-observatory.mp4
+
+          curl -fL --retry 3 --retry-delay 2             -o site/goes-east-24h.mp4             https://jgclark1.github.io/fau-geosciences-signage/goes-east-24h.mp4
 
       - name: Finalize player cache tokens
         run: |
