@@ -1,4 +1,4 @@
-name: Deploy static signage site
+name: Build global geostationary video
 
 on:
   workflow_dispatch:
