@@ -16,13 +16,6 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageEnhance, ImageFont
 
-try:
-    import cairosvg
-except ImportError as error:
-    raise RuntimeError(
-        "CairoSVG is required. Install it with: "
-        "python -m pip install cairosvg"
-    ) from error
 
 
 # ------------------------------------------------------------
@@ -115,10 +108,6 @@ EUMETSAT_LOGO_SIZE = 94
 EUMETSAT_LOGO_LEFT = 8
 EUMETSAT_LOGO_BOTTOM = 0
 
-EUMETSAT_LOGO_URL = (
-    "https://upload.wikimedia.org/wikipedia/commons/"
-    "e/e2/EUMETSAT_logo.svg"
-)
 
 
 
@@ -189,12 +178,10 @@ OUTPUT_VIDEO = (
     / "global-geostationary-48h.mp4"
 )
 
-EUMETSAT_LOGO_SVG = (
-    ASSET_DIRECTORY / "eumetsat-logo.svg"
-)
-
 EUMETSAT_LOGO_PNG = (
-    ASSET_DIRECTORY / "eumetsat-logo.png"
+    ROOT_DIRECTORY
+    / "assets"
+    / "eumetsat-logo.png"
 )
 
 USER_AGENT = (
@@ -396,95 +383,14 @@ def prepare_directories() -> None:
 
 
 def prepare_eumetsat_logo() -> None:
+    if not EUMETSAT_LOGO_PNG.exists():
+        raise FileNotFoundError(
+            "Local EUMETSAT logo asset was not found: "
+            f"{EUMETSAT_LOGO_PNG}"
+        )
+
     log(
-        "Downloading EUMETSAT logo…"
-    )
-
-    data = download_raw_bytes(
-        EUMETSAT_LOGO_URL
-    )
-
-    EUMETSAT_LOGO_SVG.write_bytes(
-        data
-    )
-
-    cairosvg.svg2png(
-        bytestring=data,
-        write_to=str(
-            EUMETSAT_LOGO_PNG
-        ),
-        output_width=500,
-        output_height=500,
-    )
-
-
-def download_raw_bytes(
-    url: str,
-) -> bytes:
-    request = urllib.request.Request(
-        url,
-        headers={
-            "User-Agent": USER_AGENT,
-            "Accept": "*/*",
-        },
-    )
-
-    last_error: Exception | None = None
-
-    for attempt in range(
-        1,
-        DOWNLOAD_RETRIES + 3,
-    ):
-        try:
-            with urllib.request.urlopen(
-                request,
-                timeout=DOWNLOAD_TIMEOUT_SECONDS,
-            ) as response:
-                return response.read()
-
-        except urllib.error.HTTPError as error:
-            last_error = error
-
-            # Wikimedia occasionally rate-limits GitHub-hosted
-            # runners. Back off and retry rather than failing
-            # the entire 48-hour animation build immediately.
-            if error.code == 429:
-                wait_seconds = min(
-                    10 * attempt,
-                    40,
-                )
-
-                log(
-                    "EUMETSAT logo request was rate-limited "
-                    f"(HTTP 429); retrying in "
-                    f"{wait_seconds} seconds…"
-                )
-
-                time.sleep(wait_seconds)
-                continue
-
-            if attempt >= DOWNLOAD_RETRIES:
-                raise
-
-            time.sleep(attempt * 2)
-
-        except (
-            urllib.error.URLError,
-            TimeoutError,
-            OSError,
-        ) as error:
-            last_error = error
-
-            if attempt >= DOWNLOAD_RETRIES:
-                raise
-
-            time.sleep(attempt * 2)
-
-    if last_error is not None:
-        raise last_error
-
-    raise RuntimeError(
-        "Unable to download EUMETSAT logo."
+        "Using local EUMETSAT logo asset."
     )
 
 
