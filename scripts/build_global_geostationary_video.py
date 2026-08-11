@@ -104,40 +104,13 @@ METEOSAT_FOOTER_HEIGHT = 11
 METEOSAT_FONT_SIZE = 10
 
 # Matched to the approved test-page proportions.
-EUMETSAT_LOGO_SIZE = 94
+EUMETSAT_LOGO_SIZE = 112
 EUMETSAT_LOGO_LEFT = 8
 EUMETSAT_LOGO_BOTTOM = 0
 
 
 
 
-# ------------------------------------------------------------
-# Frame text overlay settings
-# ------------------------------------------------------------
-
-HEADER_TOP = 18
-HEADER_LEFT = 20
-HEADER_RIGHT = 14
-HEADER_LEFT_TEXT_OFFSET = 12
-ACCENT_BAR_WIDTH = 4
-ACCENT_BAR_HEIGHT = 42
-
-TITLE_LINE_1 = "Earth in Motion"
-TITLE_LINE_2 = "The past 48 hours"
-
-DESCRIPTION_LINES = (
-    "Watch weather evolve across Earth",
-    "through the changing cycle",
-    "of day and night",
-)
-
-TITLE_LINE_1_SIZE = 22
-TITLE_LINE_2_SIZE = 17
-DESCRIPTION_SIZE = 15
-TITLE_FILL = (255, 255, 255)
-SUBTITLE_FILL = (232, 232, 232)
-DESCRIPTION_FILL = (230, 230, 230)
-ACCENT_BAR_FILL = (77, 179, 255)
 
 # ------------------------------------------------------------
 # Repository paths
@@ -758,87 +731,6 @@ def render_meteosat_panel(
 
 
 
-def render_header_overlay(
-    canvas: Image.Image,
-) -> None:
-    draw = ImageDraw.Draw(canvas)
-
-    title_font = load_font(
-        TITLE_LINE_1_SIZE,
-        bold=True,
-    )
-
-    subtitle_font = load_font(
-        TITLE_LINE_2_SIZE,
-        bold=True,
-    )
-
-    description_font = load_font(
-        DESCRIPTION_SIZE
-    )
-
-    # Left accent bar
-    draw.rectangle(
-        (
-            HEADER_LEFT,
-            HEADER_TOP + 1,
-            HEADER_LEFT + ACCENT_BAR_WIDTH - 1,
-            HEADER_TOP + 1 + ACCENT_BAR_HEIGHT - 1,
-        ),
-        fill=ACCENT_BAR_FILL,
-    )
-
-    title_x = HEADER_LEFT + HEADER_LEFT_TEXT_OFFSET
-    title_y = HEADER_TOP
-
-    draw.text(
-        (title_x, title_y),
-        TITLE_LINE_1,
-        font=title_font,
-        fill=TITLE_FILL,
-    )
-
-    title_bbox = draw.textbbox(
-        (title_x, title_y),
-        TITLE_LINE_1,
-        font=title_font,
-    )
-
-    subtitle_y = title_bbox[3] + 4
-
-    draw.text(
-        (title_x, subtitle_y),
-        TITLE_LINE_2,
-        font=subtitle_font,
-        fill=SUBTITLE_FILL,
-    )
-
-    right_edge = OUTPUT_WIDTH - HEADER_RIGHT
-    description_y = HEADER_TOP
-
-    for line in DESCRIPTION_LINES:
-        bbox = draw.textbbox(
-            (0, 0),
-            line,
-            font=description_font,
-        )
-
-        line_width = bbox[2] - bbox[0]
-        line_height = bbox[3] - bbox[1]
-
-        draw.text(
-            (
-                right_edge - line_width,
-                description_y - bbox[1],
-            ),
-            line,
-            font=description_font,
-            fill=DESCRIPTION_FILL,
-        )
-
-        description_y += line_height + 3
-
-
 def render_frame(
     index: int,
     timestamp: dt.datetime,
@@ -883,7 +775,6 @@ def render_frame(
         ),
     )
 
-    render_header_overlay(canvas)
 
     output_path = (
         FRAME_DIRECTORY
