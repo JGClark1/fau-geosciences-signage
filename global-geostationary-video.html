@@ -237,6 +237,9 @@
     const RIGHT_PANEL_X = 962;
 
     const FOOTER_HEIGHT = 10.75;
+    const FOOTER_FONT_SIZE = 9.75;
+    const FOOTER_HORIZONTAL_PADDING = 8;
+
     const LOGO_SIZE = 94;
     const LOGO_LEFT_OFFSET = 8;
 
@@ -281,20 +284,53 @@
       const panelHeight =
         PANEL_SIZE * scale;
 
+      const footerHeight =
+        FOOTER_HEIGHT * scale;
+
+      const footerFontSize =
+        FOOTER_FONT_SIZE * scale;
+
+      const footerPadding =
+        FOOTER_HORIZONTAL_PADDING * scale;
+
       footer.style.left =
         `${panelLeft}px`;
 
       footer.style.top =
-        `${panelTop + panelHeight - FOOTER_HEIGHT}px`;
+        `${panelTop + panelHeight - footerHeight}px`;
 
       footer.style.width =
         `${panelWidth}px`;
 
+      footer.style.height =
+        `${footerHeight}px`;
+
+      footer.style.fontSize =
+        `${footerFontSize}px`;
+
+      footer.style.lineHeight =
+        `${footerHeight}px`;
+
+      footer.style.padding =
+        `0 ${footerPadding}px`;
+
+      const logoSize =
+        LOGO_SIZE * scale;
+
+      const logoLeftOffset =
+        LOGO_LEFT_OFFSET * scale;
+
+      logo.style.width =
+        `${logoSize}px`;
+
+      logo.style.height =
+        `${logoSize}px`;
+
       logo.style.left =
-        `${panelLeft + LOGO_LEFT_OFFSET}px`;
+        `${panelLeft + logoLeftOffset}px`;
 
       logo.style.top =
-        `${panelTop + panelHeight - LOGO_SIZE}px`;
+        `${panelTop + panelHeight - logoSize}px`;
     }
 
     function formatTimestamp(iso) {
