@@ -38,13 +38,13 @@
     }
 
     /*
-      Corner copy is confined to the black negative space and
-      shaped to echo the curvature of the two globes.
+      Corner copy remains entirely in the black negative space.
+      The globe arcs themselves provide the taper.
     */
     .header-left,
     .header-right {
       position: absolute;
-      top: 20px;
+      top: 18px;
       z-index: 20;
       color: #fff;
       pointer-events: none;
@@ -60,9 +60,9 @@
       content: "";
       position: absolute;
       left: 0;
-      top: 0;
+      top: 1px;
       width: 4px;
-      height: 68px;
+      height: 54px;
       background: #4db3ff;
     }
 
@@ -117,9 +117,10 @@
     }
 
     /*
-      Globe size and spacing remain unchanged. The pair is
-      shifted downward only enough to create the corner text
-      space while retaining the lower portions of the imagery.
+      Keep the approved globe size and spacing, but do NOT
+      translate the pair downward. The previous 40 px shift
+      pushed the NOAA/EUMETSAT logos and attribution strips
+      below the viewport.
     */
     .hemisphere {
       position: relative;
@@ -128,8 +129,6 @@
       flex: 0 0 auto;
       overflow: hidden;
       background: #000;
-
-      transform: translateY(40px);
     }
 
     .image-wrap {
@@ -157,9 +156,6 @@
       transform-origin: center center;
     }
 
-    /*
-      Meteosat levels are retained from the approved test.
-    */
     #meteosat-image {
       transform: scale(1.20);
       transform-origin: center center;
@@ -171,8 +167,8 @@
     }
 
     /*
-      Increase Meteosat attribution to visually match the
-      baked-in GOES attribution.
+      Meteosat attribution is intentionally given equal visual
+      weight to the baked-in GOES attribution.
     */
     .meteosat-footer {
       position: absolute;
@@ -213,10 +209,6 @@
       transform: translateY(0.5px);
     }
 
-    /*
-      Larger EUMETSAT mark, positioned close to the footer.
-      The final rendered video can nudge this further if needed.
-    */
     #eumetsat-logo {
       position: absolute;
       left: 8px;
@@ -255,15 +247,15 @@
     aria-label="Display description"
   >
     <span class="description-line description-line-1">
-      Watch weather patterns evolve across Earth
+      Watch weather patterns evolve across
     </span>
 
     <span class="description-line description-line-2">
-      through the changing cycle of
+      Earth through the changing cycle
     </span>
 
     <span class="description-line description-line-3">
-      day and night
+      of day and night
     </span>
   </div>
 
