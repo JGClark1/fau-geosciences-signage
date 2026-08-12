@@ -1,9 +1,30 @@
 {
-  "generated_at": "2026-08-11T12:32:02+00:00",
+  "generated_at": "2026-08-12T14:34:12+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Stops Along the Path of Totality",
+      "publication_date": "2026-08-12",
+      "display_date": "August 12, 2026",
+      "short_description": "Western Iceland and northern Spain are among the few Northern Hemisphere locations experiencing a total solar eclipse on August 12, 2026.",
+      "abstract": "Western Iceland and northern Spain are among the few Northern Hemisphere locations experiencing a total solar eclipse on August 12, 2026. The Sun, Moon, and Earth align on August 12, 2026, to produce a total solar eclipse. In 2026, the viewing locales are more limited; only a handful of land areas in the Northern Hemisphere, including parts of Iceland and Spain, fall within the path of totality. And despite limited viewing opportunities in the path of totality, the rest of Europe, parts of Africa, Canada, and the northern and northeastern U.S. will experience a partial eclipse. NASA Earth Observatory images and map by Michala Garrison, using Landsat data from the U.S. Geological Survey, base imagery from Blue Marble: Next Generation and Black Marble, and eclipse path data from Xavier Jubier.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/stops-along-the-path-of-totality/eclipsepath_modis_20260812_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/stops-along-the-path-of-totality/eclipsepath_modis_20260812_th.jpg",
+      "image_alt": "path of totality",
+      "instruments": [
+        "Landsat 8 — OLI",
+        "Landsat 9 — OLI"
+      ],
+      "image_source": "Landsat 8 • OLI · Landsat 9 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/stops-along-the-path-of-totality/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/stops-along-the-path-of-totality/eclipsepath_modis_20260812_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "Bountiful Roebuck Bay",
       "publication_date": "2026-08-11",
@@ -121,26 +142,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/smoke-streams-across-eastern-washington/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/smoke-streams-across-eastern-washington/washingtonfires_tmo_20260802_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "A Bare Summer for Barnes Ice Cap",
-      "publication_date": "2026-08-03",
-      "display_date": "August 3, 2026",
-      "short_description": "The expanse of glacial ice on Canada’s Baffin Island lost its snow cover quickly and early in summer 2026, revealing a network of melt features.",
-      "abstract": "The expanse of glacial ice on Canada’s Baffin Island lost its snow cover quickly and early in summer 2026, revealing a network of melt features. By summer, that snow melts back, and the ice cap transforms in texture, its bare ice dotted with turquoise ponds and its surface threaded with meltwater channels. By mid-July, its snow cover was effectively gone—“the earliest it has been this bare,” said glaciologist Mauri Pelto of Nichols College, who has monitored the ice cap using images from Landsat satellites and, when possible, field observations. Once snow cover melts away and bare ice is exposed, melting speeds up in the Arctic summer sunshine. The early snow loss and return of meltwater channels in 2026 means that meltwater runoff is starting earlier too, with implications for the ice cap's mass balance.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-bare-summer-for-barnes-ice-cap/barnesicecapwide_oli2_20260712_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-bare-summer-for-barnes-ice-cap/barnesicecapwide_oli2_20260712_th.jpg",
-      "image_alt": "A Bare Summer for Barnes Ice Cap",
-      "instruments": [
-        "Landsat 9 — OLI"
-      ],
-      "image_source": "Landsat 9 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/a-bare-summer-for-barnes-ice-cap/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-bare-summer-for-barnes-ice-cap/barnesicecapwide_oli2_20260712_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
