@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-08-12T14:34:12+00:00",
+  "generated_at": "2026-08-13T14:35:14+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Cascade Volcanoes Shrouded in Smoke",
+      "publication_date": "2026-08-13",
+      "display_date": "August 13, 2026",
+      "short_description": "From the International Space Station, astronauts photographed Mount Hood and Mount Rainier as wildfire smoke spread across the Pacific Northwest in summer 2026.",
+      "abstract": "From the International Space Station, astronauts photographed Mount Hood and Mount Rainier as wildfire smoke spread across the Pacific Northwest in summer 2026. In a contrast of fire and ice, smoke from wildland fires mingled with several of the Cascade Range’s prominent, glaciated volcanoes in summer 2026. Astronauts on the International Space Station photographed the scene while orbiting over the U.S. West in late July and early August. Mount Hood, Oregon’s tallest peak at 11,249 feet (3,429 meters), is pictured above, near a thick plume of smoke pouring from the Grasshopper fire. The fire, burning east of the mountain, spread quickly north and east across Mount Hood National Forest amid hot, dry conditions, according to InciWeb. Roughly 100 miles to the north in Washington, Mount Rainier—the state’s tallest peak at 14,411 feet (4,392 meters)—was wreathed in smoke.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/cascade-volcanoes-shrouded-in-smoke/ISS075-E-2221_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/cascade-volcanoes-shrouded-in-smoke/ISS075-E-2221_th.jpg",
+      "image_alt": "Cascade Volcanoes Shrouded in Smoke",
+      "instruments": [
+        "Photograph"
+      ],
+      "image_source": "Photography",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/cascade-volcanoes-shrouded-in-smoke/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/cascade-volcanoes-shrouded-in-smoke/ISS075-E-2221_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "Stops Along the Path of Totality",
       "publication_date": "2026-08-12",
@@ -122,26 +142,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/the-paradox-of-lencois-maranhenses-national-park/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-paradox-of-lençóis-maranhenses-national-park/brazillencois_oli_20260608_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "Smoke Streams Across Eastern Washington",
-      "publication_date": "2026-08-04",
-      "display_date": "August 4, 2026",
-      "short_description": "Wildland fires in early August 2026 pushed air quality to unhealthy levels, destroyed hundreds of structures, and triggered mandatory evacuations in Spokane.",
-      "abstract": "Wildland fires in early August 2026 pushed air quality to unhealthy levels, destroyed hundreds of structures, and triggered mandatory evacuations in Spokane. The start of August 2026 saw ongoing and new wildland fires burning in eastern Washington. The smoke from these and other fires poured east-northeast across the state and into Idaho, Montana, and several Canadian provinces on the morning of August 2, 2026, when NASA’s Terra satellite captured this image. Smoke from the fire was expected to cause unhealthy to very unhealthy air quality in Chelan to the east and unhealthy conditions in Leavenworth and Wenatchee to the south, according to a smoke outlook issued by the U.S. Interagency Wildland Fire Air Quality Response Program. Widespread smoke from these and the other fires in the state combined to produce very unhealthy air quality in parts of the two counties.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/smoke-streams-across-eastern-washington/washingtonfires_tmo_20260802_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/smoke-streams-across-eastern-washington/washingtonfires_tmo_20260802_th.jpg",
-      "image_alt": "Smoke Streams Across Eastern Washington",
-      "instruments": [
-        "Terra — MODIS"
-      ],
-      "image_source": "Terra • MODIS",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/smoke-streams-across-eastern-washington/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/smoke-streams-across-eastern-washington/washingtonfires_tmo_20260802_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
