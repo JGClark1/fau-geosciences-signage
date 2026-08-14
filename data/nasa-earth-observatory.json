@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-08-13T14:35:14+00:00",
+  "generated_at": "2026-08-14T12:31:17+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "A Sunflower’s View of Totality",
+      "publication_date": "2026-08-14",
+      "display_date": "August 14, 2026",
+      "short_description": "The Moon slid between the Sun and Earth to produce a stunning celestial show visible from Spain in August 2026.",
+      "abstract": "The Moon slid between the Sun and Earth to produce a stunning celestial show visible from Spain in August 2026. Skywatchers across a swath of northern Spain witnessed a total solar eclipse when the Moon lined up directly between the Sun and Earth on August 12, 2026. Those within the path of totality had the rare chance to glimpse the Sun’s active outer atmosphere, or corona, during the short time the Moon blocked the Sun. On August 12, science teams staged in Iceland to chase the Moon’s shadow in one of NASA’s WB-57 high-altitude jets and image the corona in visible and infrared light. The next total solar eclipse will occur on August 2, 2027, with the path of totality crossing southern Spain, North Africa, Saudi Arabia, and Yemen.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-sunflower's-view-of-totality/55460226954_564d105934_th.jpg?w=1024",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-sunflower's-view-of-totality/55460226954_564d105934_th.jpg?w=1024",
+      "image_alt": "view of totality",
+      "instruments": [
+        "Photograph"
+      ],
+      "image_source": "Photography",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/a-sunflowers-view-of-totality/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-sunflower's-view-of-totality/55460226954_564d105934_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "Cascade Volcanoes Shrouded in Smoke",
       "publication_date": "2026-08-13",
@@ -122,26 +142,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/how-the-tide-turns-at-the-mouth-of-the-elbe/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/how-the-tide-turns-at-the-mouth-of-the-elbe/germanytide_oli2_20250815_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "The Paradox of Lençóis Maranhenses National Park",
-      "publication_date": "2026-08-05",
-      "display_date": "August 5, 2026",
-      "short_description": "The coastal dune field in Brazil looks like a desert but fills with freshwater lagoons every year.",
-      "abstract": "The coastal dune field in Brazil looks like a desert but fills with freshwater lagoons every year. The coastal dune system in Lençóis Maranhenses National Park in northeastern Brazil is among the most surreal landscapes on Earth. At first glance, the park looks like a desert, but it is far from it. From that perspective, the sweeping curves of the largest coastal dune field in South America resemble a rumpled, white bedsheet. The dune field exists because of the rare convergence of geologic and climatic conditions. Landsat images, meanwhile, show the dune field at Lençóis Maranhenses has extended westward by about 0.5 kilometers between 1986 and 2026 in some areas due to the conveyor belt of dunes running inland from the coastline.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-paradox-of-lençóis-maranhenses-national-park/brazillencois_oli_20260608_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-paradox-of-lençóis-maranhenses-national-park/brazillencois_oli_20260608_th.jpg",
-      "image_alt": "The Paradox of Lençóis Maranhenses National Park",
-      "instruments": [
-        "Landsat 9"
-      ],
-      "image_source": "Landsat 9",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/the-paradox-of-lencois-maranhenses-national-park/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-paradox-of-lençóis-maranhenses-national-park/brazillencois_oli_20260608_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
