@@ -1,9 +1,30 @@
 {
-  "generated_at": "2026-08-16T10:58:52+00:00",
+  "generated_at": "2026-08-17T11:12:34+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Chasing Fire Clouds in Utah",
+      "publication_date": "2026-08-17",
+      "display_date": "August 17, 2026",
+      "short_description": "NASA aircraft are sampling smoke lofted high into the atmosphere by one of the most formidable cloud types in the sky—towering, smoke-infused pyrocumulonimbus.",
+      "abstract": "NASA aircraft are sampling smoke lofted high into the atmosphere by one of the most formidable cloud types in the sky—towering, smoke-infused pyrocumulonimbus. Understanding these enigmatic and dangerous clouds is why a team of atmospheric scientists—part of a NASA mission called INSPYRE (INjected Smoke and PYRocumulonimbus Experiment)—is spending the summer chasing them with NASA's ER-2 aircraft, NSF/NCAR's GV, and a suite of truck-based sensors. The instruments on the plane sampled smoke at roughly 12 kilometers (8 miles) above the surface, collecting data at a height that isn't typically incorporated into forecast models. Here, heat from the fire is fueling strong convective updrafts, forming a towering cloud with puffy overshooting tops that poke into the upper troposphere as lower-altitude smoke drifts below.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/chasing-fire-clouds-in-utah/utahfire_pyrocb_20260803_pho_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/chasing-fire-clouds-in-utah/utahfire_pyrocb_20260803_pho_th.jpg",
+      "image_alt": "Chasing Fire Clouds in Utah",
+      "instruments": [
+        "Aqua — MODIS",
+        "Photograph"
+      ],
+      "image_source": "Aqua • MODIS · Photography",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/chasing-fire-clouds-in-utah/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/chasing-fire-clouds-in-utah/utahfire_pyrocb_20260803_pho_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "A Sunflower’s View of Totality",
       "publication_date": "2026-08-14",
@@ -122,26 +143,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/sensing-the-poles-hidden-heat/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/sensing-the-poles’-hidden-heat/seasonaltempbal_prefire_2026_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "How the Tide Turns at the Mouth of the Elbe",
-      "publication_date": "2026-08-06",
-      "display_date": "August 6, 2026",
-      "short_description": "The ocean’s ebbs and flows reveal dynamic tidal flats and a well-traveled shipping route along the coast of Germany.",
-      "abstract": "The ocean’s ebbs and flows reveal dynamic tidal flats and a well-traveled shipping route along the coast of Germany. One of the major rivers of Europe, the Elbe flows more than 1,000 kilometers (600 miles) across the continent before reaching the North Sea. These dynamic tidal flats are a boon to biodiversity while sometimes posing challenges for those navigating its waters and for communities living along its shores. The Elbe’s mouth also provides access to the Kiel Canal, which connects the North Sea and Baltic Sea and is the world’s busiest human-made waterway navigable by seagoing ships. In addition, early data from NASA’s SWOT (Surface Water and Ocean Topography) satellite has demonstrated the potential to accurately measure water levels around complex coastlines and to improve tidal models.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/how-the-tide-turns-at-the-mouth-of-the-elbe/germanytide_oli2_20250815_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/how-the-tide-turns-at-the-mouth-of-the-elbe/germanytide_oli2_20250815_th.jpg",
-      "image_alt": "Mouth of the Elbe",
-      "instruments": [
-        "Landsat 9 — OLI"
-      ],
-      "image_source": "Landsat 9 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/how-the-tide-turns-at-the-mouth-of-the-elbe/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/how-the-tide-turns-at-the-mouth-of-the-elbe/germanytide_oli2_20250815_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
