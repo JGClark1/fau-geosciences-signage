@@ -1,9 +1,53 @@
 {
-  "generated_at": "2026-08-17T11:12:34+00:00",
+  "generated_at": "2026-08-19T11:04:08+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Elephant Butte Reservoir Runs Low",
+      "publication_date": "2026-08-19",
+      "display_date": "August 19, 2026",
+      "short_description": "Drought in the Rio Grande basin contributed to New Mexico’s largest reservoir dwindling to its lowest level in decades.",
+      "abstract": "Drought in the Rio Grande basin contributed to New Mexico’s largest reservoir dwindling to its lowest level in decades. These factors have contributed to driving Elephant Butte Reservoir, the largest reservoir in New Mexico, to its lowest level since 1971. The long-term drought situation has brought the Rio Grande’s water woes and their wider implications into sharp focus. For instance, researchers developed a model that incorporates NASA satellite data for variables such as soil moisture and evapotranspiration, resulting in a near-real-time tool that complements the Elephant Butte Irrigation District’s existing water allocation operations. NASA scientists are also contributing to a federal study of the Upper Rio Grande that aims to understand water needs, project future water availability, and develop data-driven tools to address these needs.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/elephant-butte-reservoir-runs-low/elephantbutte_oli2_20260727_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/elephant-butte-reservoir-runs-low/elephantbutte_oli2_20260727_th.jpg",
+      "image_alt": "Elephant Butte Reservoir",
+      "instruments": [
+        "In situ Measurement",
+        "Landsat 5",
+        "Landsat 8",
+        "Landsat 9"
+      ],
+      "image_source": "In situ Measurement · Landsat 5 · Landsat 8 · Landsat 9",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/elephant-butte-reservoir-runs-low/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/elephant-butte-reservoir-runs-low/elephantbutte_oli2_20260727_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
+    {
+      "title": "Lala Batters Hawaii",
+      "publication_date": "2026-08-18",
+      "display_date": "August 18, 2026",
+      "short_description": "The powerful storm delivered extreme rainfall and damaging winds to the state, passing the Island of Hawaiʻi as a category 1 hurricane.",
+      "abstract": "The powerful storm delivered extreme rainfall and damaging winds to the state, passing the Island of Hawaiʻi as a category 1 hurricane. The Island of Hawaiʻi narrowly avoided a direct landfall by Hurricane Lala in mid-August 2026. The storm nonetheless delivered serious damage as it passed just south of the island on August 15 (above, right) as a category 1 storm on the Saffir-Simpson wind scale. Lala brought rainfall totals exceeding 20 inches (50 centimeters) to parts of the island, causing flash flooding and ongoing mudflow risks. Lala had decreased in intensity to a tropical storm, with sustained winds of 65 miles (105 kilometers) per hour, according to the National Hurricane Center. Strong winds caused widespread power outages, with more than 220,000 customers statewide without power as of the afternoon of August 16, according to news reports.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/lala-batters-hawaii/hurricanelala_virs2_20260816_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/lala-batters-hawaii/hurricanelala_virs2_20260816_th.jpg",
+      "image_alt": "Lala Batters Hawaii",
+      "instruments": [
+        "NOAA — 20 — VIIRS",
+        "Suomi NPP — VIIRS"
+      ],
+      "image_source": "NOAA • 20 • VIIRS · Suomi NPP • VIIRS",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/lala-batters-hawaii/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/lala-batters-hawaii/hurricanelala_virs2_20260816_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "Chasing Fire Clouds in Utah",
       "publication_date": "2026-08-17",
@@ -32,9 +76,9 @@
       "short_description": "The Moon slid between the Sun and Earth to produce a stunning celestial show visible from Spain in August 2026.",
       "abstract": "The Moon slid between the Sun and Earth to produce a stunning celestial show visible from Spain in August 2026. Skywatchers across a swath of northern Spain witnessed a total solar eclipse when the Moon lined up directly between the Sun and Earth on August 12, 2026. Those within the path of totality had the rare chance to glimpse the Sun’s active outer atmosphere, or corona, during the short time the Moon blocked the Sun. On August 12, science teams staged in Iceland to chase the Moon’s shadow in one of NASA’s WB-57 high-altitude jets and image the corona in visible and infrared light. The next total solar eclipse will occur on August 2, 2027, with the path of totality crossing southern Spain, North Africa, Saudi Arabia, and Yemen.",
       "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-sunflower's-view-of-totality/55460226954_564d105934_th.jpg?w=1024",
+      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-sunflower's-view-of-totality/55460226954_564d105934_o.jpg?w=4663&h=5277&fit=crop&crop=faces%2Cfocalpoint",
       "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-sunflower's-view-of-totality/55460226954_564d105934_th.jpg?w=1024",
+      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-sunflower's-view-of-totality/55460226954_564d105934_o.jpg?w=4663&h=5277&fit=crop&crop=faces%2Cfocalpoint",
       "image_alt": "view of totality",
       "instruments": [
         "Photograph"
@@ -105,44 +149,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/bountiful-roebuck-bay/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/bountiful-roebuck-bay/broomewater_oli_20260318_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "El Niño Alters Marine Life in the Pacific",
-      "publication_date": "2026-08-10",
-      "display_date": "August 10, 2026",
-      "short_description": "Satellite measurements of chlorophyll at the sea surface signal shifts in the ocean’s nutrient supplies in mid-2026.",
-      "abstract": "Satellite measurements of chlorophyll at the sea surface signal shifts in the ocean’s nutrient supplies in mid-2026. The maps above show chlorophyll-a concentrations—the pigment present in most phytoplankton —as observed by the OCI (Ocean Color Instrument) on NASA’s PACE (Plankton, Aerosol, Cloud, ocean Ecosystem) satellite. That’s because during an El Niño, easterly equatorial trade winds weaken, the warm surface layer of the ocean extends deeper, and the upwelling of cool, nutrient-rich water that typically fuels phytoplankton growth is suppressed. Although the disruptions to marine life can be severe, a post-El Niño “chlorophyll rebound,” with higher-than-normal concentrations in the equatorial Pacific, can occur. To better understand effects on life in the ocean, researchers hope to use PACE data to gauge the responses of specific phytoplankton communities to El Niño. And the possibilities extend beyond the marine realm, the scientists note.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/el-niño alters-marine-life-in-the-pacific/chlorophyll_pace_globes_lrg.jpg?w=3080&h=1925&fit=clip&crop=faces%2Cfocalpoint",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/el-niño alters-marine-life-in-the-pacific/chlorophyll_pace_globes_lrg.jpg?w=3080&h=1925&fit=clip&crop=faces%2Cfocalpoint",
-      "image_alt": "el nino",
-      "instruments": [
-        "PACE"
-      ],
-      "image_source": "PACE",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/el-nino-alters-marine-life-in-the-pacific/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/el-niño",
-      "media_items": []
-    },
-    {
-      "title": "Sensing the Poles’ Hidden Heat",
-      "publication_date": "2026-08-07",
-      "display_date": "August 7, 2026",
-      "short_description": "New animations from NASA's PREFIRE mission reveal two years of seasonal temperature swings at the Arctic and Antarctic.",
-      "abstract": "New animations from NASA's PREFIRE mission reveal two years of seasonal temperature swings at the Arctic and Antarctic. Satellite data from a mission measuring infrared energy reveal just how differently—and how dramatically—surface temperatures swing across two full years at the poles. Atmospheric and ocean circulation carries excess heat absorbed in the tropics toward the poles, where it radiates away to space, helping regulate the planet’s temperature. “By measuring invisible heat radiating from Earth's coldest places, PREFIRE is helping scientists understand why the poles are changing so rapidly, and what those changes might mean for the rest of the planet,” said Chad Greene, a glaciologist at NASA’s Jet Propulsion Laboratory. Maps courtesy of Chad Greene, NASA/JPL, using data from NASA’s PREFIRE mission.",
-      "media_type": "video",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/sensing-the-poles’-hidden-heat/seasonaltempbal_prefire_2026_loop.mp4",
-      "video_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/sensing-the-poles’-hidden-heat/seasonaltempbal_prefire_2026_loop.mp4",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/sensing-the-poles’-hidden-heat/seasonaltempbal_prefire_2026_th.jpg",
-      "image_alt": "Sensing the Poles’ Hidden Heat",
-      "instruments": [],
-      "image_source": "NASA Earth observation",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/sensing-the-poles-hidden-heat/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/sensing-the-poles’-hidden-heat/seasonaltempbal_prefire_2026_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
