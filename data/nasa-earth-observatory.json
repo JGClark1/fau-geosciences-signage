@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-08-19T11:04:08+00:00",
+  "generated_at": "2026-08-20T11:46:43+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "An Uncommon Drifter in the Denmark Strait",
+      "publication_date": "2026-08-20",
+      "display_date": "August 20, 2026",
+      "short_description": "In summer 2026, a large iceberg drifted more than 1,000 kilometers south from the northeastern Greenland bay where it likely originated.",
+      "abstract": "In summer 2026, a large iceberg drifted more than 1,000 kilometers south from the northeastern Greenland bay where it likely originated. In summer 2026, one exceptionally large berg turned up in the Denmark Strait—more than a thousand kilometers south of where it apparently originated. These images, captured by the OLI (Operational Land Imager) on Landsat 9, show the iceberg on June 12 as it drifted in the strait between Greenland and Iceland. As of mid-August, the berg was about 1,500 kilometers (900 miles) from the bay, drifting south on the Greenland Coastal Current into the North Atlantic. Breaking up in the Denmark Strait means that remnants of the berg are unlikely to drift into busier shipping lanes that go past the southern tip of Greenland.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/an-uncommon-drifter-in-the-denmark-strait/greenlandbergzm_oli2_20260612_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/an-uncommon-drifter-in-the-denmark-strait/greenlandbergzm_oli2_20260612_th.jpg",
+      "image_alt": "An Uncommon Drifter in the Denmark Strait",
+      "instruments": [
+        "Landsat 9 — OLI"
+      ],
+      "image_source": "Landsat 9 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/an-uncommon-drifter-in-the-denmark-strait/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-uncommon-drifter-in-the-denmark-strait/greenlandbergzm_oli2_20260612_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "Elephant Butte Reservoir Runs Low",
       "publication_date": "2026-08-19",
@@ -128,27 +148,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/stops-along-the-path-of-totality/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/stops-along-the-path-of-totality/eclipsepath_modis_20260812_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "Bountiful Roebuck Bay",
-      "publication_date": "2026-08-11",
-      "display_date": "August 11, 2026",
-      "short_description": "Tidal and seasonal shifts leave their mark on this crescent-shaped, productive bay in Western Australia's Kimberley region.",
-      "abstract": "Tidal and seasonal shifts leave their mark on this crescent-shaped, productive bay in Western Australia's Kimberley region. Among those places is Roebuck Bay, a crescent-shaped feature in the Kimberley region of Western Australia. But the large range at Roebuck Bay is mostly a consequence of northwestern Australia's unusually wide, shallow continental shelf, which helps amplify tides as they approach the coast. The consistent spacing of the tidal creeks is likely not a tidal effect; it appears to be influenced by the regular spacing of linear dunes in the broader region, as seen in the plains to the east. The bay's dramatic tidal and seasonal changes are striking from above, and they also support a bounty of life on the ground.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/bountiful-roebuck-bay/broomewater_oli_20260318_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/bountiful-roebuck-bay/broomewater_oli_20260318_th.jpg",
-      "image_alt": "Bountiful Roebuck Bay",
-      "instruments": [
-        "Landsat 8 — OLI",
-        "Landsat 9 — OLI"
-      ],
-      "image_source": "Landsat 8 • OLI · Landsat 9 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/bountiful-roebuck-bay/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/bountiful-roebuck-bay/broomewater_oli_20260318_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
