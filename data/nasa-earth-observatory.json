@@ -1,15 +1,36 @@
 {
-  "generated_at": "2026-08-20T11:46:43+00:00",
+  "generated_at": "2026-08-21T11:13:52+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
     {
+      "title": "Europe's Scorching Summer",
+      "publication_date": "2026-08-21",
+      "display_date": "August 21, 2026",
+      "short_description": "A series of heat waves in 2026 is breaking records and taking a toll in Europe.",
+      "abstract": "A series of heat waves in 2026 is breaking records and taking a toll in Europe. Hubble Solves Merger Mystery From Milky Way’s Early Years NASA Announces MAX POWER: America’s Newest Aerospace Expo, Airshow What’s Up: August 2026 Skywatching Tips from NASA NASA’s LRO Images Falcon 9 Crater on Moon, Learns New Details Human-Related Microbes May Survive Moon’s South Pole, NASA Finds NASA Will Attempt to Observe Rocket Part’s Lunar Impact NASA Telescopes Create Colorful ‘Craft’ From Nearby Nebula Lion Nebula Roars to Life With NASA’s Webb NASA Selects University Teams to Help Advance Aviation Research NASA Student Aviation Challenge Focuses on Nation’s Infrastructure NASA Glenn’s Legacy Forged Through Decades of Flight Research NASA Data Helps Commercial Space Plan Living Off Our Moon Launch Into a New School Year With NASA",
+      "media_type": "video",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/europe's-scorching-summer/europeheatwaves_gmao_20260819.mp4",
+      "video_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/europe's-scorching-summer/europeheatwaves_gmao_20260819.mp4",
+      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/europe's-scorching-summer/europeheatwaves_gmao_20260819_th.jpg?w=1024",
+      "image_alt": "Europe's Scorching Summer",
+      "instruments": [
+        "ISS",
+        "Model"
+      ],
+      "image_source": "ISS • Model",
+      "article_url": "https://science.nasa.gov/earth/europes-scorching-summer/",
+      "source": "NASA Earth Observatory",
+      "media_items": [],
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/europe's-scorching-summer/europeheatwaves_gmao_20260819_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300"
+    },
+    {
       "title": "An Uncommon Drifter in the Denmark Strait",
       "publication_date": "2026-08-20",
       "display_date": "August 20, 2026",
-      "short_description": "In summer 2026, a large iceberg drifted more than 1,000 kilometers south from the northeastern Greenland bay where it likely originated.",
-      "abstract": "In summer 2026, a large iceberg drifted more than 1,000 kilometers south from the northeastern Greenland bay where it likely originated. In summer 2026, one exceptionally large berg turned up in the Denmark Strait—more than a thousand kilometers south of where it apparently originated. These images, captured by the OLI (Operational Land Imager) on Landsat 9, show the iceberg on June 12 as it drifted in the strait between Greenland and Iceland. As of mid-August, the berg was about 1,500 kilometers (900 miles) from the bay, drifting south on the Greenland Coastal Current into the North Atlantic. Breaking up in the Denmark Strait means that remnants of the berg are unlikely to drift into busier shipping lanes that go past the southern tip of Greenland.",
+      "short_description": "A large iceberg, observed in summer 2026, had drifted more than 1,000 kilometers south from the northeastern Greenland bay where it likely originated.",
+      "abstract": "A large iceberg, observed in summer 2026, had drifted more than 1,000 kilometers south from the northeastern Greenland bay where it likely originated. In summer 2026, one exceptionally large berg turned up in the Denmark Strait—more than a thousand kilometers south of where it apparently originated. These images, captured by the OLI (Operational Land Imager) on Landsat 9, show the iceberg on June 12 as it drifted in the strait between Greenland and Iceland. As of mid-August, the berg was about 1,500 kilometers (900 miles) from the bay, drifting south on the Greenland Coastal Current into the North Atlantic. Breaking up in the Denmark Strait means that remnants of the berg are unlikely to drift into busier shipping lanes that go past the southern tip of Greenland.",
       "media_type": "image",
       "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/an-uncommon-drifter-in-the-denmark-strait/greenlandbergzm_oli2_20260612_th.jpg",
       "video_url": "",
@@ -127,27 +148,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/cascade-volcanoes-shrouded-in-smoke/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/cascade-volcanoes-shrouded-in-smoke/ISS075-E-2221_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "Stops Along the Path of Totality",
-      "publication_date": "2026-08-12",
-      "display_date": "August 12, 2026",
-      "short_description": "Western Iceland and northern Spain are among the few Northern Hemisphere locations experiencing a total solar eclipse on August 12, 2026.",
-      "abstract": "Western Iceland and northern Spain are among the few Northern Hemisphere locations experiencing a total solar eclipse on August 12, 2026. The Sun, Moon, and Earth align on August 12, 2026, to produce a total solar eclipse. In 2026, the viewing locales are more limited; only a handful of land areas in the Northern Hemisphere, including parts of Iceland and Spain, fall within the path of totality. And despite limited viewing opportunities in the path of totality, the rest of Europe, parts of Africa, Canada, and the northern and northeastern U.S. will experience a partial eclipse. NASA Earth Observatory images and map by Michala Garrison, using Landsat data from the U.S. Geological Survey, base imagery from Blue Marble: Next Generation and Black Marble, and eclipse path data from Xavier Jubier.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/stops-along-the-path-of-totality/eclipsepath_modis_20260812_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/stops-along-the-path-of-totality/eclipsepath_modis_20260812_th.jpg",
-      "image_alt": "path of totality",
-      "instruments": [
-        "Landsat 8 — OLI",
-        "Landsat 9 — OLI"
-      ],
-      "image_source": "Landsat 8 • OLI · Landsat 9 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/stops-along-the-path-of-totality/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/stops-along-the-path-of-totality/eclipsepath_modis_20260812_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
