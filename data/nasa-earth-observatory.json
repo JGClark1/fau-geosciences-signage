@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-08-23T10:59:22+00:00",
+  "generated_at": "2026-08-24T10:54:55+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "What Lake Bonneville Left Behind",
+      "publication_date": "2026-08-24",
+      "display_date": "August 24, 2026",
+      "short_description": "The drying of the massive lake exposed playas that became the setting for feats of engineering and technological ingenuity, as well as epic tales of exploration and desperation.",
+      "abstract": "The drying of the massive lake exposed playas that became the setting for feats of engineering and technological ingenuity, as well as epic tales of exploration and desperation. Lake Bonneville began forming about 55,000 years ago during a cool, wet period, when volcanic eruptions in what's now southeastern Idaho diverted the Bear River, causing water to gather in Gem Valley and other basins to the south. Lake Bonneville may be gone, but its imprint on the region's landscape remains—even in satellite imagery. Other epic adventures have played out on and around Lake Bonneville's playas, as well. In 1960, Mickey Thompson became the first American to break the 400-miles-per-hour (640 kilometers-per-hour) barrier, hitting 406.60 miles per hour (654.36 kilometers per hour) in a streamlined race car on the Bonneville Salt Flats.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/what-lake-bonneville-left-behind/craterisland_oli_20260604_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/what-lake-bonneville-left-behind/craterisland_oli_20260604_th.jpg",
+      "image_alt": "What Lake Bonneville Left Behind",
+      "instruments": [
+        "Landsat 8 — OLI"
+      ],
+      "image_source": "Landsat 8 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/what-lake-bonneville-left-behind/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/what-lake-bonneville-left-behind/craterisland_oli_20260604_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "Europe's Scorching Summer",
       "publication_date": "2026-08-21",
@@ -128,26 +148,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/a-sunflowers-view-of-totality/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-sunflower's-view-of-totality/55460226954_564d105934_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "Cascade Volcanoes Shrouded in Smoke",
-      "publication_date": "2026-08-13",
-      "display_date": "August 13, 2026",
-      "short_description": "From the International Space Station, astronauts photographed Mount Hood and Mount Rainier as wildfire smoke spread across the Pacific Northwest in summer 2026.",
-      "abstract": "From the International Space Station, astronauts photographed Mount Hood and Mount Rainier as wildfire smoke spread across the Pacific Northwest in summer 2026. In a contrast of fire and ice, smoke from wildland fires mingled with several of the Cascade Range’s prominent, glaciated volcanoes in summer 2026. Astronauts on the International Space Station photographed the scene while orbiting over the U.S. West in late July and early August. Mount Hood, Oregon’s tallest peak at 11,249 feet (3,429 meters), is pictured above, near a thick plume of smoke pouring from the Grasshopper fire. The fire, burning east of the mountain, spread quickly north and east across Mount Hood National Forest amid hot, dry conditions, according to InciWeb. Roughly 100 miles to the north in Washington, Mount Rainier—the state’s tallest peak at 14,411 feet (4,392 meters)—was wreathed in smoke.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/cascade-volcanoes-shrouded-in-smoke/ISS075-E-2221_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/cascade-volcanoes-shrouded-in-smoke/ISS075-E-2221_th.jpg",
-      "image_alt": "Cascade Volcanoes Shrouded in Smoke",
-      "instruments": [
-        "Photograph"
-      ],
-      "image_source": "Photography",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/cascade-volcanoes-shrouded-in-smoke/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/cascade-volcanoes-shrouded-in-smoke/ISS075-E-2221_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
