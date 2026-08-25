@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-08-24T10:54:55+00:00",
+  "generated_at": "2026-08-25T10:51:05+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Michigan’s Les Cheneaux Islands",
+      "publication_date": "2026-08-25",
+      "display_date": "August 25, 2026",
+      "short_description": "These glacial landforms jut into northern Lake Huron, surrounded by sheltered channels and coves frequented by fish and small watercraft.",
+      "abstract": "These glacial landforms jut into northern Lake Huron, surrounded by sheltered channels and coves frequented by fish and small watercraft. The Les Cheneaux Islands are a group of 36 islands near the shore of Michigan’s Upper Peninsula, about 20 miles (32 kilometers) northeast of the Straits of Mackinac. The islands are interspersed with sheltered waters that inspired their name; the French “Les Cheneaux” roughly translates to “ the channels.” The Les Cheneaux Islands, like many landforms in the Great Lakes region, look the way they do because glaciers of the Wisconsin Ice Age carved the landscape as they retreated around 10,000 years ago. This creates opportunities for paddling, as well as fishing in quiet alcoves for species such as smallmouth bass, northern pike, yellow perch, and lake trout.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/michigan’s-les-cheneaux-islands/cheneaux_oli2_20260723_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/michigan’s-les-cheneaux-islands/cheneaux_oli2_20260723_th.jpg",
+      "image_alt": "Michigan’s Les Cheneaux Islands",
+      "instruments": [
+        "Landsat 9 — OLI"
+      ],
+      "image_source": "Landsat 9 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/michigans-les-cheneaux-islands/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/michigan’s-les-cheneaux-islands/cheneaux_oli2_20260723_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "What Lake Bonneville Left Behind",
       "publication_date": "2026-08-24",
@@ -29,7 +49,7 @@
       "publication_date": "2026-08-21",
       "display_date": "August 21, 2026",
       "short_description": "A series of heat waves in 2026 is breaking records and taking a toll in Europe.",
-      "abstract": "A series of heat waves in 2026 is breaking records and taking a toll in Europe. NASA’s Artemis II Crew Set to Receive Congressional Space Medal of Honor NASA Shares Views of August Solar Eclipse from Ground, Air, Space What’s Up: August 2026 Skywatching Tips from NASA Teams Complete Flight Readiness Review for NASA’s Roman Telescope NASA Updates Next Steps for Commercial Swift Boost Mission Hubble Solves Merger Mystery From Milky Way’s Early Years Human-Related Microbes May Survive Moon’s South Pole, NASA Finds NASA’s LRO Images Falcon 9 Crater on Moon, Learns New Details NASA Will Attempt to Observe Rocket Part’s Lunar Impact NASA Telescopes Create Colorful ‘Craft’ From Nearby Nebula Lion Nebula Roars to Life With NASA’s Webb NASA Selects University Teams to Help Advance Aviation Research",
+      "abstract": "A series of heat waves in 2026 is breaking records and taking a toll in Europe. NASA’s Artemis II Crew Set to Receive Congressional Space Medal of Honor NASA Shares Views of August Solar Eclipse from Ground, Air, Space What’s Up: August 2026 Skywatching Tips from NASA Teams Complete Flight Readiness Review for NASA’s Roman Telescope NASA Updates Next Steps for Commercial Swift Boost Mission Hubble Solves Merger Mystery From Milky Way’s Early Years Human-Related Microbes May Survive Moon’s South Pole, NASA Finds NASA’s LRO Images Falcon 9 Crater on Moon, Learns New Details NASA Will Attempt to Observe Rocket Part’s Lunar Impact Starstruck: NASA Research Shows How Sun’s Ancient History Shaped Earth NASA Telescopes Create Colorful ‘Craft’ From Nearby Nebula Lion Nebula Roars to Life With NASA’s Webb",
       "media_type": "video",
       "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/europe's-scorching-summer/europeheatwaves_gmao_20260819.mp4",
       "video_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/europe's-scorching-summer/europeheatwaves_gmao_20260819.mp4",
@@ -128,26 +148,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/chasing-fire-clouds-in-utah/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/chasing-fire-clouds-in-utah/utahfire_pyrocb_20260803_pho_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "A Sunflower’s View of Totality",
-      "publication_date": "2026-08-14",
-      "display_date": "August 14, 2026",
-      "short_description": "The Moon slid between the Sun and Earth to produce a stunning celestial show visible from Spain in August 2026.",
-      "abstract": "The Moon slid between the Sun and Earth to produce a stunning celestial show visible from Spain in August 2026. Skywatchers across a swath of northern Spain witnessed a total solar eclipse when the Moon lined up directly between the Sun and Earth on August 12, 2026. Those within the path of totality had the rare chance to glimpse the Sun’s active outer atmosphere, or corona, during the short time the Moon blocked the Sun. On August 12, science teams staged in Iceland to chase the Moon’s shadow in one of NASA’s WB-57 high-altitude jets and image the corona in visible and infrared light. The next total solar eclipse will occur on August 2, 2027, with the path of totality crossing southern Spain, North Africa, Saudi Arabia, and Yemen.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-sunflower's-view-of-totality/55460226954_564d105934_o.jpg?w=4663&h=5277&fit=crop&crop=faces%2Cfocalpoint",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-sunflower's-view-of-totality/55460226954_564d105934_o.jpg?w=4663&h=5277&fit=crop&crop=faces%2Cfocalpoint",
-      "image_alt": "view of totality",
-      "instruments": [
-        "Photograph"
-      ],
-      "image_source": "Photography",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/a-sunflowers-view-of-totality/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-sunflower's-view-of-totality/55460226954_564d105934_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
