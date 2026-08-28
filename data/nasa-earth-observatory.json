@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-08-27T20:32:53+00:00",
+  "generated_at": "2026-08-28T21:11:24+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "The Forested Floodplains of Congaree National Park",
+      "publication_date": "2026-08-28",
+      "display_date": "August 28, 2026",
+      "short_description": "The meandering Congaree River sustains towering forest ecosystems and fashions oxbow lakes as it shifts across its floodplain.",
+      "abstract": "The meandering Congaree River sustains towering forest ecosystems and fashions oxbow lakes as it shifts across its floodplain. Among the 63 U.S. national parks, few are as defined by a single river's floodplain as Congaree National Park in South Carolina. While the features are also prominent in other parks, a full 80 percent of Congaree National Park lies within the Congaree River floodplain. On the right side of the image is Bates Old River, a roughly 4-mile-long abandoned channel of the Congaree River and one of the longest oxbow lakes in South Carolina. While loggers targeted forests along the Congaree in the 1880s, challenges such as frequent flooding, interminably muddy roads, and mosquito-plagued conditions meant that most of the floodplain forests escaped the widespread logging that transformed other parts of the Southeast.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-forested-floodplains-of-congaree-national-park/sccongareenp_oli2_20250818_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-forested-floodplains-of-congaree-national-park/sccongareenp_oli2_20250818_th.jpg",
+      "image_alt": "The Forested Floodplains of Congaree National Park",
+      "instruments": [
+        "Landsat 9 — OLI"
+      ],
+      "image_source": "Landsat 9 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/the-forested-floodplains-of-congaree-national-park/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-forested-floodplains-of-congaree-national-park/sccongareenp_oli2_20250818_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "Rare, Widespread Snow in the Atacama Desert",
       "publication_date": "2026-08-27",
@@ -93,7 +113,7 @@
       "publication_date": "2026-08-21",
       "display_date": "August 21, 2026",
       "short_description": "A series of heat waves in 2026 is breaking records and taking a toll in Europe.",
-      "abstract": "A series of heat waves in 2026 is breaking records and taking a toll in Europe. NASA’s Artemis II Crew Set to Receive Congressional Space Medal of Honor NASA Sets Coverage for Roman Space Telescope Launch from Florida What’s Up: August 2026 Skywatching Tips from NASA NASA’s Pandora Mission Begins Study of Exoplanets, Host Stars Galactic Gems Glisten in New Gallery From NASA’s Chandra Human-Related Microbes May Survive Moon’s South Pole, NASA Finds NASA’s LRO Images Falcon 9 Crater on Moon, Learns New Details NASA Will Attempt to Observe Rocket Part’s Lunar Impact Building Foresight for Earth Science, featuring Lindsey Jacobson Starstruck: NASA Research Shows How Sun’s Ancient History Shaped Earth NASA Johnson Pilots Chase Moon’s Shadow for Eclipse Science Hubble Solves Merger Mystery From Milky Way’s Early Years",
+      "abstract": "A series of heat waves in 2026 is breaking records and taking a toll in Europe. NASA’s Artemis II Crew Set to Receive Congressional Space Medal of Honor NASA Sets Coverage for Roman Space Telescope Launch from Florida What’s Up: August 2026 Skywatching Tips from NASA NASA’s Pandora Mission Begins Study of Exoplanets, Host Stars Galactic Gems Glisten in New Gallery From NASA’s Chandra Human-Related Microbes May Survive Moon’s South Pole, NASA Finds NASA’s LRO Images Falcon 9 Crater on Moon, Learns New Details NASA Will Attempt to Observe Rocket Part’s Lunar Impact Building Foresight for Earth Science, featuring Lindsey Jacobson NASA Johnson Pilots Chase Moon’s Shadow for Eclipse Science Starstruck: NASA Research Shows How Sun’s Ancient History Shaped Earth 9 Things to Know About NASA’s Nancy Grace Roman Space Telescope",
       "media_type": "video",
       "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/europe's-scorching-summer/europeheatwaves_gmao_20260819.mp4",
       "video_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/europe's-scorching-summer/europeheatwaves_gmao_20260819.mp4",
@@ -127,29 +147,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/an-uncommon-drifter-in-the-denmark-strait/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-uncommon-drifter-in-the-denmark-strait/greenlandbergzm_oli2_20260612_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "Elephant Butte Reservoir Runs Low",
-      "publication_date": "2026-08-19",
-      "display_date": "August 19, 2026",
-      "short_description": "Drought in the Rio Grande basin contributed to New Mexico’s largest reservoir dwindling to its lowest level in decades.",
-      "abstract": "Drought in the Rio Grande basin contributed to New Mexico’s largest reservoir dwindling to its lowest level in decades. These factors have contributed to driving Elephant Butte Reservoir, the largest reservoir in New Mexico, to its lowest level since 1971. The long-term drought situation has brought the Rio Grande’s water woes and their wider implications into sharp focus. For instance, researchers developed a model that incorporates NASA satellite data for variables such as soil moisture and evapotranspiration, resulting in a near-real-time tool that complements the Elephant Butte Irrigation District’s existing water allocation operations. NASA scientists are also contributing to a federal study of the Upper Rio Grande that aims to understand water needs, project future water availability, and develop data-driven tools to address these needs.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/elephant-butte-reservoir-runs-low/elephantbutte_oli2_20260727_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/elephant-butte-reservoir-runs-low/elephantbutte_oli2_20260727_th.jpg",
-      "image_alt": "Elephant Butte Reservoir",
-      "instruments": [
-        "In situ Measurement",
-        "Landsat 5",
-        "Landsat 8",
-        "Landsat 9"
-      ],
-      "image_source": "In situ Measurement · Landsat 5 · Landsat 8 · Landsat 9",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/elephant-butte-reservoir-runs-low/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/elephant-butte-reservoir-runs-low/elephantbutte_oli2_20260727_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
