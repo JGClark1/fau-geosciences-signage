@@ -1,9 +1,30 @@
 {
-  "generated_at": "2026-08-30T14:53:19+00:00",
+  "generated_at": "2026-08-31T17:38:29+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Pasterze Hangs on as Austria’s Largest Glacier",
+      "publication_date": "2026-08-31",
+      "display_date": "August 31, 2026",
+      "short_description": "One narrowing icefall remains the linchpin for the Alpine glacier—and it may not be long for this world.",
+      "abstract": "One narrowing icefall remains the linchpin for the Alpine glacier—and it may not be long for this world. The last icefall connecting the upper and lower portions of the Pasterze Glacier in the Eastern Alps appeared poised to break, which would put an end to its reign as the country’s largest. In retreat since the mid-1800s, the Pasterze has lost mass almost continuously and at increasing rates since 1980, according to scientists from the University of Graz, GeoSphere Austria, and the Austrian Alpine Club. Between 1998 and 2025, scientists from the University of Graz monitored the width of the icefall, finding a decrease from nearly 900 meters (3,000 feet) to just 120 meters (390 feet). When Pasterze’s Hufeisenbruch icefall does succumb to melting or collapse, the glacier will cede its status as Austria’s largest to Gepatschferner in the Ötztal Alps in Tyrol.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/pasterze-hangs-on-as-austria’s-largest-glacier/pasterzeglacier_oli2_20260815_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/pasterze-hangs-on-as-austria’s-largest-glacier/pasterzeglacier_oli2_20260815_th.jpg",
+      "image_alt": "Pasterze Hangs on as Austria’s Largest Glacier",
+      "instruments": [
+        "Landsat 9 — OLI",
+        "Landsat 5"
+      ],
+      "image_source": "Landsat 9 • OLI · Landsat 5",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/pasterze-hangs-on-as-austrias-largest-glacier/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/pasterze-hangs-on-as-austria’s-largest-glacier/pasterzeglacier_oli2_20260815_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "The Forested Floodplains of Congaree National Park",
       "publication_date": "2026-08-28",
@@ -128,26 +149,6 @@
       "source": "NASA Earth Observatory",
       "media_items": [],
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/europe's-scorching-summer/europeheatwaves_gmao_20260819_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300"
-    },
-    {
-      "title": "An Uncommon Drifter in the Denmark Strait",
-      "publication_date": "2026-08-20",
-      "display_date": "August 20, 2026",
-      "short_description": "A large iceberg, observed in summer 2026, had drifted more than 1,000 kilometers south from the northeastern Greenland bay where it likely originated.",
-      "abstract": "A large iceberg, observed in summer 2026, had drifted more than 1,000 kilometers south from the northeastern Greenland bay where it likely originated. In summer 2026, one exceptionally large berg turned up in the Denmark Strait—more than a thousand kilometers south of where it apparently originated. These images, captured by the OLI (Operational Land Imager) on Landsat 9, show the iceberg on June 12 as it drifted in the strait between Greenland and Iceland. As of mid-August, the berg was about 1,500 kilometers (900 miles) from the bay, drifting south on the Greenland Coastal Current into the North Atlantic. Breaking up in the Denmark Strait means that remnants of the berg are unlikely to drift into busier shipping lanes that go past the southern tip of Greenland.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/an-uncommon-drifter-in-the-denmark-strait/greenlandbergzm_oli2_20260612_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/an-uncommon-drifter-in-the-denmark-strait/greenlandbergzm_oli2_20260612_th.jpg",
-      "image_alt": "An Uncommon Drifter in the Denmark Strait",
-      "instruments": [
-        "Landsat 9 — OLI"
-      ],
-      "image_source": "Landsat 9 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/an-uncommon-drifter-in-the-denmark-strait/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-uncommon-drifter-in-the-denmark-strait/greenlandbergzm_oli2_20260612_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
     }
   ]
 }
