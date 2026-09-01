@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-08-31T17:38:29+00:00",
+  "generated_at": "2026-09-01T14:55:32+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Ice Island Survives Run-In With Joe Island",
+      "publication_date": "2026-09-01",
+      "display_date": "September 1, 2026",
+      "short_description": "In summer 2026, a substantial iceberg calved from Petermann Glacier in northwest Greenland and swiftly drifted into Nares Strait, colliding with an island along the way.",
+      "abstract": "In summer 2026, a substantial iceberg calved from Petermann Glacier in northwest Greenland and swiftly drifted into Nares Strait, colliding with an island along the way. The team reported that the large tabular iceberg, or “ice island,” measured just over 76 square kilometers (29 square miles) at the time it calved—the largest to break from the glacier since the ice island of 2012 (130 square kilometers). Glaciologist Mauri Pelto of Nichols College has also been tracking the iceberg, using images from NASA-USGS Landsat satellites, as it drifted down Petermann Fjord toward Nares Strait. Wind and surface currents have swept it out of the fjord, and satellite images show it pivoting away from Joe Island and continuing southwest through Nares Strait.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/greenland-sheds-its-largest-berg-of-the-season/petermannberg_oli_20260824_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/greenland-sheds-its-largest-berg-of-the-season/petermannberg_oli_20260824_th.jpg",
+      "image_alt": "Ice Island Survives Run-In With Joe Island",
+      "instruments": [
+        "Landsat 9 — OLI"
+      ],
+      "image_source": "Landsat 9 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/iceberg-from-petermann-glacier-speeds-away/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/greenland-sheds-its-largest-berg-of-the-season/petermannberg_oli_20260824_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "Pasterze Hangs on as Austria’s Largest Glacier",
       "publication_date": "2026-08-31",
@@ -114,41 +134,24 @@
       "publication_date": "2026-08-24",
       "display_date": "August 24, 2026",
       "short_description": "The drying of the massive lake exposed playas that became the setting for feats of engineering and technological ingenuity, as well as epic tales of exploration and desperation.",
-      "abstract": "The drying of the massive lake exposed playas that became the setting for feats of engineering and technological ingenuity, as well as epic tales of exploration and desperation. Lake Bonneville began forming about 55,000 years ago during a cool, wet period, when volcanic eruptions in what's now southeastern Idaho diverted the Bear River, causing water to gather in Gem Valley and other basins to the south. Lake Bonneville may be gone, but its imprint on the region's landscape remains—even in satellite imagery. Other epic adventures have played out on and around Lake Bonneville's playas, as well. In 1960, Mickey Thompson became the first American to break the 400-miles-per-hour (640 kilometers-per-hour) barrier, hitting 406.60 miles per hour (654.36 kilometers per hour) in a streamlined race car on the Bonneville Salt Flats.",
+      "abstract": "The drying of the massive lake exposed playas that became the setting for feats of engineering and technological ingenuity, as well as epic tales of exploration and desperation. NASA Sets Coverage for Roman Space Telescope Launch from Florida President Honors NASA’s Artemis II Crew with Highest US Space Award President Trump Signs Executive Order to Create US Space Academy Human-Related Microbes May Survive Moon’s South Pole, NASA Finds NASA’s LRO Images Falcon 9 Crater on Moon, Learns New Details NASA Will Attempt to Observe Rocket Part’s Lunar Impact NASA Johnson Pilots Chase Moon’s Shadow for Eclipse Science Starstruck: NASA Research Shows How Sun’s Ancient History Shaped Earth 9 Things to Know About NASA’s Nancy Grace Roman Space Telescope NASA’s Pandora Mission Begins Study of Exoplanets, Host Stars",
       "media_type": "image",
       "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/what-lake-bonneville-left-behind/craterisland_oli_20260604_th.jpg",
       "video_url": "",
       "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/what-lake-bonneville-left-behind/craterisland_oli_20260604_th.jpg",
       "image_alt": "What Lake Bonneville Left Behind",
       "instruments": [
-        "Landsat 8 — OLI"
-      ],
-      "image_source": "Landsat 8 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/what-lake-bonneville-left-behind/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/what-lake-bonneville-left-behind/craterisland_oli_20260604_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "Europe's Scorching Summer",
-      "publication_date": "2026-08-21",
-      "display_date": "August 21, 2026",
-      "short_description": "A series of heat waves in 2026 is breaking records and taking a toll in Europe.",
-      "abstract": "A series of heat waves in 2026 is breaking records and taking a toll in Europe. NASA Sets Coverage for Roman Space Telescope Launch from Florida President Honors NASA’s Artemis II Crew with Highest US Space Award President Trump Signs Executive Order to Create US Space Academy Human-Related Microbes May Survive Moon’s South Pole, NASA Finds NASA’s LRO Images Falcon 9 Crater on Moon, Learns New Details NASA Will Attempt to Observe Rocket Part’s Lunar Impact Building Foresight for Earth Science, featuring Lindsey Jacobson NASA Johnson Pilots Chase Moon’s Shadow for Eclipse Science Starstruck: NASA Research Shows How Sun’s Ancient History Shaped Earth 9 Things to Know About NASA’s Nancy Grace Roman Space Telescope NASA’s Pandora Mission Begins Study of Exoplanets, Host Stars Galactic Gems Glisten in New Gallery From NASA’s Chandra",
-      "media_type": "video",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/europe's-scorching-summer/europeheatwaves_gmao_20260819.mp4",
-      "video_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/europe's-scorching-summer/europeheatwaves_gmao_20260819.mp4",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/europe's-scorching-summer/europeheatwaves_gmao_20260819_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=3840",
-      "image_alt": "Europe's Scorching Summer",
-      "instruments": [
+        "Landsat 8",
+        "Landsat",
         "ISS",
+        "Photography",
         "Model"
       ],
-      "image_source": "ISS • Model",
-      "article_url": "https://science.nasa.gov/earth/europes-scorching-summer/",
+      "image_source": "Landsat 8 • Landsat • ISS",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/what-lake-bonneville-left-behind/",
       "source": "NASA Earth Observatory",
       "media_items": [],
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/europe's-scorching-summer/europeheatwaves_gmao_20260819_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300"
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/what-lake-bonneville-left-behind/craterisland_oli_20260604_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300"
     }
   ]
 }
