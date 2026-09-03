@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T14:31:26+00:00",
+  "generated_at": "2026-09-03T14:35:56+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
@@ -135,22 +135,20 @@
       "publication_date": "2026-08-25",
       "display_date": "August 25, 2026",
       "short_description": "These glacial landforms jut into northern Lake Huron, surrounded by sheltered channels and coves frequented by fish and small watercraft.",
-      "abstract": "These glacial landforms jut into northern Lake Huron, surrounded by sheltered channels and coves frequented by fish and small watercraft. NASA’s Dark Universe-Seeking Nancy Grace Roman Space Telescope Launches President Trump Signs Executive Order to Create US Space Academy Human-Related Microbes May Survive Moon’s South Pole, NASA Finds NASA’s LRO Images Falcon 9 Crater on Moon, Learns New Details NASA Will Attempt to Observe Rocket Part’s Lunar Impact What’s Up: September 2026 Skywatching Tips from NASA NASA Johnson Pilots Chase Moon’s Shadow for Eclipse Science 9 Things to Know About NASA’s Nancy Grace Roman Space Telescope NASA’s Pandora Mission Begins Study of Exoplanets, Host Stars Galactic Gems Glisten in New Gallery From NASA’s Chandra Amendment 70: New Opportunity: D.4 Theoretical and Computational Astrophysics Networks NASA Selects University Teams to Help Advance Aviation Research",
+      "abstract": "These glacial landforms jut into northern Lake Huron, surrounded by sheltered channels and coves frequented by fish and small watercraft. The Les Cheneaux Islands are a group of 36 islands near the shore of Michigan’s Upper Peninsula, about 20 miles (32 kilometers) northeast of the Straits of Mackinac. The islands are interspersed with sheltered waters that inspired their name; the French “Les Cheneaux” roughly translates to “ the channels.” The Les Cheneaux Islands, like many landforms in the Great Lakes region, look the way they do because of glaciers that carved the landscape during the Wisconsin Ice Age before retreating around 10,000 years ago. This creates opportunities for paddling, as well as fishing in quiet alcoves for species such as smallmouth bass, northern pike, yellow perch, and lake trout.",
       "media_type": "image",
       "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/michigan’s-les-cheneaux-islands/cheneaux_oli2_20260723_th.jpg",
       "video_url": "",
       "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/michigan’s-les-cheneaux-islands/cheneaux_oli2_20260723_th.jpg",
       "image_alt": "Michigan’s Les Cheneaux Islands",
       "instruments": [
-        "Landsat 9",
-        "Landsat",
-        "ISS"
+        "Landsat 9 — OLI"
       ],
-      "image_source": "Landsat 9 • Landsat • ISS",
+      "image_source": "Landsat 9 • OLI",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/michigans-les-cheneaux-islands/",
       "source": "NASA Earth Observatory",
-      "media_items": [],
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/michigan’s-les-cheneaux-islands/cheneaux_oli2_20260723_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300"
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/michigan’s-les-cheneaux-islands/cheneaux_oli2_20260723_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
     }
   ]
 }
