@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-09-07T15:52:37+00:00",
+  "generated_at": "2026-09-08T14:34:19+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "The Otherworldly Geology of Vasquez Rocks",
+      "publication_date": "2026-09-08",
+      "display_date": "September 8, 2026",
+      "short_description": "Layers of sedimentary rock that jut from the Soledad Basin at surprising angles have long enthralled television and film producers, including the team behind Star Trek.",
+      "abstract": "Layers of sedimentary rock that jut from the Soledad Basin at surprising angles have long enthralled television and film producers, including the team behind Star Trek. Several of the outcrops at Vasquez Rocks Natural Area in Southern California jut from the arid landscape of the Soledad Basin at remarkable angles. That's fitting, in some ways, because the rocks have served as one of the Star Trek franchise's favorite backdrops ever since the show's inaugural season, when Captain James T. Eventually this tectonic activity led to the uplift and deformation of the Soledad Basin, with sedimentary layers gradually tilting, folding, and rotating. They make appearances in dozens of other television shows and movies, including the science fiction series Westworld, For All Mankind, and Battlestar Galactica.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-otherworldly-geology-of-vasquez-rocks/vasquezrocks_oli_20260728_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-otherworldly-geology-of-vasquez-rocks/vasquezrocks_oli_20260728_th.jpg",
+      "image_alt": "The Otherworldly Geology of Vasquez Rocks",
+      "instruments": [
+        "Landsat 9 — OLI"
+      ],
+      "image_source": "Landsat 9 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/the-otherworldly-geology-of-vasquez-rocks/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-otherworldly-geology-of-vasquez-rocks/vasquezrocks_oli_20260728_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "A Bright Spot at Mount Michael",
       "publication_date": "2026-09-07",
@@ -125,28 +145,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/the-forested-floodplains-of-congaree-national-park/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-forested-floodplains-of-congaree-national-park/sccongareenp_oli2_20250818_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "Rare, Widespread Snow in the Atacama Desert",
-      "publication_date": "2026-08-27",
-      "display_date": "August 27, 2026",
-      "short_description": "Back-to-back winter storms in August 2026 brought snowfall to northern Chile, from the Andes to near the Pacific coast.",
-      "abstract": "Back-to-back winter storms in August 2026 brought snowfall to northern Chile, from the Andes to near the Pacific coast. In August 2026, back-to-back winter storms left parts of the Atacama Desert in northern Chile covered in a rare blanket of snow. This image, captured by the MODIS (Moderate Resolution Imaging Spectroradiometer) on NASA's Terra satellite on August 19, shows snow extending westward from the Andes, across the desert’s hyper-arid core, and close to the Pacific coast south of the Chilean port city of Antofagasta. The atmospheric disruption, combined with ample coastal moisture, produced precipitation that spanned an unusually wide swath of the region—offshore, along the coast, across the core of the Atacama, and over the Andes. In addition to the August storms, a major event in July brought significant impacts to the country’s Norte Chico region.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/rare,-widespread-snow-in-the-atacama-desert/atacamasnowzm_oli2_20260814_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/rare,-widespread-snow-in-the-atacama-desert/atacamasnowzm_oli2_20260814_th.jpg",
-      "image_alt": "Rare",
-      "instruments": [
-        "Landsat 8 — OLI",
-        "Landsat 9 — OLI",
-        "Terra — MODIS"
-      ],
-      "image_source": "Landsat 8 • OLI · Landsat 9 • OLI · Terra • MODIS",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/rare-widespread-snow-in-the-atacama-desert/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/-widespread-snow-in-the-atacama-desert/atacamasnowzm_oli2_20260814_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
