@@ -1,9 +1,30 @@
 {
-  "generated_at": "2026-09-08T14:34:19+00:00",
+  "generated_at": "2026-09-09T14:38:54+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Anak Krakatau Rumbles Again",
+      "publication_date": "2026-09-09",
+      "display_date": "September 9, 2026",
+      "short_description": "A powerful eruption from the Indonesian volcano lofted ash into the atmosphere, disrupting thousands of flights and degrading air quality.",
+      "abstract": "A powerful eruption from the Indonesian volcano lofted ash into the atmosphere, disrupting thousands of flights and degrading air quality. Eruptions are a regular occurrence at Anak Krakatau, a small volcano between the Indonesian islands of Java and Sumatra. The presence of ash in the atmosphere prompted the temporary closure of eight airports on Java and Sumatra, disrupting nearly 3,000 flights in and out of the area, according to news reports. Ashfall affected populated areas, particularly to the east of Anak Krakatau in Jakarta and other parts of West Java, the Indonesian Humanitarian Coordination Platform (IHCP) reported. However, this air quality hazard differs from the smoke produced by peatland fires elsewhere in the country in terms of particle characteristics, dispersal patterns, and protection measures, the IHCP noted. On September 6, the continuous explosive eruption from Anak Krakatau subsided, though the volcano kept rumbling.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/anak-krakatau-rumbles-again/krakatau_oli_20260905_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/anak-krakatau-rumbles-again/krakatau_oli_20260905_th.jpg",
+      "image_alt": "Anak Krakatau",
+      "instruments": [
+        "Landsat 8 — OLI",
+        "Suomi NPP — VIIRS"
+      ],
+      "image_source": "Landsat 8 • OLI · Suomi NPP • VIIRS",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/anak-krakatau-rumbles-again/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/anak-krakatau-rumbles-again/krakatau_oli_20260905_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "The Otherworldly Geology of Vasquez Rocks",
       "publication_date": "2026-09-08",
@@ -125,26 +146,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/pasterze-hangs-on-as-austrias-largest-glacier/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/pasterze-hangs-on-as-austria’s-largest-glacier/pasterzeglacier_oli2_20260815_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "The Forested Floodplains of Congaree National Park",
-      "publication_date": "2026-08-28",
-      "display_date": "August 28, 2026",
-      "short_description": "The meandering Congaree River sustains towering forest ecosystems and fashions oxbow lakes as it shifts across its floodplain.",
-      "abstract": "The meandering Congaree River sustains towering forest ecosystems and fashions oxbow lakes as it shifts across its floodplain. Among the 63 U.S. national parks, few are as defined by a single river's floodplain as Congaree National Park in South Carolina. While the features are also prominent in other parks, a full 80 percent of Congaree National Park lies within the Congaree River floodplain. On the right side of the image is Bates Old River, a roughly 4-mile-long abandoned channel of the Congaree River and one of the longest oxbow lakes in South Carolina. While loggers targeted forests along the Congaree in the 1880s, challenges such as frequent flooding, interminably muddy roads, and mosquito-plagued conditions meant that most of the floodplain forests escaped the widespread logging that transformed other parts of the Southeast.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-forested-floodplains-of-congaree-national-park/sccongareenp_oli2_20250818_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-forested-floodplains-of-congaree-national-park/sccongareenp_oli2_20250818_th.jpg",
-      "image_alt": "The Forested Floodplains of Congaree National Park",
-      "instruments": [
-        "Landsat 9 — OLI"
-      ],
-      "image_source": "Landsat 9 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/the-forested-floodplains-of-congaree-national-park/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-forested-floodplains-of-congaree-national-park/sccongareenp_oli2_20250818_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
