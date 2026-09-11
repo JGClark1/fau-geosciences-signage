@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-09-10T14:28:46+00:00",
+  "generated_at": "2026-09-11T14:27:54+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Monterrey Amid Mountains",
+      "publication_date": "2026-09-11",
+      "display_date": "September 11, 2026",
+      "short_description": "Mexico’s second-largest metropolitan area borders on folded rock layers of the Sierra Madre Oriental.",
+      "abstract": "Mexico’s second-largest metropolitan area borders on folded rock layers of the Sierra Madre Oriental. The spot where these folds nestle up against Mexico’s second-largest metropolitan area captured the attention of an astronaut aboard the International Space Station, who took this photo on August 26, 2026. The metropolitan area is home to 5.3 million people, according to the 2020 census. Along the city’s southern edge, layers of limestone, deposited in the late Mesozoic era and then folded between about 80 and 50 million years ago, form the Sierra Madre Oriental. But its channel is crucial for collecting runoff from summer rains and serves as an important natural area for plant and animal life within the city. Near the city’s border with the Sierra Madre Oriental sits Universidad de Monterrey, a host venue for the NASA Space Apps Challenge.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/monterrey-amid-mountains/ISS075-E-70481_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/monterrey-amid-mountains/ISS075-E-70481_th.jpg",
+      "image_alt": "monterrey",
+      "instruments": [
+        "Photograph"
+      ],
+      "image_source": "Photography",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/monterrey-amid-mountains/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/monterrey-amid-mountains/ISS075-E-70481_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "Dust Storm Sweeps Over Mali",
       "publication_date": "2026-09-10",
@@ -125,26 +145,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/drought-intensifies-across-puerto-rico/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/drought-intensifies-across-puerto-rico/puertorico_usdm_20260825_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "Ice Island Survives Run-In With Joe Island",
-      "publication_date": "2026-09-01",
-      "display_date": "September 1, 2026",
-      "short_description": "In summer 2026, a substantial iceberg calved from Petermann Glacier in northwest Greenland and swiftly drifted into Nares Strait, colliding with an island along the way.",
-      "abstract": "In summer 2026, a substantial iceberg calved from Petermann Glacier in northwest Greenland and swiftly drifted into Nares Strait, colliding with an island along the way. The team reported that the large tabular iceberg, or “ice island,” measured just over 76 square kilometers (29 square miles) at the time it calved—the largest to break from the glacier since the ice island of 2012 (130 square kilometers). Glaciologist Mauri Pelto of Nichols College has also been tracking the iceberg, using images from NASA-USGS Landsat satellites, as it drifted down Petermann Fjord toward Nares Strait. Wind and surface currents have swept it out of the fjord, and satellite images show it pivoting away from Joe Island and continuing southwest through Nares Strait.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/greenland-sheds-its-largest-berg-of-the-season/petermannberg_oli_20260824_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/greenland-sheds-its-largest-berg-of-the-season/petermannberg_oli_20260824_th.jpg",
-      "image_alt": "Ice Island Survives Run-In With Joe Island",
-      "instruments": [
-        "Landsat 9 — OLI"
-      ],
-      "image_source": "Landsat 9 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/iceberg-from-petermann-glacier-speeds-away/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/greenland-sheds-its-largest-berg-of-the-season/petermannberg_oli_20260824_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
