@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-09-13T14:25:25+00:00",
+  "generated_at": "2026-09-14T16:23:05+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "An Early Look at Fall Color in Canada",
+      "publication_date": "2026-09-14",
+      "display_date": "September 14, 2026",
+      "short_description": "Reds, yellows, and oranges are already sweeping across tundra landscapes in Nunavut.",
+      "abstract": "Reds, yellows, and oranges are already sweeping across tundra landscapes in Nunavut. But fall comes early in the tundra and subarctic ecosystems of Nunavut, in far northern Canada. Vivid signs of the season were already sweeping across the landscape on September 6 when the OLI (Operational Land Imager) on Landsat 9 captured this image (right) of the Coppermine River winding through low-growing shrubs and tundra vegetation upriver of Kugluktuk, a community at the river’s mouth. A NASA and South Dakota State University analysis of seven years of satellite data found that foliage in the region begins to change in early September and peaks in mid-month, making this one of the first places on the North American continent to change color. Participants observe and record leaf color changes during the spring and fall, helping scientists understand plant responses to climate and environmental changes.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/an-early-look-at-fall-color-in-canada/northerncanada_oli2_20260906_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/an-early-look-at-fall-color-in-canada/northerncanada_oli2_20260906_th.jpg",
+      "image_alt": "An Early Look at Fall Color in Canada",
+      "instruments": [
+        "Landsat 9 — OLI"
+      ],
+      "image_source": "Landsat 9 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/an-early-look-at-fall-color-in-canada/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-early-look-at-fall-color-in-canada/northerncanada_oli2_20260906_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "Monterrey Amid Mountains",
       "publication_date": "2026-09-11",
@@ -124,27 +144,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/a-trio-of-tropical-cyclones-in-the-pacific/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-trio-of-tropical-cyclones-in-the-pacific/pacificstorms_epic_20260901_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "Drought Intensifies Across Puerto Rico",
-      "publication_date": "2026-09-02",
-      "display_date": "September 2, 2026",
-      "short_description": "Rainfall deficits and high temperatures have created unusually dry conditions and have spurred water shortages on much of the tropical archipelago.",
-      "abstract": "Rainfall deficits and high temperatures have created unusually dry conditions and have spurred water shortages on much of the tropical archipelago. The dry conditions have contributed to water shortages and rationing in some areas, leading Puerto Rico’s governor to declare a state of emergency in late July and the U.S. government to issue a drought disaster declaration for more than two dozen cities and towns in late August. For recent updates to Puerto Rico’s drought maps, satellite estimates of soil moisture, as well as weather, streamflow, and well observations, were particularly important factors, he said. As of August 25, 2026, three-quarters of Puerto Rico was experiencing at least moderate drought, according to the group’s assessment. Strained water resources have affected farmers, ranchers, and residents across the territory.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/drought-intensifies-across-puerto-rico/puertorico_usdm_20260825_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/drought-intensifies-across-puerto-rico/puertorico_usdm_20260825_th.jpg",
-      "image_alt": "Drought Intensifies Across Puerto Rico",
-      "instruments": [
-        "In situ Measurement",
-        "Model"
-      ],
-      "image_source": "In situ Measurement · Model",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/drought-intensifies-across-puerto-rico/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/drought-intensifies-across-puerto-rico/puertorico_usdm_20260825_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
