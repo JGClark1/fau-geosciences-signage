@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-09-14T16:23:05+00:00",
+  "generated_at": "2026-09-15T15:02:32+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "An Accidental Impact Crater Discovery",
+      "publication_date": "2026-09-15",
+      "display_date": "September 15, 2026",
+      "short_description": "An amateur astronomer scouting online satellite maps for campsites in Quebec found an impact crater instead.",
+      "abstract": "An amateur astronomer scouting online satellite maps for campsites in Quebec found an impact crater instead. Now, there’s at least one more—and a large one, at that—in the confirmed bin, spotted by an amateur astronomer planning a camping trip to Quebec. In 2024, Joël Lapointe was prepping for a camping trip to the remote Côte-Nord region when he noticed a circular feature in online satellite maps near Lake Marsal. His questions led a team of French researchers to list the lake area as the center of a possible 11 th -known impact structure in Quebec at a meeting of the Meteoritical Society in 2024—which eventually led to the involvement of Gordon Osinski, a planetary geologist at Western University and director of the Impact Earth database. This is the largest impact crater discovered since the 31-kilometer Hiawatha structure was found in 2018.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/an-accidental-impact-crater-discovery-/newcraterquebec_oli_20251012_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/an-accidental-impact-crater-discovery-/newcraterquebec_oli_20251012_th.jpg",
+      "image_alt": "An Accidental Impact Crater Discovery",
+      "instruments": [
+        "Landsat 8 — OLI"
+      ],
+      "image_source": "Landsat 8 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/an-accidental-impact-crater-discovery/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-accidental-impact-crater-discovery-/newcraterquebec_oli_20251012_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "An Early Look at Fall Color in Canada",
       "publication_date": "2026-09-14",
@@ -124,26 +144,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/a-bright-spot-at-mount-michael/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-bright-spot-at-mount-michael/mountmichael_oli_20260824_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "A Trio of Tropical Cyclones in the Pacific",
-      "publication_date": "2026-09-04",
-      "display_date": "September 4, 2026",
-      "short_description": "The Pacific was buzzing with storms while the Atlantic was notably quiet.",
-      "abstract": "The Pacific was buzzing with storms while the Atlantic was notably quiet. In early September, near the climatological peak of hurricane season, those spring outlooks were on target, with the eastern Pacific buzzing with activity and the Atlantic notably quiet. As of September 3, the Northeast Pacific had produced 15 named storms and six hurricanes, well above the norm for that point in the season. Pacific Daylight Time (20:14 Universal Time) on September 1, NASA’s EPIC (Earth Polychromatic Imaging Camera) on the DSCOVR (Deep Space Climate Observatory) satellite captured an image of three tropical cyclones churning simultaneously in the Pacific, along with one in the Atlantic. In the Atlantic, Tropical Storm Edouard was visible to EPIC over Louisiana and Texas, shortly after the short-lived storm made landfall.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-trio-of-tropical-cyclones-in-the-pacific/pacificstorms_epic_20260901_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-trio-of-tropical-cyclones-in-the-pacific/pacificstorms_epic_20260901_th.jpg",
-      "image_alt": "A Trio of Tropical Cyclones in the Pacific",
-      "instruments": [
-        "DSCOVR — EPIC"
-      ],
-      "image_source": "DSCOVR • EPIC",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/a-trio-of-tropical-cyclones-in-the-pacific/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-trio-of-tropical-cyclones-in-the-pacific/pacificstorms_epic_20260901_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
