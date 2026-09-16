@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-09-15T15:02:32+00:00",
+  "generated_at": "2026-09-16T14:59:46+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Purple Haze Aurora",
+      "publication_date": "2026-09-16",
+      "display_date": "September 16, 2026",
+      "short_description": "'Scuse me while some charged particles kiss the sky.",
+      "abstract": "'Scuse me while some charged particles kiss the sky. One of the inspirations for Jimi Hendrix's iconic 1967 hit \" Purple Haze \" is said to be the sci-fi novel Night of Light, about a distant planet in a binary star system. The colorful phenomenon typically starts when the Sun sends charged particles toward Earth through solar flares, coronal mass ejections (CMEs), or an active solar wind. In the process, some particles within the field are drawn into Earth’s upper atmosphere, where they excite nitrogen and oxygen atoms and molecules, causing them to release photons. The aurora Meir photographed occurred amid a disturbance associated with a high-speed stream of solar wind from a coronal hole and the lingering effects of multiple coronal mass ejections, according to updates from NOAA’s Space Weather Prediction Center.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/purple-haze-aurora/ISS075-E-88592_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/purple-haze-aurora/ISS075-E-88592_th.jpg",
+      "image_alt": "Purple Haze Aurora",
+      "instruments": [
+        "Photograph"
+      ],
+      "image_source": "Photography",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/purple-haze-aurora/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/purple-haze-aurora/ISS075-E-88592_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "An Accidental Impact Crater Discovery",
       "publication_date": "2026-09-15",
@@ -123,27 +143,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/the-otherworldly-geology-of-vasquez-rocks/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-otherworldly-geology-of-vasquez-rocks/vasquezrocks_oli_20260728_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "A Bright Spot at Mount Michael",
-      "publication_date": "2026-09-07",
-      "display_date": "September 7, 2026",
-      "short_description": "With austral winter nearing its end, clouds cleared for a satellite view of volcanic activity in the remote South Atlantic.",
-      "abstract": "With austral winter nearing its end, clouds cleared for a satellite view of volcanic activity in the remote South Atlantic. Mount Michael, the stratovolcano at the center of Saunders Island, rises above the ice-filled South Atlantic Ocean in this image, acquired with the OLI (Operational Land Imager) on the NASA-USGS Landsat 8 satellite on August 24, 2026. Because of the volcanoes’ remoteness, scientists rely on satellite data to understand their activity. Data provided through MIROVA, a near-real-time volcanic hot spot detection system, indicate that low-intensity activity has been ongoing at the volcano for the past several years. Other observations from NASA's Aura satellite show that emissions of sulfur dioxide and other gases are common at Mount Michael. False-color imagery captured by NASA’s Aqua satellite indicates that a volcanic track caused by degassing sulfur dioxide was likely present as well.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-bright-spot-at-mount-michael/mountmichael_oli_20260824_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-bright-spot-at-mount-michael/mountmichael_oli_20260824_th.jpg",
-      "image_alt": "mount michael",
-      "instruments": [
-        "Landsat 8 — OLI",
-        "Landsat 9 — OLI"
-      ],
-      "image_source": "Landsat 8 • OLI · Landsat 9 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/a-bright-spot-at-mount-michael/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-bright-spot-at-mount-michael/mountmichael_oli_20260824_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
