@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-09-16T14:59:46+00:00",
+  "generated_at": "2026-09-17T15:02:49+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Summer Goes Out With a Heat Dome",
+      "publication_date": "2026-09-17",
+      "display_date": "September 17, 2026",
+      "short_description": "Temperature records toppled across the central and southern U.S. as the autumnal equinox approached.",
+      "abstract": "Temperature records toppled across the central and southern U.S. as the autumnal equinox approached. While the calendar indicated that astronomical summer was winding down, a swath of the south-central United States was sweltering under a heat dome in mid-September 2026. Central Time (21:00 Universal Time), modeled at 2 meters (6.5 feet) above the ground. More than 41 million people in the U.S.—about 12 percent of the population—were under a National Weather Service extreme heat advisory, extreme heat watch, or extreme heat warning on September 15. Several locations set new daily high temperature records on September 15. A weather phenomenon meteorologists call a heat dome was responsible for driving temperatures up across the region. A heat dome develops when an area of high pressure in the upper atmosphere pushes hot air toward the surface and traps it there.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/summer-goes-out-with-a-heat-dome/heatdome_geos5_20260915_th.jpg?w=1024",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/summer-goes-out-with-a-heat-dome/heatdome_geos5_20260915_th.jpg?w=1024",
+      "image_alt": "heat dome",
+      "instruments": [
+        "Model"
+      ],
+      "image_source": "Model",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/summer-goes-out-with-a-heat-dome/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/summer-goes-out-with-a-heat-dome/heatdome_geos5_20260915_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "Purple Haze Aurora",
       "publication_date": "2026-09-16",
@@ -123,26 +143,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/anak-krakatau-rumbles-again/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/anak-krakatau-rumbles-again/krakatau_oli_20260905_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "The Otherworldly Geology of Vasquez Rocks",
-      "publication_date": "2026-09-08",
-      "display_date": "September 8, 2026",
-      "short_description": "Layers of sedimentary rock that jut from the Soledad Basin at surprising angles have long enthralled television and film producers, including the team behind Star Trek.",
-      "abstract": "Layers of sedimentary rock that jut from the Soledad Basin at surprising angles have long enthralled television and film producers, including the team behind Star Trek. Several of the outcrops at Vasquez Rocks Natural Area in Southern California jut from the arid landscape of the Soledad Basin at remarkable angles. That's fitting, in some ways, because the rocks have served as one of the Star Trek franchise's favorite backdrops ever since the show's inaugural season, when Captain James T. Eventually this tectonic activity led to the uplift and deformation of the Soledad Basin, with sedimentary layers gradually tilting, folding, and rotating. They make appearances in dozens of other television shows and movies, including the science fiction series Westworld, For All Mankind, and Battlestar Galactica.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-otherworldly-geology-of-vasquez-rocks/vasquezrocks_oli_20260728_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-otherworldly-geology-of-vasquez-rocks/vasquezrocks_oli_20260728_th.jpg",
-      "image_alt": "The Otherworldly Geology of Vasquez Rocks",
-      "instruments": [
-        "Landsat 9 — OLI"
-      ],
-      "image_source": "Landsat 9 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/the-otherworldly-geology-of-vasquez-rocks/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-otherworldly-geology-of-vasquez-rocks/vasquezrocks_oli_20260728_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
