@@ -1,9 +1,30 @@
 {
-  "generated_at": "2026-09-17T15:02:49+00:00",
+  "generated_at": "2026-09-18T14:32:15+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Lake Powell Drops to Record-Low Levels",
+      "publication_date": "2026-09-18",
+      "display_date": "September 18, 2026",
+      "short_description": "Snow drought and unusually warm temperatures in the Colorado Basin in 2026 helped drive down reservoir water storage in the U.S. West.",
+      "abstract": "Snow drought and unusually warm temperatures in the Colorado Basin in 2026 helped drive down reservoir water storage in the U.S. West. The Upper Colorado Basin, like many mountainous areas across the U.S. West, saw unusually little snow accumulation in winter 2025-2026, constituting a snow drought. Nearer to Lake Powell, the Drought Severity Evaluation Tool, co-developed with the Navajo Nation, helps leaders monitor localized drought indices, precipitation trends, and vegetation health across tribal lands. (With funding from NOAA’s National Integrated Drought Information System, its adoption expanded to Oklahoma’s Chickasaw and Choctaw Nations in 2025.) And the Colorado River Integrated Assessment tool, developed by Arizona State University researchers in partnership with the Central Arizona Project, consolidates improved modeling and NASA-satellite-validated information on snowpack, surface and groundwater storage, soil moisture, and more across the entire basin into a single interactive view.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/lake-powell-drops-to-record-low-levels/lakepowell_oli_20260910_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/lake-powell-drops-to-record-low-levels/lakepowell_oli_20260910_th.jpg",
+      "image_alt": "lake powell",
+      "instruments": [
+        "Landsat 8 — OLI",
+        "In situ Measurement"
+      ],
+      "image_source": "Landsat 8 • OLI · In situ Measurement",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/lake-powell-drops-to-record-low-levels/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/lake-powell-drops-to-record-low-levels/lakepowell_oli_20260910_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "Summer Goes Out With a Heat Dome",
       "publication_date": "2026-09-17",
@@ -122,27 +143,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/dust-storm-sweeps-over-mali/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/dust-storm-sweeps-over-mali/malidust_tmo_20260905_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "Anak Krakatau Rumbles Again",
-      "publication_date": "2026-09-09",
-      "display_date": "September 9, 2026",
-      "short_description": "A powerful eruption from the Indonesian volcano lofted ash into the atmosphere, disrupting thousands of flights and degrading air quality.",
-      "abstract": "A powerful eruption from the Indonesian volcano lofted ash into the atmosphere, disrupting thousands of flights and degrading air quality. Eruptions are a regular occurrence at Anak Krakatau, a small volcano between the Indonesian islands of Java and Sumatra. The presence of ash in the atmosphere prompted the temporary closure of eight airports on Java and Sumatra, disrupting nearly 3,000 flights in and out of the area, according to news reports. Ashfall affected populated areas, particularly to the east of Anak Krakatau in Jakarta and other parts of West Java, the Indonesian Humanitarian Coordination Platform (IHCP) reported. However, this air quality hazard differs from the smoke produced by peatland fires elsewhere in the country in terms of particle characteristics, dispersal patterns, and protection measures, the IHCP noted. On September 6, the continuous explosive eruption from Anak Krakatau subsided, though the volcano kept rumbling.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/anak-krakatau-rumbles-again/krakatau_oli_20260905_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/anak-krakatau-rumbles-again/krakatau_oli_20260905_th.jpg",
-      "image_alt": "Anak Krakatau",
-      "instruments": [
-        "Landsat 8 — OLI",
-        "Suomi NPP — VIIRS"
-      ],
-      "image_source": "Landsat 8 • OLI · Suomi NPP • VIIRS",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/anak-krakatau-rumbles-again/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/anak-krakatau-rumbles-again/krakatau_oli_20260905_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
