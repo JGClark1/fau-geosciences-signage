@@ -1,9 +1,31 @@
 {
-  "generated_at": "2026-09-20T14:14:15+00:00",
+  "generated_at": "2026-09-21T16:29:10+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Arctic Melt Season Length Levels Off",
+      "publication_date": "2026-09-21",
+      "display_date": "September 21, 2026",
+      "short_description": "While the sea ice melt season has lengthened dramatically in most of the satellite era, the trend unexpectedly stabilized around 2010.",
+      "abstract": "While the sea ice melt season has lengthened dramatically in most of the satellite era, the trend unexpectedly stabilized around 2010. A new NASA-led study has found that while the Arctic melt season has lengthened dramatically since satellite records began, that trend unexpectedly stabilized around 2010. The Arctic sea ice melt season is now about 40 days longer than it was in 1979, according to the study. Since then, the average melt season length has remained relatively unchanged, despite large year-to-year fluctuations. These findings don’t suggest that shifts in Earth’s climate have stopped affecting the Arctic. Instead, the study suggests that the Arctic may have entered a new phase, in which annual weather patterns exert a stronger influence on melt season than they once did.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/arctic-melt-season-length-levels-off/arcticmelttrend_20102023_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/arctic-melt-season-length-levels-off/arcticmelttrend_20102023_th.jpg",
+      "image_alt": "Arctic Melt Season Length Levels Off",
+      "instruments": [
+        "DMSP — SSM/I, SSMIS",
+        "Nimbus 7 — SMMR",
+        "Map"
+      ],
+      "image_source": "DMSP • SSM/I, SSMIS · Nimbus 7 • SMMR · Map",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/arctic-melt-season-length-levels-off/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/arctic-melt-season-length-levels-off/arcticmelttrend_20102023_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "Lake Powell Drops to Record-Low Levels",
       "publication_date": "2026-09-18",
@@ -123,26 +145,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/monterrey-amid-mountains/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/monterrey-amid-mountains/ISS075-E-70481_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "Dust Storm Sweeps Over Mali",
-      "publication_date": "2026-09-10",
-      "display_date": "September 10, 2026",
-      "short_description": "At a time of year when dust storm activity winds down, a plume of dust blanketed parts of the West African nation and its neighbors.",
-      "abstract": "At a time of year when dust storm activity winds down, a plume of dust blanketed parts of the West African nation and its neighbors. As summer winds down in West Africa, so does much of the region’s dust activity. Dust storms can still occur, though, as one did in early September 2026, when a plume covered parts of Mali and neighboring countries. According to Tianle Yuan, an atmospheric scientist at NASA's Goddard Space Flight Center, storms like this one are often associated with haboobs —powerful dust storms driven by strong convective winds. For instance, Yuan noted that the phenomenon can affect dust over the Sahel and Mali by shifting the Intertropical Convergence Zone and altering convection patterns, though the influence cuts both ways.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/dust-storm-sweeps-over-mali/malidust_tmo_20260905_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/dust-storm-sweeps-over-mali/malidust_tmo_20260905_th.jpg",
-      "image_alt": "Dust Storm Sweeps Over Mali",
-      "instruments": [
-        "Terra — MODIS"
-      ],
-      "image_source": "Terra • MODIS",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/dust-storm-sweeps-over-mali/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/dust-storm-sweeps-over-mali/malidust_tmo_20260905_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
