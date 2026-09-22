@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-09-21T16:29:10+00:00",
+  "generated_at": "2026-09-22T14:57:17+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "An Epic View of the Seasons",
+      "publication_date": "2026-09-22",
+      "display_date": "September 22, 2026",
+      "short_description": "The tilt in Earth's axis of rotation makes the apparent position of continents shift with the seasons in imagery from a NASA camera in deep space.",
+      "abstract": "The tilt in Earth's axis of rotation makes the apparent position of continents shift with the seasons in imagery from a NASA camera in deep space. Instead, it occurs because DSCOVR follows a looping, three-dimensional path called a Lissajous orbit to keep the spacecraft near Lagrange point 1, where the combined gravitational pull of the Sun and Earth and the centrifugal pull of the satellite balance out, making it easier for engineers to maintain the spacecraft's position without using much fuel. EPIC's vantage point offers a perspective that makes it easier to understand and visualize why Earth has seasons, but after more than a decade in space, the mission has also opened up new approaches to understanding and observing how daily and seasonal cycles play out on a planetary scale.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/an-epic-view-of-the-seasons/equinox_epic_20240922_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/an-epic-view-of-the-seasons/equinox_epic_20240922_th.jpg",
+      "image_alt": "An Epic View of the Seasons",
+      "instruments": [
+        "DSCOVR — EPIC"
+      ],
+      "image_source": "DSCOVR • EPIC",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/an-epic-view-of-the-seasons/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-epic-view-of-the-seasons/equinox_epic_20240922_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "Arctic Melt Season Length Levels Off",
       "publication_date": "2026-09-21",
@@ -54,9 +74,9 @@
       "short_description": "Temperature records toppled across the central and southern U.S. as the autumnal equinox approached.",
       "abstract": "Temperature records toppled across the central and southern U.S. as the autumnal equinox approached. While the calendar indicated that astronomical summer was winding down, a swath of the south-central United States was sweltering under a heat dome in mid-September 2026. Central Time (21:00 Universal Time), modeled at 2 meters (6.5 feet) above the ground. More than 41 million people in the U.S.—about 12 percent of the population—were under a National Weather Service extreme heat advisory, extreme heat watch, or extreme heat warning on September 15. Several locations set new daily high temperature records on September 15. A weather phenomenon meteorologists call a heat dome was responsible for driving temperatures up across the region. A heat dome develops when an area of high pressure in the upper atmosphere pushes hot air toward the surface and traps it there.",
       "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/summer-goes-out-with-a-heat-dome/heatdome_geos5_20260915_th.jpg?w=1024",
+      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/summer-goes-out-with-a-heat-dome/heatdome_geos5_20260915_th.jpg?w=720&h=480&fit=clip&crop=faces%2Cfocalpoint",
       "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/summer-goes-out-with-a-heat-dome/heatdome_geos5_20260915_th.jpg?w=1024",
+      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/summer-goes-out-with-a-heat-dome/heatdome_geos5_20260915_th.jpg?w=720&h=480&fit=clip&crop=faces%2Cfocalpoint",
       "image_alt": "heat dome",
       "instruments": [
         "Model"
@@ -125,26 +145,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/an-early-look-at-fall-color-in-canada/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-early-look-at-fall-color-in-canada/northerncanada_oli2_20260906_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "Monterrey Amid Mountains",
-      "publication_date": "2026-09-11",
-      "display_date": "September 11, 2026",
-      "short_description": "Mexico’s second-largest metropolitan area borders on folded rock layers of the Sierra Madre Oriental.",
-      "abstract": "Mexico’s second-largest metropolitan area borders on folded rock layers of the Sierra Madre Oriental. The spot where these folds nestle up against Mexico’s second-largest metropolitan area captured the attention of an astronaut aboard the International Space Station, who took this photo on August 26, 2026. The metropolitan area is home to 5.3 million people, according to the 2020 census. Along the city’s southern edge, layers of limestone, deposited in the late Mesozoic era and then folded between about 80 and 50 million years ago, form the Sierra Madre Oriental. But its channel is crucial for collecting runoff from summer rains and serves as an important natural area for plant and animal life within the city. Near the city’s border with the Sierra Madre Oriental sits Universidad de Monterrey, a host venue for the NASA Space Apps Challenge.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/monterrey-amid-mountains/ISS075-E-70481_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/monterrey-amid-mountains/ISS075-E-70481_th.jpg",
-      "image_alt": "monterrey",
-      "instruments": [
-        "Photograph"
-      ],
-      "image_source": "Photography",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/monterrey-amid-mountains/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/monterrey-amid-mountains/ISS075-E-70481_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
