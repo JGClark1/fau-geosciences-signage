@@ -1,9 +1,30 @@
 {
-  "generated_at": "2026-09-22T14:57:17+00:00",
+  "generated_at": "2026-09-23T15:03:00+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Boom Year for Desert Blooms",
+      "publication_date": "2026-09-23",
+      "display_date": "September 23, 2026",
+      "short_description": "Carpets of wildflowers burst from arid, ochre-colored land in Western Australia following winter rains.",
+      "abstract": "Carpets of wildflowers burst from arid, ochre-colored land in Western Australia following winter rains. Arid shrublands in Western Australia were bursting with life in late austral winter 2026, when a profusion of wildflowers brought vivid colors to the rusty ochre landscape. After several wetter-than-normal months earlier in the year, dormant seeds in the soil awoke to produce carpets of blooms. In 2026, rainfall totals were above average in June and very much above average in August due to several cold fronts moving through the area, according to Australia’s Bureau of Meteorology. The rains helped rouse a diverse mix of flowers to bloom across the outback, including on a radio astronomy site managed by the Commonwealth Scientific and Industrial Research Organisation (CSIRO), Australia’s national science agency.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/boom-year-for-desert-blooms/australiawildflowes_oli_20260830_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/boom-year-for-desert-blooms/australiawildflowes_oli_20260830_th.jpg",
+      "image_alt": "desert blooms",
+      "instruments": [
+        "Landsat 8 — OLI",
+        "Photograph"
+      ],
+      "image_source": "Landsat 8 • OLI · Photography",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/boom-year-for-desert-blooms/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/boom-year-for-desert-blooms/australiawildflowes_oli_20260830_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "An Epic View of the Seasons",
       "publication_date": "2026-09-22",
@@ -125,26 +146,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/an-accidental-impact-crater-discovery/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-accidental-impact-crater-discovery-/newcraterquebec_oli_20251012_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "An Early Look at Fall Color in Canada",
-      "publication_date": "2026-09-14",
-      "display_date": "September 14, 2026",
-      "short_description": "Reds, yellows, and oranges are already sweeping across tundra landscapes in Nunavut.",
-      "abstract": "Reds, yellows, and oranges are already sweeping across tundra landscapes in Nunavut. But fall comes early in the tundra and subarctic ecosystems of Nunavut, in far northern Canada. Vivid signs of the season were already sweeping across the landscape on September 6 when the OLI (Operational Land Imager) on Landsat 9 captured this image (right) of the Coppermine River winding through low-growing shrubs and tundra vegetation upriver of Kugluktuk, a community at the river’s mouth. A NASA and South Dakota State University analysis of seven years of satellite data found that foliage in the region begins to change in early September and peaks in mid-month, making this one of the first places on the North American continent to change color. Participants observe and record leaf color changes during the spring and fall, helping scientists understand plant responses to climate and environmental changes.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/an-early-look-at-fall-color-in-canada/northerncanada_oli2_20260906_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/an-early-look-at-fall-color-in-canada/northerncanada_oli2_20260906_th.jpg",
-      "image_alt": "An Early Look at Fall Color in Canada",
-      "instruments": [
-        "Landsat 9 — OLI"
-      ],
-      "image_source": "Landsat 9 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/an-early-look-at-fall-color-in-canada/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-early-look-at-fall-color-in-canada/northerncanada_oli2_20260906_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
