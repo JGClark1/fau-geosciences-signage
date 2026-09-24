@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-09-23T15:03:00+00:00",
+  "generated_at": "2026-09-24T15:09:09+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Cloudy Cloak Over the Northwest",
+      "publication_date": "2026-09-24",
+      "display_date": "September 24, 2026",
+      "short_description": "A low-lying cloud layer brought autumn ambience to western Washington and Oregon, while mountainous areas near the coast remained above the pall.",
+      "abstract": "A low-lying cloud layer brought autumn ambience to western Washington and Oregon, while mountainous areas near the coast remained above the pall. Cool, marine air rolling off the Pacific Ocean led to a picturesque layer of morning clouds over western Washington and Oregon in mid-September 2026. Low-lying stratus clouds and fog extended as far inland as the western foothills of the Cascade Range. Near the coast, taller portions of the Olympic Mountains in Washington and the Oregon Coast Range appeared island-like, protruding above the cloud layer. The MODIS (Moderate Resolution Imaging Spectroradiometer) on NASA’s Terra satellite shows the extent of the Pacific Northwest’s cloudy cloak on September 19, 2026, at about 10:45 a.m. However, some marine clouds still clung to the Oregon coast, where temperatures stayed cooler than inland locations.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/cloudy-cloak-over-the-northwest/westcoastfog_tmo_20260919_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/cloudy-cloak-over-the-northwest/westcoastfog_tmo_20260919_th.jpg",
+      "image_alt": "cloudy cloak over the northwest",
+      "instruments": [
+        "Terra — MODIS"
+      ],
+      "image_source": "Terra • MODIS",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/cloudy-cloak-over-the-northwest/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/cloudy-cloak-over-the-northwest/westcoastfog_tmo_20260919_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "Boom Year for Desert Blooms",
       "publication_date": "2026-09-23",
@@ -126,26 +146,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/purple-haze-aurora/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/purple-haze-aurora/ISS075-E-88592_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "An Accidental Impact Crater Discovery",
-      "publication_date": "2026-09-15",
-      "display_date": "September 15, 2026",
-      "short_description": "An amateur astronomer scouting online satellite maps for campsites in Quebec found an impact crater instead.",
-      "abstract": "An amateur astronomer scouting online satellite maps for campsites in Quebec found an impact crater instead. Now, there’s at least one more—and a large one, at that—in the confirmed bin, spotted by an amateur astronomer planning a camping trip to Quebec. In 2024, Joël Lapointe was prepping for a camping trip to the remote Côte-Nord region when he noticed a circular feature in online satellite maps near Lake Marsal. His questions led a team of French researchers to list the lake area as the center of a possible 11 th -known impact structure in Quebec at a meeting of the Meteoritical Society in 2024—which eventually led to the involvement of Gordon Osinski, a planetary geologist at Western University and director of the Impact Earth database. This is the largest impact crater discovered since the 31-kilometer Hiawatha structure was found in 2018.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/an-accidental-impact-crater-discovery-/newcraterquebec_oli_20251012_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/an-accidental-impact-crater-discovery-/newcraterquebec_oli_20251012_th.jpg",
-      "image_alt": "An Accidental Impact Crater Discovery",
-      "instruments": [
-        "Landsat 8 — OLI"
-      ],
-      "image_source": "Landsat 8 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/an-accidental-impact-crater-discovery/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-accidental-impact-crater-discovery-/newcraterquebec_oli_20251012_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
