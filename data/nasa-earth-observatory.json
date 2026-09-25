@@ -1,9 +1,30 @@
 {
-  "generated_at": "2026-09-24T15:09:09+00:00",
+  "generated_at": "2026-09-25T15:17:51+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Explosive Intensification for Hurricane Polo",
+      "publication_date": "2026-09-25",
+      "display_date": "September 25, 2026",
+      "short_description": "Several ingredients came together off the Pacific coast of Mexico to generate one of the strongest storms the eastern Pacific basin has ever seen.",
+      "abstract": "Several ingredients came together off the Pacific coast of Mexico to generate one of the strongest storms the eastern Pacific basin has ever seen. In mid-September 2026, Hurricane Polo began as a tropical disturbance off the Pacific coast of Mexico. Both Partyka and Corbosiero cautioned against attributing Polo's rapid intensification directly to El Niño ’s unusually warm surface temperatures in the central and eastern Pacific Ocean. Several hurricanes in this region have undergone rapid intensification in the past during La Niña and neutral conditions, Corbosiero noted, including Hurricane Otis in 2023 and Patricia in 2015, both category 5 storms. However, the overall amount of tropical cyclone activity in the eastern Pacific does typically increase during El Niño due to changes in large-scale ocean and atmospheric circulation patterns, and that's what has happened so far in 2026.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/explosive-intensification-for-hurricane-polo/hurricanepolo_amo_20260923_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/explosive-intensification-for-hurricane-polo/hurricanepolo_amo_20260923_th.jpg",
+      "image_alt": "Explosive Intensification for Hurricane Polo",
+      "instruments": [
+        "Aqua — MODIS",
+        "Model"
+      ],
+      "image_source": "Aqua • MODIS · Model",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/explosive-intensification-for-hurricane-polo/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/explosive-intensification-for-hurricane-polo/hurricanepolo_amo_20260923_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "Cloudy Cloak Over the Northwest",
       "publication_date": "2026-09-24",
@@ -126,26 +147,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/summer-goes-out-with-a-heat-dome/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/summer-goes-out-with-a-heat-dome/heatdome_geos5_20260915_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "Purple Haze Aurora",
-      "publication_date": "2026-09-16",
-      "display_date": "September 16, 2026",
-      "short_description": "'Scuse me while some charged particles kiss the sky.",
-      "abstract": "'Scuse me while some charged particles kiss the sky. One of the inspirations for Jimi Hendrix's iconic 1967 hit \" Purple Haze \" is said to be the sci-fi novel Night of Light, about a distant planet in a binary star system. The colorful phenomenon typically starts when the Sun sends charged particles toward Earth through solar flares, coronal mass ejections (CMEs), or an active solar wind. In the process, some particles within the field are drawn into Earth’s upper atmosphere, where they excite nitrogen and oxygen atoms and molecules, causing them to release photons. The aurora Meir photographed occurred amid a disturbance associated with a high-speed stream of solar wind from a coronal hole and the lingering effects of multiple coronal mass ejections, according to updates from NOAA’s Space Weather Prediction Center.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/purple-haze-aurora/ISS075-E-88592_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/purple-haze-aurora/ISS075-E-88592_th.jpg",
-      "image_alt": "Purple Haze Aurora",
-      "instruments": [
-        "Photograph"
-      ],
-      "image_source": "Photography",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/purple-haze-aurora/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/purple-haze-aurora/ISS075-E-88592_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
