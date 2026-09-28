@@ -1,9 +1,30 @@
 {
-  "generated_at": "2026-09-27T15:11:22+00:00",
+  "generated_at": "2026-09-28T18:10:34+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Uncovering the Valleys Hidden Below Greenland’s Ice",
+      "publication_date": "2026-09-28",
+      "display_date": "September 28, 2026",
+      "short_description": "A new map of the terrain beneath the Greenland Ice Sheet links hundreds of valleys that previous maps missed or left fragmented.",
+      "abstract": "A new map of the terrain beneath the Greenland Ice Sheet links hundreds of valleys that previous maps missed or left fragmented. The new map reveals an expansive network of valleys carved into the surface beneath the Greenland Ice Sheet. The work aims to improve future versions of BedMachine Greenland, a high-resolution dataset of the terrain beneath the ice sheet. Using the technique, researchers manually mapped 1,943 subglacial valleys beneath the Greenland Ice Sheet, about a third of which are newly identified. About half of the valleys included in BedMachine Greenland, primarily near the ice sheet’s edge, are now known to extend farther inland than that map indicates, in some cases by hundreds of kilometers. Mapping these valleys matters for understanding the ice sheet, which has continued to dramatically reshape the landscape.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/uncovering-the-valleys-hidden-below-greenland’s-ice/greenlandvalleynet_ifpa_2026_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/uncovering-the-valleys-hidden-below-greenland’s-ice/greenlandvalleynet_ifpa_2026_th.jpg",
+      "image_alt": "Uncovering the Valleys Hidden Below Greenland’s Ice",
+      "instruments": [
+        "ICESat — 2 — ATLAS",
+        "Model"
+      ],
+      "image_source": "ICESat • 2 • ATLAS · Model",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/uncovering-the-valleys-hidden-below-greenlands-ice/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/uncovering-the-valleys-hidden-below-greenland’s-ice/greenlandvalleynet_ifpa_2026_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
+      "media_items": []
+    },
     {
       "title": "Explosive Intensification for Hurricane Polo",
       "publication_date": "2026-09-25",
@@ -127,26 +148,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/lake-powell-drops-to-record-low-levels/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/lake-powell-drops-to-record-low-levels/lakepowell_oli_20260910_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
-      "media_items": []
-    },
-    {
-      "title": "Summer Goes Out With a Heat Dome",
-      "publication_date": "2026-09-17",
-      "display_date": "September 17, 2026",
-      "short_description": "Temperature records toppled across the central and southern U.S. as the autumnal equinox approached.",
-      "abstract": "Temperature records toppled across the central and southern U.S. as the autumnal equinox approached. While the calendar indicated that astronomical summer was winding down, a swath of the south-central United States was sweltering under a heat dome in mid-September 2026. Central Time (21:00 Universal Time), modeled at 2 meters (6.5 feet) above the ground. More than 41 million people in the U.S.—about 12 percent of the population—were under a National Weather Service extreme heat advisory, extreme heat watch, or extreme heat warning on September 15. Several locations set new daily high temperature records on September 15. A weather phenomenon meteorologists call a heat dome was responsible for driving temperatures up across the region. A heat dome develops when an area of high pressure in the upper atmosphere pushes hot air toward the surface and traps it there.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/summer-goes-out-with-a-heat-dome/heatdome_geos5_20260915_th.jpg?w=720&h=480&fit=clip&crop=faces%2Cfocalpoint",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/summer-goes-out-with-a-heat-dome/heatdome_geos5_20260915_th.jpg?w=720&h=480&fit=clip&crop=faces%2Cfocalpoint",
-      "image_alt": "heat dome",
-      "instruments": [
-        "Model"
-      ],
-      "image_source": "Model",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/summer-goes-out-with-a-heat-dome/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/summer-goes-out-with-a-heat-dome/heatdome_geos5_20260915_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=300",
       "media_items": []
     }
   ]
