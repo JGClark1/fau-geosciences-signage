@@ -31,37 +31,6 @@ jobs:
       - name: Install Python dependencies
         run: python -m pip install --upgrade beautifulsoup4
 
-      - name: Diagnose NASA RSS response
-        run: |
-          python - <<'PY'
-          import urllib.request
-          import xml.etree.ElementTree as ET
-
-          url = "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/"
-          request = urllib.request.Request(
-              url,
-              headers={"User-Agent": "FAU-Geosciences-Signage/1.0"}
-          )
-
-          with urllib.request.urlopen(request, timeout=45) as response:
-              data = response.read()
-              print("Final URL:", response.url)
-              print("HTTP status:", response.status)
-              print("Content type:", response.headers.get("Content-Type"))
-              print("Response bytes:", len(data))
-              print("First 500 characters:")
-              print(data[:500].decode("utf-8", errors="replace"))
-
-          try:
-              ET.fromstring(data)
-              print("XML parsing succeeded")
-          except ET.ParseError as error:
-              print("XML parsing failed:", error)
-              lines = data.splitlines()
-              if error.position[0] <= len(lines):
-                  print("Problem line:", repr(lines[error.position[0]-1][:500]))
-          PY
-
       - name: Build NASA slideshow data
         run: python scripts/build_nasa_slideshow.py
 
