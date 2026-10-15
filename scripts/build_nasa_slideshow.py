@@ -1788,7 +1788,12 @@ def make_record(
 def collect_feed_records(
     feed_xml: str,
 ) -> list[dict[str, object]]:
-    """Collect qualifying records from NASA's mixed RSS feed."""
+    # Repair a malformed namespace declaration in NASA's RSS feed.
+    feed_xml = feed_xml.replace(
+        '"xmlns:media=',
+        '" xmlns:media=',
+    )
+
 
     root = ET.fromstring(feed_xml)
 
