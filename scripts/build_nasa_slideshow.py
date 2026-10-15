@@ -1788,14 +1788,44 @@ def make_record(
 def collect_feed_records(
     feed_xml: str,
 ) -> list[dict[str, object]]:
-    # Repair a malformed namespace declaration in NASA's RSS feed.
+    # Normalize a known malformed NASA RSS namespace declaration.
+    malformed_namespace = '"xmlns:media='
+    corrected_namespace = '" xmlns:media='
+
+    correction_count = feed_xml.count(malformed_namespace)
+
+    if correction_count:
+        print(
+            "NASA RSS warning: repaired "
+            f"{correction_count} malformed namespace declaration(s)."
+        )
+
     feed_xml = feed_xml.replace(
-        '"xmlns:media=',
-        '" xmlns:media=',
+        malformed_namespace,
+        corrected_namespace,
     )
 
+    try:
+        root = ET.fromstring(feed_xml)
+    except ET.ParseError as error:
+        print(f"NASA RSS XML validation failed: {error}")
 
-    root = ET.fromstring(feed_xml)
+        lines = feed_xml.splitlines()
+        line_number, column = error.position
+
+        if 1 <= line_number <= len(lines):
+            problem_line = lines[line_number - 1]
+            start = max(0, column - 100)
+            end = column + 100
+
+            print(
+                "Problematic XML excerpt:",
+                repr(problem_line[start:end]),
+            )
+
+        raise
+
+    print("NASA RSS XML validation passed.")
 
     items = [
         element
