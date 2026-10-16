@@ -1,9 +1,30 @@
 {
-  "generated_at": "2026-10-15T21:28:38+00:00",
+  "generated_at": "2026-10-16T14:53:40+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Isaias Dims the Gulf Coast",
+      "publication_date": "2026-10-16",
+      "display_date": "October 16, 2026",
+      "short_description": "High-definition images of nighttime lights show where the hurricane knocked out power along the Florida Panhandle and how quickly the lights came back.",
+      "abstract": "High-definition images of nighttime lights show where the hurricane knocked out power along the Florida Panhandle and how quickly the lights came back. After a quiet start to the 2026 Atlantic hurricane season, Isaias became the season’s first hurricane on October 8 as it tracked toward the U.S. Gulf Coast. Isaias made landfall near Destin, Florida, on the evening of October 9 as a Category 2 hurricane with maximum sustained winds of 105 miles (170 kilometers) per hour. The team processed the data to account for changes in the landscape, the atmosphere, and phase of the Moon, and to filter out stray light that does not come from electric lights. “Standard Black Marble nighttime lights imagery, available through NASA Worldview, provides a broad picture of the storm's immediate impacts,” Shrestha said.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/isaias-dims-the-gulf-coast/isaias_bmhd_20261011_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/isaias-dims-the-gulf-coast/isaias_bmhd_20261011_th.jpg",
+      "image_alt": "Isaias Dims the Gulf Coast",
+      "instruments": [
+        "Landsat 9 — OLI",
+        "NOAA — 20 — VIIRS"
+      ],
+      "image_source": "Landsat 9 • OLI · NOAA • 20 • VIIRS",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/isaias-dims-the-gulf-coast/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/isaias-dims-the-gulf-coast/isaias_bmhd_20261011_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
+      "media_items": []
+    },
     {
       "title": "Fires Arrive in the Amazon Rainforest",
       "publication_date": "2026-10-15",
@@ -21,7 +42,7 @@
       "image_source": "Aqua • MODIS",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/fires-arrive-in-the-amazon-rainforest/",
       "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/fires-arrive-in-the-amazon-rainforest/amazofires_amo_20261012_th.jpg?fit=clip&crop=faces%2Cfocalpoint",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/fires-arrive-in-the-amazon-rainforest/amazofires_amo_20261012_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683",
       "media_items": []
     },
     {
@@ -42,7 +63,7 @@
       "image_source": "NOAA • 21 • VIIRS · Suomi NPP • VIIRS",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/hurricane-simon-lurks-off-the-mexican-coast/",
       "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/hurricane-simon-lurks-off-the-mexican-coast/hurricanesimon_vir2_20261011_th.jpg?fit=clip&crop=faces%2Cfocalpoint",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/hurricane-simon-lurks-off-the-mexican-coast/hurricanesimon_vir2_20261011_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
       "media_items": []
     },
     {
@@ -62,7 +83,7 @@
       "image_source": "Landsat 9 • OLI",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/an-impact-structure-with-legs/",
       "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-impact-structure-with-legs/aus_spidercrater_oli2_20260920_th.jpg?fit=clip&crop=faces%2Cfocalpoint",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-impact-structure-with-legs/aus_spidercrater_oli2_20260920_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
       "media_items": []
     },
     {
@@ -85,7 +106,7 @@
       "image_source": "Aqua • AMSR • E · DMSP • SSM/I, SSMIS · GCOM • W1 • AMSR • 2 · Nimbus 7 • SMMR",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/",
       "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/antarctic-sea-ice-grows-to-its-2026-maximum/antarctic_nsidc_20260914_th.jpg?fit=clip&crop=faces%2Cfocalpoint",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/antarctic-sea-ice-grows-to-its-2026-maximum/antarctic_nsidc_20260914_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
       "media_items": []
     },
     {
@@ -106,7 +127,7 @@
       "image_source": "Landsat 8 • OLI · Landsat 9 • OLI",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/floodwaters-overwhelm-thailand/",
       "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/floodwaters-overwhelm-thailand/thailandflooding_oli2_20261002_th.jpg?fit=clip&crop=faces%2Cfocalpoint",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/floodwaters-overwhelm-thailand/thailandflooding_oli2_20261002_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=711",
       "media_items": []
     },
     {
@@ -126,30 +147,7 @@
       "image_source": "Landsat 8 • OLI",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/fighting-drought-in-texas-cotton-country/",
       "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/fighting-drought-in-texas-cotton-country/texasdrought_oli_20260909_th.jpg?fit=clip&crop=faces%2Cfocalpoint",
-      "media_items": []
-    },
-    {
-      "title": "Arctic Sea Ice Shrinks to Its 2026 Minimum",
-      "publication_date": "2026-10-07",
-      "display_date": "October 7, 2026",
-      "short_description": "Satellite records show Arctic sea ice covering less of the ocean in both winter and summer.",
-      "abstract": "Satellite records show Arctic sea ice covering less of the ocean in both winter and summer. This story is an update to the Arctic sea ice feature in our World of Change series, which tracks long-term change on Earth's surface through satellite imagery. But satellite records show the ice now covers less of the Arctic Ocean at its annual maximum and minimum than it did a few decades ago. Sea ice in 2026 reached its annual minimum extent on September 12 (above), when it covered an estimated 4.6 million square kilometers (1.78 million square miles), according to NASA and the National Snow and Ice Data Center (NSIDC). Each of the past 20 summers, from 2007 through 2026, ranks among the 20 lowest minimum extents in the satellite record. Starting in 2025, scientists began using observations from the Japan Aerospace Exploration Agency’s GCOM-W satellite.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/arctic-sea-ice-shrinks-to-its-2026-minimum/arctic_nsidc_20260912_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/arctic-sea-ice-shrinks-to-its-2026-minimum/arctic_nsidc_20260912_th.jpg",
-      "image_alt": "Arctic Sea Ice Shrinks to Its 2026 Minimum",
-      "instruments": [
-        "Aqua — AMSR — E",
-        "DMSP — SSM/I, SSMIS",
-        "GCOM — W1 — AMSR — 2",
-        "Nimbus 7 — SMMR"
-      ],
-      "image_source": "Aqua • AMSR • E · DMSP • SSM/I, SSMIS · GCOM • W1 • AMSR • 2 · Nimbus 7 • SMMR",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/arctic-sea-ice-shrinks-to-its-2026-minimum/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/arctic-sea-ice-shrinks-to-its-2026-minimum/arctic_nsidc_20260912_th.jpg?fit=clip&crop=faces%2Cfocalpoint",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/fighting-drought-in-texas-cotton-country/texasdrought_oli_20260909_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=711",
       "media_items": []
     }
   ]
