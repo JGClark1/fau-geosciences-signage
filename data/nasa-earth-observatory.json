@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-10-18T14:02:14+00:00",
+  "generated_at": "2026-10-19T16:59:37+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Autumn Paints Poland’s Bieszczady Mountains",
+      "publication_date": "2026-10-19",
+      "display_date": "October 19, 2026",
+      "short_description": "Fall color covers the forested slopes of Bieszczady National Park, while patches of polonina, a type of high-mountain meadow, have turned tan.",
+      "abstract": "Fall color covers the forested slopes of Bieszczady National Park, while patches of polonina, a type of high-mountain meadow, have turned tan. The seasonal transformation was underway in southeast Poland’s Bieszczady National Park on October 8, 2026, when the OLI (Operational Land Imager) on the NASA-USGS Landsat 9 satellite captured this image. Portions of Bieszczady National Park are included within UNESCO’s network of ancient and primeval beech forests spanning 18 countries. Above that is the realm of the polonina, a Slavic term for subalpine meadow, consisting of open grasslands and shrubby thickets of rowan (mountain ash), willows, and green alder. Patches of polonina stretch across ridge tops to the east-southeast of Smerek and appear tan, having lost their summer greenness.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/autumn-paints-poland's-bieszczady-mountains/poland_bieszczady_oli2_20261008_th.jpg?w=1024",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/autumn-paints-poland's-bieszczady-mountains/poland_bieszczady_oli2_20261008_th.jpg?w=1024",
+      "image_alt": "Bieszczady Mountains",
+      "instruments": [
+        "Landsat 9 — OLI"
+      ],
+      "image_source": "Landsat 9 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/autumn-paints-polands-bieszczady-mountains/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/autumn-paints-poland's-bieszczady-mountains/poland_bieszczady_oli2_20261008_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
+      "media_items": []
+    },
     {
       "title": "Isaias Dims the Gulf Coast",
       "publication_date": "2026-10-16",
@@ -128,26 +148,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/floodwaters-overwhelm-thailand/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/floodwaters-overwhelm-thailand/thailandflooding_oli2_20261002_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=711",
-      "media_items": []
-    },
-    {
-      "title": "Fighting Drought in Texas Cotton Country",
-      "publication_date": "2026-10-08",
-      "display_date": "October 8, 2026",
-      "short_description": "Drought and an ailing aquifer were major topics of conversation when NASA scientists visited with farmers in the Texas High Plains.",
-      "abstract": "Drought and an ailing aquifer were major topics of conversation when NASA scientists visited with farmers in the Texas High Plains. With groundwater growing scarce in the High Plains aquifer, many farmers in the region have started irrigating just one-half or one-third of their center-pivot fields, explained Tillery Timmons-Sims, an agricultural conservationist who owns land in Brownfield, Texas, and used to grow cotton. According to U.S. Geological Survey data, the water table across much of Lubbock County has dropped by between 25 and 100 feet since 1950, around when people began drawing large volumes of water from the aquifer to irrigate. In Texas, Timmons-Sims and FIAT are working to connect farmers and NASA scientists, making it easier for farmers to use NASA data to decide what and when to plant, how to use cover crops and irrigation, and how to manage sediment and playa lakes.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/fighting-drought-in-texas-cotton-country/texasdrought_oli_20260909_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/fighting-drought-in-texas-cotton-country/texasdrought_oli_20260909_th.jpg",
-      "image_alt": "Fighting Drought in Texas Cotton Country",
-      "instruments": [
-        "Landsat 8 — OLI"
-      ],
-      "image_source": "Landsat 8 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/fighting-drought-in-texas-cotton-country/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/fighting-drought-in-texas-cotton-country/texasdrought_oli_20260909_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=711",
       "media_items": []
     }
   ]
