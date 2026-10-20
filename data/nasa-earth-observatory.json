@@ -1,9 +1,31 @@
 {
-  "generated_at": "2026-10-19T16:59:37+00:00",
+  "generated_at": "2026-10-20T15:07:35+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "The Human Fingerprint on Earth’s Water Cycle",
+      "publication_date": "2026-10-20",
+      "display_date": "October 20, 2026",
+      "short_description": "Human activities have become intertwined with how water is distributed across the continents. A new study brings their effects into sharper focus.",
+      "abstract": "Human activities have become intertwined with how water is distributed across the continents. A new study brings their effects into sharper focus. Humans are exerting increasing influence over how water moves through lakes, rivers, soil, and the subsurface, and a new NASA study shows where those effects are greatest. Beyond the influence of climate variability, the scientists identified 40 regions where the changes also aligned with human activities such as irrigation, reservoir impoundment, and land-use change. In some areas, the effects of human activities were especially strong. In the new analysis, the Boguchany Reservoir on Russia’s Angara River, the second-largest reservoir filled in the 21st century, produced the strongest water storage trend in nonpolar northern Asia. Moving forward, O’Neill wants to capture how dams, diversions, irrigation, and other controls on Earth’s water affect storage downstream, and to disentangle the influence of local and non-local activities.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-human-fingerprint-on-earth’s-water-cycle/terrestrialwaterstorage_trends_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-human-fingerprint-on-earth’s-water-cycle/terrestrialwaterstorage_trends_th.jpg",
+      "image_alt": "Human Fingerprint on Earth’s Water Cycle",
+      "instruments": [
+        "GRACE",
+        "GRACE — FO",
+        "Photograph"
+      ],
+      "image_source": "GRACE · GRACE • FO · Photography",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/the-human-fingerprint-on-earths-water-cycle/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-human-fingerprint-on-earth’s-water-cycle/terrestrialwaterstorage_trends_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
+      "media_items": []
+    },
     {
       "title": "Autumn Paints Poland’s Bieszczady Mountains",
       "publication_date": "2026-10-19",
@@ -127,27 +149,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/antarctic-sea-ice-grows-to-its-2026-maximum/antarctic_nsidc_20260914_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
-      "media_items": []
-    },
-    {
-      "title": "Floodwaters Overwhelm Thailand",
-      "publication_date": "2026-10-09",
-      "display_date": "October 9, 2026",
-      "short_description": "Heavy rains since mid-September have caused widespread flooding that has affected millions of people across the country.",
-      "abstract": "Heavy rains since mid-September have caused widespread flooding that has affected millions of people across the country. September falls in the heart of the monsoon season in Thailand, where cities and towns are accustomed to the afternoon rains and thunderstorms that frequently roll through. But throughout late September and early October 2026, persistent heavy rains punctuated by intense downpours left low-lying areas across the country in Southeast Asia under sustained flooding. Stoked by moisture and energy from the warm Gulf of Thailand nearby, the system delivered especially intense rains to the region. Since mid-September, flooding has occurred in 50 provinces across the country, affecting over 4 million people and causing dozens of deaths, according to the International Federation of Red Cross and Red Crescent Societies.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/floodwaters-overwhelm-thailand/thailandflooding_oli2_20261002_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/floodwaters-overwhelm-thailand/thailandflooding_oli2_20261002_th.jpg",
-      "image_alt": "Floodwaters Overwhelm Thailand",
-      "instruments": [
-        "Landsat 8 — OLI",
-        "Landsat 9 — OLI"
-      ],
-      "image_source": "Landsat 8 • OLI · Landsat 9 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/floodwaters-overwhelm-thailand/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/floodwaters-overwhelm-thailand/thailandflooding_oli2_20261002_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=711",
       "media_items": []
     }
   ]
