@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-10-21T15:18:05+00:00",
+  "generated_at": "2026-10-22T15:18:43+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Fires Char New Guinea",
+      "publication_date": "2026-10-22",
+      "display_date": "October 22, 2026",
+      "short_description": "Emissions on both sides of the island are unusually high as human-set fires spread in a landscape parched by drought.",
+      "abstract": "Emissions on both sides of the island are unusually high as human-set fires spread in a landscape parched by drought. But in September and October 2026, as drought gripped New Guinea (sometimes called Papua) amid a strong El Niño, fires scorched the island and smoke shrouded large swaths of it for weeks. According to the Global Fire Emissions Database (GFED), a fire emissions monitoring system, fires in Papua New Guinea, on the eastern half of the island, had released nearly 32 megatons of carbon by October 17, more than any other year on record at that point in the year (charts above). In dry conditions, managed fires sometimes spread and burn uncontrolled as wildfires, particularly in the drier, southernmost parts of the island.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/new-guinea-on-fire/papuanewguinea_vir_20261011_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/new-guinea-on-fire/papuanewguinea_vir_20261011_th.jpg",
+      "image_alt": "new guinea",
+      "instruments": [
+        "NOAA — 20 — VIIRS"
+      ],
+      "image_source": "NOAA • 20 • VIIRS",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/fires-char-new-guinea/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-guinea-on-fire/papuanewguinea_vir_20261011_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
+      "media_items": []
+    },
     {
       "title": "Extratropical Cyclone Whips Past Iceland",
       "publication_date": "2026-10-21",
@@ -53,9 +73,9 @@
       "short_description": "Fall color covers the forested slopes of Bieszczady National Park, while patches of polonina, a type of high-mountain meadow, have turned tan.",
       "abstract": "Fall color covers the forested slopes of Bieszczady National Park, while patches of polonina, a type of high-mountain meadow, have turned tan. The seasonal transformation was underway in southeast Poland’s Bieszczady National Park on October 8, 2026, when the OLI (Operational Land Imager) on the NASA-USGS Landsat 9 satellite captured this image. Portions of Bieszczady National Park are included within UNESCO’s network of ancient and primeval beech forests spanning 18 countries. Above that is the realm of the polonina, a Slavic term for subalpine meadow, consisting of open grasslands and shrubby thickets of rowan (mountain ash), willows, and green alder. Patches of polonina stretch across ridge tops to the east-southeast of Smerek and appear tan, having lost their summer greenness.",
       "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/autumn-paints-poland's-bieszczady-mountains/poland_bieszczady_oli2_20261008_th.jpg?w=1024",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/autumn-paints-poland's-bieszczady-mountains/poland_bieszczady_oli2_20261008_lrg.jpg",
       "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/autumn-paints-poland's-bieszczady-mountains/poland_bieszczady_oli2_20261008_th.jpg?w=1024",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/autumn-paints-poland's-bieszczady-mountains/poland_bieszczady_oli2_20261008_lrg.jpg",
       "image_alt": "Bieszczady Mountains",
       "instruments": [
         "Landsat 9 — OLI"
@@ -126,26 +146,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/hurricane-simon-lurks-off-the-mexican-coast/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/hurricane-simon-lurks-off-the-mexican-coast/hurricanesimon_vir2_20261011_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
-      "media_items": []
-    },
-    {
-      "title": "An Impact Structure With Legs",
-      "publication_date": "2026-10-13",
-      "display_date": "October 13, 2026",
-      "short_description": "If the thought of extraterrestrial objects crashing into Earth weren’t creepy enough, behold Australia’s Spider Crater.",
-      "abstract": "If the thought of extraterrestrial objects crashing into Earth weren’t creepy enough, behold Australia’s Spider Crater. The aptly named Spider Crater, the product of a meteorite impact followed by hundreds of millions of years of erosion, sprawls across the landscape in the country’s Kimberley region. Geologists believe the unusual arachnoid pattern is the remnant of a central uplift, the raised portion of the crater floor that formed in the rebound of the initial impact shock. Scientists have subsequently performed lab analyses of shocked quartz and zircon crystals from the sandstone, which can help them reconstruct the angle of the meteorite’s impact. The date of the impact is uncertain, but estimates based on rocks in the region place it between about 900 million and 600 million years ago—making Spider Crater a creature of the late Precambrian.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/an-impact-structure-with-legs/aus_spidercrater_oli2_20260920_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/an-impact-structure-with-legs/aus_spidercrater_oli2_20260920_th.jpg",
-      "image_alt": "impact structure with legs",
-      "instruments": [
-        "Landsat 9 — OLI"
-      ],
-      "image_source": "Landsat 9 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/an-impact-structure-with-legs/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/an-impact-structure-with-legs/aus_spidercrater_oli2_20260920_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
       "media_items": []
     }
   ]
