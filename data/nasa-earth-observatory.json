@@ -1,9 +1,31 @@
 {
-  "generated_at": "2026-10-22T15:18:43+00:00",
+  "generated_at": "2026-10-23T15:07:11+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "El Niño Then and Now",
+      "publication_date": "2026-10-23",
+      "display_date": "October 23, 2026",
+      "short_description": "A 35-year satellite altimetry record lets scientists hold this year's El Niño up against its strongest predecessors.",
+      "abstract": "A 35-year satellite altimetry record lets scientists hold this year's El Niño up against its strongest predecessors. Data are from the TOPEX/Poseidon satellite and the Sentinel-6 Michael Freilich satellite, respectively, and were processed by scientists at JPL. “What’s unique about altimetry is that we have a 35-year record from nearly identical satellites flying almost the same ground track, with each mission overlapping the next,” Willis said. “That lets us look back in time and compare this El Niño to what happened in 1997. Sea surface height anomalies on October 12, 2015, based on altimetry data from the Jason-2 satellite, are shown above in context with maps from around the same time in 1997 and 2026. NASA Earth Observatory maps by Lauren Dauphin, using NASA-SSH altimetry data provided by Josh Willis, Severine Fournier, and Kevin Marlis, NASA/JPL-Caltech.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/el-niño-then-and-now/elninocomp_sen6_20261012_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/el-niño-then-and-now/elninocomp_sen6_20261012_th.jpg",
+      "image_alt": "El Niño Then and Now",
+      "instruments": [
+        "JASON — 2",
+        "Sentinel — 6 Michael Freilich",
+        "TOPEX/Poseidon"
+      ],
+      "image_source": "JASON • 2 · Sentinel • 6 Michael Freilich · TOPEX/Poseidon",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/el-nino-then-and-now/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/el-niño-then-and-now/elninocomp_sen6_20261012_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683",
+      "media_items": []
+    },
     {
       "title": "Fires Char New Guinea",
       "publication_date": "2026-10-22",
@@ -125,27 +147,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/fires-arrive-in-the-amazon-rainforest/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/fires-arrive-in-the-amazon-rainforest/amazofires_amo_20261012_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683",
-      "media_items": []
-    },
-    {
-      "title": "Hurricane Simon Lurks Off the Mexican Coast",
-      "publication_date": "2026-10-14",
-      "display_date": "October 14, 2026",
-      "short_description": "Though it remained offshore, the storm lashed coastal areas with high winds and flooding—and produced remarkable rippling patterns in the upper atmosphere.",
-      "abstract": "Though it remained offshore, the storm lashed coastal areas with high winds and flooding—and produced remarkable rippling patterns in the upper atmosphere. Hurricane Simon, the latest in a long progression of tropical cyclones in the Eastern Pacific this season, passed close to the Mexican coast as a category 4 storm on October 11, 2026. By that time, sustained winds were about 210 kilometers (130 miles) per hour, according to the National Hurricane Center (NHC), and the storm’s inner core was brushing up against the coast. Still, the major hurricane delivered heavy rain and flooding to coastal areas, including the port city of Manzanillo, and raised the risk of mudslides in mountainous areas, according to news reports. This nighttime image (above), acquired with VIIRS on the NOAA-21 satellite, shows atmospheric gravity waves radiating from the hurricane.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/hurricane-simon-lurks-off-the-mexican-coast/hurricanesimon_vir2_20261011_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/hurricane-simon-lurks-off-the-mexican-coast/hurricanesimon_vir2_20261011_th.jpg",
-      "image_alt": "Hurricane Simon",
-      "instruments": [
-        "NOAA — 21 — VIIRS",
-        "Suomi NPP — VIIRS"
-      ],
-      "image_source": "NOAA • 21 • VIIRS · Suomi NPP • VIIRS",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/hurricane-simon-lurks-off-the-mexican-coast/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/hurricane-simon-lurks-off-the-mexican-coast/hurricanesimon_vir2_20261011_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
       "media_items": []
     }
   ]
