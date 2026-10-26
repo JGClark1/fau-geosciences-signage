@@ -1,9 +1,31 @@
 {
-  "generated_at": "2026-10-25T14:24:12+00:00",
+  "generated_at": "2026-10-26T16:48:17+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Hunting Red Leaves with Satellites",
+      "publication_date": "2026-10-26",
+      "display_date": "October 26, 2026",
+      "short_description": "A modern satellite makes it possible to pursue the ancient tradition of leaf-peeping in a whole new way.",
+      "abstract": "A modern satellite makes it possible to pursue the ancient tradition of leaf-peeping in a whole new way. The Japanese tradition of momijigari, or \"red leaf hunting,\" stretches back more than a millennium, as evidenced by ancient poems describing journeys to admire fall foliage. Tracking the ratio over time reveals where leaves are changing and when color peaks. Areas shown in green have values near 1, meaning the satellite detects about as much red as green, and most leaves have not yet turned. Huemmrich, who is also a member of the PACE science team, was eager to work with the satellite because of OCI's broad swath and short revisit time. The PACE team is asking the public to submit photos of fall foliage to help scientists \"ground truth\" the satellite observations and better understand how various factors influence vegetation color.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/red-leaf-hunting-/vermontfallcolor_oli2_20261003_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/red-leaf-hunting-/vermontfallcolor_oli2_20261003_th.jpg",
+      "image_alt": "satellites",
+      "instruments": [
+        "Landsat 9 — OLI",
+        "PACE",
+        "Photograph"
+      ],
+      "image_source": "Landsat 9 • OLI · PACE · Photography",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/hunting-red-leaves-with-satellites/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/red-leaf-hunting-/vermontfallcolor_oli2_20261003_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683",
+      "media_items": []
+    },
     {
       "title": "El Niño Then and Now",
       "publication_date": "2026-10-23",
@@ -127,26 +149,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/isaias-dims-the-gulf-coast/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/isaias-dims-the-gulf-coast/isaias_bmhd_20261011_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
-      "media_items": []
-    },
-    {
-      "title": "Fires Arrive in the Amazon Rainforest",
-      "publication_date": "2026-10-15",
-      "display_date": "October 15, 2026",
-      "short_description": "During El Niño, a cascade of fires across the tropics begins in equatorial Asia and continues in the central and eastern Amazon.",
-      "abstract": "During El Niño, a cascade of fires across the tropics begins in equatorial Asia and continues in the central and eastern Amazon. Starting in September 2026, satellites detected sharp increases in fire activity and smoke emissions in the central and eastern Amazon, visible in fire and emissions monitoring platforms including NASA's Fire Information for Resource Management System (FIRMS), the Global Fire Emissions Database (GFED), and NASA Worldview. \"Now, in the Amazon, we're seeing the second domino in the cascade fall,\" Morton said, referring to the uptick in fires that has begun in Pará and Amazonas. He plans to share the locations of these \"candidate fires\" with scientists at MapBiomas, a multi-institutional network comprising universities, NGOs, and technology companies that maps fires and land-use change in the Amazon.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/fires-arrive-in-the-amazon-rainforest/amazofires_amo_20261012_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/fires-arrive-in-the-amazon-rainforest/amazofires_amo_20261012_th.jpg",
-      "image_alt": "rainforest",
-      "instruments": [
-        "Aqua — MODIS"
-      ],
-      "image_source": "Aqua • MODIS",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/fires-arrive-in-the-amazon-rainforest/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/fires-arrive-in-the-amazon-rainforest/amazofires_amo_20261012_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683",
       "media_items": []
     }
   ]
