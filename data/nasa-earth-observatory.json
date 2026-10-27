@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-10-26T16:48:17+00:00",
+  "generated_at": "2026-10-27T15:53:43+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "A-81 Reaches South Georgia",
+      "publication_date": "2026-10-27",
+      "display_date": "October 27, 2026",
+      "short_description": "The Antarctic iceberg made a relatively quick exit from the Weddell Sea, only to slow at the edge of a remote island’s underwater shelf.",
+      "abstract": "The Antarctic iceberg made a relatively quick exit from the Weddell Sea, only to slow at the edge of a remote island’s underwater shelf. Others, like Iceberg A-81, make a faster exit, heading north out of the Weddell Sea along a route well-traveled by the region’s bergs. In the days before, its progress slowed noticeably, and it appeared to be bumping along the edge of the island’s underwater shelf, according to Jan Lieser of Australia’s Bureau of Meteorology and Christopher Shuman of the University of Maryland (retired). Calving is a normal part of the life cycle of ice shelves, but scientists keep a close eye on Brunt, which has recently shed several large icebergs in quick succession and is home to the British Antarctic Survey’s Halley Research Station, a major base for Earth, atmospheric, and space science research since the 1950s.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-81-reaches-south-georgia/iceberga81_tmo_20261020_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-81-reaches-south-georgia/iceberga81_tmo_20261020_th.jpg",
+      "image_alt": "A-81 Reaches South Georgia",
+      "instruments": [
+        "Terra — MODIS"
+      ],
+      "image_source": "Terra • MODIS",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/a-81-reaches-south-georgia/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-81-reaches-south-georgia/iceberga81_tmo_20261020_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
+      "media_items": []
+    },
     {
       "title": "Hunting Red Leaves with Satellites",
       "publication_date": "2026-10-26",
@@ -128,27 +148,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/autumn-paints-polands-bieszczady-mountains/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/autumn-paints-poland's-bieszczady-mountains/poland_bieszczady_oli2_20261008_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
-      "media_items": []
-    },
-    {
-      "title": "Isaias Dims the Gulf Coast",
-      "publication_date": "2026-10-16",
-      "display_date": "October 16, 2026",
-      "short_description": "High-definition images of nighttime lights show where the hurricane knocked out power along the Florida Panhandle and how quickly the lights came back.",
-      "abstract": "High-definition images of nighttime lights show where the hurricane knocked out power along the Florida Panhandle and how quickly the lights came back. After a quiet start to the 2026 Atlantic hurricane season, Isaias became the season’s first hurricane on October 8 as it tracked toward the U.S. Gulf Coast. Isaias made landfall near Destin, Florida, on the evening of October 9 as a Category 2 hurricane with maximum sustained winds of 105 miles (170 kilometers) per hour. The team processed the data to account for changes in the landscape, the atmosphere, and phase of the Moon, and to filter out stray light that does not come from electric lights. “Standard Black Marble nighttime lights imagery, available through NASA Worldview, provides a broad picture of the storm's immediate impacts,” Shrestha said.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/isaias-dims-the-gulf-coast/isaias_bmhd_20261011_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/isaias-dims-the-gulf-coast/isaias_bmhd_20261011_th.jpg",
-      "image_alt": "Isaias Dims the Gulf Coast",
-      "instruments": [
-        "Landsat 9 — OLI",
-        "NOAA — 20 — VIIRS"
-      ],
-      "image_source": "Landsat 9 • OLI · NOAA • 20 • VIIRS",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/isaias-dims-the-gulf-coast/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/isaias-dims-the-gulf-coast/isaias_bmhd_20261011_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
       "media_items": []
     }
   ]
