@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-10-29T16:56:18+00:00",
+  "generated_at": "2026-10-30T16:42:37+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Vega Island Frozen in Fright",
+      "publication_date": "2026-10-30",
+      "display_date": "October 30, 2026",
+      "short_description": "The sight of an icy skull-like visage on the Antarctic island could make one’s blood run cold.",
+      "abstract": "The sight of an icy skull-like visage on the Antarctic island could make one’s blood run cold. Shrouded in ice in the lonely Weddell Sea, Vega Island is an eerie sight to behold. On this speck of land east of the Antarctic Peninsula, ice, rock outcrops, and glacial moraines combine to create the appearance of a smirking skull in profile looking toward Devil Island. These images show Vega Island’s creepy countenance at the start of austral autumn (left) and in spring (right). Long before scientists began tracking its glaciers, Vega was a bright spot in a tale of terror born out of early exploration of the area. Cape Well-met, as it would come to be known, off the “forehead” of the Vega Island skull, was the site of a happy reunion of two of the groups in spring 1903.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/vega-island-frozen-in-fright/vegaislandzm_oli2_20261010_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/vega-island-frozen-in-fright/vegaislandzm_oli2_20261010_th.jpg",
+      "image_alt": "vega island",
+      "instruments": [
+        "Landsat 9 — OLI"
+      ],
+      "image_source": "Landsat 9 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/vega-island-frozen-in-fright/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/vega-island-frozen-in-fright/vegaislandzm_oli2_20261010_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683",
+      "media_items": []
+    },
     {
       "title": "Arnab Strikes India",
       "publication_date": "2026-10-29",
@@ -91,22 +111,21 @@
       "publication_date": "2026-10-23",
       "display_date": "October 23, 2026",
       "short_description": "A 35-year satellite altimetry record lets scientists hold this year's El Niño up against its strongest predecessors.",
-      "abstract": "A 35-year satellite altimetry record lets scientists hold this year's El Niño up against its strongest predecessors. Data are from the TOPEX/Poseidon satellite and the Sentinel-6 Michael Freilich satellite, respectively, and were processed by scientists at JPL. “What’s unique about altimetry is that we have a 35-year record from nearly identical satellites flying almost the same ground track, with each mission overlapping the next,” Willis said. “That lets us look back in time and compare this El Niño to what happened in 1997. Sea surface height anomalies on October 12, 2015, based on altimetry data from the Jason-2 satellite, are shown above in context with maps from around the same time in 1997 and 2026. NASA Earth Observatory maps by Lauren Dauphin, using NASA-SSH altimetry data provided by Josh Willis, Severine Fournier, and Kevin Marlis, NASA/JPL-Caltech.",
+      "abstract": "A 35-year satellite altimetry record lets scientists hold this year's El Niño up against its strongest predecessors. NASA’s Swift Mission Ends, Leaves Behind Scientific Bonanza Sunshade for NASA’s NEO Surveyor Mission Ready for Its Day in Sun What’s Up: October 2026 Skywatching Tips from NASA Pedal to the Metal: NASA’s Psyche Heads Toward Asteroid Belt NASA’s ISAM State of Play: The Industry Standard for Space Servicing, Assembly, and Manufacturing NASA’s Artemis III Mission to Test Future Moon Lander Operations NASA’s Simulated Mars Crew Marks One Year Inside Habitat NASA-funded Study Details One of Oldest Mars Meteorites Ever Found NASA Explores Potential Commercial Servicing for Hubble Telescope Ghostly Cat’s Head Nebula Lurks Within Sight of NASA’s Hubble, Webb NASA University Challenge Ignites Trajectory of Drone Entrepreneur",
       "media_type": "image",
       "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/el-niño-then-and-now/elninocomp_sen6_20261012_th.jpg",
       "video_url": "",
       "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/el-niño-then-and-now/elninocomp_sen6_20261012_th.jpg",
       "image_alt": "El Niño Then and Now",
       "instruments": [
-        "JASON — 2",
-        "Sentinel — 6 Michael Freilich",
-        "TOPEX/Poseidon"
+        "ISS",
+        "Drone photography"
       ],
-      "image_source": "JASON • 2 · Sentinel • 6 Michael Freilich · TOPEX/Poseidon",
+      "image_source": "ISS • Drone photography",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/el-nino-then-and-now/",
       "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/el-niño-then-and-now/elninocomp_sen6_20261012_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683",
-      "media_items": []
+      "media_items": [],
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/el-niño-then-and-now/elninocomp_sen6_20261012_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683"
     },
     {
       "title": "Fires Char New Guinea",
@@ -126,26 +145,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/fires-char-new-guinea/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-guinea-on-fire/papuanewguinea_vir_20261011_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
-      "media_items": []
-    },
-    {
-      "title": "Extratropical Cyclone Whips Past Iceland",
-      "publication_date": "2026-10-21",
-      "display_date": "October 21, 2026",
-      "short_description": "The powerful low-pressure system formed over the North Atlantic out of the remnants of Hurricane Isaias.",
-      "abstract": "The powerful low-pressure system formed over the North Atlantic out of the remnants of Hurricane Isaias. Hurricane Isaias—the only Atlantic hurricane to date in 2026—made landfall in Florida as a Category 2 storm on October 9. Riding the jet stream east over the North Atlantic, Isaias’s remnants developed into a powerful storm known as an extratropical cyclone. The VIIRS (Visible Infrared Imaging Radiometer Suite) on the NOAA-21 satellite captured this image of the extratropical cyclone brushing past Iceland on the afternoon of October 14. The cyclone lashed Iceland with high winds as it grazed the coast. Farther across the Atlantic, northwestern Scotland received gusts up to 90 kilometers (55 miles) per hour on October 14, according to news reports, resulting in cancellations on several ferry routes.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/extratropical-cyclone-whips-past-iceland/icelandstorm_vir2_20261014_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/extratropical-cyclone-whips-past-iceland/icelandstorm_vir2_20261014_th.jpg",
-      "image_alt": "extratropical cyclone",
-      "instruments": [
-        "NOAA — 21 — VIIRS"
-      ],
-      "image_source": "NOAA • 21 • VIIRS",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/extratropical-cyclone-whips-past-iceland/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/extratropical-cyclone-whips-past-iceland/icelandstorm_vir2_20261014_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
       "media_items": []
     }
   ]
