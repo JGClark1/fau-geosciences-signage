@@ -1,9 +1,30 @@
 {
-  "generated_at": "2026-11-01T16:49:03+00:00",
+  "generated_at": "2026-11-02T20:22:52+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Pennsylvania’s Grand Canyon",
+      "publication_date": "2026-11-02",
+      "display_date": "November 2, 2026",
+      "short_description": "Amid the warm hues of fall foliage, Pine Creek Gorge forms a deep scar in the Allegheny Plateau.",
+      "abstract": "Amid the warm hues of fall foliage, Pine Creek Gorge forms a deep scar in the Allegheny Plateau. Pine Creek Gorge reaches depths of about 1,500 feet (460 meters) along its gently curving path through the forests of the Allegheny Plateau. Nicknamed the “Grand Canyon of Pennsylvania,” the gorge runs for some 45 miles (72 kilometers) from Ansonia south to Pine Creek’s confluence with the West Branch Susquehanna River, reaching its greatest depths around Waterville. The OLI (Operational Land Imager) on the NASA-USGS Landsat 8 satellite captured this image of Pine Creek Gorge on October 25, 2026, when colorful fall foliage was on display. Visitors can experience the gorge’s natural splendor at many points along its path, including from multiple state parks and the Pine Creek Rail Trail.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/pennsylvania’s-grand-canyon/pinecreekgorge_oli_20261025_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/pennsylvania’s-grand-canyon/pinecreekgorge_oli_20261025_th.jpg",
+      "image_alt": "Pennsylvania’s Grand Canyon",
+      "instruments": [
+        "Landsat 8 — OLI",
+        "Photograph"
+      ],
+      "image_source": "Landsat 8 • OLI · Photography",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/pennsylvanias-grand-canyon/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/pennsylvania’s-grand-canyon/pinecreekgorge_oli_20261025_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
+      "media_items": []
+    },
     {
       "title": "Vega Island Frozen in Fright",
       "publication_date": "2026-10-30",
@@ -89,22 +110,24 @@
       "publication_date": "2026-10-26",
       "display_date": "October 26, 2026",
       "short_description": "A modern satellite makes it possible to pursue the ancient tradition of leaf-peeping in a whole new way.",
-      "abstract": "A modern satellite makes it possible to pursue the ancient tradition of leaf-peeping in a whole new way. The Japanese tradition of momijigari, or \"red leaf hunting,\" stretches back more than a millennium, as evidenced by ancient poems describing journeys to admire fall foliage. Tracking the ratio over time reveals where leaves are changing and when color peaks. Areas shown in green have values near 1, meaning the satellite detects about as much red as green, and most leaves have not yet turned. Huemmrich, who is also a member of the PACE science team, was eager to work with the satellite because of OCI's broad swath and short revisit time. The PACE team is asking the public to submit photos of fall foliage to help scientists \"ground truth\" the satellite observations and better understand how various factors influence vegetation color.",
+      "abstract": "A modern satellite makes it possible to pursue the ancient tradition of leaf-peeping in a whole new way. NASA Explores Potential Commercial Servicing for Hubble Telescope NASA-funded Study Details One of Oldest Mars Meteorites Ever Found NASA’s Perseverance Offers Clues to Protect Crews From Mars Dust NASA’s TRACERS First Results Offers Peek into Violent Magnetic Process NASA’s Lucy Reaches Trojan Asteroid Region 5 Years After Launch Sunshade for NASA’s NEO Surveyor Mission Ready for Its Day in Sun NASA’s ISAM State of Play: The Industry Standard for Space Servicing, Assembly, and Manufacturing NASA’s Artemis III Mission to Test Future Moon Lander Operations NASA’s Simulated Mars Crew Marks One Year Inside Habitat Ghostly Cat’s Head Nebula Lurks Within Sight of NASA’s Hubble, Webb NASA’s Swift Mission Ends, Leaves Behind Scientific Bonanza",
       "media_type": "image",
       "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/red-leaf-hunting-/vermontfallcolor_oli2_20261003_th.jpg",
       "video_url": "",
       "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/red-leaf-hunting-/vermontfallcolor_oli2_20261003_th.jpg",
-      "image_alt": "satellites",
+      "image_alt": "Hunting Red Leaves With Satellites",
       "instruments": [
-        "Landsat 9 — OLI",
-        "PACE",
-        "Photograph"
+        "Landsat 9",
+        "Landsat",
+        "ISS",
+        "Drone photography",
+        "Photography"
       ],
-      "image_source": "Landsat 9 • OLI · PACE · Photography",
+      "image_source": "Landsat 9 • Landsat • ISS",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/hunting-red-leaves-with-satellites/",
       "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/red-leaf-hunting-/vermontfallcolor_oli2_20261003_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683",
-      "media_items": []
+      "media_items": [],
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/red-leaf-hunting-/vermontfallcolor_oli2_20261003_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683"
     },
     {
       "title": "El Niño Then and Now",
@@ -126,26 +149,6 @@
       "source": "NASA Earth Observatory",
       "media_items": [],
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/el-niño-then-and-now/elninocomp_sen6_20261012_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683"
-    },
-    {
-      "title": "Fires Char New Guinea",
-      "publication_date": "2026-10-22",
-      "display_date": "October 22, 2026",
-      "short_description": "Emissions on both sides of the island are unusually high as human-set fires spread in a landscape parched by drought.",
-      "abstract": "Emissions on both sides of the island are unusually high as human-set fires spread in a landscape parched by drought. But in September and October 2026, as drought gripped New Guinea (sometimes called Papua) amid a strong El Niño, fires scorched the island and smoke shrouded large swaths of it for weeks. According to the Global Fire Emissions Database (GFED), a fire emissions monitoring system, fires in Papua New Guinea, on the eastern half of the island, had released nearly 32 megatons of carbon by October 17, more than any other year on record at that point in the year (charts above). In dry conditions, managed fires sometimes spread and burn uncontrolled as wildfires, particularly in the drier, southernmost parts of the island.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/new-guinea-on-fire/papuanewguinea_vir_20261011_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/new-guinea-on-fire/papuanewguinea_vir_20261011_th.jpg",
-      "image_alt": "new guinea",
-      "instruments": [
-        "NOAA — 20 — VIIRS"
-      ],
-      "image_source": "NOAA • 20 • VIIRS",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/fires-char-new-guinea/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/new-guinea-on-fire/papuanewguinea_vir_20261011_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
-      "media_items": []
     }
   ]
 }
