@@ -1,9 +1,30 @@
 {
-  "generated_at": "2026-11-02T20:22:52+00:00",
+  "generated_at": "2026-11-03T17:51:44+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "The Pacific’s Busy Storm Season",
+      "publication_date": "2026-11-03",
+      "display_date": "November 3, 2026",
+      "short_description": "Super Typhoon In-fa developed an unusually large eye, and the remnants of Typhoon Champi transitioned into an extratropical storm that targeted Alaska.",
+      "abstract": "Super Typhoon In-fa developed an unusually large eye, and the remnants of Typhoon Champi transitioned into an extratropical storm that targeted Alaska. In-fa was still a tropical cyclone when EPIC captured the image at the top of the page, but Champi’s leftovers had gone through the process of extratropical transition and become a whole different type of storm as they entered the Bering Sea's busy storm track. When the remnants hit Alaska, the state avoided catastrophic damage on the scale of what happened after ex-typhoon Halong struck in October 2025, but some areas did see high winds and heavy rain and snowfall, according to news reports. Partyka described 2026 as a \"particularly active year\" for Pacific tropical cyclones, increasing the chances that Alaska would be affected by storms that have gone through extratropical transitions.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-pacific's-busy-storm-season/storminfa_epic_20261029_th.jpg?w=1024",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-pacific's-busy-storm-season/storminfa_epic_20261029_th.jpg?w=1024",
+      "image_alt": "The Pacific's Busy Storm Season",
+      "instruments": [
+        "DSCOVR — EPIC",
+        "Terra — MODIS"
+      ],
+      "image_source": "DSCOVR • EPIC · Terra • MODIS",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/the-pacifics-busy-storm-season/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-pacific's-busy-storm-season/storminfa_epic_20261029_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
+      "media_items": []
+    },
     {
       "title": "Pennsylvania’s Grand Canyon",
       "publication_date": "2026-11-02",
@@ -110,7 +131,7 @@
       "publication_date": "2026-10-26",
       "display_date": "October 26, 2026",
       "short_description": "A modern satellite makes it possible to pursue the ancient tradition of leaf-peeping in a whole new way.",
-      "abstract": "A modern satellite makes it possible to pursue the ancient tradition of leaf-peeping in a whole new way. NASA Explores Potential Commercial Servicing for Hubble Telescope NASA-funded Study Details One of Oldest Mars Meteorites Ever Found NASA’s Perseverance Offers Clues to Protect Crews From Mars Dust NASA’s TRACERS First Results Offers Peek into Violent Magnetic Process NASA’s Lucy Reaches Trojan Asteroid Region 5 Years After Launch Sunshade for NASA’s NEO Surveyor Mission Ready for Its Day in Sun NASA’s ISAM State of Play: The Industry Standard for Space Servicing, Assembly, and Manufacturing NASA’s Artemis III Mission to Test Future Moon Lander Operations NASA’s Simulated Mars Crew Marks One Year Inside Habitat Ghostly Cat’s Head Nebula Lurks Within Sight of NASA’s Hubble, Webb NASA’s Swift Mission Ends, Leaves Behind Scientific Bonanza",
+      "abstract": "A modern satellite makes it possible to pursue the ancient tradition of leaf-peeping in a whole new way. NASA Explores Potential Commercial Servicing for Hubble Telescope NASA-funded Study Details One of Oldest Mars Meteorites Ever Found NASA’s Perseverance Offers Clues to Protect Crews From Mars Dust NASA’s TRACERS First Results Offers Peek into Violent Magnetic Process NASA’s Lucy Reaches Trojan Asteroid Region 5 Years After Launch Sunshade for NASA’s NEO Surveyor Mission Ready for Its Day in Sun NASA’s ISAM State of Play: The Industry Standard for Space Servicing, Assembly, and Manufacturing NASA’s Artemis III Mission to Test Future Moon Lander Operations NASA’s Simulated Mars Crew Marks One Year Inside Habitat What’s Up: November 2026 Skywatching Tips from NASA NASA’s Hubble Uncovers Case of Missing Oxygen in Nearby Dwarf Galaxies",
       "media_type": "image",
       "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/red-leaf-hunting-/vermontfallcolor_oli2_20261003_th.jpg",
       "video_url": "",
@@ -128,27 +149,6 @@
       "source": "NASA Earth Observatory",
       "media_items": [],
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/red-leaf-hunting-/vermontfallcolor_oli2_20261003_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683"
-    },
-    {
-      "title": "El Niño Then and Now",
-      "publication_date": "2026-10-23",
-      "display_date": "October 23, 2026",
-      "short_description": "A 35-year satellite altimetry record lets scientists hold this year's El Niño up against its strongest predecessors.",
-      "abstract": "A 35-year satellite altimetry record lets scientists hold this year's El Niño up against its strongest predecessors. NASA Explores Potential Commercial Servicing for Hubble Telescope NASA-funded Study Details One of Oldest Mars Meteorites Ever Found NASA’s Perseverance Offers Clues to Protect Crews From Mars Dust NASA’s TRACERS First Results Offers Peek into Violent Magnetic Process NASA’s Lucy Reaches Trojan Asteroid Region 5 Years After Launch Sunshade for NASA’s NEO Surveyor Mission Ready for Its Day in Sun NASA’s ISAM State of Play: The Industry Standard for Space Servicing, Assembly, and Manufacturing NASA’s Artemis III Mission to Test Future Moon Lander Operations NASA’s Simulated Mars Crew Marks One Year Inside Habitat Ghostly Cat’s Head Nebula Lurks Within Sight of NASA’s Hubble, Webb NASA’s Swift Mission Ends, Leaves Behind Scientific Bonanza",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/el-niño-then-and-now/elninocomp_sen6_20261012_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/el-niño-then-and-now/elninocomp_sen6_20261012_th.jpg",
-      "image_alt": "El Niño Then and Now",
-      "instruments": [
-        "ISS",
-        "Drone photography"
-      ],
-      "image_source": "ISS • Drone photography",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/el-nino-then-and-now/",
-      "source": "NASA Earth Observatory",
-      "media_items": [],
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/el-niño-then-and-now/elninocomp_sen6_20261012_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683"
     }
   ]
 }
