@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-11-03T17:51:44+00:00",
+  "generated_at": "2026-11-04T17:59:46+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Before the Dawn in America’s Heartland",
+      "publication_date": "2026-11-04",
+      "display_date": "November 4, 2026",
+      "short_description": "With hardly a cloud in sight, astronauts had a sweeping view of nighttime lights in the U.S. Midwest.",
+      "abstract": "With hardly a cloud in sight, astronauts had a sweeping view of nighttime lights in the U.S. Midwest. The U.S. Midwest’s largest metropolitan areas, such as Chicago, Illinois, and Detroit, Michigan, stand out as some of the brightest features. Above the web of nighttime lights and Earth’s lower atmosphere, a diffuse layer of green and orange is visible along the horizon to the left. Astronaut photos and other remote sensing observations of nighttime lights are scientifically valuable for tracking changes in the built environment. Using NASA’s extensive Gateway to Astronaut Photography of Earth archive, researchers have developed a method for distinguishing lighting types within the pixels of nighttime photos. In particular, NASA’s Black Marble nighttime lights product suite uses satellite observations to produce science-quality records of nighttime lights across the globe at daily, monthly, and yearly time scales.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/before-the-dawn-in-america’s-heartland/ISS075-E-226709_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/before-the-dawn-in-america’s-heartland/ISS075-E-226709_th.jpg",
+      "image_alt": "america's heartland",
+      "instruments": [
+        "ISS — Digital Camera"
+      ],
+      "image_source": "ISS • Digital Camera",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/before-the-dawn-in-americas-heartland/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/before-the-dawn-in-america’s-heartland/ISS075-E-226709_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683",
+      "media_items": []
+    },
     {
       "title": "The Pacific’s Busy Storm Season",
       "publication_date": "2026-11-03",
@@ -125,30 +145,6 @@
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-81-reaches-south-georgia/iceberga81_tmo_20261020_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
       "media_items": []
-    },
-    {
-      "title": "Hunting Red Leaves With Satellites",
-      "publication_date": "2026-10-26",
-      "display_date": "October 26, 2026",
-      "short_description": "A modern satellite makes it possible to pursue the ancient tradition of leaf-peeping in a whole new way.",
-      "abstract": "A modern satellite makes it possible to pursue the ancient tradition of leaf-peeping in a whole new way. NASA Explores Potential Commercial Servicing for Hubble Telescope NASA-funded Study Details One of Oldest Mars Meteorites Ever Found NASA’s Perseverance Offers Clues to Protect Crews From Mars Dust NASA’s TRACERS First Results Offers Peek into Violent Magnetic Process NASA’s Lucy Reaches Trojan Asteroid Region 5 Years After Launch Sunshade for NASA’s NEO Surveyor Mission Ready for Its Day in Sun NASA’s ISAM State of Play: The Industry Standard for Space Servicing, Assembly, and Manufacturing NASA’s Artemis III Mission to Test Future Moon Lander Operations NASA’s Simulated Mars Crew Marks One Year Inside Habitat What’s Up: November 2026 Skywatching Tips from NASA NASA’s Hubble Uncovers Case of Missing Oxygen in Nearby Dwarf Galaxies",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/red-leaf-hunting-/vermontfallcolor_oli2_20261003_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/red-leaf-hunting-/vermontfallcolor_oli2_20261003_th.jpg",
-      "image_alt": "Hunting Red Leaves With Satellites",
-      "instruments": [
-        "Landsat 9",
-        "Landsat",
-        "ISS",
-        "Drone photography",
-        "Photography"
-      ],
-      "image_source": "Landsat 9 • Landsat • ISS",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/hunting-red-leaves-with-satellites/",
-      "source": "NASA Earth Observatory",
-      "media_items": [],
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/red-leaf-hunting-/vermontfallcolor_oli2_20261003_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683"
     }
   ]
 }
