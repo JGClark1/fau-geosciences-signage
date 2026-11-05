@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-11-04T17:59:46+00:00",
+  "generated_at": "2026-11-05T18:02:27+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Cyprus: Island of Snakes, Cats, and Ophiolites",
+      "publication_date": "2026-11-05",
+      "display_date": "November 5, 2026",
+      "short_description": "The third-largest island in the Mediterranean Sea exposes an ancient piece of the ocean floor and hosts a clowder of cats.",
+      "abstract": "The third-largest island in the Mediterranean Sea exposes an ancient piece of the ocean floor and hosts a clowder of cats. The island of Cyprus began to form some 90 million years ago during the Late Cretaceous, with molten rock pouring from the seafloor, solidifying, and building new oceanic crust. In antiquity, Cyprus was known as Ophiousa, or \" land of snakes,\" likely due to its robust population of blunt-nosed vipers. The cape today is still home to the Holy Monastery of St. Nicholas of the Cats, a place where legend says that monks encouraged newly arrived Egyptian cats to hunt snakes. Today, Cyprus has as many cats as people, with more than one million of the feline predators stalking the island.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/island-of-snakes,-cats,-and-ophiolites/akrotirisaltlake_oli_20261010_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/island-of-snakes,-cats,-and-ophiolites/akrotirisaltlake_oli_20261010_th.jpg",
+      "image_alt": "Island of Snakes",
+      "instruments": [
+        "Landsat 8 — OLI"
+      ],
+      "image_source": "Landsat 8 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/cyprus-island-of-snakes-cats-and-ophiolites/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/-and-ophiolites/akrotirisaltlake_oli_20261010_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
+      "media_items": []
+    },
     {
       "title": "Before the Dawn in America’s Heartland",
       "publication_date": "2026-11-04",
@@ -124,26 +144,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/the-land-of-the-standing-up-rocks/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-land-of-the-standing-up-rocks/chiricahua_oli2_20260702_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683",
-      "media_items": []
-    },
-    {
-      "title": "A-81 Reaches South Georgia",
-      "publication_date": "2026-10-27",
-      "display_date": "October 27, 2026",
-      "short_description": "The Antarctic iceberg made a relatively quick exit from the Weddell Sea, only to slow at the edge of a remote island’s underwater shelf.",
-      "abstract": "The Antarctic iceberg made a relatively quick exit from the Weddell Sea, only to slow at the edge of a remote island’s underwater shelf. Others, like Iceberg A-81, make a faster exit, heading north out of the Weddell Sea along a route well-traveled by the region’s bergs. In the days before, its progress slowed noticeably, and it appeared to be bumping along the edge of the island’s underwater shelf, according to Jan Lieser of Australia’s Bureau of Meteorology and Christopher Shuman of the University of Maryland (retired). Calving is a normal part of the life cycle of ice shelves, but scientists keep a close eye on Brunt, which has recently shed several large icebergs in quick succession and is home to the British Antarctic Survey’s Halley Research Station, a major base for Earth, atmospheric, and space science research since the 1950s.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-81-reaches-south-georgia/iceberga81_tmo_20261020_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-81-reaches-south-georgia/iceberga81_tmo_20261020_th.jpg",
-      "image_alt": "A-81 Reaches South Georgia",
-      "instruments": [
-        "Terra — MODIS"
-      ],
-      "image_source": "Terra • MODIS",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/a-81-reaches-south-georgia/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-81-reaches-south-georgia/iceberga81_tmo_20261020_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
       "media_items": []
     }
   ]
