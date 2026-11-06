@@ -1,9 +1,30 @@
 {
-  "generated_at": "2026-11-05T18:02:27+00:00",
+  "generated_at": "2026-11-06T17:31:03+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Taking a Gander at Utah’s Goosenecks",
+      "publication_date": "2026-11-06",
+      "display_date": "November 6, 2026",
+      "short_description": "The San Juan River has carved deep, improbably curvy meanders into the desert landscape.",
+      "abstract": "The San Juan River has carved deep, improbably curvy meanders into the desert landscape. Tens of millions of years ago, the San Juan River in what is now southern Utah shared some characteristics with today's Mississippi River. In a bygone geologic era, the San Juan flowed across a relatively flat plain that formed in an ancient marine environment. Today, on its westward path to Lake Powell, the San Juan River flows through an impressive series of entrenched meanders, also known as “goosenecks.” An astronaut aboard the International Space Station photographed the stark desert topography on October 6, 2026. In Utah’s Goosenecks State Park, the river runs through a canyon 1,000 feet (300 meters) deep. One section is so curvy that the river travels 5.5 miles (8.9 kilometers) between two points that are only 1.3 miles (2.1 kilometers) apart as the crow—nay, goose—flies.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/taking-a-gander-at-utah’s-goosenecks/ISS075-E-188830_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/taking-a-gander-at-utah’s-goosenecks/ISS075-E-188830_th.jpg",
+      "image_alt": "utah's goosenecks",
+      "instruments": [
+        "ISS — Digital Camera",
+        "Photograph"
+      ],
+      "image_source": "ISS • Digital Camera · Photography",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/taking-a-gander-at-utahs-goosenecks/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/taking-a-gander-at-utah’s-goosenecks/ISS075-E-188830_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
+      "media_items": []
+    },
     {
       "title": "Cyprus: Island of Snakes, Cats, and Ophiolites",
       "publication_date": "2026-11-05",
@@ -124,26 +145,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/arnab-strikes-india/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/arnab-strikes-india/typhoonarnab_vir_20261026_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
-      "media_items": []
-    },
-    {
-      "title": "The Land of the Standing-Up Rocks",
-      "publication_date": "2026-10-28",
-      "display_date": "October 28, 2026",
-      "short_description": "A national monument since the 1920s, Chiricahua is America's newest national park.",
-      "abstract": "A national monument since the 1920s, Chiricahua is America's newest national park. The Apache called the area \" The Land of the Standing-Up Rocks \" for good reason. The area was designated a national monument in 1924 to preserve its remarkable geology. In October 2026, it was redesignated as Chiricahua National Park (pronounced cheery-cow-ah ). The OLI (Operational Land Imager) on Landsat 9 captured this cloud-free image of the new national park on July 2, 2026. The park's location within the Chiricahua Mountains puts it among several \" sky islands \" in Arizona—isolated mountain ranges that emerge from the surrounding desert \"sea.\" According to the National Park Service, the range's highest point (outside the park) rises 2,986 meters (9,795 feet) above sea level, more than 1,800 meters above the surrounding valley.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-land-of-the-standing-up-rocks/chiricahua_oli2_20260702_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-land-of-the-standing-up-rocks/chiricahua_oli2_20260702_th.jpg",
-      "image_alt": "The Land of the Standing-Up Rocks",
-      "instruments": [
-        "Landsat 9 — OLI"
-      ],
-      "image_source": "Landsat 9 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/the-land-of-the-standing-up-rocks/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-land-of-the-standing-up-rocks/chiricahua_oli2_20260702_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683",
       "media_items": []
     }
   ]
