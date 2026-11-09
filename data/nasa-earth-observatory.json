@@ -1,9 +1,32 @@
 {
-  "generated_at": "2026-11-08T16:41:44+00:00",
+  "generated_at": "2026-11-09T20:46:25+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Ozone Hole Reaches Its 2026 Maximum",
+      "publication_date": "2026-11-09",
+      "display_date": "November 9, 2026",
+      "short_description": "The ozone hole ranked seventh largest by area in 48 years of monitoring, but it was not as deep as other large holes on record.",
+      "abstract": "The ozone hole ranked seventh largest by area in 48 years of monitoring, but it was not as deep as other large holes on record. The data visualizations below show the ozone hole each year from 1979 through 2026 (no data are available for 1995). Records in depth and area have never occurred in the same year (the largest ozone hole occurred in 2006), but the long-term trend in both characteristics is consistent: from 1980 through the early 1990s, the hole rapidly grew in area and depth. Measured by its mean size from September 7 to October 13, which is peak ozone depletion season, the 2026 hole was the seventh largest in 48 years of monitoring. The map at the top of this page shows the hole on September 18, the day of its annual maximum area.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/ozone-hole-reaches-its-2026-maximum/ozone_geos5_20260918_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/ozone-hole-reaches-its-2026-maximum/ozone_geos5_20260918_th.jpg",
+      "image_alt": "Ozone Hole Reaches Its 2026 Maximum",
+      "instruments": [
+        "Aura — OMI",
+        "NOAA — 20 — OMPS",
+        "Suomi NPP — OMPS",
+        "Nimbus 7"
+      ],
+      "image_source": "Aura • OMI · NOAA • 20 • OMPS · Suomi NPP • OMPS · Nimbus 7",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/ozone-hole-reaches-its-2026-maximum/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/ozone-hole-reaches-its-2026-maximum/ozone_geos5_20260918_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
+      "media_items": []
+    },
     {
       "title": "Taking a Gander at Utah’s Goosenecks",
       "publication_date": "2026-11-06",
@@ -125,26 +148,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/vega-island-frozen-in-fright/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/vega-island-frozen-in-fright/vegaislandzm_oli2_20261010_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683",
-      "media_items": []
-    },
-    {
-      "title": "Arnab Strikes India",
-      "publication_date": "2026-10-29",
-      "display_date": "October 29, 2026",
-      "short_description": "The first named storm of the North Indian Ocean’s cyclone season made landfall along the coast of Andhra Pradesh.",
-      "abstract": "The first named storm of the North Indian Ocean’s cyclone season made landfall along the coast of Andhra Pradesh. The first named storm of the 2026 North Indian Ocean cyclone season—Arnab (pronounced Or-nab)—emerged in the Bay of Bengal on October 25, a rather late start for a basin that typically produces named cyclones in April or May. When Arnab made landfall on the Andhra Pradesh and Yanam coast early on October 28, sustained winds were 130 kilometers per hour. Arnab caused extensive damage, uprooting trees, inundating crops and homes, limiting fishing operations, and disrupting transportation and power networks, according to news reports. In the Bay of Bengal, for instance, some research indicates that altered environmental conditions during an El Niño are associated with a reduction in tropical cyclone activity.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/arnab-strikes-india/typhoonarnab_vir_20261026_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/arnab-strikes-india/typhoonarnab_vir_20261026_th.jpg",
-      "image_alt": "Arnab Strikes India",
-      "instruments": [
-        "NOAA — 20 — VIIRS"
-      ],
-      "image_source": "NOAA • 20 • VIIRS",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/arnab-strikes-india/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/arnab-strikes-india/typhoonarnab_vir_20261026_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
       "media_items": []
     }
   ]
