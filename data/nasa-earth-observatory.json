@@ -1,9 +1,30 @@
 {
-  "generated_at": "2026-11-09T20:46:25+00:00",
+  "generated_at": "2026-11-10T17:52:50+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Autumn Mornings Bring Valley Fog",
+      "publication_date": "2026-11-10",
+      "display_date": "November 10, 2026",
+      "short_description": "Low clouds trace the branching valleys of the Appalachian Plateau and the Cumberland River, then burn off by afternoon.",
+      "abstract": "Low clouds trace the branching valleys of the Appalachian Plateau and the Cumberland River, then burn off by afternoon. On a cool November morning, low clouds traced the branching valleys of the Appalachian Plateau and the Cumberland River. The VIIRS (Visible Infrared Imaging Radiometer Suite) on NOAA-21 acquired the right image that afternoon, after the clouds had dissipated and exposed the rivers and lakes beneath them. Notice the fog filling the branching valleys across part of the Appalachian Plateau in eastern Kentucky and southwestern West Virginia. The same pattern is visible along the Cumberland River and its reservoirs in north-central Tennessee and south-central Kentucky. According to the National Weather Service, temperatures in many places on the morning of November 8 dipped into the 30s Fahrenheit before giving way to a mild, sunny afternoon.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/autumn-mornings-bring-valley-fog/usvalleyfog_tmo_20261108_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/autumn-mornings-bring-valley-fog/usvalleyfog_tmo_20261108_th.jpg",
+      "image_alt": "Autumn Mornings Bring Valley Fog",
+      "instruments": [
+        "NOAA — 21 — VIIRS",
+        "Terra — MODIS"
+      ],
+      "image_source": "NOAA • 21 • VIIRS · Terra • MODIS",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/autumn-mornings-bring-valley-fog/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/autumn-mornings-bring-valley-fog/usvalleyfog_tmo_20261108_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683",
+      "media_items": []
+    },
     {
       "title": "Ozone Hole Reaches Its 2026 Maximum",
       "publication_date": "2026-11-09",
@@ -128,26 +149,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/pennsylvanias-grand-canyon/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/pennsylvania’s-grand-canyon/pinecreekgorge_oli_20261025_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
-      "media_items": []
-    },
-    {
-      "title": "Vega Island Frozen in Fright",
-      "publication_date": "2026-10-30",
-      "display_date": "October 30, 2026",
-      "short_description": "The sight of an icy skull-like visage on the Antarctic island could make one’s blood run cold.",
-      "abstract": "The sight of an icy skull-like visage on the Antarctic island could make one’s blood run cold. Shrouded in ice in the lonely Weddell Sea, Vega Island is an eerie sight to behold. On this speck of land east of the Antarctic Peninsula, ice, rock outcrops, and glacial moraines combine to create the appearance of a smirking skull in profile looking toward Devil Island. These images show Vega Island’s creepy countenance at the start of austral autumn (left) and in spring (right). Long before scientists began tracking its glaciers, Vega was a bright spot in a tale of terror born out of early exploration of the area. Cape Well-met, as it would come to be known, off the “forehead” of the Vega Island skull, was the site of a happy reunion of two of the groups in spring 1903.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/vega-island-frozen-in-fright/vegaislandzm_oli2_20261010_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/vega-island-frozen-in-fright/vegaislandzm_oli2_20261010_th.jpg",
-      "image_alt": "vega island",
-      "instruments": [
-        "Landsat 9 — OLI"
-      ],
-      "image_source": "Landsat 9 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/vega-island-frozen-in-fright/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/vega-island-frozen-in-fright/vegaislandzm_oli2_20261010_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683",
       "media_items": []
     }
   ]
