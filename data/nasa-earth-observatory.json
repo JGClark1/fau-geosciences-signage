@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-11-10T17:52:50+00:00",
+  "generated_at": "2026-11-11T17:54:38+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Water Surges Into Navajo Reservoir",
+      "publication_date": "2026-11-11",
+      "display_date": "November 11, 2026",
+      "short_description": "Rounds of heavy rain in the U.S. Southwest flooded rivers and rapidly raised New Mexico’s second-largest reservoir.",
+      "abstract": "Rounds of heavy rain in the U.S. Southwest flooded rivers and rapidly raised New Mexico’s second-largest reservoir. Back-to-back extreme rain events inundated the Four Corners region of the U.S. Southwest in late October and early November 2026. The storms alleviated short-term drought conditions in the Southwest but caused river levels to spike to record or near-record levels in places, triggering damaging floods. One effect of the heavy rains detected by satellites was the rapid rise of water levels in Navajo Reservoir. On November 7, the reservoir stood at its highest level since August 2019 and at 108 percent of the average capacity for that date. Heavy rain and flooding have been widespread across southwest Colorado, southeast Utah, northern Arizona, and northwest New Mexico in recent weeks.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/water-surges-into-navajo-reservoir/navajoreservoir_oli2_20261107_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/water-surges-into-navajo-reservoir/navajoreservoir_oli2_20261107_th.jpg",
+      "image_alt": "Water Surges Into Navajo Reservoir",
+      "instruments": [
+        "Landsat 9 — OLI"
+      ],
+      "image_source": "Landsat 9 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/water-surges-into-navajo-reservoir/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/water-surges-into-navajo-reservoir/navajoreservoir_oli2_20261107_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
+      "media_items": []
+    },
     {
       "title": "Autumn Mornings Bring Valley Fog",
       "publication_date": "2026-11-10",
@@ -128,27 +148,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/the-pacifics-busy-storm-season/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-pacific's-busy-storm-season/storminfa_epic_20261029_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
-      "media_items": []
-    },
-    {
-      "title": "Pennsylvania’s Grand Canyon",
-      "publication_date": "2026-11-02",
-      "display_date": "November 2, 2026",
-      "short_description": "Amid the warm hues of fall foliage, Pine Creek Gorge forms a deep scar in the Allegheny Plateau.",
-      "abstract": "Amid the warm hues of fall foliage, Pine Creek Gorge forms a deep scar in the Allegheny Plateau. Pine Creek Gorge reaches depths of about 1,500 feet (460 meters) along its gently curving path through the forests of the Allegheny Plateau. Nicknamed the “Grand Canyon of Pennsylvania,” the gorge runs for some 45 miles (72 kilometers) from Ansonia south to Pine Creek’s confluence with the West Branch Susquehanna River, reaching its greatest depths around Waterville. The OLI (Operational Land Imager) on the NASA-USGS Landsat 8 satellite captured this image of Pine Creek Gorge on October 25, 2026, when colorful fall foliage was on display. Visitors can experience the gorge’s natural splendor at many points along its path, including from multiple state parks and the Pine Creek Rail Trail.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/pennsylvania’s-grand-canyon/pinecreekgorge_oli_20261025_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/pennsylvania’s-grand-canyon/pinecreekgorge_oli_20261025_th.jpg",
-      "image_alt": "Pennsylvania’s Grand Canyon",
-      "instruments": [
-        "Landsat 8 — OLI",
-        "Photograph"
-      ],
-      "image_source": "Landsat 8 • OLI · Photography",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/pennsylvanias-grand-canyon/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/pennsylvania’s-grand-canyon/pinecreekgorge_oli_20261025_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
       "media_items": []
     }
   ]
