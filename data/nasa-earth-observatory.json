@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-11-11T17:54:38+00:00",
+  "generated_at": "2026-11-12T18:20:39+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Scotland’s Flow Country",
+      "publication_date": "2026-11-12",
+      "display_date": "November 12, 2026",
+      "short_description": "Blanket bogs in the Scottish Highlands store vast amounts of carbon.",
+      "abstract": "Blanket bogs in the Scottish Highlands store vast amounts of carbon. Compared to ecosystems in many other parts of the world, the blanket bogs of the Flow Country in northern Scotland are unassuming—soggy, treeless landscapes dominated by hummocky mosses, grasses, and heathers. The image above, captured by the OLI (Operational Land Imager) on Landsat 8, is centered on blanket bogs in the Scottish Highlands, home to the largest such ecosystem in Europe. Some parts of the Flow Country have been accumulating peat for more than 9,000 years, building deposits exceeding eight meters thick, according to UNESCO. Overall, scientists estimate that all of the world’s peatlands cover just 3 percent of Earth’s land surface but store more than 600 gigatons of carbon—about twice as much as all the world’s forests combined.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/scotland’s-flow-country-/scotland_flowcountry_oli2_20240304_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/scotland’s-flow-country-/scotland_flowcountry_oli2_20240304_th.jpg",
+      "image_alt": "Scotland’s Flow Country",
+      "instruments": [
+        "Landsat 8 — OLI"
+      ],
+      "image_source": "Landsat 8 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/scotlands-flow-country/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/scotland’s-flow-country-/scotland_flowcountry_oli2_20240304_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
+      "media_items": []
+    },
     {
       "title": "Water Surges Into Navajo Reservoir",
       "publication_date": "2026-11-11",
@@ -127,27 +147,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/before-the-dawn-in-americas-heartland/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/before-the-dawn-in-america’s-heartland/ISS075-E-226709_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683",
-      "media_items": []
-    },
-    {
-      "title": "The Pacific’s Busy Storm Season",
-      "publication_date": "2026-11-03",
-      "display_date": "November 3, 2026",
-      "short_description": "Super Typhoon In-fa developed an unusually large eye, and the remnants of Typhoon Champi transitioned into an extratropical storm that targeted Alaska.",
-      "abstract": "Super Typhoon In-fa developed an unusually large eye, and the remnants of Typhoon Champi transitioned into an extratropical storm that targeted Alaska. In-fa was still a tropical cyclone when EPIC captured the image at the top of the page, but Champi’s leftovers had gone through the process of extratropical transition and become a whole different type of storm as they entered the Bering Sea's busy storm track. When the remnants hit Alaska, the state avoided catastrophic damage on the scale of what happened after ex-typhoon Halong struck in October 2025, but some areas did see high winds and heavy rain and snowfall, according to news reports. Partyka described 2026 as a \"particularly active year\" for Pacific tropical cyclones, increasing the chances that Alaska would be affected by storms that have gone through extratropical transitions.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-pacific's-busy-storm-season/storminfa_epic_20261029_th.jpg?w=1024",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-pacific's-busy-storm-season/storminfa_epic_20261029_th.jpg?w=1024",
-      "image_alt": "The Pacific's Busy Storm Season",
-      "instruments": [
-        "DSCOVR — EPIC",
-        "Terra — MODIS"
-      ],
-      "image_source": "DSCOVR • EPIC · Terra • MODIS",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/the-pacifics-busy-storm-season/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-pacific's-busy-storm-season/storminfa_epic_20261029_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
       "media_items": []
     }
   ]
