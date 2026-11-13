@@ -1,9 +1,30 @@
 {
-  "generated_at": "2026-11-12T18:20:39+00:00",
+  "generated_at": "2026-11-13T17:46:46+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "A Global Rebound for Mangroves",
+      "publication_date": "2026-11-13",
+      "display_date": "November 13, 2026",
+      "short_description": "After decades of decline, this ecologically significant type of forest is making a comeback.",
+      "abstract": "After decades of decline, this ecologically significant type of forest is making a comeback. For decades, the story they told about mangroves was dominated by loss and decline. A global rebound began around 2010, the scientists found, led by the expansion of mangrove forests in Asia, Australia, and South America. The country lost mangroves rapidly in the 1980s and 1990s due to the expansion of agriculture, aquaculture, and firewood harvesting in coastal areas, but the trend reversed around 2010, when mangrove area began expanding in many places. The pair of Landsat images above shows expansion of mangrove forests in Palaw Township in Burma's Myeik District—an area that has seen both significant regeneration of degraded mangrove forests and the spread of trees into new areas since 2010.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-global-rebound-for-mangroves/burmamangroves_oli2_20260202_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-global-rebound-for-mangroves/burmamangroves_oli2_20260202_th.jpg",
+      "image_alt": "mangrove",
+      "instruments": [
+        "Landsat 9 — OLI",
+        "Landsat 5"
+      ],
+      "image_source": "Landsat 9 • OLI · Landsat 5",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/a-global-rebound-for-mangroves/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-global-rebound-for-mangroves/burmamangroves_oli2_20260202_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
+      "media_items": []
+    },
     {
       "title": "Scotland’s Flow Country",
       "publication_date": "2026-11-12",
@@ -127,26 +148,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/cyprus-island-of-snakes-cats-and-ophiolites/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/-and-ophiolites/akrotirisaltlake_oli_20261010_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=720&h=480",
-      "media_items": []
-    },
-    {
-      "title": "Before the Dawn in America’s Heartland",
-      "publication_date": "2026-11-04",
-      "display_date": "November 4, 2026",
-      "short_description": "With hardly a cloud in sight, astronauts had a sweeping view of nighttime lights in the U.S. Midwest.",
-      "abstract": "With hardly a cloud in sight, astronauts had a sweeping view of nighttime lights in the U.S. Midwest. The U.S. Midwest’s largest metropolitan areas, such as Chicago, Illinois, and Detroit, Michigan, stand out as some of the brightest features. Above the web of nighttime lights and Earth’s lower atmosphere, a diffuse layer of green and orange is visible along the horizon to the left. Astronaut photos and other remote sensing observations of nighttime lights are scientifically valuable for tracking changes in the built environment. Using NASA’s extensive Gateway to Astronaut Photography of Earth archive, researchers have developed a method for distinguishing lighting types within the pixels of nighttime photos. In particular, NASA’s Black Marble nighttime lights product suite uses satellite observations to produce science-quality records of nighttime lights across the globe at daily, monthly, and yearly time scales.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/before-the-dawn-in-america’s-heartland/ISS075-E-226709_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/before-the-dawn-in-america’s-heartland/ISS075-E-226709_th.jpg",
-      "image_alt": "america's heartland",
-      "instruments": [
-        "ISS — Digital Camera"
-      ],
-      "image_source": "ISS • Digital Camera",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/before-the-dawn-in-americas-heartland/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/before-the-dawn-in-america’s-heartland/ISS075-E-226709_th.jpg?fit=clip&crop=faces%2Cfocalpoint&w=1024&h=683",
       "media_items": []
     }
   ]
