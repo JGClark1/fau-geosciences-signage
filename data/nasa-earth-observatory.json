@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-11-16T20:30:50+00:00",
+  "generated_at": "2026-11-17T19:11:37+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Tossing Fireworks from Cloud to Cloud",
+      "publication_date": "2026-11-17",
+      "display_date": "November 17, 2026",
+      "short_description": "For many astronauts, the spectacular sight of lightning stands out when looking back at Earth from the International Space Station.",
+      "abstract": "For many astronauts, the spectacular sight of lightning stands out when looking back at Earth from the International Space Station. For astronauts on the International Space Station, looking back to Earth at night can be as dazzling as looking outward toward the stars. In an essay for Air & Space magazine, Donald Pettit, a NASA astronaut and dedicated photographer, described the \"spectacular\" view of Earth at night visible from the station. All three phenomena—city lights, fishing fleets, and lightning—were on display when the space station passed over the South China Sea near Borneo at 14:20 UTC (9:20 p.m. For many astronauts, it's the sight of lightning that lingers. \"Like fireflies in the night, lightning is my favorite sight from space,\" said NASA astronaut Anil Menon in a video of Earth's darkened limb that he posted on X, where pinpoints of lightning flicker almost constantly.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/tossing-fireworks-from-cloud-to-cloud/ISS075-E-250951_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/tossing-fireworks-from-cloud-to-cloud/ISS075-E-250951_th.jpg",
+      "image_alt": "Tossing Fireworks from Cloud to Cloud",
+      "instruments": [
+        "Photograph"
+      ],
+      "image_source": "Photography",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/tossing-fireworks-from-cloud-to-cloud/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/tossing-fireworks-from-cloud-to-cloud/ISS075-E-250951_th.jpg?fit=clip&w=720&h=480",
+      "media_items": []
+    },
     {
       "title": "The Last Ice on Puncak Jaya",
       "publication_date": "2026-11-16",
@@ -56,7 +76,7 @@
       "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/scotland’s-flow-country-/scotland_flowcountry_oli2_20240304_th.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
       "video_url": "",
       "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/scotland’s-flow-country-/scotland_flowcountry_oli2_20240304_th.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
-      "image_alt": "Scotland’s Flow Country",
+      "image_alt": "Northern Scotland’s coastline borders a dark blue sea. Most of the land is dark brown peat bog dotted with small lakes. Dark green geometric patches of conifer plantations sit in the center, and light green farmland lines the coast on the right.",
       "instruments": [
         "Landsat 8 — OLI"
       ],
@@ -76,7 +96,7 @@
       "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/water-surges-into-navajo-reservoir/navajoreservoir_oli2_20260920_lrg.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
       "video_url": "",
       "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/water-surges-into-navajo-reservoir/navajoreservoir_oli2_20260920_lrg.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
-      "image_alt": "Water Surges Into Navajo Reservoir",
+      "image_alt": "Tan water fills branching arms of Navajo Reservoir to higher levels than in the earlier image.",
       "instruments": [
         "Landsat 9 — OLI"
       ],
@@ -96,7 +116,7 @@
       "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/autumn-mornings-bring-valley-fog/usvalleyfog_tmo_20261108_lrg.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
       "video_url": "",
       "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/autumn-mornings-bring-valley-fog/usvalleyfog_tmo_20261108_lrg.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
-      "image_alt": "Autumn Mornings Bring Valley Fog",
+      "image_alt": "A natural-color satellite image from the morning shows white fog filling a branching network of river valleys, surrounded by brown and green terrain.",
       "instruments": [
         "NOAA — 21 — VIIRS",
         "Terra — MODIS"
@@ -117,7 +137,7 @@
       "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/ozone-hole-reaches-its-2026-maximum/ozone_geos5_20260918_th.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
       "video_url": "",
       "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/ozone-hole-reaches-its-2026-maximum/ozone_geos5_20260918_th.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
-      "image_alt": "Ozone Hole Reaches Its 2026 Maximum",
+      "image_alt": "A map centered on the South Pole shows ozone concentrations on September 18, 2026. Areas at and below 220 Dobson units, the threshold that defines the ozone hole, appear in yellow, orange, and red, and cover a roughly circular region over Antarctica and part of the Southern Ocean. Higher concentrations surrounding it appear in light to dark blue.",
       "instruments": [
         "Aura — OMI",
         "NOAA — 20 — OMPS",
@@ -128,27 +148,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/ozone-hole-reaches-its-2026-maximum/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/ozone-hole-reaches-its-2026-maximum/ozone_geos5_20260918_th.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
-      "media_items": []
-    },
-    {
-      "title": "Taking a Gander at Utah’s Goosenecks",
-      "publication_date": "2026-11-06",
-      "display_date": "November 6, 2026",
-      "short_description": "The San Juan River has carved deep, improbably curvy meanders into the desert landscape.",
-      "abstract": "The San Juan River has carved deep, improbably curvy meanders into the desert landscape. Tens of millions of years ago, the San Juan River in what is now southern Utah shared some characteristics with today's Mississippi River. In a bygone geologic era, the San Juan flowed across a relatively flat plain that formed in an ancient marine environment. Today, on its westward path to Lake Powell, the San Juan River flows through an impressive series of entrenched meanders, also known as “goosenecks.” An astronaut aboard the International Space Station photographed the stark desert topography on October 6, 2026. In Utah’s Goosenecks State Park, the river runs through a canyon 1,000 feet (300 meters) deep. One section is so curvy that the river travels 5.5 miles (8.9 kilometers) between two points that are only 1.3 miles (2.1 kilometers) apart as the crow—nay, goose—flies.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/taking-a-gander-at-utah’s-goosenecks/ISS075-E-188830_lrg.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/taking-a-gander-at-utah’s-goosenecks/ISS075-E-188830_lrg.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
-      "image_alt": "utah's goosenecks",
-      "instruments": [
-        "ISS — Digital Camera",
-        "Photograph"
-      ],
-      "image_source": "ISS • Digital Camera · Photography",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/taking-a-gander-at-utahs-goosenecks/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/taking-a-gander-at-utah’s-goosenecks/ISS075-E-188830_th.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
       "media_items": []
     }
   ]
