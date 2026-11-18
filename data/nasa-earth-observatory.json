@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-11-17T19:11:37+00:00",
+  "generated_at": "2026-11-18T18:52:33+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Sierra Snow Season Spins Up",
+      "publication_date": "2026-11-18",
+      "display_date": "November 18, 2026",
+      "short_description": "A widespread, early-season snowstorm blanketed California’s mountains in white in mid-November 2026.",
+      "abstract": "A widespread, early-season snowstorm blanketed California’s mountains in white in mid-November 2026. California’s Sierra Nevada got an early taste of wintry weather when one of the first major snowfalls of the water year arrived on November 13, 2026. The MODIS (Moderate Resolution Imaging Spectroradiometer) on NASA’s Terra satellite captured this image (right) of fresh snow in the Sierra Nevada on the morning of November 14, during a lull between weather systems. Nearly 12 inches (30 centimeters) of snow fell at Donner Pass, northwest of Lake Tahoe, on November 13, according to the Central Sierra Snow Laboratory. To the south, the ski resort at Mammoth Mountain reported 9 to 13 inches (23 to 33 centimeters) of new snow, and officials at Yosemite National Park closed several roads ahead of the storm.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/sierra-snow-season-spins-up/sierranevada_tmo_20261114_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/sierra-snow-season-spins-up/sierranevada_tmo_20261114_th.jpg",
+      "image_alt": "sierra snow season",
+      "instruments": [
+        "Terra — MODIS"
+      ],
+      "image_source": "Terra • MODIS",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/sierra-snow-season-spins-up/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/sierra-snow-season-spins-up/sierranevada_tmo_20261114_th.jpg?fit=clip&w=720&h=480",
+      "media_items": []
+    },
     {
       "title": "Tossing Fireworks from Cloud to Cloud",
       "publication_date": "2026-11-17",
@@ -14,7 +34,7 @@
       "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/tossing-fireworks-from-cloud-to-cloud/ISS075-E-250951_th.jpg",
       "video_url": "",
       "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/tossing-fireworks-from-cloud-to-cloud/ISS075-E-250951_th.jpg",
-      "image_alt": "Tossing Fireworks from Cloud to Cloud",
+      "image_alt": "cloud",
       "instruments": [
         "Photograph"
       ],
@@ -31,10 +51,10 @@
       "short_description": "Ice near the summit of the Indonesian mountain peak has shrunk to scattered patches too small to flow like glaciers.",
       "abstract": "Ice near the summit of the Indonesian mountain peak has shrunk to scattered patches too small to flow like glaciers. The change on Puncak Jaya is visible in this image pair, acquired in 1988 by the TM (Thematic Mapper) on Landsat 5 (left) and in 2026 by the OLI (Operational Land Imager) on Landsat 9 (right). “It’s a house of cards problem,” said Chris Shuman, a retired University of Maryland glaciologist who has tracked Puncak Jaya’s glaciers in satellite imagery. Puncak Jaya’s remaining ice has thinned so much and broken into such small, stagnant patches that it no longer flows. “While small ice remnants persist in high-altitude crevices around Puncak Jaya, their functional life as active glaciers is effectively over,” Permana said.",
       "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-last-ice-on-puncak-jaya/puncakjaya_tm5_1988308_lrg.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-last-ice-on-puncak-jaya/puncakjaya_oli2_20261019_th.jpg",
       "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-last-ice-on-puncak-jaya/puncakjaya_tm5_1988308_lrg.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
-      "image_alt": "A false-color satellite image shows the same area in 2026. Only a few small fragments of ice remain, shown in blue, and bare brown rock covers most of the ridgetops that were icy in 1988.",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-last-ice-on-puncak-jaya/puncakjaya_oli2_20261019_th.jpg",
+      "image_alt": "Puncak Jaya",
       "instruments": [
         "Landsat 9 — OLI",
         "Landsat 5"
@@ -42,7 +62,7 @@
       "image_source": "Landsat 9 • OLI · Landsat 5",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/the-last-ice-on-puncak-jaya/",
       "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-last-ice-on-puncak-jaya/puncakjaya_oli2_20261019_th.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-last-ice-on-puncak-jaya/puncakjaya_oli2_20261019_th.jpg?fit=clip&w=1024&h=683",
       "media_items": []
     },
     {
@@ -52,10 +72,10 @@
       "short_description": "After decades of decline, this ecologically significant type of forest is making a comeback.",
       "abstract": "After decades of decline, this ecologically significant type of forest is making a comeback. For decades, the story they told about mangroves was dominated by loss and decline. A global rebound began around 2010, the scientists found, led by the expansion of mangrove forests in Asia, Australia, and South America. The country lost mangroves rapidly in the 1980s and 1990s due to the expansion of agriculture, aquaculture, and firewood harvesting in coastal areas, but the trend reversed around 2010, when mangrove area began expanding in many places. The pair of Landsat images above shows expansion of mangrove forests in Palaw Township in Burma's Myeik District—an area that has seen both significant regeneration of degraded mangrove forests and the spread of trees into new areas since 2010.",
       "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-global-rebound-for-mangroves/burmamangroves_tm5_20100214_lrg.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-global-rebound-for-mangroves/burmamangroves_oli2_20260202_th.jpg",
       "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-global-rebound-for-mangroves/burmamangroves_tm5_20100214_lrg.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
-      "image_alt": "In 2010, sediment-filled rivers wind through dark green mangrove forests toward turquoise waters along Burma’s coast. Farther inland, large patches of tan, cleared farmland contrast with the green vegetation.",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-global-rebound-for-mangroves/burmamangroves_oli2_20260202_th.jpg",
+      "image_alt": "mangrove",
       "instruments": [
         "Landsat 9 — OLI",
         "Landsat 5"
@@ -63,7 +83,7 @@
       "image_source": "Landsat 9 • OLI · Landsat 5",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/a-global-rebound-for-mangroves/",
       "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-global-rebound-for-mangroves/burmamangroves_oli2_20260202_th.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-global-rebound-for-mangroves/burmamangroves_oli2_20260202_th.jpg?fit=clip&w=720&h=480",
       "media_items": []
     },
     {
@@ -113,10 +133,10 @@
       "short_description": "Low clouds trace the branching valleys of the Appalachian Plateau and the Cumberland River, then burn off by afternoon.",
       "abstract": "Low clouds trace the branching valleys of the Appalachian Plateau and the Cumberland River, then burn off by afternoon. On a cool November morning, low clouds traced the branching valleys of the Appalachian Plateau and the Cumberland River. The VIIRS (Visible Infrared Imaging Radiometer Suite) on NOAA-21 acquired the right image that afternoon, after the clouds had dissipated and exposed the rivers and lakes beneath them. Notice the fog filling the branching valleys across part of the Appalachian Plateau in eastern Kentucky and southwestern West Virginia. The same pattern is visible along the Cumberland River and its reservoirs in north-central Tennessee and south-central Kentucky. According to the National Weather Service, temperatures in many places on the morning of November 8 dipped into the 30s Fahrenheit before giving way to a mild, sunny afternoon.",
       "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/autumn-mornings-bring-valley-fog/usvalleyfog_tmo_20261108_lrg.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/autumn-mornings-bring-valley-fog/usvalleyfog_tmo_20261108_th.jpg",
       "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/autumn-mornings-bring-valley-fog/usvalleyfog_tmo_20261108_lrg.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
-      "image_alt": "A natural-color satellite image from the morning shows white fog filling a branching network of river valleys, surrounded by brown and green terrain.",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/autumn-mornings-bring-valley-fog/usvalleyfog_tmo_20261108_th.jpg",
+      "image_alt": "Autumn Mornings Bring Valley Fog",
       "instruments": [
         "NOAA — 21 — VIIRS",
         "Terra — MODIS"
@@ -124,30 +144,7 @@
       "image_source": "NOAA • 21 • VIIRS · Terra • MODIS",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/autumn-mornings-bring-valley-fog/",
       "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/autumn-mornings-bring-valley-fog/usvalleyfog_tmo_20261108_th.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
-      "media_items": []
-    },
-    {
-      "title": "Ozone Hole Reaches Its 2026 Maximum",
-      "publication_date": "2026-11-09",
-      "display_date": "November 9, 2026",
-      "short_description": "The ozone hole ranked seventh largest by area in 48 years of monitoring, but it was not as deep as other large holes on record.",
-      "abstract": "The ozone hole ranked seventh largest by area in 48 years of monitoring, but it was not as deep as other large holes on record. The data visualizations below show the ozone hole each year from 1979 through 2026 (no data are available for 1995). Records in depth and area have never occurred in the same year (the largest ozone hole occurred in 2006), but the long-term trend in both characteristics is consistent: from 1980 through the early 1990s, the hole rapidly grew in area and depth. Measured by its mean size from September 7 to October 13, which is peak ozone depletion season, the 2026 hole was the seventh largest in 48 years of monitoring. The map at the top of this page shows the hole on September 18, the day of its annual maximum area.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/ozone-hole-reaches-its-2026-maximum/ozone_geos5_20260918_th.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/ozone-hole-reaches-its-2026-maximum/ozone_geos5_20260918_th.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
-      "image_alt": "A map centered on the South Pole shows ozone concentrations on September 18, 2026. Areas at and below 220 Dobson units, the threshold that defines the ozone hole, appear in yellow, orange, and red, and cover a roughly circular region over Antarctica and part of the Southern Ocean. Higher concentrations surrounding it appear in light to dark blue.",
-      "instruments": [
-        "Aura — OMI",
-        "NOAA — 20 — OMPS",
-        "Suomi NPP — OMPS",
-        "Nimbus 7"
-      ],
-      "image_source": "Aura • OMI · NOAA • 20 • OMPS · Suomi NPP • OMPS · Nimbus 7",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/ozone-hole-reaches-its-2026-maximum/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/ozone-hole-reaches-its-2026-maximum/ozone_geos5_20260918_th.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/autumn-mornings-bring-valley-fog/usvalleyfog_tmo_20261108_th.jpg?fit=clip&w=1024&h=683",
       "media_items": []
     }
   ]
