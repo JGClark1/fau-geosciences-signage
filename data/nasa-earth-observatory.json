@@ -1,9 +1,31 @@
 {
-  "generated_at": "2026-11-18T18:52:33+00:00",
+  "generated_at": "2026-11-19T18:59:53+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "El Niño Rains Paint the Atacama",
+      "publication_date": "2026-11-19",
+      "display_date": "November 19, 2026",
+      "short_description": "Winter precipitation helped wake dormant seeds in northern Chile, carpeting the desert with what may be the region’s most extensive flowering of the satellite era.",
+      "abstract": "Winter precipitation helped wake dormant seeds in northern Chile, carpeting the desert with what may be the region’s most extensive flowering of the satellite era. Parts of the Atacama Desert in northern Chile, normally one of the driest places on Earth, turned red-purple, green, and white in austral spring 2026 following an unusually wet winter. The rain woke seeds lying dormant in the soil, setting off what scientists say may be the most extensive desierto florido, or “flowering desert,” of the satellite era. Beginning in mid-July, a series of storm fronts fed by an atmospheric river brought one of the heaviest July rain events in decades to a long stretch of Chile, from the Atacama region south to Los Lagos, according to Chile’s national weather service (Dirección Meteorológica de Chile). Satellite data have been key to understanding the Atacama’s blooms.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/el-niño-rains-paint-the-atacama/atacamabloom_oli2_20261024_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/el-niño-rains-paint-the-atacama/atacamabloom_oli2_20261024_th.jpg",
+      "image_alt": "El Niño Rains Paint the Atacama",
+      "instruments": [
+        "Landsat 8 — OLI",
+        "Landsat 9 — OLI",
+        "Photograph"
+      ],
+      "image_source": "Landsat 8 • OLI · Landsat 9 • OLI · Photography",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/el-nino-rains-paint-the-atacama/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/el-niño-rains-paint-the-atacama/atacamabloom_oli2_20261024_th.jpg?fit=clip&w=720&h=480",
+      "media_items": []
+    },
     {
       "title": "Sierra Snow Season Spins Up",
       "publication_date": "2026-11-18",
@@ -93,17 +115,17 @@
       "short_description": "Blanket bogs in the Scottish Highlands store vast amounts of carbon.",
       "abstract": "Blanket bogs in the Scottish Highlands store vast amounts of carbon. Compared to ecosystems in many other parts of the world, the blanket bogs of the Flow Country in northern Scotland are unassuming—soggy, treeless landscapes dominated by hummocky mosses, grasses, and heathers. The image above, captured by the OLI (Operational Land Imager) on Landsat 8, is centered on blanket bogs in the Scottish Highlands, home to the largest such ecosystem in Europe. Some parts of the Flow Country have been accumulating peat for more than 9,000 years, building deposits exceeding eight meters thick, according to UNESCO. Overall, scientists estimate that all of the world’s peatlands cover just 3 percent of Earth’s land surface but store more than 600 gigatons of carbon—about twice as much as all the world’s forests combined.",
       "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/scotland’s-flow-country-/scotland_flowcountry_oli2_20240304_th.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/scotland’s-flow-country-/scotland_flowcountry_oli2_20240304_th.jpg",
       "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/scotland’s-flow-country-/scotland_flowcountry_oli2_20240304_th.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
-      "image_alt": "Northern Scotland’s coastline borders a dark blue sea. Most of the land is dark brown peat bog dotted with small lakes. Dark green geometric patches of conifer plantations sit in the center, and light green farmland lines the coast on the right.",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/scotland’s-flow-country-/scotland_flowcountry_oli2_20240304_th.jpg",
+      "image_alt": "Scotland’s Flow Country",
       "instruments": [
         "Landsat 8 — OLI"
       ],
       "image_source": "Landsat 8 • OLI",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/scotlands-flow-country/",
       "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/scotland’s-flow-country-/scotland_flowcountry_oli2_20240304_th.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/scotland’s-flow-country-/scotland_flowcountry_oli2_20240304_th.jpg?fit=clip&w=720&h=480",
       "media_items": []
     },
     {
@@ -113,38 +135,17 @@
       "short_description": "Rounds of heavy rain in the U.S. Southwest flooded rivers and rapidly raised New Mexico’s second-largest reservoir.",
       "abstract": "Rounds of heavy rain in the U.S. Southwest flooded rivers and rapidly raised New Mexico’s second-largest reservoir. Back-to-back extreme rain events inundated the Four Corners region of the U.S. Southwest in late October and early November 2026. The storms alleviated short-term drought conditions in the Southwest but caused river levels to spike to record or near-record levels in places, triggering damaging floods. One effect of the heavy rains detected by satellites was the rapid rise of water levels in Navajo Reservoir. On November 7, the reservoir stood at its highest level since August 2019 and at 108 percent of the average capacity for that date. Heavy rain and flooding have been widespread across southwest Colorado, southeast Utah, northern Arizona, and northwest New Mexico in recent weeks.",
       "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/water-surges-into-navajo-reservoir/navajoreservoir_oli2_20260920_lrg.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/water-surges-into-navajo-reservoir/navajoreservoir_oli2_20261107_th.jpg",
       "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/water-surges-into-navajo-reservoir/navajoreservoir_oli2_20260920_lrg.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
-      "image_alt": "Tan water fills branching arms of Navajo Reservoir to higher levels than in the earlier image.",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/water-surges-into-navajo-reservoir/navajoreservoir_oli2_20261107_th.jpg",
+      "image_alt": "Water Surges Into Navajo Reservoir",
       "instruments": [
         "Landsat 9 — OLI"
       ],
       "image_source": "Landsat 9 • OLI",
       "article_url": "https://science.nasa.gov/earth/earth-observatory/water-surges-into-navajo-reservoir/",
       "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/water-surges-into-navajo-reservoir/navajoreservoir_oli2_20261107_th.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
-      "media_items": []
-    },
-    {
-      "title": "Autumn Mornings Bring Valley Fog",
-      "publication_date": "2026-11-10",
-      "display_date": "November 10, 2026",
-      "short_description": "Low clouds trace the branching valleys of the Appalachian Plateau and the Cumberland River, then burn off by afternoon.",
-      "abstract": "Low clouds trace the branching valleys of the Appalachian Plateau and the Cumberland River, then burn off by afternoon. On a cool November morning, low clouds traced the branching valleys of the Appalachian Plateau and the Cumberland River. The VIIRS (Visible Infrared Imaging Radiometer Suite) on NOAA-21 acquired the right image that afternoon, after the clouds had dissipated and exposed the rivers and lakes beneath them. Notice the fog filling the branching valleys across part of the Appalachian Plateau in eastern Kentucky and southwestern West Virginia. The same pattern is visible along the Cumberland River and its reservoirs in north-central Tennessee and south-central Kentucky. According to the National Weather Service, temperatures in many places on the morning of November 8 dipped into the 30s Fahrenheit before giving way to a mild, sunny afternoon.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/autumn-mornings-bring-valley-fog/usvalleyfog_tmo_20261108_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/autumn-mornings-bring-valley-fog/usvalleyfog_tmo_20261108_th.jpg",
-      "image_alt": "Autumn Mornings Bring Valley Fog",
-      "instruments": [
-        "NOAA — 21 — VIIRS",
-        "Terra — MODIS"
-      ],
-      "image_source": "NOAA • 21 • VIIRS · Terra • MODIS",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/autumn-mornings-bring-valley-fog/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/autumn-mornings-bring-valley-fog/usvalleyfog_tmo_20261108_th.jpg?fit=clip&w=1024&h=683",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/water-surges-into-navajo-reservoir/navajoreservoir_oli2_20261107_th.jpg?fit=clip&w=720&h=480",
       "media_items": []
     }
   ]
