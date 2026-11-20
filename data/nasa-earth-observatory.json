@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-11-19T18:59:53+00:00",
+  "generated_at": "2026-11-20T18:37:45+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "The Stormy Southwest Pacific",
+      "publication_date": "2026-11-20",
+      "display_date": "November 20, 2026",
+      "short_description": "Tropical Cyclone Xavier launched the basin’s storm season with a bang.",
+      "abstract": "Tropical Cyclone Xavier launched the basin’s storm season with a bang. Even as the unusually quiet 2026 storm season winds down in the North Atlantic, seas have begun to stir on the other side of the world in the Southwest Pacific. Xavier was the basin’s second named storm of the season, following only Wati, a short-lived storm that emerged in October. Xavier’s formation east of the date line, near the northern Cook Islands, was unusual, but its easterly position aligns with research that indicates that storm activity in the region typically shifts northeast during El Niño years. According to news reports, Xavier damaged homes and caused power disruptions as it passed the northern Cook Islands. Storm activity in the Southwest Pacific basin typically peaks in February.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-stormy-southwest-pacific--/cyclonexavier_amo_20261116_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-stormy-southwest-pacific--/cyclonexavier_amo_20261116_th.jpg",
+      "image_alt": "pacific",
+      "instruments": [
+        "Aqua — MODIS"
+      ],
+      "image_source": "Aqua • MODIS",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/the-stormy-southwest-pacific/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-stormy-southwest-pacific--/cyclonexavier_amo_20261116_th.jpg?fit=clip&w=1024&h=683",
+      "media_items": []
+    },
     {
       "title": "El Niño Rains Paint the Atacama",
       "publication_date": "2026-11-19",
@@ -126,26 +146,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/scotlands-flow-country/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/scotland’s-flow-country-/scotland_flowcountry_oli2_20240304_th.jpg?fit=clip&w=720&h=480",
-      "media_items": []
-    },
-    {
-      "title": "Water Surges Into Navajo Reservoir",
-      "publication_date": "2026-11-11",
-      "display_date": "November 11, 2026",
-      "short_description": "Rounds of heavy rain in the U.S. Southwest flooded rivers and rapidly raised New Mexico’s second-largest reservoir.",
-      "abstract": "Rounds of heavy rain in the U.S. Southwest flooded rivers and rapidly raised New Mexico’s second-largest reservoir. Back-to-back extreme rain events inundated the Four Corners region of the U.S. Southwest in late October and early November 2026. The storms alleviated short-term drought conditions in the Southwest but caused river levels to spike to record or near-record levels in places, triggering damaging floods. One effect of the heavy rains detected by satellites was the rapid rise of water levels in Navajo Reservoir. On November 7, the reservoir stood at its highest level since August 2019 and at 108 percent of the average capacity for that date. Heavy rain and flooding have been widespread across southwest Colorado, southeast Utah, northern Arizona, and northwest New Mexico in recent weeks.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/water-surges-into-navajo-reservoir/navajoreservoir_oli2_20261107_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/water-surges-into-navajo-reservoir/navajoreservoir_oli2_20261107_th.jpg",
-      "image_alt": "Water Surges Into Navajo Reservoir",
-      "instruments": [
-        "Landsat 9 — OLI"
-      ],
-      "image_source": "Landsat 9 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/water-surges-into-navajo-reservoir/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/water-surges-into-navajo-reservoir/navajoreservoir_oli2_20261107_th.jpg?fit=clip&w=720&h=480",
       "media_items": []
     }
   ]
