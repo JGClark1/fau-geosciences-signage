@@ -1,9 +1,30 @@
 {
-  "generated_at": "2026-11-22T17:51:06+00:00",
+  "generated_at": "2026-11-23T22:03:36+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Laser Focus at the Top of the World",
+      "publication_date": "2026-11-23",
+      "display_date": "November 23, 2026",
+      "short_description": "A next-generation geodetic instrument developed by NASA, part of a network that helps measure satellites’ orbits and the planet’s shape, has debuted in Svalbard, Norway.",
+      "abstract": "A next-generation geodetic instrument developed by NASA, part of a network that helps measure satellites’ orbits and the planet’s shape, has debuted in Svalbard, Norway. On October 12, a faster, even more precise SLR system officially debuted at the Ny-Ålesund Geodetic Observatory in Svalbard, Norway, operated by the Norwegian Mapping Authority, a NASA partner. While the systems developed decades ago have been “workhorses” of the global laser tracking network, their age and the growing number of satellites have necessitated updates, said Stephen Merkowitz, project manager for NASA’s Space Geodesy Project. The location also allows the system to gather more data about polar-orbiting satellites, which include ICESat-2, GRACE-FO, and other Earth observation satellites. NASA is currently building two more next-generation SLR systems to replace legacy instruments at Goddard and the McDonald Geodetic Observatory in Texas.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/laser-focus-at-the-top-of-the-world/svalbardzm_oli2_20260730_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/laser-focus-at-the-top-of-the-world/svalbardzm_oli2_20260730_th.jpg",
+      "image_alt": "Laser Focus at the Top of the World",
+      "instruments": [
+        "Landsat 9 — OLI",
+        "Photograph"
+      ],
+      "image_source": "Landsat 9 • OLI · Photography",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/laser-focus-at-the-top-of-the-world/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/laser-focus-at-the-top-of-the-world/svalbardzm_oli2_20260730_th.jpg?fit=clip&w=1024&h=683",
+      "media_items": []
+    },
     {
       "title": "The Stormy Southwest Pacific",
       "publication_date": "2026-11-20",
@@ -126,26 +147,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/a-global-rebound-for-mangroves/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-global-rebound-for-mangroves/burmamangroves_oli2_20260202_th.jpg?fit=clip&w=720&h=480",
-      "media_items": []
-    },
-    {
-      "title": "Scotland’s Flow Country",
-      "publication_date": "2026-11-12",
-      "display_date": "November 12, 2026",
-      "short_description": "Blanket bogs in the Scottish Highlands store vast amounts of carbon.",
-      "abstract": "Blanket bogs in the Scottish Highlands store vast amounts of carbon. Compared to ecosystems in many other parts of the world, the blanket bogs of the Flow Country in northern Scotland are unassuming—soggy, treeless landscapes dominated by hummocky mosses, grasses, and heathers. The image above, captured by the OLI (Operational Land Imager) on Landsat 8, is centered on blanket bogs in the Scottish Highlands, home to the largest such ecosystem in Europe. Some parts of the Flow Country have been accumulating peat for more than 9,000 years, building deposits exceeding eight meters thick, according to UNESCO. Overall, scientists estimate that all of the world’s peatlands cover just 3 percent of Earth’s land surface but store more than 600 gigatons of carbon—about twice as much as all the world’s forests combined.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/scotland’s-flow-country-/scotland_flowcountry_oli2_20240304_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/scotland’s-flow-country-/scotland_flowcountry_oli2_20240304_th.jpg",
-      "image_alt": "Scotland’s Flow Country",
-      "instruments": [
-        "Landsat 8 — OLI"
-      ],
-      "image_source": "Landsat 8 • OLI",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/scotlands-flow-country/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/scotland’s-flow-country-/scotland_flowcountry_oli2_20240304_th.jpg?fit=clip&w=720&h=480",
       "media_items": []
     }
   ]
