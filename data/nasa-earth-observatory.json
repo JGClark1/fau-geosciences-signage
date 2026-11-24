@@ -1,9 +1,42 @@
 {
-  "generated_at": "2026-11-23T22:03:36+00:00",
+  "generated_at": "2026-11-24T20:40:35+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Eruption Extends Iwo Jima’s Beach",
+      "publication_date": "2026-11-24",
+      "display_date": "November 24, 2026",
+      "short_description": "A volcanic eruption just off the southeast shore of the Pacific island has reshaped the coast, but it’s unclear how long the new land will survive.",
+      "abstract": "A volcanic eruption just off the southeast shore of the Pacific island has reshaped the coast, but it’s unclear how long the new land will survive. A volcanic eruption in the shallows near Iwo Jima has extended the Japanese island’s famed black sand beaches, at least temporarily. In addition to the 2023 eruption off the southeast coast, Iwo Jima had an eruption off its west coast in August 2025, said Daniel Slayback, a scientist at NASA’s Goddard Space Flight Center. NISAR will be especially valuable for tracking the site, Garvin said, because it makes frequent, high-resolution interferometric observations through clouds and can show whether the new land erodes, subsides, or grows. NASA scientists will also analyze sub-meter-resolution imagery from commercial satellites through NASA’s Commercial Satellite Data Acquisition Program.",
+      "media_type": "comparison",
+      "media_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/eruption-enlarges-iwo-jima’s-beach/iwojima_oli2_20261026.jpg?w=900&h=750&fit=clip",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/eruption-enlarges-iwo-jima’s-beach/iwojima_oli2_20261026.jpg?w=900&h=750&fit=clip",
+      "image_alt": "Iwo Jima",
+      "instruments": [
+        "Landsat 9 — OLI"
+      ],
+      "image_source": "Landsat 9 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/eruption-extends-iwo-jimas-beach/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/eruption-enlarges-iwo-jima’s-beach/iwojima_oli2_20261111_th.jpg?fit=clip&w=720&h=480",
+      "media_items": [
+        {
+          "role": "before",
+          "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/eruption-enlarges-iwo-jima’s-beach/iwojima_oli2_20261026.jpg?w=900&h=750&fit=clip",
+          "label": "BEFORE",
+          "date": "October 26, 2026"
+        },
+        {
+          "role": "after",
+          "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/eruption-enlarges-iwo-jima’s-beach/iwojima_oli2_20261111.jpg?w=900&h=750&fit=clip",
+          "label": "AFTER",
+          "date": "November 11, 2026"
+        }
+      ]
+    },
     {
       "title": "Laser Focus at the Top of the World",
       "publication_date": "2026-11-23",
@@ -126,27 +159,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/the-last-ice-on-puncak-jaya/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-last-ice-on-puncak-jaya/puncakjaya_oli2_20261019_th.jpg?fit=clip&w=1024&h=683",
-      "media_items": []
-    },
-    {
-      "title": "A Global Rebound for Mangroves",
-      "publication_date": "2026-11-13",
-      "display_date": "November 13, 2026",
-      "short_description": "After decades of decline, this ecologically significant type of forest is making a comeback.",
-      "abstract": "After decades of decline, this ecologically significant type of forest is making a comeback. For decades, the story they told about mangroves was dominated by loss and decline. A global rebound began around 2010, the scientists found, led by the expansion of mangrove forests in Asia, Australia, and South America. The country lost mangroves rapidly in the 1980s and 1990s due to the expansion of agriculture, aquaculture, and firewood harvesting in coastal areas, but the trend reversed around 2010, when mangrove area began expanding in many places. The pair of Landsat images above shows expansion of mangrove forests in Palaw Township in Burma's Myeik District—an area that has seen both significant regeneration of degraded mangrove forests and the spread of trees into new areas since 2010.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-global-rebound-for-mangroves/burmamangroves_oli2_20260202_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/a-global-rebound-for-mangroves/burmamangroves_oli2_20260202_th.jpg",
-      "image_alt": "mangrove",
-      "instruments": [
-        "Landsat 9 — OLI",
-        "Landsat 5"
-      ],
-      "image_source": "Landsat 9 • OLI · Landsat 5",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/a-global-rebound-for-mangroves/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/a-global-rebound-for-mangroves/burmamangroves_oli2_20260202_th.jpg?fit=clip&w=720&h=480",
       "media_items": []
     }
   ]
