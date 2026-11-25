@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-11-24T20:40:35+00:00",
+  "generated_at": "2026-11-25T19:57:22+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Georgia’s Pecan Belt",
+      "publication_date": "2026-11-25",
+      "display_date": "November 25, 2026",
+      "short_description": "Since an early-1900s planting boom, orchards along the Flint River in southwest Georgia have become a center of U.S. pecan production.",
+      "abstract": "Since an early-1900s planting boom, orchards along the Flint River in southwest Georgia have become a center of U.S. pecan production. Many U.S.-grown pecans come from orchards in Georgia, the state that has historically led the nation in production. The 2025 map shows pecan groves clustered along the Flint River within the Coastal Plain. In the late 1800s, Georgia had less than 100 acres (40 hectares) of pecan orchards. Then, in the early 1900s, southwest Georgia’s Dougherty and Mitchell counties underwent a pecan boom when thousands of acres were planted and sold to investors. By the end of the 1950s, Georgia led the nation in pecan production, producing over 17 million pounds, according to 1959 agricultural census numbers. Georgia faced challenges after Hurricane Michael damaged orchards in October 2018, and Hurricane Helene dealt another blow when it swept inland in September 2024.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/georgia’s-pecan-belt/georgiapecans_oli_20261023_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/georgia’s-pecan-belt/georgiapecans_oli_20261023_th.jpg",
+      "image_alt": "Georgia’s Pecan Belt",
+      "instruments": [
+        "Landsat 8 — OLI"
+      ],
+      "image_source": "Landsat 8 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/georgias-pecan-belt/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/georgia’s-pecan-belt/georgiapecans_oli_20261023_th.jpg?fit=clip&w=1024&h=683",
+      "media_items": []
+    },
     {
       "title": "Eruption Extends Iwo Jima’s Beach",
       "publication_date": "2026-11-24",
@@ -138,27 +158,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/tossing-fireworks-from-cloud-to-cloud/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/tossing-fireworks-from-cloud-to-cloud/ISS075-E-250951_th.jpg?fit=clip&w=720&h=480",
-      "media_items": []
-    },
-    {
-      "title": "The Last Ice on Puncak Jaya",
-      "publication_date": "2026-11-16",
-      "display_date": "November 16, 2026",
-      "short_description": "Ice near the summit of the Indonesian mountain peak has shrunk to scattered patches too small to flow like glaciers.",
-      "abstract": "Ice near the summit of the Indonesian mountain peak has shrunk to scattered patches too small to flow like glaciers. The change on Puncak Jaya is visible in this image pair, acquired in 1988 by the TM (Thematic Mapper) on Landsat 5 (left) and in 2026 by the OLI (Operational Land Imager) on Landsat 9 (right). “It’s a house of cards problem,” said Chris Shuman, a retired University of Maryland glaciologist who has tracked Puncak Jaya’s glaciers in satellite imagery. Puncak Jaya’s remaining ice has thinned so much and broken into such small, stagnant patches that it no longer flows. “While small ice remnants persist in high-altitude crevices around Puncak Jaya, their functional life as active glaciers is effectively over,” Permana said.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-last-ice-on-puncak-jaya/puncakjaya_oli2_20261019_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/the-last-ice-on-puncak-jaya/puncakjaya_oli2_20261019_th.jpg",
-      "image_alt": "Puncak Jaya",
-      "instruments": [
-        "Landsat 9 — OLI",
-        "Landsat 5"
-      ],
-      "image_source": "Landsat 9 • OLI · Landsat 5",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/the-last-ice-on-puncak-jaya/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-last-ice-on-puncak-jaya/puncakjaya_oli2_20261019_th.jpg?fit=clip&w=1024&h=683",
       "media_items": []
     }
   ]
