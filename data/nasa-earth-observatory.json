@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-11-25T19:57:22+00:00",
+  "generated_at": "2026-11-26T19:38:32+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Seeking Refuge on Resolution Island",
+      "publication_date": "2026-11-26",
+      "display_date": "November 26, 2026",
+      "short_description": "New Zealanders have long envisioned the island as a predator-free zone for native birds, but swimming stoats have shown a resolve of their own.",
+      "abstract": "New Zealanders have long envisioned the island as a predator-free zone for native birds, but swimming stoats have shown a resolve of their own. Conservationist Thomas Henry Potts proposed in 1872 that the island could be a place where “wingless species, and birds of feeble powers of flight, might there find a refuge for some of their representatives.” So began an early systematic effort to protect kiwi, kākāpō, and other native birds on Resolution Island, the largest of the approximately 90 islands in Fiordland National Park. In what some have called a “ landmark effort,” Henry spent years transporting more than 700 birds, mostly kiwi and kākāpō, by rowboat to Resolution and other would-be island sanctuaries nearby. It turns out the island is within swimming distance for animals such as stoats.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/seeking-refuge-on-resolution-island/nzresolution_oli2_20251212_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/seeking-refuge-on-resolution-island/nzresolution_oli2_20251212_th.jpg",
+      "image_alt": "resolution island",
+      "instruments": [
+        "Landsat 9 — OLI"
+      ],
+      "image_source": "Landsat 9 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/seeking-refuge-on-resolution-island/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/seeking-refuge-on-resolution-island/nzresolution_oli2_20251212_th.jpg?fit=clip&w=720&h=480",
+      "media_items": []
+    },
     {
       "title": "Georgia’s Pecan Belt",
       "publication_date": "2026-11-25",
@@ -138,26 +158,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/sierra-snow-season-spins-up/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/sierra-snow-season-spins-up/sierranevada_tmo_20261114_th.jpg?fit=clip&w=720&h=480",
-      "media_items": []
-    },
-    {
-      "title": "Tossing Fireworks from Cloud to Cloud",
-      "publication_date": "2026-11-17",
-      "display_date": "November 17, 2026",
-      "short_description": "For many astronauts, the spectacular sight of lightning stands out when looking back at Earth from the International Space Station.",
-      "abstract": "For many astronauts, the spectacular sight of lightning stands out when looking back at Earth from the International Space Station. For astronauts on the International Space Station, looking back to Earth at night can be as dazzling as looking outward toward the stars. In an essay for Air & Space magazine, Donald Pettit, a NASA astronaut and dedicated photographer, described the \"spectacular\" view of Earth at night visible from the station. All three phenomena—city lights, fishing fleets, and lightning—were on display when the space station passed over the South China Sea near Borneo at 14:20 UTC (9:20 p.m. For many astronauts, it's the sight of lightning that lingers. \"Like fireflies in the night, lightning is my favorite sight from space,\" said NASA astronaut Anil Menon in a video of Earth's darkened limb that he posted on X, where pinpoints of lightning flicker almost constantly.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/tossing-fireworks-from-cloud-to-cloud/ISS075-E-250951_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/tossing-fireworks-from-cloud-to-cloud/ISS075-E-250951_th.jpg",
-      "image_alt": "cloud",
-      "instruments": [
-        "Photograph"
-      ],
-      "image_source": "Photography",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/tossing-fireworks-from-cloud-to-cloud/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/tossing-fireworks-from-cloud-to-cloud/ISS075-E-250951_th.jpg?fit=clip&w=720&h=480",
       "media_items": []
     }
   ]
