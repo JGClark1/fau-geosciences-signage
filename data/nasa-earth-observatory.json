@@ -1,9 +1,29 @@
 {
-  "generated_at": "2026-11-26T19:38:32+00:00",
+  "generated_at": "2026-11-27T19:29:19+00:00",
   "source_feed": "https://science.nasa.gov/feed/earth-observatory/image-of-the-day/",
   "source_archive": "https://science.nasa.gov/earth/earth-observatory/image-of-the-day/",
   "item_count": 7,
   "items": [
+    {
+      "title": "Shivelyuch Socked In",
+      "publication_date": "2026-11-27",
+      "display_date": "November 27, 2026",
+      "short_description": "A cloud layer encircled the flanks of the volcano on the Kamchatka Peninsula but left its restless summit caldera in view.",
+      "abstract": "A cloud layer encircled the flanks of the volcano on the Kamchatka Peninsula but left its restless summit caldera in view. When the OLI (Operational Land Imager) on Landsat 9 captured this image on November 8, 2026, clouds encroached on the snowy mountain on Russia’s Kamchatka Peninsula. But they hovered beneath the volcano’s 3,283-meter (10,771-foot) peak, leaving a clear opening over its caldera and northern upper slopes. The upper reaches of Shivelyuch feature a caldera 9 kilometers (5.6 miles) wide that is open to the south. In November 2026, effusive eruptions of lava and explosive activity at Shivelyuch had been ongoing for months, according to reports from the Kamchatka Volcanic Eruption Response Team (KVERT). Explosions from Shivelyuch periodically send ash several kilometers up into the atmosphere, where it can travel great distances and pose risks to aircraft.",
+      "media_type": "image",
+      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/shivelyuch-socked-in/shivelyuchcloud_oli2_20261108_th.jpg",
+      "video_url": "",
+      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/shivelyuch-socked-in/shivelyuchcloud_oli2_20261108_th.jpg",
+      "image_alt": "shivelyuch",
+      "instruments": [
+        "Landsat 9 — OLI"
+      ],
+      "image_source": "Landsat 9 • OLI",
+      "article_url": "https://science.nasa.gov/earth/earth-observatory/shivelyuch-socked-in/",
+      "source": "NASA Earth Observatory",
+      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/shivelyuch-socked-in/shivelyuchcloud_oli2_20261108_th.jpg?fit=clip&w=1024&h=683",
+      "media_items": []
+    },
     {
       "title": "Seeking Refuge on Resolution Island",
       "publication_date": "2026-11-26",
@@ -138,26 +158,6 @@
       "article_url": "https://science.nasa.gov/earth/earth-observatory/el-nino-rains-paint-the-atacama/",
       "source": "NASA Earth Observatory",
       "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/el-niño-rains-paint-the-atacama/atacamabloom_oli2_20261024_th.jpg?fit=clip&w=720&h=480",
-      "media_items": []
-    },
-    {
-      "title": "Sierra Snow Season Spins Up",
-      "publication_date": "2026-11-18",
-      "display_date": "November 18, 2026",
-      "short_description": "A widespread, early-season snowstorm blanketed California’s mountains in white in mid-November 2026.",
-      "abstract": "A widespread, early-season snowstorm blanketed California’s mountains in white in mid-November 2026. California’s Sierra Nevada got an early taste of wintry weather when one of the first major snowfalls of the water year arrived on November 13, 2026. The MODIS (Moderate Resolution Imaging Spectroradiometer) on NASA’s Terra satellite captured this image (right) of fresh snow in the Sierra Nevada on the morning of November 14, during a lull between weather systems. Nearly 12 inches (30 centimeters) of snow fell at Donner Pass, northwest of Lake Tahoe, on November 13, according to the Central Sierra Snow Laboratory. To the south, the ski resort at Mammoth Mountain reported 9 to 13 inches (23 to 33 centimeters) of new snow, and officials at Yosemite National Park closed several roads ahead of the storm.",
-      "media_type": "image",
-      "media_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/sierra-snow-season-spins-up/sierranevada_tmo_20261114_th.jpg",
-      "video_url": "",
-      "image_url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/iotd/2026/sierra-snow-season-spins-up/sierranevada_tmo_20261114_th.jpg",
-      "image_alt": "sierra snow season",
-      "instruments": [
-        "Terra — MODIS"
-      ],
-      "image_source": "Terra • MODIS",
-      "article_url": "https://science.nasa.gov/earth/earth-observatory/sierra-snow-season-spins-up/",
-      "source": "NASA Earth Observatory",
-      "archive_thumbnail_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/sierra-snow-season-spins-up/sierranevada_tmo_20261114_th.jpg?fit=clip&w=720&h=480",
       "media_items": []
     }
   ]
